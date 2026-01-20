@@ -5,10 +5,15 @@ interface Props {
   date: Date;
   category: string;
   slug: string;
+  url?: string;
+  thumbnail?: string | null;
   featured?: boolean;
 }
 
-const { title, description, date, category, slug, featured = false } = Astro.props;
+const { title, description, date, category, slug, url, thumbnail, featured = false } = Astro.props;
+
+const href = url || `/writing/${slug}`;
+const isExternal = !!url;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -24,25 +29,41 @@ const categoryLabels: Record<string, string> = {
 };
 ---
 
-<article class={`group ${featured ? 'card-hover' : ''}`}>
-  <a href={`/writing/${slug}`} class="block">
+<article class={`group ${featured ? 'card-hover' : ''}`} data-category={category}>
+  <a
+    href={href}
+    class="block"
+    target={isExternal ? '_blank' : undefined}
+    rel={isExternal ? 'noopener noreferrer' : undefined}
+  >
+    {thumbnail && (
+      <div class="aspect-video mb-4 rounded-lg overflow-hidden bg-gray-100">
+        <img
+          src={thumbnail}
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+      </div>
+    )}
+
     <div class="flex items-center gap-4 mb-3">
       <span class="tag">{categoryLabels[category] || category}</span>
       <time class="text-small text-gray-mid" datetime={date.toISOString()}>
         {formattedDate}
       </time>
     </div>
-    
+
     <h3 class={`${featured ? 'text-heading' : 'text-subheading'} text-charcoal-deep group-hover:text-forest transition-colors mb-2`}>
       {title}
     </h3>
-    
+
     <p class="text-body text-gray-mid line-clamp-2">
       {description}
     </p>
-    
+
     <span class="inline-block mt-4 text-forest text-small font-medium group-hover:translate-x-1 transition-transform">
-      Read more →
+      Read more {isExternal ? '↗' : '→'}
     </span>
   </a>
 </article>
