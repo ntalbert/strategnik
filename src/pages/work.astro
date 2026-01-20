@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+
+const workHistory = [
+  {
+    company: "BRIA AI",
+    role: "VP Marketing & Growth",
+    period: "2023-2024",
+    context: "Series A visual AI platform for enterprise",
+    highlight: "Built significant pipeline through partner-sourced leads from AWS, NVIDIA, and Qualcomm. Implemented Discord developer community strategy and product-qualified lead motions.",
+    challenge: "Complex pricing model and evolving product-market fit required constant strategy adaptation.",
+    category: "AI / Enterprise"
+  },
+  {
+    company: "Quartile",
+    role: "Demand Generation Leader",
+    period: "2021-2023",
+    context: "E-commerce advertising automation",
+    highlight: "Managed substantial marketing budget under tight EBITDA constraints while maintaining pipeline growth.",
+    challenge: "Balancing aggressive growth targets with profitability requirements during market contraction.",
+    category: "Martech"
+  },
+  {
+    company: "Certent",
+    role: "Marketing Leadership",
+    period: "2019-2021",
+    context: "Equity management and financial reporting SaaS",
+    highlight: "Demonstrated expertise in budget allocation and growth loop optimization for enterprise sales motion.",
+    challenge: "Long enterprise sales cycles required multi-touch attribution and patience.",
+    category: "Fintech / Enterprise"
+  },
+  {
+    company: "Sizmek",
+    role: "Marketing Strategy",
+    period: "Previous",
+    context: "Adtech platform (acquired by Amazon)",
+    highlight: "Part of leadership team through acquisition. Built demand programs for complex, technical buying committees.",
+    outcome: "Acquired by Amazon",
+    category: "Adtech"
+  },
+  {
+    company: "Adapt.tv",
+    role: "Marketing Strategy",
+    period: "Previous",
+    context: "Video advertising platform (acquired by AOL)",
+    highlight: "Early stage marketing leadership building brand and demand in emerging category.",
+    outcome: "Acquired by AOL",
+    category: "Adtech"
+  }
+];
+---
+
+<BaseLayout 
+  title="Work"
+  description="Selected projects and outcomes from 20+ years building demand generation engines for B2B SaaS companies."
+>
+  
+  <!-- Hero -->
+  <section class="section bg-cream">
+    <div class="container-narrow">
+      <p class="label text-forest mb-6">Work</p>
+      <h1 class="text-display-lg mb-8">
+        Building engines at inflection points
+      </h1>
+      <p class="text-body-lg text-gray-mid">
+        20+ years across adtech, martech, and B2B SaaS. Three acquisitions. 
+        A pattern of joining companies at critical moments and building the 
+        demand generation infrastructure that scales.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Stats -->
+  <section class="section-sm bg-cream-dark">
+    <div class="container-content">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div class="text-center">
+          <p class="text-display text-forest">20+</p>
+          <p class="text-small text-gray-mid">Years in B2B SaaS</p>
+        </div>
+        <div class="text-center">
+          <p class="text-display text-forest">3</p>
+          <p class="text-small text-gray-mid">Companies acquired</p>
+        </div>
+        <div class="text-center">
+          <p class="text-display text-forest">F500</p>
+          <p class="text-small text-gray-mid">Client experience</p>
+        </div>
+        <div class="text-center">
+          <p class="text-display text-forest">A→C</p>
+          <p class="text-small text-gray-mid">Series expertise</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work History -->
+  <section class="section bg-cream">
+    <div class="container-content">
+      <div class="max-w-narrow mb-12">
+        <p class="label text-forest mb-2">Experience</p>
+        <h2 class="text-display">Selected Work</h2>
+      </div>
+      
+      <div class="space-y-8">
+        {workHistory.map((work, index) => (
+          <div class="card p-8 md:p-10">
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+              <div>
+                <p class="tag mb-3">{work.category}</p>
+                <h3 class="text-heading text-charcoal-deep">{work.company}</h3>
+                <p class="text-body text-gray-mid">{work.role} · {work.period}</p>
+              </div>
+              {work.outcome && (
+                <span class="text-small text-forest font-medium px-3 py-1 bg-forest/10 rounded">
+                  {work.outcome}
+                </span>
+              )}
+            </div>
+            
+            <p class="text-body text-gray-mid mb-4">
+              <strong class="text-charcoal">Context:</strong> {work.context}
+            </p>
+            
+            <p class="text-body text-gray-mid mb-4">
+              <strong class="text-charcoal">Highlight:</strong> {work.highlight}
+            </p>
+            
+            {work.challenge && (
+              <p class="text-body text-gray-mid">
+                <strong class="text-charcoal">Challenge:</strong> {work.challenge}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Earlier Work Summary -->
+  <section class="section-sm bg-charcoal-deep text-cream">
+    <div class="container-narrow">
+      <p class="label text-forest-light mb-4">Earlier Career</p>
+      <h2 class="text-heading text-cream mb-6">Agency & Consulting Background</h2>
+      <div class="prose-strategnik text-gray-light">
+        <p>
+          Before going in-house, I spent years on the agency and consulting side, working 
+          with brands including Yahoo, Discovery Communications, and Condé Nast. This 
+          background in brand strategy and consumer insight research informs how I think 
+          about B2B positioning—the same principles apply, just with different buying 
+          dynamics.
+        </p>
+        <p>
+          The agency experience taught me to diagnose quickly and execute pragmatically. 
+          When you're billing by the hour, you learn to find the lever that matters instead 
+          of boiling the ocean.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-cream">
+    <div class="container-narrow text-center">
+      <h2 class="text-heading mb-4">Want the full story?</h2>
+      <p class="text-body text-gray-mid mb-6 max-w-lg mx-auto">
+        The best way to understand how I work is to have a conversation. 
+        No pitch, just discussion.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:nick@strategnik.com" class="btn-primary">
+          Get in touch →
+        </a>
+        <a href="/about" class="btn-secondary">
+          Read more about me
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

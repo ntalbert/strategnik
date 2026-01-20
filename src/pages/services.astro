@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+---
+
+<BaseLayout 
+  title="Services"
+  description="Strategic marketing advisory for growth-stage B2B SaaS companies at critical inflection points."
+>
+  
+  <!-- Hero -->
+  <section class="section bg-cream">
+    <div class="container-narrow">
+      <p class="label text-forest mb-6">Services</p>
+      <h1 class="text-display-lg mb-8 text-balance">
+        Marketing strategy for inflection points
+      </h1>
+      <p class="text-body-lg text-gray-mid">
+        I work with growth-stage B2B SaaS companies when the marketing investment decision 
+        really matters—when you're trying to figure out whether to pour fuel on the fire 
+        or fix the engine first.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ideal Client -->
+  <section class="section-sm bg-cream-dark">
+    <div class="container-narrow">
+      <h2 class="text-heading mb-6">Is this you?</h2>
+      <div class="prose-strategnik">
+        <p>
+          You're a CEO, founder, or board member at a Series A-C B2B SaaS company. You've got 
+          product-market fit (or you're close), revenue is growing, but you're not sure if your 
+          marketing is actually working or just correlating with a rising tide.
+        </p>
+        <p>
+          You're asking questions like: Should we hire a CMO or keep the team lean? Is our 
+          pipeline problem a demand problem or a conversion problem? Why isn't our content 
+          driving leads? Are we ready to scale spend or will we just burn cash faster?
+        </p>
+        <p>
+          Those are the questions I help answer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagement Models -->
+  <section class="section bg-cream">
+    <div class="container-content">
+      <div class="max-w-narrow mb-12">
+        <p class="label text-forest mb-2">How I Work</p>
+        <h2 class="text-display">Engagement Models</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Advisory -->
+        <div class="card">
+          <p class="label text-forest mb-4">Advisory</p>
+          <h3 class="text-heading mb-4">Strategic Counsel</h3>
+          <p class="text-body text-gray-mid mb-6">
+            Ongoing access for CEOs and marketing leaders who want a thinking partner. 
+            Monthly calls, async access, board prep, hiring decisions.
+          </p>
+          <ul class="space-y-2 text-small text-gray-mid">
+            <li>→ Monthly strategy sessions</li>
+            <li>→ Async Slack/email access</li>
+            <li>→ Board deck review</li>
+            <li>→ Hiring and org design input</li>
+          </ul>
+        </div>
+
+        <!-- Project -->
+        <div class="card">
+          <p class="label text-forest mb-4">Project</p>
+          <h3 class="text-heading mb-4">Focused Engagements</h3>
+          <p class="text-body text-gray-mid mb-6">
+            Defined-scope projects with clear deliverables. Demand gen audits, GTM strategy, 
+            positioning work, marketing investment frameworks.
+          </p>
+          <ul class="space-y-2 text-small text-gray-mid">
+            <li>→ Marketing investment audit</li>
+            <li>→ GTM strategy development</li>
+            <li>→ Positioning and messaging</li>
+            <li>→ Channel strategy</li>
+          </ul>
+        </div>
+
+        <!-- Fractional -->
+        <div class="card">
+          <p class="label text-forest mb-4">Fractional</p>
+          <h3 class="text-heading mb-4">Interim Leadership</h3>
+          <p class="text-body text-gray-mid mb-6">
+            Part-time marketing leadership while you search for a full-time hire or during 
+            a critical transition. Strategy and execution.
+          </p>
+          <ul class="space-y-2 text-small text-gray-mid">
+            <li>→ 2-3 days per week</li>
+            <li>→ Team leadership</li>
+            <li>→ Budget ownership</li>
+            <li>→ Executive team participation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section-sm bg-cream-dark">
+    <div class="container-narrow">
+      <h2 class="text-heading mb-8">How it starts</h2>
+      <div class="space-y-8">
+        <div class="flex gap-6">
+          <span class="text-display text-forest shrink-0 w-16">01</span>
+          <div>
+            <h3 class="text-subheading mb-2">Conversation</h3>
+            <p class="text-body text-gray-mid">
+              We talk for 30-45 minutes. I learn about your situation, you learn how I think. 
+              No pitch, just conversation.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6">
+          <span class="text-display text-forest shrink-0 w-16">02</span>
+          <div>
+            <h3 class="text-subheading mb-2">Diagnosis</h3>
+            <p class="text-body text-gray-mid">
+              If there's a fit, I dig in. I'll review your data, talk to your team, and come 
+              back with an honest assessment of where you are.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6">
+          <span class="text-display text-forest shrink-0 w-16">03</span>
+          <div>
+            <h3 class="text-subheading mb-2">Proposal</h3>
+            <p class="text-body text-gray-mid">
+              Based on what I find, I'll recommend an engagement model and scope. Clear 
+              deliverables, clear timeline, clear investment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-charcoal-deep text-cream">
+    <div class="container-narrow text-center">
+      <h2 class="text-display text-cream mb-6">Ready to talk?</h2>
+      <p class="text-body-lg text-gray-light mb-8 max-w-lg mx-auto">
+        If you're at an inflection point and want to think through your marketing 
+        investment strategy, let's have a conversation.
+      </p>
+      <a href="mailto:nick@strategnik.com" class="btn-primary">
+        Get in touch →
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

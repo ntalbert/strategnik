@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+
+const concepts = [
+  {
+    name: 'Momentum',
+    slug: 'momentum',
+    description: 'Why some marketing investments compound while others dissipate. The force that makes good programs get better.',
+    ready: true
+  },
+  {
+    name: 'Friction',
+    slug: 'friction',
+    description: 'The hidden force destroying your conversion rates. Every point of resistance trains the market that you\'re hard to work with.',
+    ready: true
+  },
+  {
+    name: 'Gravity',
+    slug: 'gravity',
+    description: 'Market forces that pull prospects toward (or away from) you. The weight of brand, category, and competitive dynamics.',
+    ready: false
+  },
+  {
+    name: 'Acceleration',
+    slug: 'acceleration',
+    description: 'The relationship between force (investment) and mass (market resistance). Why throwing money at the problem rarely works.',
+    ready: false
+  },
+  {
+    name: 'Vectors',
+    slug: 'vectors',
+    description: 'Direction matters more than magnitude. How misaligned marketing efforts cancel each other out.',
+    ready: false
+  },
+  {
+    name: 'Equilibrium',
+    slug: 'equilibrium',
+    description: 'The steady state your marketing naturally settles into without intervention. Why maintenance is different from growth.',
+    ready: false
+  }
+];
+---
+
+<BaseLayout 
+  title="The Physics of Marketing"
+  description="A framework for understanding why some marketing investments compound while others dissipate. Marketing isn't art or science—it's engineering."
+>
+  
+  <!-- Hero -->
+  <section class="section bg-cream">
+    <div class="container-content">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <p class="label text-forest mb-6">Framework</p>
+          <h1 class="text-display-lg mb-8 text-balance">
+            The Physics of Marketing Investment
+          </h1>
+          <p class="text-body-lg text-gray-mid mb-6">
+            Marketing isn't art or science—it's engineering. The same laws that govern 
+            physical systems govern marketing systems. Understanding these forces changes 
+            how you invest.
+          </p>
+          <p class="text-body text-gray-mid">
+            This framework applies concepts from physics to explain why some marketing 
+            investments compound while others dissipate, why some companies build momentum 
+            while others fight friction, and how to diagnose what's actually happening in 
+            your marketing system.
+          </p>
+        </div>
+        
+        <!-- Diagram -->
+        <div class="bg-charcoal-deep rounded-lg p-8 lg:p-12">
+          <svg viewBox="0 0 400 400" class="w-full" fill="none" stroke="currentColor">
+            <!-- Grid background -->
+            <defs>
+              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(107, 107, 107, 0.2)" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="400" fill="url(#grid)" />
+            
+            <!-- Central system -->
+            <circle cx="200" cy="200" r="50" class="stroke-forest" stroke-width="2" />
+            <text x="200" y="195" text-anchor="middle" fill="#FAF9F6" class="text-[11px]">Marketing</text>
+            <text x="200" y="210" text-anchor="middle" fill="#FAF9F6" class="text-[11px]">System</text>
+            
+            <!-- Momentum (up) -->
+            <line x1="200" y1="140" x2="200" y2="50" stroke="#FAF9F6" stroke-width="2" />
+            <polygon points="200,40 193,55 207,55" fill="#FAF9F6" />
+            <text x="200" y="30" text-anchor="middle" fill="#3D7A64" class="text-[10px] font-medium">MOMENTUM</text>
+            
+            <!-- Friction (left, dashed) -->
+            <line x1="140" y1="200" x2="50" y2="200" stroke="#6B6B6B" stroke-width="2" stroke-dasharray="6,4" />
+            <polygon points="40,200 55,193 55,207" fill="#6B6B6B" />
+            <text x="40" y="230" text-anchor="start" fill="#6B6B6B" class="text-[10px]">FRICTION</text>
+            
+            <!-- Gravity (down arrows from corners) -->
+            <line x1="300" y1="100" x2="250" y2="150" stroke="#3D7A64" stroke-width="1.5" />
+            <line x1="100" y1="100" x2="150" y2="150" stroke="#3D7A64" stroke-width="1.5" />
+            <text x="330" y="90" text-anchor="middle" fill="#3D7A64" class="text-[10px]">GRAVITY</text>
+            
+            <!-- Acceleration (right) -->
+            <line x1="260" y1="200" x2="350" y2="200" stroke="#FAF9F6" stroke-width="2" />
+            <polygon points="360,200 345,193 345,207" fill="#FAF9F6" />
+            <text x="360" y="230" text-anchor="end" fill="#FAF9F6" class="text-[10px]">ACCELERATION</text>
+            
+            <!-- Vector lines -->
+            <line x1="200" y1="260" x2="280" y2="340" stroke="#3D7A64" stroke-width="1" opacity="0.6" />
+            <line x1="200" y1="260" x2="120" y2="340" stroke="#3D7A64" stroke-width="1" opacity="0.6" />
+            <text x="200" y="370" text-anchor="middle" fill="#6B6B6B" class="text-[10px]">VECTORS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Insight -->
+  <section class="section-sm bg-cream-dark">
+    <div class="container-narrow">
+      <blockquote class="text-heading text-charcoal-deep text-center">
+        "The same laws that govern physical systems govern marketing systems. 
+        Understand the physics, and you'll make better investment decisions."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Concepts Grid -->
+  <section class="section bg-cream">
+    <div class="container-content">
+      <div class="mb-12">
+        <p class="label text-forest mb-2">The Forces</p>
+        <h2 class="text-display">Core Concepts</h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {concepts.map((concept) => (
+          <div class={`card ${concept.ready ? 'card-hover' : 'opacity-60'}`}>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-heading text-charcoal-deep">{concept.name}</h3>
+              {!concept.ready && <span class="tag">Coming soon</span>}
+            </div>
+            <p class="text-body text-gray-mid mb-4">
+              {concept.description}
+            </p>
+            {concept.ready ? (
+              <a href={`/physics-of-marketing/${concept.slug}`} class="text-forest text-small font-medium hover:text-forest-dark transition-colors">
+                Explore concept →
+              </a>
+            ) : (
+              <span class="text-gray-light text-small">Coming soon</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="section-sm bg-charcoal-deep text-cream">
+    <div class="container-narrow">
+      <p class="label text-forest-light mb-4">Origin</p>
+      <h2 class="text-heading text-cream mb-6">Where this came from</h2>
+      <div class="prose-strategnik text-gray-light">
+        <p>
+          After 20 years watching B2B SaaS companies make marketing investment decisions, 
+          I noticed patterns. The companies that broke out and the ones that stalled often 
+          had similar products, teams, and markets. The difference was usually in how they 
+          understood the forces acting on their marketing system.
+        </p>
+        <p>
+          The physics metaphor emerged from trying to explain these patterns to CEOs and 
+          boards. When you frame marketing investment in terms of momentum, friction, and 
+          gravity, people suddenly see their situation differently. They stop asking "is 
+          marketing working?" and start asking "what forces are acting on our system?"
+        </p>
+        <p>
+          That shift in framing leads to better decisions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <NewsletterForm 
+    variant="hero" 
+    heading="Get the full framework"
+    description="I'm developing this framework into a book. Subscribe to get new concepts as I publish them, plus tactical applications you can use now."
+  />
+
+</BaseLayout>

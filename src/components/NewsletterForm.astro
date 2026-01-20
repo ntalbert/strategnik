@@ -1,0 +1,105 @@
+---
+interface Props {
+  variant?: 'default' | 'compact' | 'hero';
+  heading?: string;
+  description?: string;
+}
+
+const { 
+  variant = 'default',
+  heading = "Get the field notes",
+  description = "Observations on B2B SaaS marketing, demand generation, and the physics of growth. No fluff, just signal."
+} = Astro.props;
+
+// TODO: Replace with your actual Beehiiv publication ID
+const BEEHIIV_PUBLICATION_ID = "YOUR_PUBLICATION_ID";
+---
+
+{variant === 'hero' && (
+  <div class="bg-charcoal-deep text-cream py-16 md:py-20">
+    <div class="container-content">
+      <div class="max-w-2xl">
+        <h2 class="text-display text-cream mb-4">{heading}</h2>
+        <p class="text-body-lg text-gray-light mb-8">{description}</p>
+        <form 
+          action={`https://www.beehiiv.com/subscribe/${BEEHIIV_PUBLICATION_ID}`}
+          method="POST"
+          class="flex flex-col sm:flex-row gap-4"
+        >
+          <input 
+            type="email" 
+            name="email"
+            placeholder="you@company.com"
+            required
+            class="flex-grow px-4 py-3 bg-charcoal text-cream placeholder-gray-mid border border-gray-mid/50 
+                   focus:border-forest focus:outline-none transition-colors"
+          />
+          <button 
+            type="submit"
+            class="btn-primary whitespace-nowrap"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="text-small text-gray-mid mt-4">
+          No spam. Unsubscribe anytime.
+        </p>
+      </div>
+    </div>
+  </div>
+)}
+
+{variant === 'default' && (
+  <div class="bg-cream-dark py-12 md:py-16">
+    <div class="container-narrow text-center">
+      <h3 class="text-heading mb-3">{heading}</h3>
+      <p class="text-body text-gray-mid mb-6 max-w-lg mx-auto">{description}</p>
+      <form 
+        action={`https://www.beehiiv.com/subscribe/${BEEHIIV_PUBLICATION_ID}`}
+        method="POST"
+        class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+      >
+        <input 
+          type="email" 
+          name="email"
+          placeholder="you@company.com"
+          required
+          class="flex-grow px-4 py-3 bg-cream border border-gray-rule 
+                 focus:border-forest focus:outline-none transition-colors"
+        />
+        <button 
+          type="submit"
+          class="btn-primary"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+)}
+
+{variant === 'compact' && (
+  <div class="border-t border-gray-rule pt-8 mt-12">
+    <p class="label mb-4">Stay updated</p>
+    <form 
+      action={`https://www.beehiiv.com/subscribe/${BEEHIIV_PUBLICATION_ID}`}
+      method="POST"
+      class="flex gap-3"
+    >
+      <input 
+        type="email" 
+        name="email"
+        placeholder="you@company.com"
+        required
+        class="flex-grow px-4 py-2 bg-cream-dark border border-gray-rule 
+               focus:border-forest focus:outline-none transition-colors text-small"
+      />
+      <button 
+        type="submit"
+        class="btn-ghost text-small"
+      >
+        Subscribe →
+      </button>
+    </form>
+  </div>
+)}

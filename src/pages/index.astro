@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+
+// Sample posts - in production these would come from content collections
+const recentPosts = [
+  {
+    title: "Momentum: Why Some Marketing Investments Compound",
+    description: "In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better and bad ones get worse.",
+    date: new Date('2025-01-10'),
+    category: 'physics',
+    slug: 'momentum-marketing-investments',
+    featured: true
+  },
+  {
+    title: "The Friction Problem Nobody Talks About",
+    description: "Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with.",
+    date: new Date('2025-01-05'),
+    category: 'field-notes',
+    slug: 'friction-problem',
+    featured: false
+  },
+  {
+    title: "Inflection Points: When to Pour Fuel on the Fire",
+    description: "The difference between growth-stage success and failure often comes down to recognizing the moment when your marketing engine is ready to scale.",
+    date: new Date('2024-12-28'),
+    category: 'playbook',
+    slug: 'inflection-points',
+    featured: false
+  }
+];
+---
+
+<BaseLayout title="Home">
+  
+  <!-- Hero Section -->
+  <section class="section bg-cream">
+    <div class="container-content">
+      <div class="max-w-4xl">
+        <!-- Overline -->
+        <p class="label text-forest mb-6 animate-fade-in">Nick · Demand Generation Strategist</p>
+        
+        <!-- Main Headline -->
+        <h1 class="text-display-lg md:text-display-xl text-charcoal-deep mb-8 animate-slide-up text-balance">
+          Building demand generation engines for growth-stage B2B SaaS at 
+          <span class="text-forest">critical inflection points</span>
+        </h1>
+        
+        <!-- Subheadline -->
+        <p class="text-body-lg md:text-subheading text-gray-mid max-w-2xl mb-10 animate-slide-up delay-100">
+          I help companies figure out when to invest, where to invest, and how to build 
+          marketing systems that create predictable, scalable pipeline.
+        </p>
+        
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 animate-slide-up delay-200">
+          <a href="/physics-of-marketing" class="btn-primary">
+            Explore the Framework
+          </a>
+          <a href="/services" class="btn-secondary">
+            Work Together
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physics of Marketing Preview -->
+  <section class="section bg-charcoal-deep text-cream">
+    <div class="container-content">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Text Content -->
+        <div>
+          <p class="label text-forest-light mb-4">Framework</p>
+          <h2 class="text-display text-cream mb-6">
+            The Physics of Marketing
+          </h2>
+          <p class="text-body-lg text-gray-light mb-8">
+            Marketing isn't art or science—it's engineering. The same laws that govern physical systems 
+            govern marketing systems: momentum, friction, gravity, acceleration. Understanding these 
+            forces changes how you invest.
+          </p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <span class="text-forest-light mt-1">→</span>
+              <span class="text-gray-light"><strong class="text-cream">Momentum</strong> — Why some investments compound while others stall</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-forest-light mt-1">→</span>
+              <span class="text-gray-light"><strong class="text-cream">Friction</strong> — The hidden force destroying your conversion rates</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-forest-light mt-1">→</span>
+              <span class="text-gray-light"><strong class="text-cream">Gravity</strong> — Market forces that pull prospects toward (or away from) you</span>
+            </li>
+          </ul>
+          <a href="/physics-of-marketing" class="btn-ghost text-cream hover:text-forest-light">
+            Explore the full framework →
+          </a>
+        </div>
+        
+        <!-- Diagram Placeholder -->
+        <div class="relative">
+          <div class="aspect-square bg-charcoal rounded-lg flex items-center justify-center border border-gray-mid/30">
+            <!-- SVG Diagram - Forces visualization -->
+            <svg viewBox="0 0 400 400" class="w-full h-full p-8" fill="none" stroke="currentColor">
+              <!-- Central circle (your company) -->
+              <circle cx="200" cy="200" r="40" class="stroke-forest" stroke-width="2" fill="none" />
+              <text x="200" y="205" text-anchor="middle" class="fill-cream text-[12px] font-medium">You</text>
+              
+              <!-- Momentum arrow (upward) -->
+              <line x1="200" y1="150" x2="200" y2="60" class="stroke-cream draw-line" stroke-width="2" />
+              <polygon points="200,50 195,65 205,65" class="fill-cream" />
+              <text x="200" y="40" text-anchor="middle" class="fill-gray-light text-[10px]">MOMENTUM</text>
+              
+              <!-- Friction arrow (left, opposing) -->
+              <line x1="150" y1="200" x2="70" y2="200" class="stroke-gray-mid draw-line" stroke-width="2" stroke-dasharray="5,5" />
+              <polygon points="60,200 75,195 75,205" class="fill-gray-mid" />
+              <text x="60" y="220" text-anchor="middle" class="fill-gray-mid text-[10px]">FRICTION</text>
+              
+              <!-- Gravity arrows (pulling down from sides) -->
+              <line x1="280" y1="280" x2="320" y2="320" class="stroke-forest-light draw-line" stroke-width="1.5" />
+              <line x1="120" y1="280" x2="80" y2="320" class="stroke-forest-light draw-line" stroke-width="1.5" />
+              <text x="330" y="340" text-anchor="middle" class="fill-forest-light text-[10px]">GRAVITY</text>
+              
+              <!-- Acceleration burst -->
+              <circle cx="200" cy="200" r="60" class="stroke-forest/30" stroke-width="1" stroke-dasharray="3,3" />
+              <circle cx="200" cy="200" r="80" class="stroke-forest/20" stroke-width="1" stroke-dasharray="3,3" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Writing -->
+  <section class="section bg-cream">
+    <div class="container-content">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <p class="label text-forest mb-2">Writing</p>
+          <h2 class="text-display">Recent Thinking</h2>
+        </div>
+        <a href="/writing" class="btn-ghost hidden md:inline-flex">
+          View all →
+        </a>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {recentPosts.map((post, index) => (
+          <div class={`animate-slide-up delay-${(index + 1) * 100}`}>
+            <PostCard {...post} />
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-8 md:hidden">
+        <a href="/writing" class="btn-ghost">
+          View all writing →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="section-sm bg-cream-dark">
+    <div class="container-content">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="label text-forest mb-2">Services</p>
+          <h2 class="text-heading mb-4">Ready to build your engine?</h2>
+          <p class="text-body text-gray-mid mb-6">
+            I work with growth-stage B2B SaaS companies at inflection points—when the stakes 
+            are high and the right marketing investment separates breakout success from stalled growth.
+          </p>
+          <a href="/services" class="btn-secondary">
+            How I work →
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-6 bg-cream">
+            <p class="text-display text-forest mb-2">20+</p>
+            <p class="text-small text-gray-mid">Years in B2B SaaS</p>
+          </div>
+          <div class="p-6 bg-cream">
+            <p class="text-display text-forest mb-2">3</p>
+            <p class="text-small text-gray-mid">Companies acquired</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <NewsletterForm variant="hero" />
+
+</BaseLayout>

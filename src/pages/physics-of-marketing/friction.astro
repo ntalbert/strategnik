@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+---
+
+<BaseLayout 
+  title="Friction"
+  description="The hidden force destroying your conversion rates. Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with."
+>
+  
+  <!-- Hero -->
+  <section class="section bg-cream">
+    <div class="container-narrow">
+      <a href="/physics-of-marketing" class="label text-forest hover:text-forest-dark mb-6 inline-block">
+        ← Physics of Marketing
+      </a>
+      <h1 class="text-display-lg mb-6">Friction</h1>
+      <p class="text-subheading text-gray-mid">
+        Every point of friction in your funnel isn't just losing you leads—it's 
+        training the market that you're hard to work with.
+      </p>
+    </div>
+  </section>
+
+  <!-- Diagram -->
+  <section class="bg-charcoal-deep py-12">
+    <div class="container-narrow">
+      <svg viewBox="0 0 600 200" class="w-full" fill="none">
+        <!-- Arrow with friction -->
+        <line x1="100" y1="100" x2="500" y2="100" stroke="#FAF9F6" stroke-width="2" />
+        <polygon points="510,100 495,93 495,107" fill="#FAF9F6" />
+        
+        <!-- Friction points -->
+        <circle cx="200" cy="100" r="8" fill="#6B6B6B" />
+        <circle cx="300" cy="100" r="8" fill="#6B6B6B" />
+        <circle cx="400" cy="100" r="8" fill="#6B6B6B" />
+        
+        <!-- Labels -->
+        <text x="100" y="140" text-anchor="middle" fill="#3D7A64" class="text-[12px]">Lead</text>
+        <text x="510" y="140" text-anchor="middle" fill="#3D7A64" class="text-[12px]">Customer</text>
+        
+        <text x="200" y="75" text-anchor="middle" fill="#6B6B6B" class="text-[10px]">Form</text>
+        <text x="300" y="75" text-anchor="middle" fill="#6B6B6B" class="text-[10px]">Demo</text>
+        <text x="400" y="75" text-anchor="middle" fill="#6B6B6B" class="text-[10px]">Proposal</text>
+        
+        <text x="300" y="170" text-anchor="middle" fill="#FAF9F6" class="text-[14px]">
+          Each friction point = energy lost
+        </text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="section bg-cream">
+    <div class="container-narrow">
+      <div class="prose-strategnik">
+        
+        <h2>The Core Principle</h2>
+        <p>
+          In physics, friction is the force that opposes motion. When you push an object 
+          across a surface, friction converts kinetic energy into heat—energy that's lost 
+          from the system, unable to do useful work.
+        </p>
+        <p>
+          Marketing friction works the same way. Every unnecessary form field, every 
+          complicated pricing page, every unclear next step converts interested prospects 
+          into lost opportunities. That energy doesn't just disappear—it goes to your 
+          competitors.
+        </p>
+        <p>
+          But here's what most people miss: friction isn't just about losing individual 
+          leads. It's about training the market. Every person who bounces from your 
+          complicated demo request form doesn't just leave—they form an impression. 
+          They tell their peers. They remember.
+        </p>
+
+        <h2>Where Friction Hides</h2>
+        <p>
+          The obvious friction points are easy to spot: long forms, confusing navigation, 
+          slow page loads. But friction accumulates in less visible places:
+        </p>
+        <p>
+          <strong>Cognitive friction:</strong> Messaging that requires too much work to 
+          understand. Value propositions that aren't immediately clear. Pricing pages 
+          that need a spreadsheet to decode. Your prospect has to think harder than they 
+          want to.
+        </p>
+        <p>
+          <strong>Process friction:</strong> The "we need to schedule a call to discuss 
+          your needs" when a pricing page would do. The "your sales rep will reach out 
+          within 24 hours" when they wanted an answer now. The seven-step buying process 
+          that made sense internally but baffles customers.
+        </p>
+        <p>
+          <strong>Trust friction:</strong> The absence of social proof. The case studies 
+          that don't feature companies like theirs. The generic stock photos that signal 
+          "we're not confident enough to show you real people." Every missing trust signal 
+          is friction.
+        </p>
+
+        <h2>The Compounding Problem</h2>
+        <p>
+          Friction compounds. A 10% drop-off at each of five stages doesn't mean you lose 
+          50% of leads—it means you keep only 59%. Add a sixth stage and you're at 53%. 
+          The math is brutal:
+        </p>
+        <p>
+          <strong>5 stages at 90% conversion each:</strong> 0.9^5 = 59% survive<br />
+          <strong>5 stages at 95% conversion each:</strong> 0.95^5 = 77% survive
+        </p>
+        <p>
+          That 5% improvement per stage nearly doubles the difference in final conversion. 
+          This is why reducing friction often beats increasing top-of-funnel: you're 
+          improving a multiplicative factor, not an additive one.
+        </p>
+
+        <h2>Measuring Friction</h2>
+        <p>
+          You can't manage friction you can't see. The standard funnel metrics help, but 
+          they don't tell the whole story:
+        </p>
+        <p>
+          <strong>Time-to-action metrics:</strong> How long between first visit and form 
+          fill? Between form fill and demo? Between demo and proposal? Longer times often 
+          indicate hidden friction.
+        </p>
+        <p>
+          <strong>Drop-off concentration:</strong> Where do people leave? A high demo 
+          request rate but low demo completion rate suggests friction in your scheduling 
+          process, not your offer.
+        </p>
+        <p>
+          <strong>Support ticket patterns:</strong> What do people ask before they buy? 
+          Questions about pricing, about how things work, about what's included—these are 
+          friction signals. If the question is common, the answer should be obvious.
+        </p>
+
+        <h2>Reducing Friction</h2>
+        <p>
+          The goal isn't zero friction—some qualification is valuable. The goal is 
+          intentional friction: every point of resistance should serve a purpose.
+        </p>
+        <p>
+          <strong>Audit ruthlessly:</strong> Walk through your own funnel. Every step, 
+          click, form field, wait. Ask: does this serve the buyer or our internal process?
+        </p>
+        <p>
+          <strong>Measure against alternatives:</strong> Try your competitors' processes. 
+          How many clicks to understand their pricing? To talk to someone? To start a 
+          trial? If they're faster, that's friction you're creating.
+        </p>
+        <p>
+          <strong>Ask the people who didn't buy:</strong> Exit surveys at form abandonment. 
+          Lost deal analysis that actually asks process questions, not just competitive ones.
+        </p>
+
+        <hr />
+
+        <h2>Diagnostic Questions</h2>
+        <ul>
+          <li>How many steps between "interested" and "talking to sales"?</li>
+          <li>Can someone understand your pricing without human help?</li>
+          <li>What's the minimum commitment to see if you're a fit?</li>
+          <li>Where in your funnel do you lose more than 25% between stages?</li>
+          <li>What questions do prospects repeatedly ask that your site should answer?</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Concepts -->
+  <section class="section-sm bg-cream-dark">
+    <div class="container-narrow">
+      <p class="label text-forest mb-4">Related Concepts</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/physics-of-marketing/momentum" class="card card-hover">
+          <h3 class="text-subheading mb-2">Momentum →</h3>
+          <p class="text-small text-gray-mid">The force that friction opposes</p>
+        </a>
+        <a href="/physics-of-marketing/gravity" class="card opacity-60">
+          <h3 class="text-subheading mb-2">Gravity</h3>
+          <p class="text-small text-gray-mid">Coming soon</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <NewsletterForm variant="compact" />
+
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-charcoal-deep text-cream">
+  <div class="container-content py-16 md:py-20">
+    <div class="grid md:grid-cols-12 gap-12 md:gap-8">
+      <!-- Brand Column -->
+      <div class="md:col-span-5">
+        <a href="/" class="inline-block mb-6">
+          <span class="text-heading font-semibold tracking-tight">Strategnik</span>
+        </a>
+        <p class="text-gray-light max-w-sm mb-6 text-body">
+          Building demand generation engines for growth-stage B2B SaaS companies at critical inflection points.
+        </p>
+        <a href="mailto:nick@strategnik.com" class="text-cream hover:text-forest-light transition-colors">
+          nick@strategnik.com
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <div class="md:col-span-3">
+        <h4 class="label text-cream mb-4">Navigate</h4>
+        <nav class="space-y-3">
+          <a href="/physics-of-marketing" class="block text-gray-light hover:text-cream transition-colors">Physics of Marketing</a>
+          <a href="/writing" class="block text-gray-light hover:text-cream transition-colors">Writing</a>
+          <a href="/work" class="block text-gray-light hover:text-cream transition-colors">Work</a>
+          <a href="/services" class="block text-gray-light hover:text-cream transition-colors">Services</a>
+          <a href="/about" class="block text-gray-light hover:text-cream transition-colors">About</a>
+        </nav>
+      </div>
+
+      <!-- Connect -->
+      <div class="md:col-span-4">
+        <h4 class="label text-cream mb-4">Connect</h4>
+        <nav class="space-y-3 mb-8">
+          <a href="https://linkedin.com/in/" class="block text-gray-light hover:text-cream transition-colors" target="_blank" rel="noopener">
+            LinkedIn →
+          </a>
+          <a href="/newsletter" class="block text-gray-light hover:text-cream transition-colors">
+            Newsletter →
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-16 pt-8 border-t border-gray-mid/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <p class="text-small text-gray-mid">
+        © {currentYear} Nick. All rights reserved.
+      </p>
+      <p class="text-small text-gray-mid">
+        Built with intention.
+      </p>
+    </div>
+  </div>
+</footer>

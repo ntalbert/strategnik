@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+
+// Sample posts - in production these would come from content collections
+const posts = [
+  {
+    title: "Momentum: Why Some Marketing Investments Compound",
+    description: "In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better and bad ones get worse.",
+    date: new Date('2025-01-10'),
+    category: 'physics',
+    slug: 'momentum-marketing-investments',
+  },
+  {
+    title: "The Friction Problem Nobody Talks About",
+    description: "Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with.",
+    date: new Date('2025-01-05'),
+    category: 'field-notes',
+    slug: 'friction-problem',
+  },
+  {
+    title: "Inflection Points: When to Pour Fuel on the Fire",
+    description: "The difference between growth-stage success and failure often comes down to recognizing the moment when your marketing engine is ready to scale.",
+    date: new Date('2024-12-28'),
+    category: 'playbook',
+    slug: 'inflection-points',
+  },
+  {
+    title: "Why Your Content Strategy Isn't Working",
+    description: "Most B2B content strategies fail not because of execution, but because they're built on a flawed premise about how buyers actually consume information.",
+    date: new Date('2024-12-15'),
+    category: 'field-notes',
+    slug: 'content-strategy-failure',
+  },
+  {
+    title: "The Case for Boring Marketing",
+    description: "Clever campaigns win awards. Clear campaigns win customers. Why the best B2B marketing is often the least interesting.",
+    date: new Date('2024-12-01'),
+    category: 'field-notes',
+    slug: 'boring-marketing',
+  }
+];
+
+const categories = [
+  { value: 'all', label: 'All' },
+  { value: 'field-notes', label: 'Field Notes' },
+  { value: 'case-study', label: 'Case Studies' },
+  { value: 'playbook', label: 'Playbook' },
+  { value: 'physics', label: 'Physics of Marketing' }
+];
+
+const categoryLabels: Record<string, string> = {
+  'field-notes': 'Field Notes',
+  'case-study': 'Case Study',
+  'playbook': 'Playbook',
+  'physics': 'Physics of Marketing'
+};
+---
+
+<BaseLayout 
+  title="Writing"
+  description="Observations on B2B SaaS marketing, demand generation, and the physics of growth."
+>
+  
+  <!-- Hero -->
+  <section class="section-sm bg-cream">
+    <div class="container-content">
+      <p class="label text-forest mb-6">Writing</p>
+      <h1 class="text-display-lg mb-6">Thinking Out Loud</h1>
+      <p class="text-body-lg text-gray-mid max-w-2xl">
+        Observations on B2B SaaS marketing, demand generation, and the physics of growth. 
+        No fluff, just signal.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <section class="bg-cream border-b border-gray-rule sticky top-18 z-40">
+    <div class="container-content">
+      <nav class="flex gap-6 py-4 overflow-x-auto">
+        {categories.map((cat) => (
+          <button 
+            class="nav-link whitespace-nowrap"
+            data-category={cat.value}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <!-- Posts Grid -->
+  <section class="section bg-cream">
+    <div class="container-content">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
+        {posts.map((post) => (
+          <PostCard {...post} />
+        ))}
+      </div>
+      
+      <!-- Empty state for when filters return nothing -->
+      <div id="empty-state" class="hidden text-center py-16">
+        <p class="text-gray-mid">No posts in this category yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <NewsletterForm 
+    variant="hero" 
+    heading="Never miss an update"
+    description="Get new posts delivered to your inbox. No spam, just thinking about demand generation and B2B SaaS growth."
+  />
+
+</BaseLayout>
+
+<script>
+  // Simple client-side filtering
+  const buttons = document.querySelectorAll('[data-category]');
+  const posts = document.querySelectorAll('#posts-grid > div');
+  
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+      
+      // Update active state
+      buttons.forEach(b => b.classList.remove('nav-link-active'));
+      button.classList.add('nav-link-active');
+      
+      // Filter posts
+      posts.forEach(post => {
+        const postCategory = post.querySelector('.tag')?.textContent?.toLowerCase().replace(/\s+/g, '-');
+        if (category === 'all' || postCategory?.includes(category)) {
+          post.classList.remove('hidden');
+        } else {
+          post.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
