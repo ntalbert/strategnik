@@ -16,7 +16,6 @@ const posts = beehiivPosts.length > 0
       category: post.content_tags?.[0] || 'field-notes',
       slug: post.slug,
       url: post.web_url,
-      thumbnail: post.thumbnail_url,
     }))
   : [
       {
@@ -41,14 +40,6 @@ const posts = beehiivPosts.length > 0
         slug: 'inflection-points',
       },
     ];
-
-const categories = [
-  { value: 'all', label: 'All' },
-  { value: 'field-notes', label: 'Field Notes' },
-  { value: 'case-study', label: 'Case Studies' },
-  { value: 'playbook', label: 'Playbook' },
-  { value: 'physics', label: 'Physics of Marketing' }
-];
 ---
 
 <BaseLayout
@@ -56,32 +47,21 @@ const categories = [
   description="Observations on B2B SaaS marketing, demand generation, and the physics of growth."
 >
 
-  <section class="section-sm bg-cream">
-    <div class="container-content">
-      <p class="label text-forest mb-6">Writing</p>
-      <h1 class="text-display-lg mb-6">Thinking Out Loud</h1>
-      <p class="text-body-lg text-gray-mid max-w-2xl">
+  <!-- Hero -->
+  <section class="section">
+    <div class="container-narrow">
+      <p class="section-label">Writing</p>
+      <h1 class="text-display-lg mb-6" data-animate-hero>Thinking Out Loud</h1>
+      <p class="text-body-lg text-gray-600 max-w-prose" data-animate-hero-sub>
         Observations on B2B SaaS marketing, demand generation, and the physics of growth.
-        No fluff, just signal.
       </p>
     </div>
   </section>
 
-  <section class="bg-cream border-b border-gray-rule sticky top-18 z-40">
-    <div class="container-content">
-      <nav class="flex gap-6 py-4 overflow-x-auto">
-        {categories.map((cat) => (
-          <button class="nav-link whitespace-nowrap" data-category={cat.value}>
-            {cat.label}
-          </button>
-        ))}
-      </nav>
-    </div>
-  </section>
-
-  <section class="section bg-cream">
-    <div class="container-content">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
+  <!-- Post List -->
+  <section class="section-sm border-t border-gray-200">
+    <div class="container-narrow">
+      <div class="space-y-6" data-animate-stagger="0.06">
         {posts.map((post) => (
           <PostCard
             title={post.title}
@@ -90,41 +70,17 @@ const categories = [
             category={post.category}
             slug={post.slug}
             url={post.url}
-            thumbnail={post.thumbnail}
           />
         ))}
-      </div>
-      <div id="empty-state" class="hidden text-center py-16">
-        <p class="text-gray-mid">No posts in this category yet.</p>
       </div>
     </div>
   </section>
 
+  <!-- Newsletter -->
   <NewsletterForm
-    variant="hero"
+    variant="default"
     heading="Never miss an update"
     description="Get new posts delivered to your inbox. No spam, just thinking about demand generation and B2B SaaS growth."
   />
 
 </BaseLayout>
-
-<script>
-  const buttons = document.querySelectorAll('[data-category]');
-  const posts = document.querySelectorAll('#posts-grid > div');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const category = button.getAttribute('data-category');
-      buttons.forEach(b => b.classList.remove('nav-link-active'));
-      button.classList.add('nav-link-active');
-      posts.forEach(post => {
-        const postCategory = post.querySelector('.tag')?.textContent?.toLowerCase().replace(/s+/g, '-');
-        if (category === 'all' || postCategory?.includes(category)) {
-          post.classList.remove('hidden');
-        } else {
-          post.classList.add('hidden');
-        }
-      });
-    });
-  });
-</script>

@@ -1,0 +1,135 @@
+---
+interface Props {
+  videoSrc: string;
+  overlayOpacity?: number;
+}
+
+const { videoSrc, overlayOpacity = 0.35 } = Astro.props;
+---
+
+<div class="parallax-container">
+  <!-- Fixed video background layer -->
+  <div class="video-layer">
+    <video
+      class="video-bg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+    <div class="video-overlay" style={`--overlay-opacity: ${overlayOpacity}`}></div>
+  </div>
+
+  <!-- Floating text layer - scrolls over video -->
+  <div class="content-layer">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .parallax-container {
+    position: relative;
+  }
+
+  .video-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, calc(var(--overlay-opacity) * 0.8)) 0%,
+      rgba(0, 0, 0, var(--overlay-opacity)) 30%,
+      rgba(0, 0, 0, var(--overlay-opacity)) 70%,
+      rgba(0, 0, 0, calc(var(--overlay-opacity) * 1.2)) 100%
+    );
+  }
+
+  .content-layer {
+    position: relative;
+    z-index: 10;
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const videoLayer = document.querySelector('.video-layer');
+    const videoBg = document.querySelector('.video-bg');
+    const parallaxContainer = document.querySelector('.parallax-container');
+
+    if (videoLayer && videoBg && parallaxContainer) {
+      // Slow parallax movement on video (moves slower than scroll)
+      gsap.to(videoBg, {
+        y: '15%',
+        scale: 1.1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: parallaxContainer,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.8,
+        },
+      });
+
+      // Fade out video when leaving parallax section
+      gsap.to(videoLayer, {
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: parallaxContainer,
+          start: 'bottom 60%',
+          end: 'bottom 10%',
+          scrub: true,
+        },
+      });
+    }
+
+    // Floating text elements with depth effect
+    const floatingTexts = document.querySelectorAll('[data-parallax-text]');
+    floatingTexts.forEach((el) => {
+      const speed = parseFloat(el.getAttribute('data-parallax-text') || '0.1');
+
+      gsap.to(el, {
+        y: `${speed * 100}%`,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+  });
+</script>

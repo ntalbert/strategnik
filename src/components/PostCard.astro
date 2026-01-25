@@ -8,62 +8,41 @@ interface Props {
   url?: string;
   thumbnail?: string | null;
   featured?: boolean;
+  variant?: 'light' | 'dark';
 }
 
-const { title, description, date, category, slug, url, thumbnail, featured = false } = Astro.props;
+const { title, description, date, category, slug, url, thumbnail, featured = false, variant = 'light' } = Astro.props;
 
 const href = url || `/writing/${slug}`;
 const isExternal = !!url;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
-  month: 'long',
-  day: 'numeric'
+  month: 'short'
 });
 
-const categoryLabels: Record<string, string> = {
-  'field-notes': 'Field Notes',
-  'case-study': 'Case Study',
-  'playbook': 'Playbook',
-  'physics': 'Physics of Marketing'
-};
+const isDark = variant === 'dark';
 ---
 
-<article class={`group ${featured ? 'card-hover' : ''}`} data-category={category}>
+<article class="group" data-category={category}>
   <a
     href={href}
     class="block"
     target={isExternal ? '_blank' : undefined}
     rel={isExternal ? 'noopener noreferrer' : undefined}
   >
-    {thumbnail && (
-      <div class="aspect-video mb-4 rounded-lg overflow-hidden bg-gray-100">
-        <img
-          src={thumbnail}
-          alt={title}
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-        />
-      </div>
-    )}
-
-    <div class="flex items-center gap-4 mb-3">
-      <span class="tag">{categoryLabels[category] || category}</span>
-      <time class="text-small text-gray-mid" datetime={date.toISOString()}>
+    <div class="flex items-baseline gap-6">
+      <time class={`text-small shrink-0 w-20 font-bold ${isDark ? 'text-blue-bright' : 'text-gray-400'}`} datetime={date.toISOString()}>
         {formattedDate}
       </time>
+      <div class="flex-grow">
+        <h3 class={`text-body font-bold transition-colors ${isDark ? 'text-white group-hover:text-blue-bright' : 'text-black group-hover:text-accent'}`}>
+          {title}
+        </h3>
+      </div>
+      <span class={`group-hover:translate-x-1 transition-all shrink-0 font-bold ${isDark ? 'text-blue-bright group-hover:text-white' : 'text-gray-400 group-hover:text-black'}`}>
+        {isExternal ? '↗' : '→'}
+      </span>
     </div>
-
-    <h3 class={`${featured ? 'text-heading' : 'text-subheading'} text-charcoal-deep group-hover:text-forest transition-colors mb-2`}>
-      {title}
-    </h3>
-
-    <p class="text-body text-gray-mid line-clamp-2">
-      {description}
-    </p>
-
-    <span class="inline-block mt-4 text-forest text-small font-medium group-hover:translate-x-1 transition-transform">
-      Read more {isExternal ? '↗' : '→'}
-    </span>
   </a>
 </article>

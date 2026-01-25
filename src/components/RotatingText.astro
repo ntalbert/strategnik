@@ -1,0 +1,86 @@
+---
+interface Props {
+  words: string[];
+}
+
+const { words } = Astro.props;
+// Find the longest word to set container width
+const longestWord = words.reduce((a, b) => a.length > b.length ? a : b);
+---
+
+<span class="rotating-wrapper">
+  <span class="rotating-words" data-words={JSON.stringify(words)}>
+    <span class="rotating-word active">{words[0]}.</span>
+  </span>
+</span>
+
+<style>
+  .rotating-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: 0.15em;
+    margin-bottom: -0.15em;
+  }
+
+  .rotating-words {
+    display: inline-block;
+    position: relative;
+  }
+
+  .rotating-word {
+    display: inline-block;
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.rotating-words');
+    if (!container) return;
+
+    const words: string[] = JSON.parse(container.getAttribute('data-words') || '[]');
+    if (words.length === 0) return;
+
+    let currentIndex = 0;
+    const wordElement = container.querySelector('.rotating-word');
+    if (!wordElement) return;
+
+    function rotateWord() {
+      const nextIndex = (currentIndex + 1) % words.length;
+      const nextWord = words[nextIndex];
+
+      // Animate out
+      gsap.to(wordElement, {
+        opacity: 0,
+        y: -20,
+        duration: 0.3,
+        ease: 'power2.in',
+        onComplete: () => {
+          // Swap text while hidden
+          wordElement.textContent = nextWord + '.';
+
+          // Reset position below
+          gsap.set(wordElement, { y: 20 });
+
+          // Animate in
+          gsap.to(wordElement, {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        }
+      });
+
+      currentIndex = nextIndex;
+    }
+
+    // Start rotation
+    setTimeout(() => {
+      setInterval(rotateWord, 2500);
+    }, 2000);
+  });
+</script>

@@ -3,133 +3,122 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Momentum"
-  description="Why some marketing investments compound while others dissipate. In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better."
+  description="Why some marketing investments compound while others dissipate. In physics, momentum equals mass times velocity."
 >
-  
+
   <!-- Hero -->
-  <section class="section bg-cream">
+  <section class="section">
     <div class="container-narrow">
-      <a href="/physics-of-marketing" class="label text-forest hover:text-forest-dark mb-6 inline-block">
+      <a href="/physics-of-marketing" class="text-small text-gray-600 hover:text-black mb-8 inline-block" data-animate-fade>
         ← Physics of Marketing
       </a>
-      <h1 class="text-display-lg mb-6">Momentum</h1>
-      <p class="text-subheading text-gray-mid">
-        In physics, momentum equals mass times velocity. In marketing, it's the force that 
+      <h1 class="text-display-lg mb-6" data-animate-hero>Momentum</h1>
+      <p class="text-body-lg text-gray-600" data-animate-hero-sub>
+        In physics, momentum equals mass times velocity. In marketing, it's the force that
         makes good programs get better and bad ones get worse.
       </p>
     </div>
   </section>
 
-  <!-- Diagram -->
-  <section class="bg-charcoal-deep py-12">
-    <div class="container-narrow">
-      <svg viewBox="0 0 600 200" class="w-full" fill="none">
-        <!-- Formula -->
-        <text x="300" y="60" text-anchor="middle" fill="#FAF9F6" class="text-[24px] font-mono">
-          p = m × v
-        </text>
-        <text x="300" y="100" text-anchor="middle" fill="#6B6B6B" class="text-[14px]">
-          momentum = mass × velocity
-        </text>
-        
-        <!-- Marketing translation -->
-        <line x1="100" y1="130" x2="500" y2="130" stroke="#3D7A64" stroke-width="1" opacity="0.5" />
-        
-        <text x="300" y="165" text-anchor="middle" fill="#3D7A64" class="text-[14px]">
-          Marketing Momentum = Market Position × Growth Rate
-        </text>
-      </svg>
+  <!-- Formula -->
+  <section class="section-sm border-t border-gray-200 bg-gray-100">
+    <div class="container-narrow text-center" data-animate>
+      <p class="font-mono text-heading text-black mb-2">p = m × v</p>
+      <p class="text-small text-gray-600">momentum = mass × velocity</p>
+      <p class="text-small text-accent mt-4">
+        Marketing Momentum = Market Position × Growth Rate
+      </p>
     </div>
   </section>
 
   <!-- Content -->
-  <section class="section bg-cream">
+  <section class="section">
     <div class="container-narrow">
-      <div class="prose-strategnik">
-        
-        <h2>The Core Principle</h2>
-        <p>
-          In physics, an object with momentum tends to keep moving. The heavier it is and 
-          the faster it's going, the harder it is to stop. This principle applies directly 
+      <div class="prose-minimal">
+
+        <h2 data-animate>The Core Principle</h2>
+        <p data-animate data-animate-delay="0.1">
+          In physics, an object with momentum tends to keep moving. The heavier it is and
+          the faster it's going, the harder it is to stop. This principle applies directly
           to marketing programs.
         </p>
-        <p>
-          A marketing program with momentum—established brand recognition, growing word of 
-          mouth, compounding content assets—becomes easier to sustain and harder for 
+        <p data-animate data-animate-delay="0.15">
+          A marketing program with momentum—established brand recognition, growing word of
+          mouth, compounding content assets—becomes easier to sustain and harder for
           competitors to disrupt. Every dollar invested yields more than the last.
         </p>
-        <p>
-          A program without momentum requires constant force just to maintain position. 
+        <p data-animate data-animate-delay="0.2">
+          A program without momentum requires constant force just to maintain position.
           Every dollar invested yields less than the last because you're fighting inertia.
         </p>
 
-        <h2>How to Recognize Momentum</h2>
-        <p>
+        <h2 data-animate>How to Recognize Momentum</h2>
+        <p data-animate data-animate-delay="0.1">
           Marketing momentum shows up in your metrics, but you have to know where to look:
         </p>
-        <p>
-          <strong>Positive momentum indicators:</strong> Declining CAC over time. Increasing 
-          organic traffic share. Rising brand search volume. Shorter sales cycles. Higher 
-          close rates. More inbound vs. outbound pipeline. Content that generates leads 
+        <p data-animate data-animate-delay="0.15">
+          <strong>Positive momentum indicators:</strong> Declining CAC over time. Increasing
+          organic traffic share. Rising brand search volume. Shorter sales cycles. Higher
+          close rates. More inbound vs. outbound pipeline. Content that generates leads
           months after publication.
         </p>
-        <p>
-          <strong>Negative momentum indicators:</strong> Rising CAC despite consistent spend. 
-          Increasing dependence on paid channels. Flat or declining brand search. Longer 
+        <p data-animate data-animate-delay="0.2">
+          <strong>Negative momentum indicators:</strong> Rising CAC despite consistent spend.
+          Increasing dependence on paid channels. Flat or declining brand search. Longer
           sales cycles. "We need more leads" as a constant refrain despite increasing spend.
         </p>
 
-        <h2>Building Momentum</h2>
-        <p>
+        <h2 data-animate>Building Momentum</h2>
+        <p data-animate data-animate-delay="0.1">
           You can't buy momentum directly. You can only create conditions for it to develop:
         </p>
-        <p>
-          <strong>Invest in mass before velocity.</strong> Market position (your "mass") 
-          amplifies everything else. A strong brand, clear positioning, and established 
-          trust make every campaign more effective. Investing in velocity (more campaigns, 
+        <p data-animate data-animate-delay="0.15">
+          <strong>Invest in mass before velocity.</strong> Market position (your "mass")
+          amplifies everything else. A strong brand, clear positioning, and established
+          trust make every campaign more effective. Investing in velocity (more campaigns,
           more content, more spend) without mass just burns energy.
         </p>
-        <p>
-          <strong>Compound, don't campaign.</strong> One-off campaigns create spikes, not 
-          momentum. Build assets that compound: content that ranks and continues to drive 
-          traffic, communities that grow through network effects, partnerships that expand 
+        <p data-animate data-animate-delay="0.2">
+          <strong>Compound, don't campaign.</strong> One-off campaigns create spikes, not
+          momentum. Build assets that compound: content that ranks and continues to drive
+          traffic, communities that grow through network effects, partnerships that expand
           your reach over time.
         </p>
-        <p>
-          <strong>Reduce friction.</strong> Momentum and friction are opposing forces. 
-          Every point of friction in your funnel dissipates momentum. A 10% improvement 
+        <p data-animate data-animate-delay="0.25">
+          <strong>Reduce friction.</strong> Momentum and friction are opposing forces.
+          Every point of friction in your funnel dissipates momentum. A 10% improvement
           in conversion rate often beats a 10% increase in top-of-funnel spend.
         </p>
 
-        <h2>The Inflection Point</h2>
-        <p>
-          Momentum has a critical threshold. Below it, every dollar of reduced investment 
+        <h2 data-animate>The Inflection Point</h2>
+        <p data-animate data-animate-delay="0.1">
+          Momentum has a critical threshold. Below it, every dollar of reduced investment
           causes disproportionate decline. Above it, the system becomes self-sustaining.
         </p>
-        <p>
-          This is why the "should we scale marketing spend?" question is often wrong. The 
-          right question is: "Have we achieved escape velocity?" Scaling spend before you 
-          have momentum just burns cash faster. Scaling after you have it compounds your 
+        <p data-animate data-animate-delay="0.15">
+          This is why the "should we scale marketing spend?" question is often wrong. The
+          right question is: "Have we achieved escape velocity?" Scaling spend before you
+          have momentum just burns cash faster. Scaling after you have it compounds your
           advantage.
         </p>
 
         <hr />
 
-        <h2>Diagnostic Questions</h2>
-        <p>
+        <h2 data-animate>Diagnostic Questions</h2>
+        <p data-animate data-animate-delay="0.1">
           When evaluating your marketing momentum, ask:
         </p>
-        <ul>
+        <ul data-animate data-animate-delay="0.15">
           <li>Is our CAC trending down over time, or up?</li>
           <li>What percentage of pipeline comes from organic vs. paid sources?</li>
           <li>How much of our content generates leads 6+ months after publication?</li>
           <li>Are our sales cycles getting shorter or longer?</li>
           <li>Would reducing marketing spend by 20% reduce results by more or less than 20%?</li>
         </ul>
-        <p>
-          The last question is the most revealing. If a 20% cut causes more than 20% decline, 
+        <p data-animate data-animate-delay="0.2">
+          The last question is the most revealing. If a 20% cut causes more than 20% decline,
           you don't have momentum—you have a treadmill.
         </p>
 
@@ -137,19 +126,17 @@ import NewsletterForm from '../../components/NewsletterForm.astro';
     </div>
   </section>
 
-  <!-- Related Concepts -->
-  <section class="section-sm bg-cream-dark">
+  <!-- Related -->
+  <section class="section-sm border-t border-gray-200">
     <div class="container-narrow">
-      <p class="label text-forest mb-4">Related Concepts</p>
-      <div class="grid md:grid-cols-2 gap-6">
-        <a href="/physics-of-marketing/friction" class="card card-hover">
-          <h3 class="text-subheading mb-2">Friction →</h3>
-          <p class="text-small text-gray-mid">The opposing force that dissipates momentum</p>
+      <p class="text-small text-gray-600 mb-6" data-animate-fade>Related Concepts</p>
+      <div class="flex flex-wrap gap-6" data-animate>
+        <a href="/physics-of-marketing/friction" class="text-black hover:text-accent transition-colors">
+          Friction →
         </a>
-        <a href="/physics-of-marketing/acceleration" class="card opacity-60">
-          <h3 class="text-subheading mb-2">Acceleration</h3>
-          <p class="text-small text-gray-mid">Coming soon</p>
-        </a>
+        <span class="text-gray-400">
+          Acceleration (soon)
+        </span>
       </div>
     </div>
   </section>

@@ -2,7 +2,7 @@
 const pathname = Astro.url.pathname;
 
 const navLinks = [
-  { href: '/physics-of-marketing', label: 'Physics of Marketing' },
+  { href: '/physics-of-marketing', label: 'Framework' },
   { href: '/writing', label: 'Writing' },
   { href: '/work', label: 'Work' },
   { href: '/services', label: 'Services' },
@@ -10,22 +10,20 @@ const navLinks = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-gray-rule">
+<header class="py-6 border-b border-gray-200">
   <nav class="container-content">
-    <div class="flex items-center justify-between h-18">
+    <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="group flex items-center gap-3">
-        <span class="text-heading font-semibold text-charcoal-deep tracking-tight group-hover:text-forest transition-colors duration-200">
-          Strategnik
-        </span>
+      <a href="/" class="text-heading text-black hover:text-black tracking-tight font-extrabold">
+        Strategnik
       </a>
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center gap-8">
         {navLinks.map((link) => (
-          <a 
+          <a
             href={link.href}
-            class={pathname.startsWith(link.href) ? 'nav-link-active' : 'nav-link'}
+            class={`font-extrabold text-black hover:text-gray-600 transition-colors text-small`}
           >
             {link.label}
           </a>
@@ -33,9 +31,9 @@ const navLinks = [
       </div>
 
       <!-- Mobile Menu Button -->
-      <button 
+      <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 text-charcoal hover:text-forest transition-colors"
+        class="md:hidden p-2 text-gray-600 hover:text-black transition-colors"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -48,12 +46,12 @@ const navLinks = [
   </nav>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-rule">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 mt-6">
     <div class="container-content py-6 space-y-4">
       {navLinks.map((link) => (
-        <a 
+        <a
           href={link.href}
-          class={`block py-2 ${pathname.startsWith(link.href) ? 'text-forest font-medium' : 'text-charcoal hover:text-forest'}`}
+          class="block py-2 text-small font-extrabold text-black"
         >
           {link.label}
         </a>

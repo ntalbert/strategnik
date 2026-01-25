@@ -1,0 +1,178 @@
+---
+// GSAP ScrollTrigger animations component
+// Add data-animate attributes to elements you want to animate
+---
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set initial state for all animated elements
+    gsap.set('[data-animate]', {
+      opacity: 0,
+      y: 30,
+    });
+
+    gsap.set('[data-animate-fade]', {
+      opacity: 0,
+    });
+
+    // Animate elements with data-animate attribute (fade up)
+    const animateElements = document.querySelectorAll('[data-animate]');
+    animateElements.forEach((el) => {
+      const delay = el.dataset.animateDelay || 0;
+
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: parseFloat(delay),
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // Animate elements with data-animate-fade (simple fade)
+    const fadeElements = document.querySelectorAll('[data-animate-fade]');
+    fadeElements.forEach((el) => {
+      const delay = el.dataset.animateDelay || 0;
+
+      gsap.to(el, {
+        opacity: 1,
+        duration: 1,
+        delay: parseFloat(delay),
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // Staggered animations for lists with data-animate-stagger
+    const staggerContainers = document.querySelectorAll('[data-animate-stagger]');
+    staggerContainers.forEach((container) => {
+      const children = container.children;
+      const staggerDelay = container.dataset.animateStagger || 0.1;
+
+      gsap.set(children, {
+        opacity: 0,
+        y: 20,
+      });
+
+      gsap.to(children, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: parseFloat(staggerDelay),
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // Hero text animation (splits by lines)
+    const heroHeadlines = document.querySelectorAll('[data-animate-hero]');
+    heroHeadlines.forEach((el) => {
+      gsap.set(el, {
+        opacity: 0,
+        y: 40,
+      });
+
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        delay: 0.2,
+      });
+    });
+
+    // Hero subtext
+    const heroSubtext = document.querySelectorAll('[data-animate-hero-sub]');
+    heroSubtext.forEach((el) => {
+      gsap.set(el, {
+        opacity: 0,
+        y: 30,
+      });
+
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.5,
+      });
+    });
+
+    // Hero links/CTAs
+    const heroLinks = document.querySelectorAll('[data-animate-hero-links]');
+    heroLinks.forEach((el) => {
+      gsap.set(el, {
+        opacity: 0,
+        y: 20,
+      });
+
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power3.out',
+        delay: 0.8,
+      });
+    });
+
+    // Section labels (small fade in)
+    const sectionLabels = document.querySelectorAll('.section-label');
+    sectionLabels.forEach((el) => {
+      if (!el.hasAttribute('data-animate') && !el.hasAttribute('data-animate-fade')) {
+        gsap.set(el, {
+          opacity: 0,
+        });
+
+        gsap.to(el, {
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        });
+      }
+    });
+
+    // Divider lines animation
+    const dividers = document.querySelectorAll('[data-animate-line]');
+    dividers.forEach((el) => {
+      gsap.set(el, {
+        scaleX: 0,
+        transformOrigin: 'left center',
+      });
+
+      gsap.to(el, {
+        scaleX: 1,
+        duration: 0.8,
+        ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+  });
+</script>

@@ -2,48 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
+/*
  * STRATEGNIK DESIGN SYSTEM
- * Architectural Modernism meets Editorial Clarity
- * 
- * Typography: Söhne (placeholder: Inter until licensed)
- * Colors: Charcoal, Cream, Forest Teal
+ * Minimal, Monochromatic, Content-First
  */
 
-/* ============================================
-   FONT FACE DECLARATIONS
-   Replace these when Söhne license is acquired
-   ============================================ */
-
-/* TODO: Uncomment and update paths when Söhne fonts are available
+/* Custom Fonts */
 @font-face {
-  font-family: 'Söhne';
-  src: url('/fonts/Soehne-Buch.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
+  font-family: 'Sohne Mono';
+  src: url('/fonts/SohneMono-KraftigKursiv.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
-
-@font-face {
-  font-family: 'Söhne';
-  src: url('/fonts/Soehne-Kraftig.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Söhne Mono';
-  src: url('/fonts/SoehneMono-Buch.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-*/
-
-/* ============================================
-   BASE LAYER
-   ============================================ */
 
 @layer base {
   html {
@@ -52,70 +23,64 @@
   }
 
   body {
-    @apply bg-cream text-charcoal font-body;
+    @apply text-black font-sans;
   }
 
-  /* Selection styling */
   ::selection {
-    @apply bg-forest text-cream;
+    @apply bg-black text-white;
   }
 
-  /* Headings */
+  /* Headings - Light weight, let typography breathe */
   h1, h2, h3, h4 {
-    @apply font-display text-charcoal-deep;
+    @apply text-black font-light;
   }
 
   h1 {
-    @apply text-display-lg md:text-display-xl font-semibold;
+    @apply text-display-lg md:text-display-xl;
   }
 
   h2 {
-    @apply text-display font-semibold;
+    @apply text-display;
   }
 
   h3 {
-    @apply text-heading font-semibold;
+    @apply text-heading;
   }
 
   h4 {
-    @apply text-subheading font-semibold;
+    @apply text-subheading;
   }
 
-  /* Body text */
   p {
-    @apply text-body leading-relaxed;
+    @apply text-body;
   }
 
-  /* Links */
+  /* Links - Subtle accent color */
   a {
-    @apply text-forest hover:text-forest-dark transition-colors duration-200;
+    @apply text-accent hover:text-black transition-colors duration-200;
   }
 
   /* Code */
   code {
-    @apply font-mono text-small bg-cream-dark px-1.5 py-0.5 rounded;
+    @apply font-mono text-small bg-gray-100 px-1.5 py-0.5;
   }
 
   pre {
-    @apply font-mono text-small bg-charcoal-deep text-cream p-6 rounded-lg overflow-x-auto;
+    @apply font-mono text-small bg-gray-900 text-white p-6 overflow-x-auto;
   }
 
   pre code {
     @apply bg-transparent p-0;
   }
 
-  /* Horizontal rules */
+  /* Horizontal rules - thin, subtle */
   hr {
-    @apply border-gray-rule my-12;
+    @apply border-gray-200 my-16;
   }
 }
 
-/* ============================================
-   COMPONENT LAYER
-   ============================================ */
-
 @layer components {
-  /* Container */
+  /* Containers */
   .container-content {
     @apply max-w-content mx-auto px-6 md:px-8 lg:px-12;
   }
@@ -128,163 +93,102 @@
     @apply max-w-prose mx-auto px-6;
   }
 
-  /* Buttons */
-  .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 font-display font-medium 
-           transition-all duration-300 ease-out;
-  }
-
-  .btn-primary {
-    @apply btn bg-forest text-cream hover:bg-forest-dark;
-  }
-
-  .btn-secondary {
-    @apply btn bg-transparent text-charcoal border border-charcoal 
-           hover:bg-charcoal hover:text-cream;
-  }
-
-  .btn-ghost {
-    @apply btn text-forest hover:text-forest-dark;
-  }
-
-  /* Cards */
-  .card {
-    @apply bg-cream-dark p-8 transition-all duration-300;
-  }
-
-  .card-hover {
-    @apply card hover:bg-cream hover:shadow-lg hover:-translate-y-1;
-  }
-
-  /* Section spacing */
+  /* Sections with generous whitespace */
   .section {
-    @apply py-16 md:py-24 lg:py-30;
+    @apply py-20 md:py-28 lg:py-32;
   }
 
   .section-sm {
     @apply py-12 md:py-16;
   }
 
-  /* Prose styling for articles */
-  .prose-strategnik {
-    @apply text-body-lg text-charcoal;
+  /* Arrow links - directional cues instead of buttons */
+  .arrow-link {
+    @apply inline-flex items-center gap-2 text-accent hover:text-black transition-colors;
   }
 
-  .prose-strategnik h2 {
-    @apply mt-16 mb-6;
+  .arrow-link::after {
+    content: '→';
+    @apply transition-transform;
   }
 
-  .prose-strategnik h3 {
-    @apply mt-12 mb-4;
+  .arrow-link:hover::after {
+    @apply translate-x-1;
   }
 
-  .prose-strategnik p {
-    @apply mb-6;
-  }
-
-  .prose-strategnik ul, .prose-strategnik ol {
-    @apply mb-6 pl-6;
-  }
-
-  .prose-strategnik li {
-    @apply mb-2;
-  }
-
-  .prose-strategnik blockquote {
-    @apply border-l-4 border-forest pl-6 italic text-gray-mid my-8;
-  }
-
-  .prose-strategnik img {
-    @apply my-8 rounded-lg;
-  }
-
-  /* Navigation link */
+  /* Navigation */
   .nav-link {
-    @apply text-charcoal hover:text-forest transition-colors duration-200 
-           text-small font-medium tracking-wide uppercase;
+    @apply text-gray-600 hover:text-black transition-colors duration-200 text-small;
   }
 
   .nav-link-active {
-    @apply nav-link text-forest;
+    @apply text-black;
   }
 
-  /* Label/tag styling */
-  .label {
-    @apply text-caption font-medium tracking-wider uppercase text-gray-mid;
+  /* Section labels */
+  .section-label {
+    @apply text-caption text-gray-600 tracking-wide mb-6;
   }
 
-  .tag {
-    @apply label px-3 py-1 bg-cream-dark inline-block;
+  /* Thin rule divider */
+  .divider {
+    @apply border-t border-gray-200;
+  }
+
+  /* Prose for long-form content */
+  .prose-minimal {
+    @apply text-body-lg text-gray-900;
+  }
+
+  .prose-minimal h2 {
+    @apply mt-16 mb-6 text-black;
+  }
+
+  .prose-minimal h3 {
+    @apply mt-12 mb-4 text-black;
+  }
+
+  .prose-minimal p {
+    @apply mb-6;
+  }
+
+  .prose-minimal ul, .prose-minimal ol {
+    @apply mb-6 pl-6;
+  }
+
+  .prose-minimal li {
+    @apply mb-2;
+  }
+
+  .prose-minimal blockquote {
+    @apply border-l-2 border-gray-200 pl-6 italic text-gray-600 my-8;
+  }
+
+  .prose-minimal a {
+    @apply underline underline-offset-2;
+  }
+
+  .prose-minimal strong {
+    @apply font-medium text-black;
   }
 }
 
-/* ============================================
-   UTILITIES LAYER
-   ============================================ */
-
 @layer utilities {
-  /* Animation delays for staggered reveals */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-
-  /* Text balance for headlines */
   .text-balance {
     text-wrap: balance;
   }
-
-  /* Architectural grid overlay (for development) */
-  .grid-overlay {
-    background-image: 
-      linear-gradient(to right, rgba(45, 90, 74, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(45, 90, 74, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
 }
 
-/* ============================================
-   ANIMATIONS
-   ============================================ */
+/* Simple fade animation */
+.animate-fade {
+  animation: fadeIn 0.5s ease-out forwards;
+}
 
-/* Smooth page transitions */
-@keyframes pageEnter {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
-}
-
-.page-enter {
-  animation: pageEnter 0.5s ease-out forwards;
-}
-
-/* Kinetic hover effect for cards */
-@keyframes subtle-lift {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2px);
-  }
-}
-
-/* Line draw animation for diagrams */
-@keyframes draw-line {
-  from {
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.draw-line {
-  stroke-dasharray: 1000;
-  animation: draw-line 2s ease-out forwards;
 }
