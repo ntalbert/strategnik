@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const workHistory = [
   {
     company: "BRIA AI",
+    companyDesc: "Visual Generative AI",
     role: "VP, Marketing & Growth Operations",
     period: "2024-2026",
     context: "Open-source visual generative AI platform serving enterprise customers including EA, P&G, Lucasfilm, Disney, and Rakuten.",
@@ -13,6 +14,7 @@ const workHistory = [
   },
   {
     company: "Wallarm",
+    companyDesc: "API Security Platform",
     role: "Demand Gen & Dev Community",
     period: "2023-2024",
     context: "API and application security platform targeting developer and security teams.",
@@ -22,6 +24,7 @@ const workHistory = [
   },
   {
     company: "Lumen Technologies",
+    companyDesc: "Enterprise Network Infrastructure",
     role: "ABM Demand Gen Engine Build",
     period: "2023-2024",
     context: "Enterprise network and edge computing infrastructure.",
@@ -31,6 +34,7 @@ const workHistory = [
   },
   {
     company: "Crux",
+    companyDesc: "Data Engineering Platform",
     role: "Demand Gen Engine Build",
     period: "2022-2023",
     context: "Data engineering platform targeting technical data teams.",
@@ -40,6 +44,7 @@ const workHistory = [
   },
   {
     company: "OnFrontiers",
+    companyDesc: "Expert Network Marketplace",
     role: "Two-Sided Marketplace Growth",
     period: "2021-2022",
     context: "Expert network marketplace connecting enterprise buyers with domain experts.",
@@ -49,6 +54,7 @@ const workHistory = [
   },
   {
     company: "Quartile",
+    companyDesc: "E-commerce Advertising Automation",
     role: "VP of Marketing & Operations",
     period: "2021-2022",
     context: "E-commerce advertising automation platform.",
@@ -58,6 +64,7 @@ const workHistory = [
   },
   {
     company: "Certent",
+    companyDesc: "Equity Management SaaS",
     role: "Senior Director, Global Demand Marketing",
     period: "2018-2021",
     context: "Equity management and financial reporting SaaS.",
@@ -67,6 +74,7 @@ const workHistory = [
   },
   {
     company: "VideoAmp",
+    companyDesc: "Cross-Platform TV Measurement",
     role: "Senior Director of Product Management",
     period: "2017-2018",
     context: "Cross-platform TV and digital measurement platform.",
@@ -76,6 +84,7 @@ const workHistory = [
   },
   {
     company: "Sizmek",
+    companyDesc: "Ad Serving & Creative Optimization",
     role: "VP of Product Management",
     period: "2009-2014",
     context: "Global ad serving and creative optimization platform.",
@@ -85,6 +94,7 @@ const workHistory = [
   },
   {
     company: "Adapt.tv",
+    companyDesc: "Video Advertising DSP",
     role: "Associate VP, Product",
     period: "2014-2015",
     context: "Video advertising platform and DSP.",
@@ -120,12 +130,11 @@ const workHistory = [
         <div>
           <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Work</p>
           <h1 class="text-display-lg text-white font-extrabold mb-8" data-animate-hero>
-            Building engines at inflection points
+            Systems that see what dashboards miss
           </h1>
           <p class="text-body-lg text-white font-bold" data-animate-hero-sub>
-            20+ years across adtech, martech, and B2B SaaS. Three acquisitions.
-            A pattern of joining companies at critical moments and building the
-            demand generation infrastructure that scales.
+            Three exits. A pattern: join when the old approach breaks, build the system
+            that sees what's actually happening, leave it better than I found it.
           </p>
         </div>
       </div>
@@ -185,7 +194,9 @@ const workHistory = [
             <div>
               <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
                 <div>
-                  <h3 class="text-heading text-black font-bold">{work.company}</h3>
+                  <h3 class="text-heading text-black font-bold">
+                    {work.company} <span class="italic font-normal text-gray-500">— {work.companyDesc}</span>
+                  </h3>
                   <p class="text-small text-gray-600">{work.role} · {work.period}</p>
                 </div>
                 {work.outcome && (
