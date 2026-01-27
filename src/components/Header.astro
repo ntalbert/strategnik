@@ -10,20 +10,20 @@ const navLinks = [
 ];
 ---
 
-<header class="py-6 border-b border-gray-200">
+<header class="py-6">
   <nav class="container-content">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="text-heading text-black hover:text-black tracking-tight font-extrabold">
+      <a href="/" class="bg-black/70 rounded-xl px-5 py-3 text-4xl text-white hover:text-gray-200 tracking-tight font-extrabold transition-colors">
         Strategnik
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center gap-8">
+      <div class="hidden md:flex items-center bg-black/70 rounded-xl px-6 py-3 gap-8">
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class={`font-extrabold text-black hover:text-gray-600 transition-colors text-small`}
+            class={`font-extrabold text-white hover:text-gray-300 transition-colors text-lg`}
           >
             {link.label}
           </a>
@@ -33,7 +33,7 @@ const navLinks = [
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 text-gray-600 hover:text-black transition-colors"
+        class="md:hidden p-3 bg-black/70 rounded-xl text-white hover:text-gray-300 transition-colors"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -46,16 +46,18 @@ const navLinks = [
   </nav>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 mt-6">
-    <div class="container-content py-6 space-y-4">
-      {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class="block py-2 text-small font-extrabold text-black"
-        >
-          {link.label}
-        </a>
-      ))}
+  <div id="mobile-menu" class="hidden md:hidden mt-6">
+    <div class="container-content">
+      <div class="bg-black/70 rounded-xl px-6 py-4 space-y-4">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block py-2 text-lg font-extrabold text-white hover:text-gray-300 transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 </header>

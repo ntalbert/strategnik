@@ -4,43 +4,93 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const workHistory = [
   {
     company: "BRIA AI",
-    role: "VP Marketing & Growth",
+    role: "VP, Marketing & Growth Operations",
+    period: "2024-2026",
+    context: "Open-source visual generative AI platform serving enterprise customers including EA, P&G, Lucasfilm, Disney, and Rakuten.",
+    highlight: "Generated $18.3M+ in partner-sourced pipeline via AWS, NVIDIA, and Qualcomm co-marketing programs. Built developer pipeline through community engagement and PLG experimentation. Drove 30% increase in organic traffic through AI-driven discovery optimization.",
+    outcome: null,
+    video: "/videos/work-bria.mp4"
+  },
+  {
+    company: "Wallarm",
+    role: "Demand Gen & Dev Community",
     period: "2023-2024",
-    context: "Series A visual AI platform for enterprise",
-    highlight: "Built significant pipeline through partner-sourced leads from AWS, NVIDIA, and Qualcomm.",
-    outcome: null
+    context: "API and application security platform targeting developer and security teams.",
+    highlight: "20% increase in marketing-sourced pipeline through optimized lead routing and scoring. 30% enhancement in lead quality through data-centric ABM strategy with DemandBase integration. 18% uplift in conversion rates via CRO initiatives.",
+    outcome: null,
+    video: "/videos/work-wallarm.mp4"
+  },
+  {
+    company: "Lumen Technologies",
+    role: "ABM Demand Gen Engine Build",
+    period: "2023-2024",
+    context: "Enterprise network and edge computing infrastructure.",
+    highlight: "26% improvement in data integrity across Salesforce, Marketo, and DemandBase. Developed predictive analytics model improving propensity-to-buy scores by 30%. 25% increase in engagement for banking/finance and retail sectors.",
+    outcome: null,
+    video: "/videos/work-lumen.mp4"
+  },
+  {
+    company: "Crux",
+    role: "Demand Gen Engine Build",
+    period: "2022-2023",
+    context: "Data engineering platform targeting technical data teams.",
+    highlight: "157% increase in lead-to-value velocity through optimized CRM workflows. 25-30% reduction in average cost per MQL and SQL. 40% surge in daily website traffic within two months via rapid-deployment SEO program.",
+    outcome: null,
+    video: "/videos/work-sizmek.mp4"
+  },
+  {
+    company: "OnFrontiers",
+    role: "Two-Sided Marketplace Growth",
+    period: "2021-2022",
+    context: "Expert network marketplace connecting enterprise buyers with domain experts.",
+    highlight: "Built simultaneous demand-side (enterprise buyers) and supply-side (expert network) audiences. 30% reduction in Customer Acquisition Cost through automation and attribution. Delivered 100+ new website pages establishing organic discovery infrastructure.",
+    outcome: null,
+    video: "/videos/work-onfrontiers.mp4"
   },
   {
     company: "Quartile",
-    role: "Demand Generation Leader",
-    period: "2021-2023",
-    context: "E-commerce advertising automation",
-    highlight: "Managed substantial marketing budget under tight EBITDA constraints while maintaining pipeline growth.",
-    outcome: null
+    role: "VP of Marketing & Operations",
+    period: "2021-2022",
+    context: "E-commerce advertising automation platform.",
+    highlight: "Managed $13M annual budget with full attribution visibility. Counteracted 300% surge in SQL costs (Apple privacy updates) in under three weeks through rapid ABM pivot. Reduced BANT-qualified SQL costs by 30% via CRM optimization.",
+    outcome: null,
+    video: "/videos/work-quartile-new.mp4"
   },
   {
     company: "Certent",
-    role: "Marketing Leadership",
-    period: "2019-2021",
-    context: "Equity management and financial reporting SaaS",
-    highlight: "Demonstrated expertise in budget allocation and growth loop optimization for enterprise sales motion.",
-    outcome: null
+    role: "Senior Director, Global Demand Marketing",
+    period: "2018-2021",
+    context: "Equity management and financial reporting SaaS.",
+    highlight: "53% increase in marketing-to-sales pipeline speed. 170% surge in pipeline volume via integrated Salesforce and Marketo automation. ~40% reduction in CAC through continuous analytics optimization. Built infrastructure achieving 35% EBITDA target.",
+    outcome: "Acquired by insightsoftware",
+    video: "/videos/work-certent.mp4"
+  },
+  {
+    company: "VideoAmp",
+    role: "Senior Director of Product Management",
+    period: "2017-2018",
+    context: "Cross-platform TV and digital measurement platform.",
+    highlight: "Defined and operationalized clean room methodologies for activation and measurement within Google clean rooms. Built integrations enabling brands to combine first-party data with Acxiom audiences and set-top box viewership signals.",
+    outcome: null,
+    video: "/videos/work-sizmek.mp4"
   },
   {
     company: "Sizmek",
-    role: "Marketing Strategy",
-    period: "Earlier",
-    context: "Adtech platform",
-    highlight: "Part of leadership team through acquisition. Built demand programs for complex, technical buying committees.",
-    outcome: "Acquired by Amazon"
+    role: "VP of Product Management",
+    period: "2009-2014",
+    context: "Global ad serving and creative optimization platform.",
+    highlight: "Led team of 12 product managers, marketers, and analysts. Owned product vision for advertiser reporting console and smart creative versioning. Defined PRDs for OLAP-based analytics enabling performance analysis across placements, audiences, and messaging.",
+    outcome: "Acquired by Amazon",
+    video: "/videos/work-sizmek.mp4"
   },
   {
     company: "Adapt.tv",
-    role: "Marketing Strategy",
-    period: "Earlier",
-    context: "Video advertising platform",
-    highlight: "Early stage marketing leadership building brand and demand in emerging category.",
-    outcome: "Acquired by AOL"
+    role: "Associate VP, Product",
+    period: "2014-2015",
+    context: "Video advertising platform and DSP.",
+    highlight: "Led integration of Convertro multi-touch attribution data into AOL One Platform. Owned end-to-end methodology for ingesting, normalizing, and activating attribution signals across display and video at enterprise scale.",
+    outcome: "Acquired by AOL",
+    video: "/videos/work-adapttv.mp4"
   }
 ];
 ---
@@ -51,39 +101,60 @@ const workHistory = [
 >
 
   <!-- Hero -->
-  <section class="section">
-    <div class="container-narrow">
-      <p class="section-label">Work</p>
-      <h1 class="text-display-lg mb-8" data-animate-hero>
-        Building engines at inflection points
-      </h1>
-      <p class="text-body-lg text-gray-600" data-animate-hero-sub>
-        20+ years across adtech, martech, and B2B SaaS. Three acquisitions.
-        A pattern of joining companies at critical moments and building the
-        demand generation infrastructure that scales.
-      </p>
+  <section class="section bg-black">
+    <div class="container-content">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Video -->
+        <div class="rounded-xl overflow-hidden">
+          <video
+            class="w-full h-auto"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source src="/videos/flora.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <!-- Text -->
+        <div>
+          <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Work</p>
+          <h1 class="text-display-lg text-white font-extrabold mb-8" data-animate-hero>
+            Building engines at inflection points
+          </h1>
+          <p class="text-body-lg text-white font-bold" data-animate-hero-sub>
+            20+ years across adtech, martech, and B2B SaaS. Three acquisitions.
+            A pattern of joining companies at critical moments and building the
+            demand generation infrastructure that scales.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Stats -->
-  <section class="section-sm border-t border-gray-200">
-    <div class="container-narrow">
-      <div class="flex flex-wrap gap-12" data-animate-stagger="0.1">
-        <div>
-          <p class="text-display-lg text-black">20+</p>
-          <p class="text-small text-gray-600">Years in B2B SaaS</p>
+  <section class="section-sm bg-black">
+    <div class="container-content">
+      <div class="flex flex-wrap gap-12 justify-center" data-animate-stagger="0.1">
+        <div class="text-center">
+          <p class="text-display-lg text-white font-extrabold">20+</p>
+          <p class="text-small text-[#0165fc] font-bold">Years in Tech</p>
         </div>
-        <div>
-          <p class="text-display-lg text-black">3</p>
-          <p class="text-small text-gray-600">Companies acquired</p>
+        <div class="text-center">
+          <p class="text-display-lg text-white font-extrabold">$18M+</p>
+          <p class="text-small text-[#0165fc] font-bold">Partner Pipeline</p>
         </div>
-        <div>
-          <p class="text-display-lg text-black">F500</p>
-          <p class="text-small text-gray-600">Client experience</p>
+        <div class="text-center">
+          <p class="text-display-lg text-white font-extrabold">3</p>
+          <p class="text-small text-[#0165fc] font-bold">Acquisitions</p>
         </div>
-        <div>
-          <p class="text-display-lg text-black">A→C</p>
-          <p class="text-small text-gray-600">Series expertise</p>
+        <div class="text-center">
+          <p class="text-display-lg text-white font-extrabold">$13M</p>
+          <p class="text-small text-[#0165fc] font-bold">Budget Managed</p>
+        </div>
+        <div class="text-center">
+          <p class="text-display-lg text-white font-extrabold">170%</p>
+          <p class="text-small text-[#0165fc] font-bold">Pipeline Growth</p>
         </div>
       </div>
     </div>
@@ -91,30 +162,45 @@ const workHistory = [
 
   <!-- Work History -->
   <section class="section border-t border-gray-200">
-    <div class="container-narrow">
+    <div class="container-content">
       <p class="section-label">Experience</p>
       <h2 class="text-display mb-12" data-animate>Selected Work</h2>
 
       <div class="space-y-12" data-animate-stagger="0.1">
         {workHistory.map((work) => (
-          <div class="border-b border-gray-100 pb-12 last:border-0">
-            <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
-              <div>
-                <h3 class="text-heading text-black">{work.company}</h3>
-                <p class="text-small text-gray-600">{work.role} · {work.period}</p>
-              </div>
-              {work.outcome && (
-                <span class="text-small text-accent">
-                  {work.outcome}
-                </span>
-              )}
+          <div class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-100 pb-12 last:border-0">
+            <!-- Video Column (1/3) -->
+            <div class="flex justify-center md:justify-start">
+              <video
+                class="w-full max-w-[280px] aspect-video object-cover rounded-2xl"
+                autoplay
+                muted
+                loop
+                playsinline
+              >
+                <source src={work.video} type="video/mp4" />
+              </video>
             </div>
-            <p class="text-body text-gray-600 mb-2">
-              {work.context}
-            </p>
-            <p class="text-body text-gray-600">
-              {work.highlight}
-            </p>
+            <!-- Content Column (2/3) -->
+            <div>
+              <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+                <div>
+                  <h3 class="text-heading text-black font-bold">{work.company}</h3>
+                  <p class="text-small text-gray-600">{work.role} · {work.period}</p>
+                </div>
+                {work.outcome && (
+                  <span class="text-small text-[#0165fc] font-bold">
+                    {work.outcome}
+                  </span>
+                )}
+              </div>
+              <p class="text-body text-gray-600 mb-2">
+                {work.context}
+              </p>
+              <p class="text-body text-gray-600">
+                {work.highlight}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -122,40 +208,48 @@ const workHistory = [
   </section>
 
   <!-- Earlier Work -->
-  <section class="section border-t border-gray-200">
-    <div class="container-narrow">
-      <p class="section-label">Earlier Career</p>
-      <h2 class="text-heading mb-6" data-animate>Agency & Consulting Background</h2>
-      <div class="prose-minimal">
-        <p data-animate data-animate-delay="0.1">
-          Before going in-house, I spent years on the agency and consulting side, working
-          with brands including Yahoo, Discovery Communications, and Conde Nast. This
-          background in brand strategy and consumer insight research informs how I think
-          about B2B positioning—the same principles apply, just with different buying
-          dynamics.
-        </p>
-        <p data-animate data-animate-delay="0.15">
-          The agency experience taught me to diagnose quickly and execute pragmatically.
-          When you're billing by the hour, you learn to find the lever that matters instead
-          of boiling the ocean.
-        </p>
+  <section class="section bg-black">
+    <div class="container-content">
+      <p class="text-caption text-[#0165fc] tracking-wide mb-6 font-bold">Earlier Career</p>
+      <h2 class="text-display text-white font-extrabold mb-8" data-animate>Agency, Academia & Brand Strategy</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-heading text-white font-bold mb-4">Agency Leadership</h3>
+          <p class="text-body text-gray-300 mb-4">
+            Account Strategy Director across top agencies including Goodby & Silverstein, Carat SF, and David/Goliath. Managed eight-figure media budgets and oversaw teams for 45+ clients.
+          </p>
+          <p class="text-body text-gray-300 mb-4">
+            Enterprise clients included Bellagio Hotel and Casino, Discovery Channel, Yahoo!, Conde Nast, Kodak, EA, Adobe, and Cadbury-Schweppes.
+          </p>
+          <p class="text-small text-[#0165fc] font-bold">Nominated for Ad Age's "Top People to Watch Under 30"</p>
+        </div>
+        <div>
+          <h3 class="text-heading text-white font-bold mb-4">Academia & Brand Consulting</h3>
+          <p class="text-body text-gray-300 mb-4">
+            10 years as Adjunct Professor of Digital Marketing Strategy at Academy of Art University. Developed curriculum bridging technical infrastructure, data strategy, and creative execution.
+          </p>
+          <p class="text-body text-gray-300 mb-4">
+            Senior Brand Strategist at Tattoo Brand Consulting—research contributed to greenlight of Travel Channel's <em>Bizarre Foods</em> and <em>Anthony Bourdain: No Reservations</em>.
+          </p>
+          <p class="text-small text-[#0165fc] font-bold">University of Chicago Executive Program in Behavioral Economics</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section border-t border-gray-200">
-    <div class="container-narrow">
-      <h2 class="text-heading mb-4" data-animate>Want the full story?</h2>
-      <p class="text-body text-gray-600 mb-6 max-w-prose" data-animate data-animate-delay="0.1">
+  <section class="section border-t border-gray-800 bg-black">
+    <div class="container-content text-center">
+      <h2 class="text-display text-white font-extrabold mb-4" data-animate>Want the full story?</h2>
+      <p class="text-body-lg text-gray-300 mb-8 max-w-prose mx-auto" data-animate data-animate-delay="0.1">
         The best way to understand how I work is to have a conversation.
         No pitch, just discussion.
       </p>
-      <div class="flex flex-wrap gap-6" data-animate data-animate-delay="0.2">
-        <a href="mailto:nick@strategnik.com" class="text-black hover:text-accent transition-colors">
+      <div class="flex flex-wrap gap-8 justify-center" data-animate data-animate-delay="0.2">
+        <a href="mailto:nick@strategnik.com" class="text-white font-bold hover:text-[#0165fc] transition-colors text-lg">
           Get in touch →
         </a>
-        <a href="/about" class="text-gray-600 hover:text-black transition-colors">
+        <a href="/about" class="text-[#0165fc] font-bold hover:text-white transition-colors text-lg">
           Read more about me →
         </a>
       </div>
