@@ -127,13 +127,13 @@ const workHistory = [
         <!-- Video with parallax -->
         <div class="rounded-xl overflow-hidden" data-parallax data-speed="0.3" data-direction="up">
           <video
-            class="w-full h-auto scale-110"
-            autoplay
+            class="w-full h-auto scale-110 lazy-video"
             muted
             loop
             playsinline
+            preload="none"
+            data-src="/videos/flora.mp4"
           >
-            <source src="/videos/flora.mp4" type="video/mp4" />
           </video>
         </div>
         <!-- Text with kinetic typography -->
@@ -191,13 +191,13 @@ const workHistory = [
             <!-- Video Column (1/3) with reveal animation -->
             <div class="flex justify-center md:justify-start" data-reveal data-reveal-direction={index % 2 === 0 ? 'left' : 'right'}>
               <video
-                class="w-full max-w-[280px] aspect-video object-cover rounded-2xl"
-                autoplay
+                class="w-full max-w-[280px] aspect-video object-cover rounded-2xl lazy-video"
                 muted
                 loop
                 playsinline
+                preload="none"
+                data-src={work.video}
               >
-                <source src={work.video} type="video/mp4" />
               </video>
             </div>
             <!-- Content Column (2/3) with kinetic text -->
@@ -278,4 +278,35 @@ const workHistory = [
     </div>
   </section>
 
+  <!-- Lazy load videos script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lazyVideos = document.querySelectorAll('.lazy-video');
+
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const video = entry.target as HTMLVideoElement;
+            const src = video.dataset.src;
+
+            if (src && !video.querySelector('source')) {
+              const source = document.createElement('source');
+              source.src = src;
+              source.type = 'video/mp4';
+              video.appendChild(source);
+              video.load();
+              video.play().catch(() => {});
+            }
+
+            videoObserver.unobserve(video);
+          }
+        });
+      }, {
+        rootMargin: '100px',
+        threshold: 0.1
+      });
+
+      lazyVideos.forEach(video => videoObserver.observe(video));
+    });
+  </script>
 </BaseLayout>
