@@ -4,42 +4,54 @@ import PostCard from '../../components/PostCard.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import { getPublishedPosts, getPostDate } from '../../lib/beehiiv';
 
-// Fetch posts from Beehiiv
-const beehiivPosts = await getPublishedPosts(20);
+// ============================================
+// LOCAL POSTS - Add your posts here
+// ============================================
+const localPosts = [
+  {
+    title: "Momentum: Why Some Marketing Investments Compound",
+    description: "In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better and bad ones get worse.",
+    date: new Date('2025-01-10'),
+    category: 'physics',
+    slug: 'momentum-marketing-investments',
+    url: null, // null = local post (will link to /writing/[slug])
+  },
+  {
+    title: "The Friction Problem Nobody Talks About",
+    description: "Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with.",
+    date: new Date('2025-01-05'),
+    category: 'field-notes',
+    slug: 'friction-problem',
+    url: null,
+  },
+  {
+    title: "Inflection Points: When to Pour Fuel on the Fire",
+    description: "The difference between growth-stage success and failure often comes down to recognizing the moment when your marketing engine is ready to scale.",
+    date: new Date('2024-12-28'),
+    category: 'playbook',
+    slug: 'inflection-points',
+    url: null,
+  },
+];
 
-// Transform Beehiiv posts to our format
-const posts = beehiivPosts.length > 0
-  ? beehiivPosts.map((post) => ({
-      title: post.title,
-      description: post.subtitle || 'Read more on this topic...',
-      date: getPostDate(post),
-      category: post.content_tags?.[0] || 'field-notes',
-      slug: post.slug,
-      url: post.web_url,
-    }))
-  : [
-      {
-        title: "Momentum: Why Some Marketing Investments Compound",
-        description: "In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better and bad ones get worse.",
-        date: new Date('2025-01-10'),
-        category: 'physics',
-        slug: 'momentum-marketing-investments',
-      },
-      {
-        title: "The Friction Problem Nobody Talks About",
-        description: "Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with.",
-        date: new Date('2025-01-05'),
-        category: 'field-notes',
-        slug: 'friction-problem',
-      },
-      {
-        title: "Inflection Points: When to Pour Fuel on the Fire",
-        description: "The difference between growth-stage success and failure often comes down to recognizing the moment when your marketing engine is ready to scale.",
-        date: new Date('2024-12-28'),
-        category: 'playbook',
-        slug: 'inflection-points',
-      },
-    ];
+// ============================================
+// BEEHIIV POSTS - Fetched automatically
+// ============================================
+const beehiivPosts = await getPublishedPosts(20);
+const transformedBeehiivPosts = beehiivPosts.map((post) => ({
+  title: post.title,
+  description: post.subtitle || 'Read more on this topic...',
+  date: getPostDate(post),
+  category: post.content_tags?.[0] || 'field-notes',
+  slug: post.slug,
+  url: post.web_url, // Links to Beehiiv
+}));
+
+// ============================================
+// COMBINE & SORT - Newest first
+// ============================================
+const allPosts = [...localPosts, ...transformedBeehiivPosts];
+const posts = allPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <BaseLayout
