@@ -1,6 +1,16 @@
 ---
 // GSAP ScrollTrigger animations component
 // Add data-animate attributes to elements you want to animate
+//
+// Available animations:
+// - data-animate: fade up
+// - data-animate-fade: simple fade
+// - data-animate-stagger: staggered children
+// - data-parallax: parallax scrolling (use data-speed for intensity, default 0.5)
+// - data-float: floating/hovering effect
+// - data-kinetic: kinetic typography (slides in from side)
+// - data-kinetic-up: kinetic typography from bottom
+// - data-split-text: split text character animation
 ---
 
 <script>
@@ -170,6 +180,222 @@
         scrollTrigger: {
           trigger: el,
           start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // ============================================
+    // PARALLAX SCROLLING
+    // Elements move at different speeds creating depth
+    // ============================================
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    parallaxElements.forEach((el) => {
+      const speed = parseFloat(el.dataset.speed) || 0.5;
+      const direction = el.dataset.direction || 'up'; // up, down, left, right
+
+      let yMove = speed * 100;
+      let xMove = 0;
+
+      if (direction === 'down') yMove = -speed * 100;
+      if (direction === 'left') { xMove = speed * 100; yMove = 0; }
+      if (direction === 'right') { xMove = -speed * 100; yMove = 0; }
+
+      gsap.to(el, {
+        y: direction === 'up' || direction === 'down' ? -yMove : 0,
+        x: direction === 'left' || direction === 'right' ? -xMove : 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+
+    // ============================================
+    // FLOATING EFFECT
+    // Creates a gentle hovering/floating animation
+    // ============================================
+    const floatElements = document.querySelectorAll('[data-float]');
+    floatElements.forEach((el) => {
+      const intensity = parseFloat(el.dataset.floatIntensity) || 20;
+      const duration = parseFloat(el.dataset.floatDuration) || 3;
+
+      // Initial state
+      gsap.set(el, { y: 0 });
+
+      // Continuous floating animation
+      gsap.to(el, {
+        y: -intensity,
+        duration: duration,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+      });
+    });
+
+    // ============================================
+    // KINETIC TYPOGRAPHY - Slide from side
+    // Text slides in from left or right
+    // ============================================
+    const kineticElements = document.querySelectorAll('[data-kinetic]');
+    kineticElements.forEach((el) => {
+      const direction = el.dataset.kineticDirection || 'left'; // left or right
+      const startX = direction === 'left' ? -100 : 100;
+
+      gsap.set(el, {
+        opacity: 0,
+        x: startX,
+      });
+
+      gsap.to(el, {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // ============================================
+    // KINETIC TYPOGRAPHY - Slide from bottom with rotation
+    // Text flies up with slight rotation
+    // ============================================
+    const kineticUpElements = document.querySelectorAll('[data-kinetic-up]');
+    kineticUpElements.forEach((el) => {
+      gsap.set(el, {
+        opacity: 0,
+        y: 80,
+        rotateX: 20,
+      });
+
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // ============================================
+    // SPLIT TEXT CHARACTER ANIMATION
+    // Each character animates in separately
+    // ============================================
+    const splitTextElements = document.querySelectorAll('[data-split-text]');
+    splitTextElements.forEach((el) => {
+      const text = el.textContent;
+      const chars = text.split('');
+      el.textContent = '';
+
+      chars.forEach((char) => {
+        const span = document.createElement('span');
+        span.textContent = char === ' ' ? '\u00A0' : char;
+        span.style.display = 'inline-block';
+        span.style.opacity = '0';
+        span.style.transform = 'translateY(50px) rotateX(90deg)';
+        el.appendChild(span);
+      });
+
+      const charSpans = el.querySelectorAll('span');
+
+      gsap.to(charSpans, {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        duration: 0.6,
+        stagger: 0.03,
+        ease: 'back.out(1.7)',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+
+    // ============================================
+    // SCROLL-LINKED SCALE
+    // Elements scale based on scroll position
+    // ============================================
+    const scaleElements = document.querySelectorAll('[data-scroll-scale]');
+    scaleElements.forEach((el) => {
+      const startScale = parseFloat(el.dataset.scaleStart) || 0.8;
+      const endScale = parseFloat(el.dataset.scaleEnd) || 1;
+
+      gsap.fromTo(el,
+        { scale: startScale },
+        {
+          scale: endScale,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top bottom',
+            end: 'top center',
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    // ============================================
+    // 3D TILT ON SCROLL
+    // Creates a 3D perspective tilt effect
+    // ============================================
+    const tiltElements = document.querySelectorAll('[data-scroll-tilt]');
+    tiltElements.forEach((el) => {
+      el.style.transformStyle = 'preserve-3d';
+      el.style.perspective = '1000px';
+
+      gsap.fromTo(el,
+        { rotateY: -15, rotateX: 10 },
+        {
+          rotateY: 0,
+          rotateX: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top bottom',
+            end: 'center center',
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    // ============================================
+    // REVEAL MASK ANIMATION
+    // Content reveals from behind a mask
+    // ============================================
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    revealElements.forEach((el) => {
+      const direction = el.dataset.revealDirection || 'left'; // left, right, up, down
+
+      gsap.set(el, {
+        clipPath: direction === 'left' ? 'inset(0 100% 0 0)' :
+                  direction === 'right' ? 'inset(0 0 0 100%)' :
+                  direction === 'up' ? 'inset(100% 0 0 0)' :
+                  'inset(0 0 100% 0)',
+      });
+
+      gsap.to(el, {
+        clipPath: 'inset(0 0 0 0)',
+        duration: 1.2,
+        ease: 'power4.inOut',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
           toggleActions: 'play none none none',
         },
       });

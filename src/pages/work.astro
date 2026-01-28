@@ -121,13 +121,13 @@ const workHistory = [
 >
 
   <!-- Hero -->
-  <section class="section bg-black">
+  <section class="section bg-black overflow-hidden">
     <div class="container-content">
       <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- Video -->
-        <div class="rounded-xl overflow-hidden">
+        <!-- Video with parallax -->
+        <div class="rounded-xl overflow-hidden" data-parallax data-speed="0.3" data-direction="up">
           <video
-            class="w-full h-auto"
+            class="w-full h-auto scale-110"
             autoplay
             muted
             loop
@@ -136,13 +136,13 @@ const workHistory = [
             <source src="/videos/flora.mp4" type="video/mp4" />
           </video>
         </div>
-        <!-- Text -->
+        <!-- Text with kinetic typography -->
         <div>
-          <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Work</p>
-          <h1 class="text-display-lg text-white font-extrabold mb-8" data-animate-hero>
+          <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold" data-kinetic data-kinetic-direction="left">Work</p>
+          <h1 class="text-display-lg text-white font-extrabold mb-8" data-kinetic-up>
             Build the systems that see what dashboards miss
           </h1>
-          <p class="text-body-lg text-white font-bold" data-animate-hero-sub>
+          <p class="text-body-lg text-white font-bold" data-kinetic data-kinetic-direction="right">
             Three exits. A pattern: I get brought in when the old approach breaks, I architect and build the system that sees what's actually happening, leave it better than I found it.
           </p>
         </div>
@@ -150,23 +150,23 @@ const workHistory = [
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="section-sm bg-black">
+  <!-- Stats with floating numbers -->
+  <section class="section-sm bg-black overflow-hidden">
     <div class="container-content">
-      <div class="flex flex-wrap gap-12 justify-center" data-animate-stagger="0.1">
-        <div class="text-center">
+      <div class="flex flex-wrap gap-12 justify-center">
+        <div class="text-center" data-float data-float-intensity="8" data-float-duration="2.5">
           <p class="text-display-lg text-white font-extrabold">20+</p>
           <p class="text-small text-[#0165fc] font-bold">Years in Tech</p>
         </div>
-        <div class="text-center">
+        <div class="text-center" data-float data-float-intensity="12" data-float-duration="3">
           <p class="text-display-lg text-white font-extrabold">3</p>
           <p class="text-small text-[#0165fc] font-bold">Acquisitions</p>
         </div>
-        <div class="text-center">
+        <div class="text-center" data-float data-float-intensity="10" data-float-duration="2.8">
           <p class="text-display-lg text-white font-extrabold">~100%</p>
           <p class="text-small text-[#0165fc] font-bold">Avg Pipeline Growth</p>
         </div>
-        <div class="text-center">
+        <div class="text-center" data-float data-float-intensity="6" data-float-duration="3.2">
           <p class="text-display-lg text-white font-extrabold">~32%</p>
           <p class="text-small text-[#0165fc] font-bold">Avg CAC Reduction</p>
         </div>
@@ -175,16 +175,21 @@ const workHistory = [
   </section>
 
   <!-- Work History -->
-  <section class="section border-t border-gray-200">
+  <section class="section border-t border-gray-200 overflow-hidden">
     <div class="container-content">
-      <p class="section-label">Experience</p>
-      <h2 class="text-display mb-12" data-animate>Selected Work</h2>
+      <p class="section-label" data-kinetic data-kinetic-direction="left">Experience</p>
+      <h2 class="text-display mb-12" data-kinetic-up>Selected Work</h2>
 
-      <div class="space-y-12" data-animate-stagger="0.1">
-        {workHistory.map((work) => (
-          <div class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-100 pb-12 last:border-0">
-            <!-- Video Column (1/3) -->
-            <div class="flex justify-center md:justify-start">
+      <div class="space-y-16">
+        {workHistory.map((work, index) => (
+          <div
+            class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-100 pb-12 last:border-0"
+            data-parallax
+            data-speed={0.1 + (index % 3) * 0.05}
+            data-direction="up"
+          >
+            <!-- Video Column (1/3) with reveal animation -->
+            <div class="flex justify-center md:justify-start" data-reveal data-reveal-direction={index % 2 === 0 ? 'left' : 'right'}>
               <video
                 class="w-full max-w-[280px] aspect-video object-cover rounded-2xl"
                 autoplay
@@ -195,10 +200,10 @@ const workHistory = [
                 <source src={work.video} type="video/mp4" />
               </video>
             </div>
-            <!-- Content Column (2/3) -->
+            <!-- Content Column (2/3) with kinetic text -->
             <div>
               <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
-                <div>
+                <div data-kinetic data-kinetic-direction={index % 2 === 0 ? 'left' : 'right'}>
                   <h3 class="text-heading text-black font-bold flex items-center gap-3">
                     <img src={work.logo} alt={`${work.company} logo`} class="h-6 w-auto" />
                     {work.company} <span class="italic font-normal text-gray-500">— {work.companyDesc}</span>
@@ -206,15 +211,15 @@ const workHistory = [
                   <p class="text-small text-gray-600">{work.role} · {work.period}</p>
                 </div>
                 {work.outcome && (
-                  <span class="text-small text-[#0165fc] font-bold">
+                  <span class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="5" data-float-duration="2">
                     {work.outcome}
                   </span>
                 )}
               </div>
-              <p class="text-body text-gray-600 mb-2">
+              <p class="text-body text-gray-600 mb-2" data-animate>
                 {work.context}
               </p>
-              <p class="text-body text-gray-600">
+              <p class="text-body text-gray-600" data-animate data-animate-delay="0.1">
                 {work.highlight}
               </p>
             </div>
@@ -224,49 +229,49 @@ const workHistory = [
     </div>
   </section>
 
-  <!-- Earlier Work -->
-  <section class="section bg-black">
+  <!-- Earlier Work with parallax columns -->
+  <section class="section bg-black overflow-hidden">
     <div class="container-content">
-      <p class="text-caption text-[#0165fc] tracking-wide mb-6 font-bold">Earlier Career</p>
-      <h2 class="text-display text-white font-extrabold mb-8" data-animate>Agency, Academia & Brand Strategy</h2>
+      <p class="text-caption text-[#0165fc] tracking-wide mb-6 font-bold" data-kinetic data-kinetic-direction="left">Earlier Career</p>
+      <h2 class="text-display text-white font-extrabold mb-8" data-kinetic-up>Agency, Academia & Brand Strategy</h2>
       <div class="grid md:grid-cols-2 gap-12">
-        <div>
-          <h3 class="text-heading text-white font-bold mb-4">Agency Leadership</h3>
-          <p class="text-body text-gray-300 mb-4">
+        <div data-parallax data-speed="0.15" data-direction="up">
+          <h3 class="text-heading text-white font-bold mb-4" data-kinetic data-kinetic-direction="left">Agency Leadership</h3>
+          <p class="text-body text-gray-300 mb-4" data-animate>
             Account Strategy Director across top agencies including Goodby & Silverstein, Carat SF, and David/Goliath. Managed eight-figure media budgets and oversaw teams for 45+ clients.
           </p>
-          <p class="text-body text-gray-300 mb-4">
+          <p class="text-body text-gray-300 mb-4" data-animate data-animate-delay="0.1">
             Enterprise clients included Bellagio Hotel and Casino, Discovery Channel, Yahoo!, Conde Nast, Kodak, EA, Adobe, and Cadbury-Schweppes.
           </p>
-          <p class="text-small text-[#0165fc] font-bold">Nominated for Ad Age's "Top People to Watch Under 30"</p>
+          <p class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="5" data-float-duration="2.5">Nominated for Ad Age's "Top People to Watch Under 30"</p>
         </div>
-        <div>
-          <h3 class="text-heading text-white font-bold mb-4">Academia & Brand Consulting</h3>
-          <p class="text-body text-gray-300 mb-4">
+        <div data-parallax data-speed="0.25" data-direction="up">
+          <h3 class="text-heading text-white font-bold mb-4" data-kinetic data-kinetic-direction="right">Academia & Brand Consulting</h3>
+          <p class="text-body text-gray-300 mb-4" data-animate>
             10 years as Adjunct Professor of Digital Marketing Strategy at Academy of Art University. Developed curriculum bridging technical infrastructure, data strategy, and creative execution.
           </p>
-          <p class="text-body text-gray-300 mb-4">
+          <p class="text-body text-gray-300 mb-4" data-animate data-animate-delay="0.1">
             Senior Brand Strategist at Tattoo Brand Consulting—research contributed to greenlight of Travel Channel's <em>Bizarre Foods</em> and <em>Anthony Bourdain: No Reservations</em>.
           </p>
-          <p class="text-small text-[#0165fc] font-bold">University of Chicago Executive Program in Behavioral Economics</p>
+          <p class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="6" data-float-duration="2.8">University of Chicago Executive Program in Behavioral Economics</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section border-t border-gray-800 bg-black">
+  <!-- CTA with scale and kinetic effects -->
+  <section class="section border-t border-gray-800 bg-black overflow-hidden">
     <div class="container-content text-center">
-      <h2 class="text-display text-white font-extrabold mb-4" data-animate>Want the full story?</h2>
-      <p class="text-body-lg text-gray-300 mb-8 max-w-prose mx-auto" data-animate data-animate-delay="0.1">
+      <h2 class="text-display text-white font-extrabold mb-4" data-scroll-scale data-scale-start="0.9" data-scale-end="1">Want the full story?</h2>
+      <p class="text-body-lg text-gray-300 mb-8 max-w-prose mx-auto" data-kinetic-up>
         The best way to understand how I work is to have a conversation.
         No pitch, just discussion.
       </p>
-      <div class="flex flex-wrap gap-8 justify-center" data-animate data-animate-delay="0.2">
-        <a href="mailto:nick@strategnik.com" class="text-white font-bold hover:text-[#0165fc] transition-colors text-lg">
+      <div class="flex flex-wrap gap-8 justify-center">
+        <a href="mailto:nick@strategnik.com" class="text-white font-bold hover:text-[#0165fc] transition-colors text-lg" data-kinetic data-kinetic-direction="left">
           Get in touch →
         </a>
-        <a href="/about" class="text-[#0165fc] font-bold hover:text-white transition-colors text-lg">
+        <a href="/about" class="text-[#0165fc] font-bold hover:text-white transition-colors text-lg" data-kinetic data-kinetic-direction="right">
           Read more about me →
         </a>
       </div>
