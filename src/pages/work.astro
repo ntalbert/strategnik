@@ -124,10 +124,10 @@ const workHistory = [
   <section class="section bg-black overflow-hidden">
     <div class="container-content">
       <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- Video with parallax -->
-        <div class="rounded-xl overflow-hidden" data-parallax data-speed="0.3" data-direction="up">
+        <!-- Video -->
+        <div class="rounded-xl overflow-hidden">
           <video
-            class="w-full h-auto scale-110 lazy-video"
+            class="w-full h-auto lazy-video"
             muted
             loop
             playsinline
@@ -182,14 +182,9 @@ const workHistory = [
 
       <div class="space-y-16">
         {workHistory.map((work, index) => (
-          <div
-            class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-100 pb-12 last:border-0"
-            data-parallax
-            data-speed={0.1 + (index % 3) * 0.05}
-            data-direction="up"
-          >
-            <!-- Video Column (1/3) with reveal animation -->
-            <div class="flex justify-center md:justify-start" data-reveal data-reveal-direction={index % 2 === 0 ? 'left' : 'right'}>
+          <div class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-100 pb-12 last:border-0">
+            <!-- Video Column (1/3) -->
+            <div class="flex justify-center md:justify-start">
               <video
                 class="w-full max-w-[280px] aspect-video object-cover rounded-2xl lazy-video"
                 muted
