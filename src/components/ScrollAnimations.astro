@@ -241,26 +241,39 @@
     // Text slides in from left or right
     // ============================================
     const kineticElements = document.querySelectorAll('[data-kinetic]');
-    kineticElements.forEach((el) => {
+    kineticElements.forEach((el, index) => {
       const direction = el.dataset.kineticDirection || 'left'; // left or right
       const startX = direction === 'left' ? -100 : 100;
+      const rect = el.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight;
 
       gsap.set(el, {
         opacity: 0,
         x: startX,
       });
 
-      gsap.to(el, {
-        opacity: 1,
-        x: 0,
-        duration: 1.2,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      });
+      if (isInView) {
+        // Animate immediately with stagger for hero elements
+        gsap.to(el, {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          delay: 0.2 + (index * 0.15),
+          ease: 'power4.out',
+        });
+      } else {
+        gsap.to(el, {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        });
+      }
     });
 
     // ============================================
@@ -269,24 +282,39 @@
     // ============================================
     const kineticUpElements = document.querySelectorAll('[data-kinetic-up]');
     kineticUpElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight;
+
       gsap.set(el, {
         opacity: 0,
         y: 80,
         rotateX: 20,
       });
 
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-        },
-      });
+      if (isInView) {
+        // Animate immediately for hero elements
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: 'power3.out',
+        });
+      } else {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+          },
+        });
+      }
     });
 
     // ============================================
