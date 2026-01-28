@@ -10,7 +10,8 @@ const workHistory = [
     context: "Open-source visual generative AI platform serving enterprise customers including EA, P&G, Lucasfilm, Disney, and Rakuten.",
     highlight: "Generated $18.3M+ in partner-sourced pipeline via AWS, NVIDIA, and Qualcomm co-marketing programs. Built developer pipeline through community engagement and PLG experimentation. Drove 30% increase in organic traffic through AI-driven discovery optimization.",
     outcome: null,
-    video: "/videos/work-bria.mp4"
+    video: "/videos/work-bria.mp4",
+    logo: "/logos/bria.svg"
   },
   {
     company: "Wallarm",
@@ -20,7 +21,8 @@ const workHistory = [
     context: "API and application security platform targeting developer and security teams.",
     highlight: "20% increase in marketing-sourced pipeline through optimized lead routing and scoring. 30% enhancement in lead quality through data-centric ABM strategy with DemandBase integration. 18% uplift in conversion rates via CRO initiatives.",
     outcome: null,
-    video: "/videos/work-wallarm.mp4"
+    video: "/videos/work-wallarm.mp4",
+    logo: "/logos/wallarm.svg"
   },
   {
     company: "Lumen Technologies",
@@ -30,7 +32,8 @@ const workHistory = [
     context: "Enterprise network and edge computing infrastructure.",
     highlight: "26% improvement in data integrity across Salesforce, Marketo, and DemandBase. Developed predictive analytics model improving propensity-to-buy scores by 30%. 25% increase in engagement for banking/finance and retail sectors.",
     outcome: null,
-    video: "/videos/work-lumen.mp4"
+    video: "/videos/work-lumen.mp4",
+    logo: "/logos/lumen.png"
   },
   {
     company: "Crux",
@@ -40,7 +43,8 @@ const workHistory = [
     context: "Data engineering platform targeting technical data teams.",
     highlight: "157% increase in lead-to-value velocity through optimized CRM workflows. 25-30% reduction in average cost per MQL and SQL. 40% surge in daily website traffic within two months via rapid-deployment SEO program.",
     outcome: null,
-    video: "/videos/work-sizmek.mp4"
+    video: "/videos/work-sizmek.mp4",
+    logo: "/logos/crux.png"
   },
   {
     company: "OnFrontiers",
@@ -50,7 +54,8 @@ const workHistory = [
     context: "Expert network marketplace connecting enterprise buyers with domain experts.",
     highlight: "Built simultaneous demand-side (enterprise buyers) and supply-side (expert network) audiences. 30% reduction in Customer Acquisition Cost through automation and attribution. Delivered 100+ new website pages establishing organic discovery infrastructure.",
     outcome: null,
-    video: "/videos/work-onfrontiers.mp4"
+    video: "/videos/work-onfrontiers.mp4",
+    logo: "/logos/onfrontiers.png"
   },
   {
     company: "Quartile",
@@ -60,7 +65,8 @@ const workHistory = [
     context: "E-commerce advertising automation platform.",
     highlight: "Managed $13M annual budget with full attribution visibility. Counteracted 300% surge in SQL costs (Apple privacy updates) in under three weeks through rapid ABM pivot. Reduced BANT-qualified SQL costs by 30% via CRM optimization.",
     outcome: null,
-    video: "/videos/work-quartile-new.mp4"
+    video: "/videos/work-quartile-new.mp4",
+    logo: "/logos/quartile.png"
   },
   {
     company: "Certent",
@@ -70,7 +76,8 @@ const workHistory = [
     context: "Equity management and financial reporting SaaS.",
     highlight: "53% increase in marketing-to-sales pipeline speed. 170% surge in pipeline volume via integrated Salesforce and Marketo automation. ~40% reduction in CAC through continuous analytics optimization. Built infrastructure achieving 35% EBITDA target.",
     outcome: "Acquired by insightsoftware",
-    video: "/videos/work-certent.mp4"
+    video: "/videos/work-certent.mp4",
+    logo: "/logos/certent.png"
   },
   {
     company: "VideoAmp",
@@ -80,7 +87,8 @@ const workHistory = [
     context: "Cross-platform TV and digital measurement platform.",
     highlight: "Defined and operationalized clean room methodologies for activation and measurement within Google clean rooms. Built integrations enabling brands to combine first-party data with Acxiom audiences and set-top box viewership signals.",
     outcome: null,
-    video: "/videos/work-sizmek.mp4"
+    video: "/videos/work-sizmek.mp4",
+    logo: "/logos/videoamp.png"
   },
   {
     company: "Sizmek",
@@ -90,7 +98,8 @@ const workHistory = [
     context: "Global ad serving and creative optimization platform.",
     highlight: "Led team of 12 product managers, marketers, and analysts. Owned product vision for advertiser reporting console and smart creative versioning. Defined PRDs for OLAP-based analytics enabling performance analysis across placements, audiences, and messaging.",
     outcome: "Acquired by Amazon",
-    video: "/videos/work-sizmek.mp4"
+    video: "/videos/work-sizmek.mp4",
+    logo: "/logos/sizmek.jpg"
   },
   {
     company: "Adapt.tv",
@@ -100,7 +109,8 @@ const workHistory = [
     context: "Video advertising platform and DSP.",
     highlight: "Led integration of Convertro multi-touch attribution data into AOL One Platform. Owned end-to-end methodology for ingesting, normalizing, and activating attribution signals across display and video at enterprise scale.",
     outcome: "Acquired by AOL",
-    video: "/videos/work-adapttv.mp4"
+    video: "/videos/work-adapttv.mp4",
+    logo: "/logos/adapttv.png"
   }
 ];
 ---
@@ -193,7 +203,8 @@ const workHistory = [
             <div>
               <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
                 <div>
-                  <h3 class="text-heading text-black font-bold">
+                  <h3 class="text-heading text-black font-bold flex items-center gap-3">
+                    <img src={work.logo} alt={`${work.company} logo`} class="h-6 w-auto" />
                     {work.company} <span class="italic font-normal text-gray-500">— {work.companyDesc}</span>
                   </h3>
                   <p class="text-small text-gray-600">{work.role} · {work.period}</p>
