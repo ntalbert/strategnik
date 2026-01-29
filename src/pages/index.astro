@@ -1,75 +1,56 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
-import RotatingText from '../components/RotatingText.astro';
 import BrandGravityHero from '../components/BrandGravityHero.astro';
-
-const rotatingWords = ['demand', 'systems', 'pipeline', 'revenue', 'brands', 'growth'];
-
-const recentPosts = [
-  {
-    title: "Momentum: Why Some Marketing Investments Compound",
-    description: "In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better and bad ones get worse.",
-    date: new Date('2025-01-10'),
-    category: 'physics',
-    slug: 'momentum-marketing-investments',
-  },
-  {
-    title: "The Friction Problem Nobody Talks About",
-    description: "Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with.",
-    date: new Date('2025-01-05'),
-    category: 'field-notes',
-    slug: 'friction-problem',
-  },
-  {
-    title: "Inflection Points: When to Pour Fuel on the Fire",
-    description: "The difference between growth-stage success and failure often comes down to recognizing the moment when your marketing engine is ready to scale.",
-    date: new Date('2024-12-28'),
-    category: 'playbook',
-    slug: 'inflection-points',
-  }
-];
 ---
 
 <BaseLayout title="Home">
-
   <!-- Brand Gravity Hero Section -->
   <BrandGravityHero overlayOpacity={0.5}>
-
     <!-- Hero - First viewport -->
     <section class="min-h-screen flex items-center justify-center">
       <div class="container-narrow text-center py-20">
+        <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Strategnik</p>
         <h1 class="text-display-xl font-display italic font-bold mb-8 text-white" data-animate-hero>
-          I build <RotatingText words={rotatingWords} />
+          Marketing that compounds instead of dissipates
         </h1>
         <p class="text-body-lg text-white font-bold max-w-prose mx-auto mb-10" data-animate-hero-sub>
-          Demand engines for growth-stage B2B SaaS companies at critical growth inflection points.
-        </p>
+        Series B - Pre-IPO B2B SaaS companies at inflection points - when the right GTM investment makes the difference between growth and stall.        </p>
         <div class="flex flex-wrap justify-center gap-6 font-bold" data-animate-hero-links>
-          <a href="/physics-of-marketing" class="text-white hover:text-blue-bright transition-colors">
-            Explore the framework →
-          </a>
           <a href="/services" class="text-white font-bold hover:text-blue-bright transition-colors">
-            Work together →
+            Start a conversation
+          </a>
+          <a href="/physics-of-marketing" class="text-white hover:text-blue-bright transition-colors">
+            See how I work →
           </a>
         </div>
       </div>
     </section>
 
     <!-- Spacer -->
-    <div class="h-[30vh]"></div>
+    <div class="h-[20vh]"></div>
 
-    <!-- Framework Intro -->
-    <section class="pt-32 pb-16">
+    <!-- Quick Proof -->
+    <section class="pb-32">
+      <div class="container-narrow text-center">
+        <p class="text-body-lg text-white font-bold mb-6">
+          20+ years in B2B SaaS — 3 companies acquired — ~100% avg pipeline growth
+        </p>
+        <p class="text-body text-gray-400 max-w-prose mx-auto">
+          Most recently VP of Marketing and Growth at BRIA AI, building $18.3M in partner-sourced pipeline through AWS, NVIDIA, and Qualcomm.
+        </p>
+      </div>
+    </section>
+
+    <!-- Framework Section -->
+    <section class="pb-16">
       <div class="container-narrow">
         <p class="text-caption text-white tracking-wide mb-6 font-bold">Framework</p>
         <h2 class="text-display-xl font-display italic text-white font-extrabold mb-8">
           The Physics of Marketing
         </h2>
         <p class="text-body-lg text-white font-bold max-w-prose">
-          Marketing isn't art or science—it's engineering. The same laws that govern physical systems
-          govern marketing systems.
+          Marketing isn't art or science—it's engineering. I use a framework built on physics principles to diagnose what's actually happening in your marketing system.
         </p>
       </div>
     </section>
@@ -82,7 +63,7 @@ const recentPosts = [
             <p class="text-white text-small mb-2 font-bold">01</p>
             <h3 class="text-display font-display italic text-white font-extrabold mb-4">Momentum</h3>
             <p class="text-body-lg text-white font-bold">
-              Why some marketing investments compound while others dissipate into nothing.
+              Why some investments compound while others dissipate
             </p>
           </div>
 
@@ -90,7 +71,7 @@ const recentPosts = [
             <p class="text-white text-small mb-2 font-bold">02</p>
             <h3 class="text-display font-display italic text-white font-extrabold mb-4">Friction</h3>
             <p class="text-body-lg text-white font-bold">
-              The hidden force destroying your conversion rates at every stage.
+              The hidden force destroying your conversion rates
             </p>
           </div>
 
@@ -98,7 +79,7 @@ const recentPosts = [
             <p class="text-white text-small mb-2 font-bold">03</p>
             <h3 class="text-display font-display italic text-white font-extrabold mb-4">Gravity</h3>
             <p class="text-body-lg text-white font-bold">
-              Market forces that pull prospects toward—or away from—your solution.
+              Market forces pulling prospects toward (or away from) you
             </p>
           </div>
         </div>
@@ -109,66 +90,80 @@ const recentPosts = [
     <section class="min-h-[50vh] flex items-center justify-center">
       <div class="text-center">
         <a href="/physics-of-marketing" class="text-heading font-display italic text-white font-extrabold hover:text-blue-bright transition-colors">
-          Explore the full framework →
+          Explore the framework →
         </a>
       </div>
     </section>
-
   </BrandGravityHero>
 
-  <!-- Writing Section - Black background -->
+  <!-- Who This Is For Section -->
   <section class="section bg-black">
     <div class="container-narrow">
-      <div class="flex justify-between items-baseline mb-10">
-        <div>
-          <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Writing</p>
-          <h2 class="text-display text-white font-bold" data-animate>Recent Thinking</h2>
-        </div>
-        <a href="/writing" class="text-small text-blue-bright hover:text-white transition-colors hidden md:block font-bold" data-animate-fade>
-          View all →
-        </a>
-      </div>
+      <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Fit</p>
+      <h2 class="text-display text-white font-bold mb-10" data-animate>Is this your situation?</h2>
 
-      <div class="space-y-6" data-animate-stagger="0.08">
-        {recentPosts.map((post) => (
-          <PostCard {...post} variant="dark" />
-        ))}
-      </div>
+      <p class="text-body-lg text-white font-bold max-w-prose mb-8">
+        You're a CEO, founder, or marketing leader at a Series A-C B2B SaaS company. Revenue is growing, but you're not sure if marketing is driving it or just correlating with a rising tide.
+      </p>
 
-      <div class="mt-8 md:hidden" data-animate>
-        <a href="/writing" class="text-small text-blue-bright hover:text-white transition-colors font-bold">
-          View all writing →
-        </a>
-      </div>
+      <p class="text-body-lg text-white font-bold mb-6">You're asking questions like:</p>
+
+      <ul class="space-y-4 text-body-lg text-gray-400 mb-10 max-w-prose">
+        <li>Should we hire a CMO or keep the team lean?</li>
+        <li>Is our pipeline problem a demand problem or a conversion problem?</li>
+        <li>Are we ready to scale spend, or will we just burn cash faster?</li>
+      </ul>
+
+      <a href="/services" class="text-blue-bright hover:text-white transition-colors font-bold">
+        Those are the questions I help answer →
+      </a>
     </div>
   </section>
 
-  <!-- Services Preview - Black background -->
+  <!-- Selected Work Section -->
   <section class="section bg-black border-t border-gray-800">
     <div class="container-narrow">
-      <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Services</p>
-      <h2 class="text-display text-white font-bold mb-6" data-animate>Ready to build your engine?</h2>
-      <p class="text-body-lg text-blue-bright font-bold mb-8 max-w-prose" data-animate data-animate-delay="0.1">
-        I work with growth-stage B2B SaaS companies at inflection points—when the stakes
-        are high and the right marketing investment matters most.
-      </p>
-      <div class="flex gap-12 mb-10" data-animate data-animate-delay="0.2">
-        <div>
-          <p class="text-display-lg text-white font-bold">20+</p>
-          <p class="text-small text-blue-bright font-bold">Years in B2B SaaS</p>
+      <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Work</p>
+      <h2 class="text-display text-white font-bold mb-10" data-animate>Selected Work</h2>
+
+      <div class="space-y-8">
+        <div class="border-b border-gray-800 pb-8">
+          <h3 class="text-body-lg text-white font-bold mb-2">BRIA AI</h3>
+          <p class="text-body text-gray-400">$18.3M partner-sourced pipeline via AWS, NVIDIA, Qualcomm</p>
         </div>
-        <div>
-          <p class="text-display-lg text-white font-bold">3</p>
-          <p class="text-small text-blue-bright font-bold">Companies acquired</p>
+
+        <div class="border-b border-gray-800 pb-8">
+          <h3 class="text-body-lg text-white font-bold mb-2">Lumen Technologies</h3>
+          <p class="text-body text-gray-400">26% improvement in data integrity, 30% lift in propensity scores</p>
+        </div>
+
+        <div class="border-b border-gray-800 pb-8">
+          <h3 class="text-body-lg text-white font-bold mb-2">Wallarm</h3>
+          <p class="text-body text-gray-400">20% increase in marketing-sourced pipeline, 18% conversion rate uplift</p>
         </div>
       </div>
-      <a href="/services" class="text-blue-bright hover:text-white transition-colors font-bold" data-animate data-animate-delay="0.3">
-        How I work →
-      </a>
+
+      <div class="mt-10">
+        <a href="/work" class="text-blue-bright hover:text-white transition-colors font-bold">
+          See all work →
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Newsletter -->
   <NewsletterForm variant="default" />
 
+  <!-- Footer CTA -->
+  <section class="section bg-black border-t border-gray-800">
+    <div class="container-narrow text-center">
+      <h2 class="text-display text-white font-bold mb-6" data-animate>Ready to talk?</h2>
+      <p class="text-body-lg text-gray-400 max-w-prose mx-auto mb-10">
+        I do a 30-minute call with no pitch. You tell me what's happening, I tell you how I'd think about it. If there's a fit, we figure out next steps.
+      </p>
+      <a href="/services" class="text-blue-bright hover:text-white transition-colors font-bold text-body-lg">
+        Start a conversation
+      </a>
+    </div>
+  </section>
 </BaseLayout>
