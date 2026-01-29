@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <style>
     :root {
       --primary: #1e3a5f;
@@ -79,8 +78,27 @@
     .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
     .diagram-container { max-width: 900px; margin: 0 auto; }
     .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
-    .mermaid { display: flex; justify-content: center; margin: 24px 0; }
     .diagram-caption { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; }
+    .architecture-diagram { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .diagram-row { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; width: 100%; }
+    .diagram-group { background: var(--background); border-radius: 12px; padding: 16px; }
+    .group-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; text-align: center; }
+    .techno-group { background: rgba(13,148,136,0.1); }
+    .techno-group .group-label { color: #0d9488; }
+    .systems-group { background: rgba(30,58,95,0.1); }
+    .systems-group .group-label { color: #1e3a5f; }
+    .governance-group { background: rgba(74,85,104,0.1); }
+    .governance-group .group-label { color: #4a5568; }
+    .model-group { background: rgba(30,58,95,0.1); }
+    .model-group .group-label { color: #1e3a5f; }
+    .group-items { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .group-items.horizontal { flex-direction: row; }
+    .diagram-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 0.85rem; font-weight: 500; text-align: center; min-width: 100px; }
+    .diagram-box small { display: block; font-weight: 400; color: var(--text-secondary); font-size: 0.75rem; margin-top: 2px; }
+    .diagram-box.highlight { background: #0d9488; color: white; border-color: #0d9488; }
+    .diagram-box.highlight small { color: rgba(255,255,255,0.8); }
+    .diagram-arrow { font-size: 1.5rem; color: var(--text-secondary); }
+    .score-output { background: var(--primary); color: white; padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.1rem; }
     .results-section { padding: 60px 24px; background: var(--primary); }
     .results-container { max-width: 1000px; margin: 0 auto; }
     .results-container h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 32px; text-align: center; }
@@ -362,58 +380,51 @@ Marketo (Behavioral Data)
   <section class="diagram-section">
     <div class="diagram-container">
       <h2>Technographic Signal Architecture</h2>
-      <div class="mermaid">
-flowchart TB
-    subgraph Techno["Technographic Signals"]
-        BW[BuiltWith<br/>Tech Stack Changes]
-        HG[HG Insights<br/>Install Data]
-        FIBER[Fiber Maps<br/>Infrastructure]
-    end
-
-    subgraph Systems["Marketing Systems"]
-        SF[Salesforce<br/>CRM]
-        MK[Marketo<br/>Automation]
-        DB[DemandBase<br/>ABM/Intent]
-    end
-
-    subgraph Governance["Data Governance Layer"]
-        DOM[Domain-Based<br/>Matching]
-        STD[Standardization<br/>Rules]
-    end
-
-    subgraph Model["Propensity Model"]
-        TECH[Technographic<br/>Change Signals]
-        READY[Infrastructure<br/>Readiness]
-        FIRM[Firmographic<br/>Signals]
-        INT[Intent<br/>Signals]
-        SCORE[Propensity<br/>Score 0-100]
-    end
-
-    BW --> DOM
-    HG --> DOM
-    FIBER --> DOM
-    SF <--> DOM
-    MK <--> DOM
-    DB --> DOM
-
-    DOM --> STD
-    STD --> SF
-
-    BW --> TECH
-    HG --> TECH
-    FIBER --> READY
-    SF --> FIRM
-    DB --> INT
-
-    TECH --> SCORE
-    READY --> SCORE
-    FIRM --> SCORE
-    INT --> SCORE
-
-    style Techno fill:#0d9488,color:#fff
-    style Systems fill:#1e3a5f,color:#fff
-    style Governance fill:#4a5568,color:#fff
-    style Model fill:#1e3a5f,color:#fff
+      <div class="architecture-diagram">
+        <div class="diagram-row">
+          <div class="diagram-group techno-group">
+            <div class="group-label">Technographic Signals</div>
+            <div class="group-items">
+              <div class="diagram-box">BuiltWith<br><small>Tech Stack Changes</small></div>
+              <div class="diagram-box">HG Insights<br><small>Install Data</small></div>
+              <div class="diagram-box">Fiber Maps<br><small>Infrastructure</small></div>
+            </div>
+          </div>
+          <div class="diagram-group systems-group">
+            <div class="group-label">Marketing Systems</div>
+            <div class="group-items">
+              <div class="diagram-box">Salesforce<br><small>CRM</small></div>
+              <div class="diagram-box">Marketo<br><small>Automation</small></div>
+              <div class="diagram-box">DemandBase<br><small>ABM/Intent</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="diagram-arrow">↓</div>
+        <div class="diagram-row">
+          <div class="diagram-group governance-group">
+            <div class="group-label">Data Governance Layer</div>
+            <div class="group-items horizontal">
+              <div class="diagram-box">Domain-Based Matching</div>
+              <div class="diagram-box">Standardization Rules</div>
+            </div>
+          </div>
+        </div>
+        <div class="diagram-arrow">↓</div>
+        <div class="diagram-row">
+          <div class="diagram-group model-group">
+            <div class="group-label">Propensity Model Inputs</div>
+            <div class="group-items horizontal">
+              <div class="diagram-box highlight">Technographic<br>Change Signals</div>
+              <div class="diagram-box highlight">Infrastructure<br>Readiness</div>
+              <div class="diagram-box">Firmographic<br>Signals</div>
+              <div class="diagram-box">Intent<br>Signals</div>
+            </div>
+          </div>
+        </div>
+        <div class="diagram-arrow">↓</div>
+        <div class="diagram-row">
+          <div class="score-output">Propensity Score 0-100</div>
+        </div>
       </div>
       <p class="diagram-caption">Technographic change signals (POS, supply chain, edge computing) combined with infrastructure readiness (fiber availability) drove the highest predictive accuracy.</p>
     </div>
@@ -460,7 +471,6 @@ flowchart TB
     </div>
   </footer>
 
-  <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
   <script>document.getElementById('mobileMenuBtn').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('open'); });</script>
 </body>
 </html>
