@@ -476,7 +476,7 @@
       <h2>The Situation</h2>
       <p>Open source AI has a conversion problem.</p>
       <p>Thousands of developers might star a repo, fork the code, or spin up a model on Hugging Face. But the path from "ML engineer playing with an API" to "enterprise procurement signing a six-figure contract" is murky at best.</p>
-      <p>Nick joined this visual generative AI company as a marketing consultant to address exactly this gap. The company had strong open source traction—downloads were healthy, the GitHub community was engaged, and ML practitioners genuinely loved the product. But the enterprise pipeline was anemic. Marketing was running the same playbook they'd use for any B2B SaaS: gated whitepapers, webinar registrations, demo request forms.</p>
+      <p>This visual generative AI company had strong open source traction—downloads were healthy, the GitHub community was engaged, and ML practitioners genuinely loved the product. But the enterprise pipeline was anemic. Marketing was running the same playbook they'd use for any B2B SaaS: gated whitepapers, webinar registrations, demo request forms.</p>
       <p>The problem? <strong>Developers don't fill out forms.</strong> They evaluate tools by reading docs, cloning repos, and running code. By the time they're willing to talk to sales, they've either already decided you're the answer—or moved on.</p>
       <p>The team needed to see the buying process that was happening in the dark.</p>
 
@@ -485,7 +485,7 @@
       <p>That engineer finds a model on Hugging Face. Downloads it. Runs inference. Maybe files an issue on GitHub asking about fine-tuning. Shares it in their team's Slack channel. A week later, their manager asks "what are our options for scaling this?"</p>
       <p>The enterprise buying journey had already started—it just wasn't visible because none of those signals existed in the CRM.</p>
       <p>The second insight was about <em>who</em> matters. In developer-led purchases, the technical evaluator and the economic buyer are different people with different information needs at different times.</p>
-      <p>Nick designed a system that could:</p>
+      <p>The solution required a system that could:</p>
       <ol>
         <li>Detect developer engagement signals where they actually happen</li>
         <li>Connect individual developers to their organizations</li>
@@ -497,7 +497,7 @@
 
       <h3>Layer 1: Discovery Signal Capture</h3>
       <p>Most marketing teams treat their website as the top of the funnel. For developer products, the website is the <em>middle</em> of the funnel. The top is wherever developers discover and evaluate tools.</p>
-      <p>Nick built integrations to capture signals from:</p>
+      <p>Integrations were built to capture signals from:</p>
       <p><strong>GitHub Activity</strong></p>
       <ul>
         <li>Stars and forks on the company's repos (awareness signal)</li>
@@ -534,7 +534,7 @@ Firmographic enrichment:
 Account matching in HubSpot</pre>
 
       <h3>Layer 3: Dual-Track Scoring</h3>
-      <p>Traditional lead scoring fails for PLG because it treats all engagement equally. Nick built parallel scoring tracks:</p>
+      <p>Traditional lead scoring fails for PLG because it treats all engagement equally. The solution used parallel scoring tracks:</p>
       <p><strong>Technical Engagement Score (Developer Track)</strong></p>
       <ul>
         <li>Points for: repo activity, API usage depth, documentation engagement, community participation</li>
