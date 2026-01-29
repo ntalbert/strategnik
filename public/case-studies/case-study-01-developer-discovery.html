@@ -516,7 +516,7 @@
         ↓
 Email domain extraction (from Git commits, if public)
         ↓
-Company identification (Clearbit, Apollo, or manual)
+Company identification (Lusha, PhantomBuster, or manual)
         ↓
 Firmographic enrichment:
   - Company size
@@ -524,7 +524,7 @@ Firmographic enrichment:
   - Tech stack (AWS? Azure? PyTorch shop?)
   - Existing AI/ML investment signals
         ↓
-Account matching in Salesforce</pre>
+Account matching in HubSpot</pre>
 
       <h3>Layer 3: Dual-Track Scoring</h3>
       <p>Traditional lead scoring fails for PLG because it treats all engagement equally. Nick built parallel scoring tracks:</p>
@@ -568,7 +568,7 @@ Account matching in Salesforce</pre>
       </table>
 
       <h3>Layer 4: Lifecycle Orchestration</h3>
-      <p>Signals flowed into Salesforce as lead and account activities. Marketo handled lifecycle automation based on score thresholds and trigger events.</p>
+      <p>Signals flowed into HubSpot as lead and account activities. HubSpot workflows handled lifecycle automation based on score thresholds and trigger events.</p>
       <p><strong>Champion Enablement Track</strong><br>
       Trigger: Developer at enterprise company with 3+ engagement events, no commercial signals<br>
       Content: Case study → ROI calculator → "Questions your CFO will ask" guide → Customer advisory call offer</p>
@@ -623,6 +623,17 @@ Account matching in Salesforce</pre>
           <li>Dual-track scoring</li>
           <li>Champion enablement</li>
           <li>Identity resolution</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Tech Stack</h4>
+        <ul class="concepts-list">
+          <li><strong>CRM</strong> — HubSpot</li>
+          <li><strong>ID Resolution</strong> — Lusha, PhantomBuster</li>
+          <li><strong>Signal Capture</strong> — GitHub API, Hugging Face API</li>
+          <li><strong>Data Pipeline</strong> — Airbyte (open source)</li>
+          <li><strong>Dashboards</strong> — Looker</li>
         </ul>
       </div>
 
