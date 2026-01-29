@@ -144,14 +144,15 @@
     <main class="main-content">
 
       <h2>The Situation</h2>
-      <p>The marketing team had all the tools. Salesforce for CRM. Marketo for automation. DemandBase for ABM and intent data. LinkedIn Ads for paid targeting. Four platforms, significant annual spend, and a dashboard that could tell you anything you wanted to know.</p>
-      <p>Except it couldn't tell you which accounts were actually likely to buy.</p>
-      <p>The propensity model existed—technically. But sales didn't trust it. "Your 'hot' leads are garbage," was the polite version of the feedback. Marketing would point to the data showing high intent scores. Sales would point to the conversations that went nowhere.</p>
-      <p><strong>Both were right.</strong> The model was mathematically sound. It was also practically useless.</p>
-      <p>The initial engagement was to fix demand gen, but within the first two weeks, it became clear that the problem wasn't campaigns or content or targeting. The problem was data.</p>
+      <p>An enterprise network security company had a sophisticated go-to-market motion—at least on paper. Salesforce for CRM. Marketo for automation. DemandBase for ABM and intent data. LinkedIn Ads for paid targeting. Four platforms, significant annual spend, and dashboards that could slice data any way you wanted.</p>
+      <p>The company's value proposition was clear: when businesses update their infrastructure—new POS systems, supply chain software, edge computing deployments—their network security architecture often can't keep up. These inflection points create vulnerability windows. The sales team knew exactly when to have the conversation: right after a major infrastructure change, when the prospect realizes their security posture needs to be re-evaluated.</p>
+      <p>The problem? The propensity model couldn't identify these moments. Sales didn't trust marketing's "hot leads." Marketing pointed to high intent scores. Sales pointed to conversations that went nowhere.</p>
+      <p><strong>Both were right.</strong> The model was mathematically sound. It was also practically useless—because it was missing the technographic signals that actually predicted buying behavior.</p>
+      <p>The initial engagement was to fix demand gen, but within the first two weeks, it became clear that the problem wasn't campaigns or content or targeting. The problem was data—specifically, the absence of infrastructure change signals that would indicate an opportune time to approach.</p>
 
       <h2>The Insight</h2>
-      <p>Propensity models are only as good as the data feeding them. Garbage in, garbage out—everyone knows this. But the failure mode wasn't garbage data. It was <em>inconsistent</em> data.</p>
+      <p>Propensity models are only as good as the data feeding them. Garbage in, garbage out—everyone knows this. But the failure mode here was two-fold: <em>inconsistent</em> data and <em>missing</em> data.</p>
+      <p><strong>Problem 1: Data Inconsistency</strong></p>
       <p>The four systems had been implemented at different times by different teams with different naming conventions:</p>
       <ul>
         <li>Salesforce had "IBM Corporation" as an account. Marketo had "IBM" and "IBM Corp" as separate records. DemandBase had "International Business Machines."</li>
@@ -159,8 +160,16 @@
         <li>The same contact might exist in three systems with three different titles.</li>
         <li>Intent signals from DemandBase weren't consistently flowing to Salesforce.</li>
       </ul>
-      <p>The model was mathematically weighting data—but it was doing math on records that weren't actually the same entities.</p>
-      <p><strong>The insight: The prediction problem was actually a data governance problem.</strong></p>
+      <p><strong>Problem 2: Missing Technographic Signals</strong></p>
+      <p>The model had no visibility into the infrastructure changes that actually triggered buying behavior. Sales knew from experience that certain events signaled an opportune moment to engage:</p>
+      <ul>
+        <li><strong>New POS terminal providers</strong> – retail and hospitality accounts upgrading payment infrastructure</li>
+        <li><strong>New supply chain software</strong> – logistics and manufacturing accounts connecting new systems</li>
+        <li><strong>New edge computing deployments</strong> – any account pushing compute to distributed locations</li>
+        <li><strong>Fiber availability</strong> – whether the building housing the account's servers had fiber connectivity (prerequisite for their solution)</li>
+      </ul>
+      <p>These signals weren't in DemandBase. They weren't in Salesforce. They existed in disparate technographic databases and public infrastructure records, but nobody had connected them to the propensity model.</p>
+      <p><strong>The insight: The prediction problem was a data governance problem AND a signal coverage problem.</strong></p>
 
       <h2>The System</h2>
 
@@ -186,8 +195,30 @@
         <li>Mapping: Built translation tables from SIC codes and Salesforce picklists</li>
       </ul>
 
-      <h3>Layer 3: Integration Architecture</h3>
-      <pre>DemandBase (Intent Data)
+      <h3>Layer 3: Technographic Signal Collection</h3>
+      <p>A new data pipeline was built to capture infrastructure change signals:</p>
+      <p><strong>Technology Change Detection:</strong></p>
+      <ul>
+        <li><em>POS Systems:</em> Monitoring for new payment processor integrations (Square, Clover, Toast, etc.)</li>
+        <li><em>Supply Chain:</em> Tracking new ERP and logistics platform deployments (SAP, Oracle, Manhattan Associates)</li>
+        <li><em>Edge Computing:</em> Identifying accounts deploying IoT gateways, CDN infrastructure, or distributed compute</li>
+        <li><em>Cloud Migration:</em> AWS, Azure, GCP adoption signals indicating infrastructure modernization</li>
+      </ul>
+      <p><strong>Infrastructure Readiness:</strong></p>
+      <ul>
+        <li><em>Fiber Availability:</em> Cross-referenced account addresses against fiber infrastructure databases to confirm the building could support the solution</li>
+        <li><em>Data Center Proximity:</em> Geographic analysis of account locations relative to network points of presence</li>
+      </ul>
+      <p>These signals were enriched using technographic data providers and mapped to account records using domain-based matching.</p>
+
+      <h3>Layer 4: Integration Architecture</h3>
+      <pre>Technographic Signals (BuiltWith, HG Data, Fiber Maps)
+    │
+    └──→ Data Warehouse (daily refresh)
+             │
+             └──→ Salesforce Account (custom fields)
+
+DemandBase (Intent Data)
     │
     ├──→ Salesforce Account (nightly batch + real-time for surges)
     │        │
@@ -203,15 +234,18 @@ Marketo (Behavioral Data)
     │
     └──→ Salesforce (bi-directional sync, 15-minute intervals)</pre>
 
-      <h3>Layer 4: The Propensity Model</h3>
-      <p>With clean, synchronized data, the scoring model was rebuilt:</p>
+      <h3>Layer 5: The Propensity Model</h3>
+      <p>With clean, synchronized data and new technographic signals, the scoring model was rebuilt:</p>
       <p><strong>Input Signals (weighted by predictive power):</strong></p>
       <ul>
-        <li><em>Firmographic:</em> Industry alignment, employee count, tech stack, geography</li>
+        <li><em>Technographic Change:</em> Recent POS, supply chain, or edge computing deployments (highest weight)</li>
+        <li><em>Infrastructure Readiness:</em> Fiber availability at primary location, data center proximity</li>
+        <li><em>Firmographic:</em> Industry alignment, employee count, existing tech stack, geography</li>
         <li><em>Behavioral:</em> Website visits by page value, content downloads, email engagement</li>
         <li><em>Intent:</em> DemandBase surge scores, keyword research, competitor signals</li>
         <li><em>Historical:</em> Similarity to closed-won accounts</li>
       </ul>
+      <p>The model heavily weighted <strong>technographic change signals</strong> because historical analysis showed that accounts with recent infrastructure changes were 3.2x more likely to convert than accounts with high intent scores alone.</p>
       <table>
         <tr><th>Score Range</th><th>Classification</th><th>Sales Action</th></tr>
         <tr><td>80-100</td><td>Sales-Ready</td><td>Immediate outreach, high priority</td></tr>
@@ -221,23 +255,28 @@ Marketo (Behavioral Data)
         <tr><td>0-19</td><td>Cold</td><td>Exclude from active campaigns</td></tr>
       </table>
 
-      <h3>Layer 5: Vertical Segmentation</h3>
-      <p>Rather than one model to rule them all, the system was calibrated for high-value verticals:</p>
-      <p><strong>Banking/Financial Services:</strong> Heavier weight on compliance content, longer lookback window</p>
-      <p><strong>Retail:</strong> Seasonal adjustment, customer experience content weight, peak period multiplier</p>
+      <h3>Layer 6: Vertical Segmentation</h3>
+      <p>Rather than one model to rule them all, the system was calibrated for high-value verticals with specific technographic triggers:</p>
+      <p><strong>Retail/Hospitality:</strong> Heavy weight on POS terminal changes, seasonal adjustment for post-holiday infrastructure upgrades</p>
+      <p><strong>Logistics/Manufacturing:</strong> Supply chain software deployments, warehouse management system changes, IoT sensor rollouts</p>
+      <p><strong>Banking/Financial Services:</strong> Compliance-driven infrastructure updates, ATM network modernization, branch connectivity changes</p>
+      <p><strong>Healthcare:</strong> EHR migrations, telehealth platform deployments, medical device connectivity</p>
 
       <h2>The Takeaway</h2>
-      <p>Most companies don't have a prediction problem. They have a data problem masquerading as a prediction problem.</p>
+      <p>Most propensity models fail because they're missing the signals that actually predict buying behavior. Intent data tells you someone is researching. Technographic change data tells you they're ready to act.</p>
 
       <div class="takeaway-cards">
         <div class="takeaway-card">
-          <strong>1. Audit before you build.</strong> A month was lost before realizing the model wasn't the problem. That time would have been saved by starting with a data audit.
+          <strong>1. Find your trigger signals.</strong> For this network security company, infrastructure changes (new POS, supply chain software, edge deployments) were 3x more predictive than intent scores. Every product has trigger events—find yours.
         </div>
         <div class="takeaway-card">
-          <strong>2. Domain is your friend.</strong> Email domain as the primary key for matching solved most of the account matching challenges.
+          <strong>2. Cross-reference with readiness.</strong> A trigger signal without infrastructure readiness (in this case, fiber availability) is a false positive. The best leads had both: a recent change AND the ability to implement the solution.
         </div>
         <div class="takeaway-card">
-          <strong>3. Vertical calibration beats universal models.</strong> A model trained on all accounts will be mediocre at predicting any specific segment.
+          <strong>3. Audit before you build.</strong> A month was lost before realizing the model wasn't the problem. Starting with a data audit—and a clear articulation of what signals matter—would have saved significant time.
+        </div>
+        <div class="takeaway-card">
+          <strong>4. Domain is your friend.</strong> Email domain as the primary key for matching solved most of the account matching challenges when combining data from multiple sources.
         </div>
       </div>
 
@@ -248,22 +287,25 @@ Marketo (Behavioral Data)
         <h4>Quick Facts</h4>
         <dl class="quick-facts">
           <dt>Company Type</dt>
-          <dd>Enterprise Network Infrastructure</dd>
+          <dd>Enterprise Network Security</dd>
           <dt>Challenge</dt>
-          <dd>Sales didn't trust propensity scores</dd>
+          <dd>Propensity model missing key buying signals</dd>
           <dt>Key Metric</dt>
           <dd>30% accuracy improvement</dd>
           <dt>Root Cause</dt>
-          <dd>Data inconsistency across 4 systems</dd>
+          <dd>Missing technographic signals + data inconsistency</dd>
+          <dt>Key Insight</dt>
+          <dd>Infrastructure changes (POS, supply chain, edge) predict buying intent</dd>
         </dl>
       </div>
 
       <div class="sidebar-box">
         <h4>Key Concepts</h4>
         <ul class="concepts-list">
-          <li>Data governance</li>
-          <li>CRM integration</li>
+          <li>Technographic signaling</li>
+          <li>Infrastructure change triggers</li>
           <li>Propensity modeling</li>
+          <li>Data governance</li>
           <li>Vertical segmentation</li>
           <li>Domain-based matching</li>
         </ul>
@@ -283,6 +325,14 @@ Marketo (Behavioral Data)
           <div class="tech-item">
             <img src="https://www.google.com/s2/favicons?domain=demandbase.com&sz=32" alt="DemandBase">
             <span>DemandBase<br><small>ABM + Intent</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=builtwith.com&sz=32" alt="BuiltWith">
+            <span>BuiltWith<br><small>Technographics</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=hginsights.com&sz=32" alt="HG Insights">
+            <span>HG Insights<br><small>Tech Install Data</small></span>
           </div>
           <div class="tech-item">
             <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" alt="LinkedIn">
@@ -311,51 +361,61 @@ Marketo (Behavioral Data)
 
   <section class="diagram-section">
     <div class="diagram-container">
-      <h2>Four-System Data Sync Architecture</h2>
+      <h2>Technographic Signal Architecture</h2>
       <div class="mermaid">
 flowchart TB
+    subgraph Techno["Technographic Signals"]
+        BW[BuiltWith<br/>Tech Stack Changes]
+        HG[HG Insights<br/>Install Data]
+        FIBER[Fiber Maps<br/>Infrastructure]
+    end
+
     subgraph Systems["Marketing Systems"]
         SF[Salesforce<br/>CRM]
         MK[Marketo<br/>Automation]
         DB[DemandBase<br/>ABM/Intent]
-        LI[LinkedIn<br/>Ads]
     end
 
     subgraph Governance["Data Governance Layer"]
         DOM[Domain-Based<br/>Matching]
         STD[Standardization<br/>Rules]
-        REC[Reconciliation<br/>Jobs]
     end
 
     subgraph Model["Propensity Model"]
+        TECH[Technographic<br/>Change Signals]
+        READY[Infrastructure<br/>Readiness]
         FIRM[Firmographic<br/>Signals]
-        BEH[Behavioral<br/>Signals]
         INT[Intent<br/>Signals]
         SCORE[Propensity<br/>Score 0-100]
     end
 
+    BW --> DOM
+    HG --> DOM
+    FIBER --> DOM
     SF <--> DOM
     MK <--> DOM
     DB --> DOM
-    LI --> MK
 
     DOM --> STD
-    STD --> REC
-    REC --> SF
+    STD --> SF
 
+    BW --> TECH
+    HG --> TECH
+    FIBER --> READY
     SF --> FIRM
-    MK --> BEH
     DB --> INT
 
+    TECH --> SCORE
+    READY --> SCORE
     FIRM --> SCORE
-    BEH --> SCORE
     INT --> SCORE
 
+    style Techno fill:#0d9488,color:#fff
     style Systems fill:#1e3a5f,color:#fff
-    style Governance fill:#0d9488,color:#fff
+    style Governance fill:#4a5568,color:#fff
     style Model fill:#1e3a5f,color:#fff
       </div>
-      <p class="diagram-caption">Data governance layer ensures consistency across four systems before feeding the propensity model.</p>
+      <p class="diagram-caption">Technographic change signals (POS, supply chain, edge computing) combined with infrastructure readiness (fiber availability) drove the highest predictive accuracy.</p>
     </div>
   </section>
 
