@@ -227,12 +227,12 @@
         <li><em>Fiber Availability:</em> Cross-referenced account addresses against fiber infrastructure databases to confirm the building could support the solution</li>
         <li><em>Data Center Proximity:</em> Geographic analysis of account locations relative to network points of presence</li>
       </ul>
-      <p>These signals were enriched using technographic data providers and mapped to account records using domain-based matching.</p>
+      <p>These signals were enriched using technographic data providers and mapped to account records using domain-based matching. An open-source ETL pipeline (Airbyte) orchestrated the data flows between sources and the warehouse.</p>
 
       <h3>Layer 4: Integration Architecture</h3>
       <pre>Technographic Signals (BuiltWith, HG Data, Fiber Maps)
     │
-    └──→ Data Warehouse (daily refresh)
+    └──→ Airbyte ETL ──→ Data Warehouse (daily refresh)
              │
              └──→ Salesforce Account (custom fields)
 
@@ -359,6 +359,10 @@ Marketo (Behavioral Data)
           <div class="tech-item">
             <img src="https://www.google.com/s2/favicons?domain=dnb.com&sz=32" alt="D&B">
             <span>D&B<br><small>Data Standard</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=airbyte.com&sz=32" alt="Airbyte">
+            <span>Airbyte<br><small>ETL Pipeline</small></span>
           </div>
         </div>
       </div>
