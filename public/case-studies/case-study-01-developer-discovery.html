@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer-to-Enterprise Pipeline for Open Source AI | Case Study</title>
+  <title>Building a Developer-to-Enterprise Pipeline for Open Source AI | Case Study</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <style>
     :root {
       --primary: #1e3a5f;
@@ -28,27 +27,63 @@
       line-height: 1.7;
     }
 
-    /* Hero */
+    /* Hero with animated transition */
     .hero {
       position: relative;
       aspect-ratio: 16/9;
-      max-height: 500px;
-      background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%);
-      display: flex;
-      align-items: flex-end;
+      max-height: 600px;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero-background {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%);
+      background-image: url('hero-image-01.png');
+      background-size: cover;
+      background-position: center;
+      transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s ease;
+      z-index: 1;
+    }
+
+    .hero.video-active .hero-background {
+      transform: scale(1.1);
+      opacity: 0.3;
+    }
+
+    .hero-video-container {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 1s ease 0.3s;
+    }
+
+    .hero.video-active .hero-video-container {
+      opacity: 1;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.4) 50%, rgba(30,58,95,0.2) 100%);
+      z-index: 3;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 4;
       padding: 60px;
       max-width: 800px;
     }
@@ -62,6 +97,9 @@
       padding: 4px 12px;
       border-radius: 4px;
       margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards 0.5s;
     }
 
     .hero h1 {
@@ -70,12 +108,25 @@
       font-weight: 700;
       margin-bottom: 12px;
       line-height: 1.2;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards 0.7s;
     }
 
     .hero .subtitle {
       font-size: 1.1rem;
       color: rgba(255,255,255,0.9);
       font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards 0.9s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Layout */
@@ -254,12 +305,6 @@
       text-align: center;
     }
 
-    .mermaid {
-      display: flex;
-      justify-content: center;
-      margin: 24px 0;
-    }
-
     .diagram-caption {
       text-align: center;
       color: var(--text-secondary);
@@ -402,10 +447,17 @@
 <body>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="hero">
+    <div class="hero-background"></div>
+    <div class="hero-video-container">
+      <video class="hero-video" id="heroVideo" muted playsinline>
+        <source src="hero-video-01.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-number">Case Study 01</span>
-      <h1>How We Built a Developer-to-Enterprise Pipeline for Open Source AI</h1>
+      <h1>Building a Developer-to-Enterprise Pipeline for Open Source AI</h1>
       <p class="subtitle">Turning GitHub Stars into Six-Figure Deals</p>
     </div>
   </section>
@@ -416,17 +468,17 @@
 
       <h2>The Situation</h2>
       <p>Open source AI has a conversion problem.</p>
-      <p>Thousands of developers might star your repo, fork your code, or spin up your model on Hugging Face. But the path from "ML engineer playing with your API" to "enterprise procurement signing a six-figure contract" is murky at best.</p>
-      <p>I joined a visual generative AI company with strong open source traction—downloads were healthy, the GitHub community was engaged, and ML practitioners genuinely loved the product. But the enterprise pipeline was anemic. Marketing was running the same playbook they'd use for any B2B SaaS: gated whitepapers, webinar registrations, demo request forms.</p>
+      <p>Thousands of developers might star a repo, fork the code, or spin up a model on Hugging Face. But the path from "ML engineer playing with an API" to "enterprise procurement signing a six-figure contract" is murky at best.</p>
+      <p>Nick joined this visual generative AI company as a marketing consultant to address exactly this gap. The company had strong open source traction—downloads were healthy, the GitHub community was engaged, and ML practitioners genuinely loved the product. But the enterprise pipeline was anemic. Marketing was running the same playbook they'd use for any B2B SaaS: gated whitepapers, webinar registrations, demo request forms.</p>
       <p>The problem? <strong>Developers don't fill out forms.</strong> They evaluate tools by reading docs, cloning repos, and running code. By the time they're willing to talk to sales, they've either already decided you're the answer—or moved on.</p>
-      <p>We needed to see the buying process that was happening in the dark.</p>
+      <p>The team needed to see the buying process that was happening in the dark.</p>
 
       <h2>The Insight</h2>
       <p>Enterprise AI purchases don't start with a Google search for "visual AI vendor." They start with an engineer solving a problem.</p>
-      <p>That engineer finds your model on Hugging Face. Downloads it. Runs inference. Maybe files an issue on GitHub asking about fine-tuning. Shares it in their team's Slack channel. A week later, their manager asks "what are our options for scaling this?"</p>
-      <p>The enterprise buying journey had already started—we just couldn't see it because none of those signals existed in our CRM.</p>
+      <p>That engineer finds a model on Hugging Face. Downloads it. Runs inference. Maybe files an issue on GitHub asking about fine-tuning. Shares it in their team's Slack channel. A week later, their manager asks "what are our options for scaling this?"</p>
+      <p>The enterprise buying journey had already started—it just wasn't visible because none of those signals existed in the CRM.</p>
       <p>The second insight was about <em>who</em> matters. In developer-led purchases, the technical evaluator and the economic buyer are different people with different information needs at different times.</p>
-      <p>We needed a system that could:</p>
+      <p>Nick designed a system that could:</p>
       <ol>
         <li>Detect developer engagement signals where they actually happen</li>
         <li>Connect individual developers to their organizations</li>
@@ -437,18 +489,18 @@
       <h2>The System</h2>
 
       <h3>Layer 1: Discovery Signal Capture</h3>
-      <p>Most marketing teams treat their website as the top of the funnel. For developer products, your website is the <em>middle</em> of the funnel. The top is wherever developers discover and evaluate tools.</p>
-      <p>We built integrations to capture signals from:</p>
+      <p>Most marketing teams treat their website as the top of the funnel. For developer products, the website is the <em>middle</em> of the funnel. The top is wherever developers discover and evaluate tools.</p>
+      <p>Nick built integrations to capture signals from:</p>
       <p><strong>GitHub Activity</strong></p>
       <ul>
-        <li>Stars and forks on our repos (awareness signal)</li>
+        <li>Stars and forks on the company's repos (awareness signal)</li>
         <li>Issues filed and PRs submitted (active evaluation)</li>
         <li>Questions in discussions (buying signal—they're trying to make it work)</li>
       </ul>
       <p><strong>Hugging Face Engagement</strong></p>
       <ul>
         <li>Model downloads (basic interest)</li>
-        <li>Space usage—when someone deploys our model in a Hugging Face Space, they're past curiosity into prototyping</li>
+        <li>Space usage—when someone deploys the model in a Hugging Face Space, they're past curiosity into prototyping</li>
         <li>Model card views vs. actual downloads (tire-kickers vs. evaluators)</li>
       </ul>
       <p><strong>Product Signals</strong></p>
@@ -459,7 +511,7 @@
       </ul>
 
       <h3>Layer 2: Identity Resolution and Enrichment</h3>
-      <p>A GitHub username isn't a lead. We needed to connect developer activity to companies.</p>
+      <p>A GitHub username isn't a lead. The system needed to connect developer activity to companies.</p>
       <pre>Developer Signal (GitHub user: ml_engineer_jane)
         ↓
 Email domain extraction (from Git commits, if public)
@@ -475,7 +527,7 @@ Firmographic enrichment:
 Account matching in Salesforce</pre>
 
       <h3>Layer 3: Dual-Track Scoring</h3>
-      <p>Traditional lead scoring fails for PLG because it treats all engagement equally. We built parallel scoring tracks:</p>
+      <p>Traditional lead scoring fails for PLG because it treats all engagement equally. Nick built parallel scoring tracks:</p>
       <p><strong>Technical Engagement Score (Developer Track)</strong></p>
       <ul>
         <li>Points for: repo activity, API usage depth, documentation engagement, community participation</li>
@@ -486,7 +538,7 @@ Account matching in Salesforce</pre>
         <li>Points for: pricing page views, security documentation requests, enterprise feature inquiries</li>
         <li>High score = procurement process starting</li>
       </ul>
-      <p>The magic was in the <em>combination</em>:</p>
+      <p>The power was in the <em>combination</em>:</p>
       <table>
         <tr>
           <th>Technical</th>
@@ -522,7 +574,7 @@ Account matching in Salesforce</pre>
       Content: Case study → ROI calculator → "Questions your CFO will ask" guide → Customer advisory call offer</p>
 
       <h3>Layer 5: Sales Handoff with Context</h3>
-      <p>When an account hit threshold for sales engagement, the rep didn't just get a name. They got:</p>
+      <p>When an account hit threshold for sales engagement, the rep didn't just get a name. They received:</p>
       <ul>
         <li>Which developers at the company were active, and what they'd done</li>
         <li>Which use case the account was likely evaluating (based on API patterns)</li>
@@ -536,13 +588,13 @@ Account matching in Salesforce</pre>
 
       <div class="takeaway-cards">
         <div class="takeaway-card">
-          <strong>1. Fish where the fish are.</strong> If your buyers evaluate tools on GitHub and Hugging Face, that's where your funnel starts—not your website.
+          <strong>1. Fish where the fish are.</strong> If buyers evaluate tools on GitHub and Hugging Face, that's where the funnel starts—not the website.
         </div>
         <div class="takeaway-card">
-          <strong>2. Separate technical validation from commercial readiness.</strong> These are different processes with different owners and different timelines. Scoring them separately lets you intervene appropriately.
+          <strong>2. Separate technical validation from commercial readiness.</strong> These are different processes with different owners and different timelines. Scoring them separately enables appropriate intervention.
         </div>
         <div class="takeaway-card">
-          <strong>3. Arm champions instead of capturing leads.</strong> The developer who loves your product is your best sales asset. Give them the tools to sell internally instead of trying to sell around them.
+          <strong>3. Arm champions instead of capturing leads.</strong> The developer who loves the product is the best sales asset. Give them the tools to sell internally instead of trying to sell around them.
         </div>
       </div>
 
@@ -592,53 +644,7 @@ Account matching in Salesforce</pre>
   <section class="diagram-section">
     <div class="diagram-container">
       <h2>System Architecture</h2>
-      <div class="mermaid">
-flowchart LR
-    subgraph Sources["Signal Sources"]
-        GH[GitHub Activity]
-        HF[Hugging Face]
-        API[API Usage]
-        WEB[Website]
-    end
-
-    subgraph Enrichment["Enrichment Layer"]
-        ID[Identity Resolution]
-        FIRM[Firmographic Data]
-        MATCH[Account Matching]
-    end
-
-    subgraph Scoring["Dual-Track Scoring"]
-        TECH[Technical Score]
-        COMM[Commercial Score]
-    end
-
-    subgraph Actions["Orchestration"]
-        CHAMP[Champion Track]
-        PROOF[Technical Proof]
-        SALES[Sales Handoff]
-    end
-
-    GH --> ID
-    HF --> ID
-    API --> ID
-    WEB --> ID
-
-    ID --> FIRM
-    FIRM --> MATCH
-
-    MATCH --> TECH
-    MATCH --> COMM
-
-    TECH --> CHAMP
-    TECH --> SALES
-    COMM --> PROOF
-    COMM --> SALES
-
-    style Sources fill:#1e3a5f,color:#fff
-    style Enrichment fill:#0d9488,color:#fff
-    style Scoring fill:#1e3a5f,color:#fff
-    style Actions fill:#0d9488,color:#fff
-      </div>
+      <img src="diagram-01.png" alt="Developer-to-Enterprise Pipeline: Signal Sources flow through Enrichment Layer (Identity Resolution, Firmographic Data, Account Matching) to Dual-Track Scoring (Technical Score and Commercial Score) and finally to Orchestration (Champion Track, Technical Proof, Sales Handoff)" style="width: 100%; height: auto; border-radius: 12px;">
       <p class="diagram-caption">Developer signals flow through enrichment and dual-track scoring to trigger appropriate sales or nurture actions.</p>
     </div>
   </section>
@@ -687,7 +693,17 @@ flowchart LR
   </footer>
 
   <script>
-    mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});
+    // Hero video animation - image fades as video plays
+    document.addEventListener('DOMContentLoaded', function() {
+      const hero = document.getElementById('hero');
+      const video = document.getElementById('heroVideo');
+
+      // Start the transition after a brief delay
+      setTimeout(function() {
+        hero.classList.add('video-active');
+        video.play();
+      }, 800);
+    });
   </script>
 </body>
 </html>
