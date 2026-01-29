@@ -68,36 +68,16 @@
   // Auto-loop
   let autoPlay = true;
   let animationDirection = 1;
-  let mouseNearSlider = false;
-  const AUTO_PLAY_SPEED = 0.0008;
-  const SLIDER_PROXIMITY_THRESHOLD = 150;
+  const AUTO_PLAY_SPEED = 0.00333; // Cycles month 6-48 in ~5 seconds
   let animationId = null;
 
   // UI elements
-  let timelineContainer, slider, phaseLabel, monthDisplay;
+  let phaseLabel, monthDisplay;
 
   // ============================================
   // UI CREATION
   // ============================================
   function createUI() {
-    // Timeline container
-    timelineContainer = document.createElement('div');
-    timelineContainer.className = 'brand-gravity-timeline';
-    timelineContainer.innerHTML = `
-      <div class="timeline-labels">
-        <span>Month 6</span>
-        <span>Month 24</span>
-        <span>Month 48</span>
-      </div>
-      <input type="range" id="brand-gravity-slider" min="0" max="1" step="0.001" value="0">
-      <div class="phase-markers">
-        <button class="phase-marker active" data-phase="0">Rev A</button>
-        <button class="phase-marker" data-phase="0.43">Rev B</button>
-        <button class="phase-marker" data-phase="1">Rev C</button>
-      </div>
-    `;
-    document.body.appendChild(timelineContainer);
-
     // Brand label
     const brandLabel = document.createElement('div');
     brandLabel.className = 'brand-gravity-label';
@@ -121,24 +101,8 @@
     document.body.appendChild(legend);
 
     // Get references
-    slider = document.getElementById('brand-gravity-slider');
     phaseLabel = document.getElementById('brand-gravity-phase-label');
     monthDisplay = document.getElementById('brand-gravity-month-display');
-
-    // Slider event
-    slider.addEventListener('input', (e) => {
-      currentPhase = parseFloat(e.target.value);
-      updatePhaseDisplay();
-    });
-
-    // Phase marker buttons
-    timelineContainer.querySelectorAll('.phase-marker').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentPhase = parseFloat(btn.dataset.phase);
-        slider.value = currentPhase;
-        updatePhaseDisplay();
-      });
-    });
 
     // Inject styles
     injectStyles();
@@ -147,77 +111,6 @@
   function injectStyles() {
     const style = document.createElement('style');
     style.textContent = `
-      .brand-gravity-timeline {
-        position: fixed;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 400px;
-        z-index: 1000;
-        background: rgba(10, 20, 40, 0.8);
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid rgba(100, 150, 255, 0.2);
-        backdrop-filter: blur(10px);
-      }
-
-      .brand-gravity-timeline .timeline-labels {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 8px;
-        color: rgba(255,255,255,0.7);
-        font-size: 12px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      }
-
-      #brand-gravity-slider {
-        width: 100%;
-        height: 6px;
-        -webkit-appearance: none;
-        background: linear-gradient(to right, #3B82F6, #8B5CF6, #10B981);
-        border-radius: 3px;
-        outline: none;
-        cursor: pointer;
-      }
-
-      #brand-gravity-slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 18px;
-        height: 18px;
-        background: white;
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      }
-
-      .brand-gravity-timeline .phase-markers {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 12px;
-      }
-
-      .brand-gravity-timeline .phase-marker {
-        padding: 6px 16px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        color: rgba(255,255,255,0.5);
-        background: rgba(255,255,255,0.05);
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      }
-
-      .brand-gravity-timeline .phase-marker:hover {
-        background: rgba(255,255,255,0.1);
-      }
-
-      .brand-gravity-timeline .phase-marker.active {
-        color: white;
-        background: #3B82F6;
-      }
-
       .brand-gravity-label {
         position: fixed;
         bottom: 20px;
@@ -280,7 +173,6 @@
       .brand-gravity-legend .legend-dot.comparison { background: #14B8A6; }
 
       @media (max-width: 768px) {
-        .brand-gravity-timeline { width: 90%; max-width: 350px; }
         .brand-gravity-legend { display: none; }
       }
     `;
@@ -295,16 +187,6 @@
 
     if (phaseLabel) phaseLabel.textContent = `BRAND GRAVITY ECOSYSTEM | ${revLabel}`;
     if (monthDisplay) monthDisplay.textContent = `MONTH: ${month}`;
-
-    // Update phase markers
-    if (timelineContainer) {
-      timelineContainer.querySelectorAll('.phase-marker').forEach((marker, index) => {
-        marker.classList.remove('active');
-        if (index === 0 && currentPhase < 0.33) marker.classList.add('active');
-        else if (index === 1 && currentPhase >= 0.33 && currentPhase < 0.66) marker.classList.add('active');
-        else if (index === 2 && currentPhase >= 0.66) marker.classList.add('active');
-      });
-    }
   }
 
   // ============================================
@@ -371,20 +253,8 @@
       }
     });
 
-    // Mouse tracking for slider proximity
+    // Camera dragging
     document.addEventListener('mousemove', (e) => {
-      if (timelineContainer) {
-        const rect = timelineContainer.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distance = Math.sqrt(
-          Math.pow(e.clientX - centerX, 2) +
-          Math.pow(e.clientY - centerY, 2)
-        );
-        mouseNearSlider = distance < SLIDER_PROXIMITY_THRESHOLD + rect.width / 2;
-      }
-
-      // Camera dragging
       if (!isDragging) return;
       const deltaX = e.clientX - previousMousePosition.x;
       const deltaY = e.clientY - previousMousePosition.y;
@@ -396,15 +266,10 @@
       previousMousePosition = { x: e.clientX, y: e.clientY };
     });
 
-    // Mouse leave - resume auto-play
-    document.addEventListener('mouseleave', () => {
-      mouseNearSlider = false;
-    });
-
     // Mouse down for dragging
     document.addEventListener('mousedown', (e) => {
       // Don't drag if clicking on controls
-      if (e.target.closest('.brand-gravity-timeline, .brand-gravity-legend, .brand-gravity-label')) return;
+      if (e.target.closest('.brand-gravity-legend, .brand-gravity-label')) return;
       isDragging = true;
       previousMousePosition = { x: e.clientX, y: e.clientY };
     });
@@ -735,8 +600,8 @@
   function animate() {
     animationId = requestAnimationFrame(animate);
 
-    // Auto-loop when mouse not near slider
-    if (autoPlay && !mouseNearSlider) {
+    // Auto-loop animation
+    if (autoPlay) {
       currentPhase += AUTO_PLAY_SPEED * animationDirection;
       if (currentPhase >= 1) {
         currentPhase = 1;
@@ -745,9 +610,6 @@
         currentPhase = 0;
         animationDirection = 1;
       }
-
-      // Update slider to match
-      if (slider) slider.value = currentPhase;
       updatePhaseDisplay();
     }
 
@@ -778,7 +640,6 @@
       if (renderer) renderer.dispose();
       if (labelContainer) labelContainer.remove();
       if (canvas) canvas.remove();
-      if (timelineContainer) timelineContainer.remove();
       document.querySelectorAll('.brand-gravity-label, .brand-gravity-legend').forEach(el => el.remove());
     }
   };
