@@ -20,6 +20,23 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
+    /* Site Header */
+    .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 100; padding: 24px; }
+    .site-header nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .site-logo { background: rgba(0,0,0,0.7); border-radius: 12px; padding: 12px 20px; font-size: 1.5rem; font-weight: 800; color: white; text-decoration: none; transition: background 0.2s; }
+    .site-logo:hover { background: rgba(0,0,0,0.85); }
+    .nav-desktop { display: none; background: rgba(0,0,0,0.7); border-radius: 12px; padding: 12px 24px; gap: 32px; }
+    @media (min-width: 768px) { .nav-desktop { display: flex; } }
+    .nav-desktop a { color: white; text-decoration: none; font-weight: 700; font-size: 1rem; transition: color 0.2s; }
+    .nav-desktop a:hover { color: #d1d5db; }
+    .mobile-menu-btn { display: flex; background: rgba(0,0,0,0.7); border: none; border-radius: 12px; padding: 12px; cursor: pointer; }
+    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
+    .mobile-menu-btn svg { width: 24px; height: 24px; color: white; }
+    .mobile-menu { display: none; position: absolute; top: 80px; left: 24px; right: 24px; background: rgba(0,0,0,0.9); border-radius: 12px; padding: 16px 24px; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 12px 0; color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: #d1d5db; }
     .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
     /* Featured image: Four interconnected database cylinders (Salesforce, Marketo, DemandBase, LinkedIn) with data streams converging into a central "single source of truth" hub. Emphasize the transformation from chaos to order. */
     .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
@@ -87,6 +104,33 @@
   </style>
 </head>
 <body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <nav>
+      <a href="/" class="site-logo">Strategnik</a>
+      <div class="nav-desktop">
+        <a href="/physics-of-marketing">Framework</a>
+        <a href="/writing">Writing</a>
+        <a href="/work">Work</a>
+        <a href="/services">Services</a>
+        <a href="/about">About</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/physics-of-marketing">Framework</a>
+      <a href="/writing">Writing</a>
+      <a href="/work">Work</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+    </div>
+  </header>
 
   <section class="hero">
     <div class="hero-content">
@@ -357,5 +401,6 @@ flowchart TB
   </footer>
 
   <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
+  <script>document.getElementById('mobileMenuBtn').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('open'); });</script>
 </body>
 </html>
