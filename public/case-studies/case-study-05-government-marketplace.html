@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Two-Sided Acquisition Engine for Government Expert Networks | Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #0d9488;
+      --background: #fafafa;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
+    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
+    /* Featured image: Two-sided marketplace visualization with government buildings/contractors on left side and expert profile cards on right side, connected through a central matching hub with bidirectional data flows. Public data sources (SAM.gov, USAspending, LinkedIn) feeding into both sides. Dark blue with teal connection lines. */
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 60px; max-width: 800px; }
+    .hero-number { display: inline-block; background: var(--secondary); color: var(--white); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+    .hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+    .content-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    @media (min-width: 900px) { .content-wrapper { grid-template-columns: 2fr 1fr; } }
+    .main-content h2 { font-size: 1.5rem; color: var(--primary); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--secondary); }
+    .main-content h2:first-child { margin-top: 0; }
+    .main-content h3 { font-size: 1.1rem; color: var(--primary); margin: 28px 0 12px; }
+    .main-content p { margin-bottom: 16px; color: var(--text); }
+    .main-content ul, .main-content ol { margin: 16px 0; padding-left: 24px; }
+    .main-content li { margin-bottom: 8px; }
+    .main-content strong { color: var(--primary); }
+    .main-content pre { background: #1a1a2e; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 20px 0; line-height: 1.5; }
+    .main-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .main-content th, .main-content td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+    .main-content th { background: var(--primary); color: var(--white); font-weight: 600; }
+    .main-content tr:nth-child(even) { background: var(--background); }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .sidebar-box h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .quick-facts dt { font-size: 0.8rem; color: var(--text-secondary); margin-top: 12px; }
+    .quick-facts dt:first-child { margin-top: 0; }
+    .quick-facts dd { font-weight: 600; color: var(--text); }
+    .concepts-list { list-style: none; }
+    .concepts-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .concepts-list li:last-child { border-bottom: none; }
+    .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .nav-links a:hover { color: var(--secondary); }
+    .nav-links a:last-child { border-bottom: none; }
+    .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
+    .diagram-container { max-width: 900px; margin: 0 auto; }
+    .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
+    .mermaid { display: flex; justify-content: center; margin: 24px 0; }
+    .diagram-caption { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; }
+    .results-section { padding: 60px 24px; background: var(--primary); }
+    .results-container { max-width: 1000px; margin: 0 auto; }
+    .results-container h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 32px; text-align: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .stat-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 28px; text-align: center; }
+    .stat-card .number { font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-card .label { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 8px; }
+    .stat-card .context { color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 8px; }
+    .takeaway-cards { display: grid; gap: 16px; margin-top: 32px; }
+    .takeaway-card { background: var(--white); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 0 8px 8px 0; }
+    .takeaway-card strong { color: var(--primary); }
+    .footer-nav { background: var(--white); border-top: 1px solid var(--border); padding: 40px 24px; }
+    .footer-nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-nav a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    .footer-nav a:hover { color: var(--secondary); }
+    .footer-nav .prev-next { display: flex; gap: 40px; }
+    .author-block { background: var(--background); padding: 24px; border-radius: 8px; margin-top: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .author-block p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+    .author-block a { color: var(--secondary); }
+    @media (max-width: 768px) { .hero-content { padding: 30px 24px; } .footer-nav-container { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-number">Case Study 05</span>
+      <h1>Building a Two-Sided Acquisition Engine for Government Expert Networks</h1>
+      <p class="subtitle">Scraping Public Data to Match Contractors with Former Federal Executives</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <main class="main-content">
+
+      <h2>The Situation</h2>
+      <p>The company operated a marketplace connecting organizations with domain experts for consulting engagements. Think of it as Gerson Lehrman or AlphaSights, but with a focus on specialized knowledge areas including federal government expertise.</p>
+      <p>Two-sided marketplaces have a chicken-and-egg problem. Buyers won't come if there aren't enough experts. Experts won't sign up if there aren't enough paying engagements. You have to build both sides simultaneously—and the acquisition cost for both can kill you before you reach critical mass.</p>
+      <p>When I joined, the government vertical was a hypothesis. The existing motion was:</p>
+      <ul>
+        <li><strong>Demand:</strong> Generic B2B marketing to "enterprise" with occasional government contractor wins</li>
+        <li><strong>Supply:</strong> Expert recruitment through LinkedIn outreach and referrals</li>
+      </ul>
+      <p>CAC was high on both sides. Close rates were low. The thesis was promising but the execution was generic.</p>
+      <p>My job was to build a repeatable acquisition engine for both sides of the marketplace, specifically targeting the government sector.</p>
+
+      <h2>The Insight</h2>
+      <p>Government contracting is a <strong>public business</strong>. Unlike commercial B2B where everything happens behind closed doors, federal procurement generates massive amounts of public data:</p>
+      <p><strong>Demand signals are visible:</strong></p>
+      <ul>
+        <li>Every federal contract over $25K is publicly reported</li>
+        <li>RFP postings reveal what agencies are buying</li>
+        <li>Congressional budgets show where money is flowing</li>
+        <li>Award announcements reveal who's winning</li>
+      </ul>
+      <p><strong>Supply signals are also visible:</strong></p>
+      <ul>
+        <li>Former government officials are proud of their service—LinkedIn profiles detail their agency tenure</li>
+        <li>Major programs they managed are often documented in public records</li>
+        <li>GAO reports, congressional testimony, and press releases name specific officials</li>
+      </ul>
+      <p>The insight: We could build targeting criteria from public data that commercial intelligence tools couldn't match.</p>
+      <p>The second insight was about <strong>timing</strong>. Government contractors need experts at specific moments: proposal phase, post-award staffing, recompete preparation. Catching contractors at the right moment was as important as reaching them at all.</p>
+
+      <h2>The System</h2>
+
+      <h3>Layer 1: Demand-Side Intelligence (Government Contractors)</h3>
+      <p><strong>Data Sources and Signal Extraction</strong></p>
+      <p><em>SAM.gov (System for Award Management)</em> - Company registration, past contract history, certifications, NAICS codes.</p>
+      <p><em>USAspending.gov</em> - Where money is flowing, incumbent contractors, contract vehicles, upcoming recompetes.</p>
+      <p><em>FPDS (Federal Procurement Data System)</em> - All contract actions, set-aside designations, prime/sub relationships.</p>
+
+      <p><strong>Building the Target Account List</strong></p>
+      <pre>CONTRACTOR SCORE = f(
+  Activity Score (recent wins, active proposals)
+  + Growth Score (contract value trajectory)
+  + Fit Score (target agency alignment, domain match)
+  + Intent Score (hiring patterns, teaming announcements)
+  + Accessibility Score (company size, likely to buy services)
+)</pre>
+
+      <p><strong>Outreach Triggers</strong></p>
+      <table>
+        <tr><th>Trigger Event</th><th>Signal Source</th><th>Outreach Message</th></tr>
+        <tr><td>New RFP in their domain</td><td>SAM.gov posting</td><td>"Building your team for [opportunity]?"</td></tr>
+        <tr><td>Contract award win</td><td>FPDS/USAspending</td><td>"Congrats on [contract]—need experts to staff?"</td></tr>
+        <tr><td>Lost bid</td><td>Award to competitor</td><td>"Strengthen your next proposal with [expertise]"</td></tr>
+        <tr><td>Recompete approaching</td><td>Contract end date</td><td>"Defending [contract]? We can help."</td></tr>
+      </table>
+
+      <h3>Layer 2: Supply-Side Intelligence (Former Federal Executives)</h3>
+      <p><strong>LinkedIn Sales Navigator Sourcing</strong></p>
+      <pre>SEARCH CRITERIA:
+  Past employer contains:
+    - "Department of Defense" OR "DOD"
+    - "Department of Energy" OR "DOE"
+    - "USAID" OR "Agency for International Development"
+
+  AND Title (past or present) contains:
+    - "Program Manager" OR "Director" OR "Chief"
+    - "Contracting Officer" OR "COR"
+    - "Senior Advisor" OR "Deputy"
+
+  AND Current status:
+    - Not currently employed by federal government
+    - OR "Consultant" OR "Advisor" (indicates availability)</pre>
+
+      <p><strong>Experience Verification</strong></p>
+      <p>LinkedIn profiles told part of the story. We cross-referenced with FPDS/USAspending (contracting officer records), GAO reports (program managers named), congressional testimony archives, and professional associations (NCMA, AFCEA).</p>
+
+      <h3>Layer 3: Two-Sided Matching</h3>
+      <p>The matching logic connected contractor needs with expert supply:</p>
+      <pre>CONTRACTOR NEED                    EXPERT MATCH
+───────────────────────────────    ────────────────────────────
+DOD cyber contract proposal    →   Ex-DOD cyber program manager
+  Agency: DOD                        Agency: DOD
+  Domain: Cybersecurity              Domain: Cybersecurity
+  Need: Proposal support             Capability: Acquisition knowledge
+  Timeline: 60 days                  Availability: Immediate</pre>
+
+      <p><strong>Value Proposition by Side</strong></p>
+      <p><em>To Contractors:</em> Access to experts who understand the agency from inside. Faster proposal development. Better win rates. Flexible engagement.</p>
+      <p><em>To Experts:</em> Monetize institutional knowledge without full-time commitment. Stay engaged in the field post-government. Flexible work.</p>
+
+      <h2>The Takeaway</h2>
+      <p>Two-sided marketplaces are hard because you have to build two acquisition engines simultaneously. The government sector offered a unique advantage: visibility.</p>
+
+      <div class="takeaway-cards">
+        <div class="takeaway-card">
+          <strong>1. Public data is underutilized.</strong> SAM.gov, USAspending, FPDS, LinkedIn—all public, all rich with signal. The work is in connecting the dots, not in accessing proprietary databases.
+        </div>
+        <div class="takeaway-card">
+          <strong>2. Timing beats targeting.</strong> Reaching the right company is necessary but not sufficient. Reaching them at the right moment—when they're actively pursuing an opportunity—transforms response rates.
+        </div>
+        <div class="takeaway-card">
+          <strong>3. Two-sided attribution requires two-sided thinking.</strong> Every contractor win was only possible because we had the right expert. Every expert engagement was only possible because we had the right contractor. Attribution that credits only one side misses the point.
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Quick Facts</h4>
+        <dl class="quick-facts">
+          <dt>Company Type</dt>
+          <dd>Expert Network Marketplace</dd>
+          <dt>Challenge</dt>
+          <dd>Two-sided acquisition for government vertical</dd>
+          <dt>Key Metric</dt>
+          <dd>30% CAC reduction (both sides)</dd>
+          <dt>Data Sources</dt>
+          <dd>SAM.gov, USAspending, FPDS, LinkedIn</dd>
+        </dl>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Key Concepts</h4>
+        <ul class="concepts-list">
+          <li>Two-sided marketplace</li>
+          <li>Public data intelligence</li>
+          <li>Event-triggered outreach</li>
+          <li>Government contracting</li>
+          <li>Expert network matching</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Case Studies</h4>
+        <nav class="nav-links">
+          <a href="case-study-01-developer-discovery.html">01: Developer Discovery</a>
+          <a href="case-study-02-propensity-scoring.html">02: Propensity Scoring</a>
+          <a href="case-study-03-lifecycle-archetypes.html">03: Lifecycle Archetypes</a>
+          <a href="case-study-04-privacy-pivot.html">04: Privacy Pivot</a>
+          <a href="case-study-06-clean-rooms.html">06: Clean Rooms</a>
+          <a href="index.html">← Back to Series Index</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <section class="diagram-section">
+    <div class="diagram-container">
+      <h2>Two-Sided Marketplace Data Flows</h2>
+      <div class="mermaid">
+flowchart TB
+    subgraph PublicData["Public Data Sources"]
+        SAM[SAM.gov<br/>Registrations]
+        USA[USAspending<br/>Contract Awards]
+        FPDS[FPDS<br/>Procurement Data]
+        LI[LinkedIn<br/>Professional Profiles]
+    end
+
+    subgraph DemandSide["Demand Side: Contractors"]
+        D_SCORE[Contractor<br/>Scoring]
+        D_TRIGGER[Trigger<br/>Detection]
+        D_PIPE[Demand<br/>Pipeline]
+    end
+
+    subgraph SupplySide["Supply Side: Experts"]
+        S_SEARCH[Expert<br/>Search]
+        S_VERIFY[Credential<br/>Verification]
+        S_PIPE[Supply<br/>Pipeline]
+    end
+
+    subgraph Matching["Matching Engine"]
+        MATCH[Agency + Domain<br/>+ Timeline Match]
+    end
+
+    subgraph Outcomes["Engagement"]
+        PROPOSAL[Proposal<br/>Support]
+        STAFFING[Post-Award<br/>Staffing]
+        RECOMPETE[Recompete<br/>Defense]
+    end
+
+    SAM --> D_SCORE
+    USA --> D_SCORE
+    USA --> D_TRIGGER
+    FPDS --> D_SCORE
+    FPDS --> S_VERIFY
+
+    LI --> S_SEARCH
+    S_SEARCH --> S_VERIFY
+
+    D_SCORE --> D_PIPE
+    D_TRIGGER --> D_PIPE
+    S_VERIFY --> S_PIPE
+
+    D_PIPE --> MATCH
+    S_PIPE --> MATCH
+
+    MATCH --> PROPOSAL
+    MATCH --> STAFFING
+    MATCH --> RECOMPETE
+
+    style PublicData fill:#1e3a5f,color:#fff
+    style DemandSide fill:#0d9488,color:#fff
+    style SupplySide fill:#0d9488,color:#fff
+    style Matching fill:#1e3a5f,color:#fff
+    style Outcomes fill:#0d9488,color:#fff
+      </div>
+      <p class="diagram-caption">Public data feeds both sides of the marketplace, enabling precise matching between contractor needs and expert capabilities.</p>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="results-container">
+      <h2>The Results</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">30%</div>
+          <div class="label">CAC Reduction</div>
+          <div class="context">Both demand and supply sides</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">100+</div>
+          <div class="label">New Pages</div>
+          <div class="context">SEO-optimized content in 2 months</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">Higher</div>
+          <div class="label">Close Rates</div>
+          <div class="context">Better-fit contractors from scoring</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">Faster</div>
+          <div class="label">Match Velocity</div>
+          <div class="context">Right supply ready for right demand</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-nav">
+    <div class="footer-nav-container">
+      <a href="index.html">← Series Index</a>
+      <div class="prev-next">
+        <a href="case-study-04-privacy-pivot.html">← Prev: Privacy Pivot</a>
+        <a href="case-study-06-clean-rooms.html">Next: Clean Rooms →</a>
+      </div>
+    </div>
+    <div class="author-block">
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+    </div>
+  </footer>
+
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
+</body>
+</html>

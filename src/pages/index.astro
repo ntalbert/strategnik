@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import RotatingText from '../components/RotatingText.astro';
-import VideoHero from '../components/VideoHero.astro';
+import BrandGravityHero from '../components/BrandGravityHero.astro';
 
 const rotatingWords = ['demand', 'systems', 'pipeline', 'revenue', 'brands', 'growth'];
 
@@ -34,8 +34,8 @@ const recentPosts = [
 
 <BaseLayout title="Home">
 
-  <!-- Video Hero Section -->
-  <VideoHero videoSrc="/videos/hero-bg.mp4" overlayOpacity={0.6}>
+  <!-- Brand Gravity Hero Section -->
+  <BrandGravityHero overlayOpacity={0.5}>
 
     <!-- Hero - First viewport -->
     <section class="min-h-screen flex items-center justify-center">
@@ -114,7 +114,7 @@ const recentPosts = [
       </div>
     </section>
 
-  </VideoHero>
+  </BrandGravityHero>
 
   <!-- Writing Section - Black background -->
   <section class="section bg-black">

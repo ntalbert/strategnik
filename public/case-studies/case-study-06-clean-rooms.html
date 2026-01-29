@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean Room Data Architecture: Privacy-First Measurement | Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #0d9488;
+      --background: #fafafa;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
+    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
+    /* Featured image: Clean room architecture visualization with three separate data containers (Brand, Media, Measurement) connected to a central secure environment. Data streams flow inward but only aggregated insights flow outward. Privacy shield icon over the intersection point. Dark blue with teal secure zone highlighting. */
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 60px; max-width: 800px; }
+    .hero-number { display: inline-block; background: var(--secondary); color: var(--white); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+    .hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+    .content-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    @media (min-width: 900px) { .content-wrapper { grid-template-columns: 2fr 1fr; } }
+    .main-content h2 { font-size: 1.5rem; color: var(--primary); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--secondary); }
+    .main-content h2:first-child { margin-top: 0; }
+    .main-content h3 { font-size: 1.1rem; color: var(--primary); margin: 28px 0 12px; }
+    .main-content p { margin-bottom: 16px; color: var(--text); }
+    .main-content ul, .main-content ol { margin: 16px 0; padding-left: 24px; }
+    .main-content li { margin-bottom: 8px; }
+    .main-content strong { color: var(--primary); }
+    .main-content pre { background: #1a1a2e; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 20px 0; line-height: 1.5; }
+    .main-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .main-content th, .main-content td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+    .main-content th { background: var(--primary); color: var(--white); font-weight: 600; }
+    .main-content tr:nth-child(even) { background: var(--background); }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .sidebar-box h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .quick-facts dt { font-size: 0.8rem; color: var(--text-secondary); margin-top: 12px; }
+    .quick-facts dt:first-child { margin-top: 0; }
+    .quick-facts dd { font-weight: 600; color: var(--text); }
+    .concepts-list { list-style: none; }
+    .concepts-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .concepts-list li:last-child { border-bottom: none; }
+    .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .nav-links a:hover { color: var(--secondary); }
+    .nav-links a:last-child { border-bottom: none; }
+    .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
+    .diagram-container { max-width: 900px; margin: 0 auto; }
+    .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
+    .mermaid { display: flex; justify-content: center; margin: 24px 0; }
+    .diagram-caption { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; }
+    .results-section { padding: 60px 24px; background: var(--primary); }
+    .results-container { max-width: 1000px; margin: 0 auto; }
+    .results-container h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 32px; text-align: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .stat-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 28px; text-align: center; }
+    .stat-card .number { font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-card .label { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 8px; }
+    .stat-card .context { color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 8px; }
+    .takeaway-cards { display: grid; gap: 16px; margin-top: 32px; }
+    .takeaway-card { background: var(--white); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 0 8px 8px 0; }
+    .takeaway-card strong { color: var(--primary); }
+    .footer-nav { background: var(--white); border-top: 1px solid var(--border); padding: 40px 24px; }
+    .footer-nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-nav a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    .footer-nav a:hover { color: var(--secondary); }
+    .footer-nav .prev-next { display: flex; gap: 40px; }
+    .author-block { background: var(--background); padding: 24px; border-radius: 8px; margin-top: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .author-block p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+    .author-block a { color: var(--secondary); }
+    @media (max-width: 768px) { .hero-content { padding: 30px 24px; } .footer-nav-container { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-number">Case Study 06</span>
+      <h1>Clean Room Data Architecture: Privacy-First Measurement Before It Was Mandatory</h1>
+      <p class="subtitle">Building Cross-Screen Attribution Without Third-Party Cookies</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <main class="main-content">
+
+      <h2>The Situation</h2>
+      <p>This was 2017. GDPR hadn't taken effect yet. CCPA didn't exist. Apple's App Tracking Transparency was years away. Third-party cookies were alive and well. The entire adtech industry was built on tracking users across the web.</p>
+      <p>So when leadership said we needed to build a "privacy-first" measurement solution using data clean rooms, the natural question was: <strong>why?</strong></p>
+      <p>The company sold cross-screen advertising technology—helping brands reach consumers across linear TV, streaming, and digital. The value proposition was simple: combine TV viewership data with digital behavior to understand what advertising actually worked.</p>
+      <p>The problem was that our customers' first-party data (who bought what, who signed up for what) couldn't be combined with media exposure data without creating privacy and contractual nightmares. Brands didn't want to share their customer data with us. Data partners didn't want to share their audience data with brands. Everyone wanted the insight; no one wanted the liability.</p>
+      <p><strong>Clean rooms weren't a privacy compliance exercise. They were a business model enabler.</strong> Without them, the cross-screen measurement product couldn't exist.</p>
+
+      <h2>The Insight</h2>
+      <p>The traditional approach to data-driven advertising looked like this:</p>
+      <pre>Brand Customer Data → Sent to Ad Platform → Combined with Media Data → Analysis</pre>
+      <p>This flow required data to <em>move</em>. Brand data leaves the brand's walls. Media data leaves the publisher's walls. Everyone sees everything. Privacy policies, contracts, and eventually regulations all said: no.</p>
+      <p>The clean room insight was different:</p>
+      <pre>Brand Data → Stays in Secure Environment ←→ Media Data → Stays in Secure Environment
+                                    ↓
+                        Analysis Happens at the Intersection
+                                    ↓
+                        Only Aggregated Results Come Out</pre>
+      <p>No individual-level data moves. No one sees anyone else's raw data. The computation happens in a secure environment where data can overlap without exposing it. Only aggregated, privacy-safe outputs emerge.</p>
+      <p>This wasn't just a technical architecture. It was a <strong>trust architecture</strong>. It solved the "I want the insight but I don't trust you with my data" problem that was blocking adoption.</p>
+
+      <h2>The System</h2>
+
+      <h3>Layer 1: Data Partner Integration</h3>
+      <p>The measurement solution required multiple data inputs, each with its own owner and restrictions:</p>
+      <p><strong>Brand First-Party Data</strong> - Customer purchase records, CRM segments, conversion events. <em>Constraint:</em> PII could not leave their systems.</p>
+      <p><strong>TV Viewership Data (Set-Top Box)</strong> - Which households saw which ads. <em>Constraint:</em> Individual household viewing couldn't be exposed.</p>
+      <p><strong>Audience Segment Data (Acxiom)</strong> - Demographics, purchase propensity, lifestyle segments. <em>Constraint:</em> Couldn't be combined with PII from other sources.</p>
+      <p><strong>Outcome Measurement Data (Nielsen)</strong> - Sales lift, purchase behavior. <em>Constraint:</em> Deterministic data couldn't be linked to individual exposure records.</p>
+
+      <h3>Layer 2: Clean Room Architecture</h3>
+      <p>We operationalized this within Google's clean room infrastructure:</p>
+      <p><strong>Key Technical Decisions:</strong></p>
+      <p><em>Identity Matching</em></p>
+      <ul>
+        <li>Used hashed email addresses as primary match key</li>
+        <li>Hashing happened <em>before</em> data entered the clean room</li>
+        <li>No party ever saw another party's raw identifiers</li>
+      </ul>
+      <p><em>Aggregation Thresholds</em></p>
+      <ul>
+        <li>Minimum cell sizes enforced (typically 1,000+ individuals)</li>
+        <li>Any query returning results below threshold was blocked</li>
+        <li>Prevented re-identification through small-group queries</li>
+      </ul>
+      <p><em>Differential Privacy</em></p>
+      <ul>
+        <li>Noise added to outputs to prevent inference attacks</li>
+        <li>Calibrated to maintain statistical utility while ensuring privacy</li>
+      </ul>
+
+      <h3>Layer 3: Activation Workflows</h3>
+      <p><strong>Use Case 1: Exposed/Unexposed Analysis</strong></p>
+      <pre>Query: "Compare purchase rates between households exposed to TV campaign
+        vs. matched control households"
+
+Process:
+  1. Brand uploads hashed customer list
+  2. VideoAmp STB data identifies exposed households
+  3. Match happens inside clean room
+  4. Control group constructed from unexposed households
+  5. Nielsen outcome data applied to both groups
+  6. Aggregated lift calculation returned
+
+Output: "23% sales lift among exposed vs. control"
+
+What DID NOT happen:
+  - Brand didn't see which households were in STB data
+  - VideoAmp didn't see brand customer identities
+  - No individual-level data left the clean room</pre>
+
+      <p><strong>Use Case 2: Audience Building for Targeting</strong></p>
+      <p>Build lookalike segments based on attribute patterns, not individual identity. Only segment membership (yes/no) exported.</p>
+
+      <p><strong>Use Case 3: Cross-Screen Attribution</strong></p>
+      <p>Multi-touch attribution model runs inside clean room. Output: aggregated channel contribution weights, not individual customer journeys.</p>
+
+      <h3>Layer 4: Cross-Functional Implementation</h3>
+      <p>Clean rooms required coordination across Engineering (API development, security), Data Science (attribution models, privacy calibration), Legal (partnership agreements), Partner Teams (Acxiom, Nielsen integration), and Product Marketing (translating capabilities into customer value).</p>
+
+      <h2>The Takeaway</h2>
+      <p>Clean rooms solved a <strong>trust problem</strong>, not just a privacy problem. Data partnerships that were blocked by "I don't trust you with my data" could proceed when neither party had to expose their data to the other.</p>
+
+      <div class="takeaway-cards">
+        <div class="takeaway-card">
+          <strong>1. Trust architecture > technical architecture.</strong> The clean room design wasn't primarily about encryption or APIs. It was about creating a structure where parties could collaborate without trusting each other with sensitive data.
+        </div>
+        <div class="takeaway-card">
+          <strong>2. Aggregation is the privacy primitive.</strong> The magic wasn't in the matching—it was in the aggregation. Only returning results that can't identify individuals is what makes the whole thing work.
+        </div>
+        <div class="takeaway-card">
+          <strong>3. Build for tomorrow's rules.</strong> In 2017, there was no legal requirement for any of this. Building it anyway meant no scrambling when GDPR, CCPA, and iOS 14.5 arrived.
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Quick Facts</h4>
+        <dl class="quick-facts">
+          <dt>Company Type</dt>
+          <dd>Cross-Screen Advertising Technology</dd>
+          <dt>Challenge</dt>
+          <dd>Data partners wouldn't share raw data</dd>
+          <dt>Solution</dt>
+          <dd>Clean room architecture</dd>
+          <dt>Timeline</dt>
+          <dd>Built in 2017, before GDPR</dd>
+        </dl>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Key Concepts</h4>
+        <ul class="concepts-list">
+          <li>Data clean rooms</li>
+          <li>Privacy-preserving analytics</li>
+          <li>Differential privacy</li>
+          <li>Cross-screen measurement</li>
+          <li>Aggregation thresholds</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Case Studies</h4>
+        <nav class="nav-links">
+          <a href="case-study-01-developer-discovery.html">01: Developer Discovery</a>
+          <a href="case-study-02-propensity-scoring.html">02: Propensity Scoring</a>
+          <a href="case-study-03-lifecycle-archetypes.html">03: Lifecycle Archetypes</a>
+          <a href="case-study-04-privacy-pivot.html">04: Privacy Pivot</a>
+          <a href="case-study-05-government-marketplace.html">05: Government Marketplace</a>
+          <a href="index.html">← Back to Series Index</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <section class="diagram-section">
+    <div class="diagram-container">
+      <h2>Clean Room Architecture: Data Intersection</h2>
+      <div class="mermaid">
+flowchart TB
+    subgraph DataOwners["Data Owners (Separate)"]
+        BRAND[Brand<br/>First-Party Data]
+        MEDIA[VideoAmp<br/>Media Exposure]
+        MEASURE[Nielsen<br/>Outcomes]
+        AUDIENCE[Acxiom<br/>Segments]
+    end
+
+    subgraph CleanRoom["Secure Clean Room Environment"]
+        HASH[Hashed<br/>Identifiers]
+        MATCH[Privacy-Preserving<br/>Match]
+        COMPUTE[Computation<br/>Layer]
+        AGG[Aggregation<br/>+ Thresholds]
+        DIFF[Differential<br/>Privacy]
+    end
+
+    subgraph Output["Aggregated Output Only"]
+        LIFT[Sales Lift<br/>Analysis]
+        ATTR[Attribution<br/>Weights]
+        LOOK[Lookalike<br/>Segments]
+    end
+
+    BRAND -->|"Hashed before entry"| HASH
+    MEDIA -->|"Hashed before entry"| HASH
+    MEASURE -->|"Hashed before entry"| HASH
+    AUDIENCE -->|"Hashed before entry"| HASH
+
+    HASH --> MATCH
+    MATCH --> COMPUTE
+    COMPUTE --> AGG
+    AGG --> DIFF
+
+    DIFF --> LIFT
+    DIFF --> ATTR
+    DIFF --> LOOK
+
+    style DataOwners fill:#1e3a5f,color:#fff
+    style CleanRoom fill:#0d9488,color:#fff
+    style Output fill:#1e3a5f,color:#fff
+      </div>
+      <p class="diagram-caption">Data from multiple owners enters the clean room as hashed identifiers. Computation happens at the intersection, but only aggregated, privacy-safe results exit.</p>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="results-container">
+      <h2>The Results</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">New</div>
+          <div class="label">Revenue Streams</div>
+          <div class="context">Unlocked previously blocked partnerships</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">Zero</div>
+          <div class="label">GDPR Rearchitecture</div>
+          <div class="context">Already compliant when regulations hit</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">Trust</div>
+          <div class="label">Barrier Removed</div>
+          <div class="context">Partners shared data they wouldn't before</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">Ahead</div>
+          <div class="label">Competitive Position</div>
+          <div class="context">Privacy-first before it was mandatory</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-nav">
+    <div class="footer-nav-container">
+      <a href="index.html">← Series Index</a>
+      <div class="prev-next">
+        <a href="case-study-05-government-marketplace.html">← Prev: Government Marketplace</a>
+        <span style="color: var(--text-secondary);">Last in series</span>
+      </div>
+    </div>
+    <div class="author-block">
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+    </div>
+  </footer>
+
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
+</body>
+</html>

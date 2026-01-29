@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Marketing Infrastructure for Technical Products | Case Study Series</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #0d9488;
+      --background: #fafafa;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--primary);
+      padding: 80px 0;
+      color: var(--white);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 700px;
+    }
+
+    /* Overview */
+    .overview {
+      padding: 60px 0;
+      background: var(--white);
+    }
+
+    .overview h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .overview p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      max-width: 800px;
+    }
+
+    .structure-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .structure-list li {
+      background: var(--background);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .thread {
+      background: var(--secondary);
+      color: var(--white);
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin-top: 32px;
+      font-weight: 500;
+    }
+
+    /* Case Studies Grid */
+    .case-studies {
+      padding: 60px 0;
+    }
+
+    .case-studies h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+
+    .case-study-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .case-study-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .case-study-card .number {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .case-study-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .case-study-card h3 a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .case-study-card h3 a:hover {
+      color: var(--secondary);
+    }
+
+    .case-study-card .tagline {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .case-study-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .case-study-card .concepts {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* Themes */
+    .themes {
+      padding: 60px 0;
+      background: var(--white);
+    }
+
+    .themes h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .theme-card {
+      padding: 24px;
+      border-left: 4px solid var(--secondary);
+      background: var(--background);
+    }
+
+    .theme-card h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .theme-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Tech Stack */
+    .tech-stack {
+      padding: 60px 0;
+    }
+
+    .tech-stack h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+
+    .tech-table {
+      width: 100%;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .tech-table th,
+    .tech-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tech-table th {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .tech-table td {
+      font-size: 0.9rem;
+    }
+
+    .tech-table td:first-child {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .tech-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Author */
+    .author {
+      padding: 60px 0;
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .author h2 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+
+    .author p {
+      opacity: 0.9;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+
+    .author-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .author-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .author-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .disclaimer p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 0;
+      }
+
+      .case-study-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Building Marketing Infrastructure for Technical Products</h1>
+      <p class="subtitle">A Case Study Series on Data Systems, Attribution, and Revenue Architecture</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="overview">
+    <div class="container">
+      <h2>Series Overview</h2>
+      <p>This series documents six projects building marketing infrastructure for technical products. Each case study follows the same structure:</p>
+      <ul class="structure-list">
+        <li><strong>The Situation</strong> — Business context and challenge</li>
+        <li><strong>The Insight</strong> — What others were missing</li>
+        <li><strong>The System</strong> — Technical architecture and implementation</li>
+        <li><strong>The Results</strong> — Quantified outcomes</li>
+        <li><strong>The Takeaway</strong> — Transferable principles</li>
+      </ul>
+      <div class="thread">
+        The common thread across all six: <strong>the most durable marketing systems are built on data foundations you control.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="case-studies">
+    <div class="container">
+      <h2>The Case Studies</h2>
+
+      <article class="case-study-card">
+        <span class="number">01</span>
+        <h3><a href="case-study-01-developer-discovery.html">Developer-to-Enterprise Pipeline for Open Source AI</a></h3>
+        <p class="tagline">How We Turned GitHub Stars into Six-Figure Deals</p>
+        <p>Building a demand generation engine for an open-source visual AI company. The challenge: developers evaluate tools on GitHub and Hugging Face, not through demo request forms. The solution: a multi-layer system that captures developer signals, connects them to organizations, and triggers the right intervention at the right moment.</p>
+        <p class="concepts">Key concepts: Developer-led growth, PLG motion, dual-track scoring, champion enablement</p>
+      </article>
+
+      <article class="case-study-card">
+        <span class="number">02</span>
+        <h3><a href="case-study-02-propensity-scoring.html">Propensity Scoring That Actually Works</a></h3>
+        <p class="tagline">How Data Governance Made Predictive Models 30% More Accurate</p>
+        <p>Fixing a propensity model that sales didn't trust. The problem wasn't the math—it was data inconsistency across four marketing systems. The solution: a data governance framework that created a single source of truth before rebuilding the scoring model.</p>
+        <p class="concepts">Key concepts: Data governance, CRM integration, propensity modeling, vertical segmentation</p>
+      </article>
+
+      <article class="case-study-card">
+        <span class="number">03</span>
+        <h3><a href="case-study-03-lifecycle-archetypes.html">17 Lifecycle Archetypes</a></h3>
+        <p class="tagline">The Architecture Behind 157% Velocity Improvement</p>
+        <p>Replacing one-size-fits-all nurture with pattern-based lifecycle marketing. Different people in different situations need different things at different speeds. The solution: 17 distinct archetypes with custom cadences, content, and exit criteria.</p>
+        <p class="concepts">Key concepts: Lifecycle marketing, behavioral segmentation, velocity optimization, marketing automation architecture</p>
+      </article>
+
+      <article class="case-study-card">
+        <span class="number">04</span>
+        <h3><a href="case-study-04-privacy-pivot.html">Three Weeks to Fix a 300% Cost Increase</a></h3>
+        <p class="tagline">The iOS 14.5 Playbook</p>
+        <p>When Apple's privacy changes tripled SQL costs overnight, we had three weeks to stop the bleeding. The solution wasn't fixing the tracking—it was reducing channel dependency, rebuilding measurement, and accepting that precision attribution wasn't coming back.</p>
+        <p class="concepts">Key concepts: Privacy adaptation, channel diversification, first-party data strategy, blended attribution</p>
+      </article>
+
+      <article class="case-study-card">
+        <span class="number">05</span>
+        <h3><a href="case-study-05-government-marketplace.html">Two-Sided Acquisition for Government Expert Networks</a></h3>
+        <p class="tagline">Scraping Public Data to Match Contractors with Former Federal Executives</p>
+        <p>Building both sides of a marketplace simultaneously: government contractors as buyers, former federal executives as experts. The solution: mining public procurement data (SAM.gov, USAspending, FPDS) for demand signals while sourcing and verifying expert supply through LinkedIn and public records.</p>
+        <p class="concepts">Key concepts: Two-sided marketplaces, public data intelligence, government contracting, expert networks</p>
+      </article>
+
+      <article class="case-study-card">
+        <span class="number">06</span>
+        <h3><a href="case-study-06-clean-rooms.html">Clean Room Data Architecture</a></h3>
+        <p class="tagline">Privacy-First Measurement Before It Was Mandatory</p>
+        <p>Building cross-screen TV and digital measurement when data partners wouldn't share data with each other. The solution: a clean room architecture where analysis happens at the intersection of data sets without anyone seeing anyone else's raw data.</p>
+        <p class="concepts">Key concepts: Data clean rooms, privacy-first architecture, cross-screen measurement, identity matching</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Recurring Themes -->
+  <section class="themes">
+    <div class="container">
+      <h2>Recurring Themes</h2>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <h3>1. Data foundations matter more than campaign tactics</h3>
+          <p>Every case study starts with a data problem. Developer signals invisible in CRM. Inconsistent data across systems. Broken attribution. Missing supply intelligence. The marketing execution only worked after the data architecture was solid.</p>
+        </div>
+        <div class="theme-card">
+          <h3>2. Control what you can control</h3>
+          <p>iOS 14.5 didn't break everyone equally—it broke companies dependent on tracking they didn't control. Clean rooms enabled partnerships because neither party had to trust the other with their data. Public data intelligence worked because the data was always available.</p>
+        </div>
+        <div class="theme-card">
+          <h3>3. Speed requires infrastructure</h3>
+          <p>157% velocity improvement didn't come from working harder. It came from systems that recognized patterns and responded automatically. The privacy pivot worked in three weeks because we had the ability to reallocate and measure quickly.</p>
+        </div>
+        <div class="theme-card">
+          <h3>4. Build for tomorrow's constraints</h3>
+          <p>Clean room architecture was valuable before GDPR required it. First-party data strategy was valuable before cookies disappeared. Developer signal capture was valuable before every AI company realized they needed it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="tech-stack">
+    <div class="container">
+      <h2>Technical Stack Summary</h2>
+      <table class="tech-table">
+        <tr>
+          <th>Layer</th>
+          <th>Tools Referenced</th>
+        </tr>
+        <tr>
+          <td>CRM</td>
+          <td>Salesforce, HubSpot</td>
+        </tr>
+        <tr>
+          <td>Marketing Automation</td>
+          <td>Marketo, Pardot</td>
+        </tr>
+        <tr>
+          <td>ABM/Intent</td>
+          <td>DemandBase, Bombora</td>
+        </tr>
+        <tr>
+          <td>Enrichment</td>
+          <td>Clearbit, Apollo, BuiltWith</td>
+        </tr>
+        <tr>
+          <td>Workflow Orchestration</td>
+          <td>n8n, Zapier</td>
+        </tr>
+        <tr>
+          <td>Data Integration</td>
+          <td>Segment, Fivetran</td>
+        </tr>
+        <tr>
+          <td>Analytics</td>
+          <td>Looker, Tableau, SQL, Python</td>
+        </tr>
+        <tr>
+          <td>Clean Room</td>
+          <td>Google Ads Data Hub</td>
+        </tr>
+        <tr>
+          <td>Public Data</td>
+          <td>SAM.gov, USAspending.gov, FPDS, LinkedIn Sales Navigator</td>
+        </tr>
+        <tr>
+          <td>Paid Media</td>
+          <td>LinkedIn Ads, Meta Ads, Google Ads</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Author -->
+  <section class="author">
+    <div class="container">
+      <h2>About the Author</h2>
+      <p>Nick Talbert builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology—including roles at companies acquired by Amazon and AOL. Currently focused on AI commercialization and developer-led growth.</p>
+      <div class="author-links">
+        <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a>
+        <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="disclaimer">
+    <div class="container">
+      <p>This series is based on real projects with details generalized to protect client confidentiality. Technical architectures represent actual implementations; specific metrics are accurate to the projects described.</p>
+    </div>
+  </section>
+
+</body>
+</html>

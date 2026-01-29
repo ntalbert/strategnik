@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Weeks to Fix a 300% Cost Increase: The iOS 14.5 Playbook | Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #0d9488;
+      --background: #fafafa;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
+    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
+    /* Featured image: Split visualization showing budget allocation bars shifting from a single tall Meta bar to a balanced distribution across LinkedIn, ABM, SEO, and reduced Meta. An iOS privacy shield icon in the center divides "before" and "after" states. Dark blue with teal accent on the diversified channels. */
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 60px; max-width: 800px; }
+    .hero-number { display: inline-block; background: var(--secondary); color: var(--white); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+    .hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+    .content-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    @media (min-width: 900px) { .content-wrapper { grid-template-columns: 2fr 1fr; } }
+    .main-content h2 { font-size: 1.5rem; color: var(--primary); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--secondary); }
+    .main-content h2:first-child { margin-top: 0; }
+    .main-content h3 { font-size: 1.1rem; color: var(--primary); margin: 28px 0 12px; }
+    .main-content p { margin-bottom: 16px; color: var(--text); }
+    .main-content ul, .main-content ol { margin: 16px 0; padding-left: 24px; }
+    .main-content li { margin-bottom: 8px; }
+    .main-content strong { color: var(--primary); }
+    .main-content pre { background: #1a1a2e; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 20px 0; line-height: 1.5; }
+    .main-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .main-content th, .main-content td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+    .main-content th { background: var(--primary); color: var(--white); font-weight: 600; }
+    .main-content tr:nth-child(even) { background: var(--background); }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .sidebar-box h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .quick-facts dt { font-size: 0.8rem; color: var(--text-secondary); margin-top: 12px; }
+    .quick-facts dt:first-child { margin-top: 0; }
+    .quick-facts dd { font-weight: 600; color: var(--text); }
+    .concepts-list { list-style: none; }
+    .concepts-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .concepts-list li:last-child { border-bottom: none; }
+    .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .nav-links a:hover { color: var(--secondary); }
+    .nav-links a:last-child { border-bottom: none; }
+    .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
+    .diagram-container { max-width: 900px; margin: 0 auto; }
+    .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
+    .mermaid { display: flex; justify-content: center; margin: 24px 0; }
+    .diagram-caption { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; }
+    .results-section { padding: 60px 24px; background: var(--primary); }
+    .results-container { max-width: 1000px; margin: 0 auto; }
+    .results-container h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 32px; text-align: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .stat-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 28px; text-align: center; }
+    .stat-card .number { font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-card .label { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 8px; }
+    .stat-card .context { color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 8px; }
+    .takeaway-cards { display: grid; gap: 16px; margin-top: 32px; }
+    .takeaway-card { background: var(--white); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 0 8px 8px 0; }
+    .takeaway-card strong { color: var(--primary); }
+    .footer-nav { background: var(--white); border-top: 1px solid var(--border); padding: 40px 24px; }
+    .footer-nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-nav a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    .footer-nav a:hover { color: var(--secondary); }
+    .footer-nav .prev-next { display: flex; gap: 40px; }
+    .author-block { background: var(--background); padding: 24px; border-radius: 8px; margin-top: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .author-block p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+    .author-block a { color: var(--secondary); }
+    @media (max-width: 768px) { .hero-content { padding: 30px 24px; } .footer-nav-container { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-number">Case Study 04</span>
+      <h1>Three Weeks to Fix a 300% Cost Increase: The iOS 14.5 Playbook</h1>
+      <p class="subtitle">How We Survived the Privacy Apocalypse</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <main class="main-content">
+
+      <h2>The Situation</h2>
+      <p>April 2021. Apple releases iOS 14.5. The world changes.</p>
+      <p>We managed a <strong>$13M marketing budget</strong> for an eCommerce advertising platform—a company whose entire value proposition was helping brands optimize their ad spend on Amazon and other marketplaces. We lived and died by performance metrics. ROAS was everything.</p>
+      <p>Meta was our largest paid acquisition channel. Had been for years. The pixel worked. Attribution was clear. We knew exactly which campaigns drove which SQLs, what the cost per opportunity was, and how to optimize spend.</p>
+      <p>Then the App Tracking Transparency prompt started appearing on iPhones. "Ask App Not to Track." The majority of users opted out. The pixel started lying.</p>
+      <p>Within two weeks:</p>
+      <ul>
+        <li>Reported conversions dropped 40% (but actual conversions hadn't changed that much)</li>
+        <li>Audience targeting degraded (couldn't find lookalikes when you can't track behavior)</li>
+        <li>Attribution windows collapsed (7-day click, 1-day view—down from 28-day)</li>
+        <li><strong>Cost per SQL tripled</strong></li>
+      </ul>
+      <p>The dashboard went from green to red almost overnight. A channel that had been reliably producing $900 SQLs was suddenly producing $2,700 SQLs—when it could attribute them at all.</p>
+      <p>We had maybe a month before someone decided to cut the budget entirely. Three weeks to figure this out.</p>
+
+      <h2>The Insight</h2>
+      <p>The first instinct—mine and everyone else's—was to fix the tracking. Server-side conversion API. Enhanced conversions. First-party data workarounds. If we could just restore the pixel, we could restore performance.</p>
+      <p><strong>That was the wrong instinct.</strong></p>
+      <p>The pixel wasn't broken. The pixel was working exactly as designed—it just couldn't see what it used to see because users opted out. No technical fix would restore cross-app tracking after users explicitly refused it.</p>
+      <p>The real problem was <strong>dependency</strong>. We'd built a demand gen engine on a single channel that relied on a single tracking mechanism that we didn't control. When that mechanism degraded, we had no fallback.</p>
+      <p>The second insight was about measurement vs. reality. Our <em>actual</em> pipeline hadn't dropped as much as our <em>reported</em> pipeline. Leads were still coming—we just couldn't attribute them to Meta anymore.</p>
+      <p>We needed to do three things simultaneously:</p>
+      <ol>
+        <li>Reduce dependency on Meta (diversify channels)</li>
+        <li>Restore measurement accuracy (fix attribution)</li>
+        <li>Optimize what we could still see (work with degraded data)</li>
+      </ol>
+
+      <h2>The System</h2>
+
+      <h3>Week 1: Diagnosis and Triage</h3>
+      <p><strong>Day 1-2: Attribution Reality Check</strong></p>
+      <p>Before changing anything, we needed to understand what was real vs. what was measurement artifact. We built a simple reconciliation between Meta-reported conversions and actual Salesforce opportunities.</p>
+      <p>The gap was significant but not as catastrophic as the dashboard suggested. Meta was under-reporting conversions by roughly 40%. Real CPAs were up, but not 300%—more like 60-80%.</p>
+
+      <p><strong>Day 3-4: Channel Dependency Mapping</strong></p>
+      <table>
+        <tr><th>Channel</th><th>iOS Dependency</th><th>% of Budget</th><th>Performance</th></tr>
+        <tr><td>Meta</td><td>High</td><td>45%</td><td>Strong (pre-iOS)</td></tr>
+        <tr><td>LinkedIn</td><td>Low</td><td>20%</td><td>Good</td></tr>
+        <tr><td>Google Search</td><td>Medium</td><td>15%</td><td>Strong</td></tr>
+        <tr><td>ABM (DemandBase)</td><td>Low</td><td>10%</td><td>Good</td></tr>
+        <tr><td>Content/SEO</td><td>None</td><td>5%</td><td>Growing</td></tr>
+        <tr><td>Events/Webinars</td><td>None</td><td>5%</td><td>Variable</td></tr>
+      </table>
+      <p>The insight was clear: 45% of budget was in the highest-risk channel. We needed to rebalance—fast.</p>
+
+      <p><strong>Day 5: Budget Reallocation Plan</strong></p>
+      <ul>
+        <li>Meta: Reduce from 45% to 25% (immediate pause on worst-performing campaigns)</li>
+        <li>LinkedIn: Increase from 20% to 30% (less iOS dependent, still scalable)</li>
+        <li>ABM: Increase from 10% to 20% (account-level, not cookie-based)</li>
+        <li>Content/SEO: Increase from 5% to 10% (zero dependency)</li>
+      </ul>
+
+      <h3>Week 2: Measurement Rebuild</h3>
+      <p><strong>Server-Side Tracking Implementation</strong></p>
+      <p>We implemented Meta's Conversions API (CAPI) to supplement the pixel:</p>
+      <pre>User Action (demo request)
+        ↓
+Server-Side Event Capture (Segment)
+        ↓
+Parallel Transmission:
+  ├── Meta CAPI (with user consent signals)
+  ├── LinkedIn Insight Tag (server-side)
+  └── Salesforce (source of truth)
+        ↓
+Attribution Reconciliation</pre>
+
+      <p><strong>Blended CAC Dashboard</strong></p>
+      <p>We stopped trusting any single platform's attribution and built a blended view:</p>
+      <pre>Total Marketing Spend (all channels)
+        ÷
+Total Opportunities Created (from Salesforce)
+        =
+Blended CAC (the number that matters)</pre>
+
+      <h3>Week 3: Optimization on Degraded Data</h3>
+      <p><strong>Meta: New Targeting Strategy</strong> - Broader targeting, first-party custom audiences, interest-based targeting, creative differentiation.</p>
+      <p><strong>LinkedIn: Rapid Scale-Up</strong> - Desktop-heavy usage, logged-in environment, account-level targeting made it less iOS affected.</p>
+      <p><strong>ABM: Account-Level Focus</strong> - DemandBase targeting operates at the account level—no cookies required.</p>
+      <p><strong>Content and SEO</strong> - Organic traffic has zero tracking dependency. Every piece of content works regardless of privacy settings.</p>
+
+      <h2>The Takeaway</h2>
+      <p>iOS 14.5 wasn't a marketing problem. It was a dependency problem that manifested in marketing. The companies who recovered fastest weren't the ones with the best technical workarounds. They were the ones who:</p>
+
+      <div class="takeaway-cards">
+        <div class="takeaway-card">
+          <strong>1. Separated measurement from reality.</strong> Platform-reported metrics aren't truth—they're estimates. When the estimates get worse, you need other sources of truth. Salesforce (or your CRM) is the only system that knows what actually happened.
+        </div>
+        <div class="takeaway-card">
+          <strong>2. Diversified before they had to.</strong> We were 45% dependent on a single channel. That's not strategy, that's risk. The right answer is diversification <em>before</em> the crisis.
+        </div>
+        <div class="takeaway-card">
+          <strong>3. Accepted graceful degradation.</strong> Precision attribution was never coming back. We could either chase ghosts trying to restore it, or accept that directional data plus business outcomes would have to be enough.
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Quick Facts</h4>
+        <dl class="quick-facts">
+          <dt>Company Type</dt>
+          <dd>eCommerce Advertising Platform</dd>
+          <dt>Challenge</dt>
+          <dd>iOS 14.5 broke Meta attribution</dd>
+          <dt>Budget</dt>
+          <dd>$13M marketing spend</dd>
+          <dt>Timeline</dt>
+          <dd>3 weeks to stabilize</dd>
+        </dl>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Key Concepts</h4>
+        <ul class="concepts-list">
+          <li>Privacy-first marketing</li>
+          <li>Channel diversification</li>
+          <li>Server-side tracking</li>
+          <li>Blended CAC</li>
+          <li>First-party data</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Case Studies</h4>
+        <nav class="nav-links">
+          <a href="case-study-01-developer-discovery.html">01: Developer Discovery</a>
+          <a href="case-study-02-propensity-scoring.html">02: Propensity Scoring</a>
+          <a href="case-study-03-lifecycle-archetypes.html">03: Lifecycle Archetypes</a>
+          <a href="case-study-05-government-marketplace.html">05: Government Marketplace</a>
+          <a href="case-study-06-clean-rooms.html">06: Clean Rooms</a>
+          <a href="index.html">← Back to Series Index</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <section class="diagram-section">
+    <div class="diagram-container">
+      <h2>Channel Reallocation: Before and After iOS 14.5</h2>
+      <div class="mermaid">
+flowchart LR
+    subgraph Before["Before iOS 14.5"]
+        direction TB
+        B_META[Meta<br/>45%]
+        B_LI[LinkedIn<br/>20%]
+        B_GOOG[Google<br/>15%]
+        B_ABM[ABM<br/>10%]
+        B_SEO[SEO<br/>5%]
+        B_EVT[Events<br/>5%]
+    end
+
+    subgraph Crisis["iOS 14.5 Impact"]
+        direction TB
+        ATT[App Tracking<br/>Transparency]
+        BREAK[Attribution<br/>Broken]
+        COST[300% Cost<br/>Increase]
+    end
+
+    subgraph After["After Reallocation"]
+        direction TB
+        A_META[Meta<br/>25%]
+        A_LI[LinkedIn<br/>30%]
+        A_GOOG[Google<br/>15%]
+        A_ABM[ABM<br/>20%]
+        A_SEO[SEO<br/>10%]
+    end
+
+    subgraph Measurement["New Measurement"]
+        direction TB
+        CAPI[Server-Side<br/>CAPI]
+        BLEND[Blended<br/>CAC]
+        SF[Salesforce<br/>Source of Truth]
+    end
+
+    Before --> ATT
+    ATT --> BREAK
+    BREAK --> COST
+    COST --> After
+
+    After --> CAPI
+    CAPI --> BLEND
+    BLEND --> SF
+
+    style Before fill:#1e3a5f,color:#fff
+    style Crisis fill:#dc2626,color:#fff
+    style After fill:#0d9488,color:#fff
+    style Measurement fill:#1e3a5f,color:#fff
+      </div>
+      <p class="diagram-caption">Budget shifted from high-iOS-dependency Meta to diversified channels with new server-side measurement architecture.</p>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="results-container">
+      <h2>The Results</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">$1,100</div>
+          <div class="label">Stabilized SQL Cost</div>
+          <div class="context">Down from $2,700 panic peak</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">20%</div>
+          <div class="label">Budget Shifted</div>
+          <div class="context">Away from Meta to diversified channels</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">35%</div>
+          <div class="label">SEO Traffic Increase</div>
+          <div class="context">Early returns on content investment</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">3 wks</div>
+          <div class="label">Time to Stabilize</div>
+          <div class="context">Crisis response timeline</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-nav">
+    <div class="footer-nav-container">
+      <a href="index.html">← Series Index</a>
+      <div class="prev-next">
+        <a href="case-study-03-lifecycle-archetypes.html">← Prev: Lifecycle Archetypes</a>
+        <a href="case-study-05-government-marketplace.html">Next: Government Marketplace →</a>
+      </div>
+    </div>
+    <div class="author-block">
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+    </div>
+  </footer>
+
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
+</body>
+</html>

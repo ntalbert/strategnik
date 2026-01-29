@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer-to-Enterprise Pipeline for Open Source AI | Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #0d9488;
+      --background: #fafafa;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      aspect-ratio: 16/9;
+      max-height: 500px;
+      background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 60px;
+      max-width: 800px;
+    }
+
+    .hero-number {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    /* Layout */
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    @media (min-width: 900px) {
+      .content-wrapper {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    /* Main Content */
+    .main-content h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--secondary);
+    }
+
+    .main-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .main-content h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin: 28px 0 12px;
+    }
+
+    .main-content p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .main-content ul, .main-content ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    .main-content li {
+      margin-bottom: 8px;
+    }
+
+    .main-content strong {
+      color: var(--primary);
+    }
+
+    /* Code blocks */
+    .main-content pre {
+      background: #1a1a2e;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+
+    /* Tables */
+    .main-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    .main-content th, .main-content td {
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+
+    .main-content th {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .main-content tr:nth-child(even) {
+      background: var(--background);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sidebar-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .sidebar-box h4 {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .quick-facts dt {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 12px;
+    }
+
+    .quick-facts dt:first-child {
+      margin-top: 0;
+    }
+
+    .quick-facts dd {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .concepts-list {
+      list-style: none;
+    }
+
+    .concepts-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .concepts-list li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 12px 0;
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+
+    /* Diagram Section */
+    .diagram-section {
+      background: var(--white);
+      padding: 60px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .diagram-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .diagram-container h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0;
+    }
+
+    .diagram-caption {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 16px;
+    }
+
+    /* Results Section */
+    .results-section {
+      padding: 60px 24px;
+      background: var(--primary);
+    }
+
+    .results-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .results-container h2 {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .stat-card .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-card .label {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    .stat-card .context {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
+
+    /* Takeaway Cards */
+    .takeaway-cards {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .takeaway-card {
+      background: var(--white);
+      border-left: 4px solid var(--secondary);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .takeaway-card strong {
+      color: var(--primary);
+    }
+
+    /* Footer Nav */
+    .footer-nav {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+    }
+
+    .footer-nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-nav a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-nav .prev-next {
+      display: flex;
+      gap: 40px;
+    }
+
+    .author-block {
+      background: var(--background);
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 40px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .author-block p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .author-block a {
+      color: var(--secondary);
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 30px 24px;
+      }
+
+      .footer-nav-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-number">Case Study 01</span>
+      <h1>How We Built a Developer-to-Enterprise Pipeline for Open Source AI</h1>
+      <p class="subtitle">Turning GitHub Stars into Six-Figure Deals</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="content-wrapper">
+    <main class="main-content">
+
+      <h2>The Situation</h2>
+      <p>Open source AI has a conversion problem.</p>
+      <p>Thousands of developers might star your repo, fork your code, or spin up your model on Hugging Face. But the path from "ML engineer playing with your API" to "enterprise procurement signing a six-figure contract" is murky at best.</p>
+      <p>I joined a visual generative AI company with strong open source traction—downloads were healthy, the GitHub community was engaged, and ML practitioners genuinely loved the product. But the enterprise pipeline was anemic. Marketing was running the same playbook they'd use for any B2B SaaS: gated whitepapers, webinar registrations, demo request forms.</p>
+      <p>The problem? <strong>Developers don't fill out forms.</strong> They evaluate tools by reading docs, cloning repos, and running code. By the time they're willing to talk to sales, they've either already decided you're the answer—or moved on.</p>
+      <p>We needed to see the buying process that was happening in the dark.</p>
+
+      <h2>The Insight</h2>
+      <p>Enterprise AI purchases don't start with a Google search for "visual AI vendor." They start with an engineer solving a problem.</p>
+      <p>That engineer finds your model on Hugging Face. Downloads it. Runs inference. Maybe files an issue on GitHub asking about fine-tuning. Shares it in their team's Slack channel. A week later, their manager asks "what are our options for scaling this?"</p>
+      <p>The enterprise buying journey had already started—we just couldn't see it because none of those signals existed in our CRM.</p>
+      <p>The second insight was about <em>who</em> matters. In developer-led purchases, the technical evaluator and the economic buyer are different people with different information needs at different times.</p>
+      <p>We needed a system that could:</p>
+      <ol>
+        <li>Detect developer engagement signals where they actually happen</li>
+        <li>Connect individual developers to their organizations</li>
+        <li>Score accounts on <em>both</em> technical engagement and commercial readiness</li>
+        <li>Trigger the right message to the right person at the right time</li>
+      </ol>
+
+      <h2>The System</h2>
+
+      <h3>Layer 1: Discovery Signal Capture</h3>
+      <p>Most marketing teams treat their website as the top of the funnel. For developer products, your website is the <em>middle</em> of the funnel. The top is wherever developers discover and evaluate tools.</p>
+      <p>We built integrations to capture signals from:</p>
+      <p><strong>GitHub Activity</strong></p>
+      <ul>
+        <li>Stars and forks on our repos (awareness signal)</li>
+        <li>Issues filed and PRs submitted (active evaluation)</li>
+        <li>Questions in discussions (buying signal—they're trying to make it work)</li>
+      </ul>
+      <p><strong>Hugging Face Engagement</strong></p>
+      <ul>
+        <li>Model downloads (basic interest)</li>
+        <li>Space usage—when someone deploys our model in a Hugging Face Space, they're past curiosity into prototyping</li>
+        <li>Model card views vs. actual downloads (tire-kickers vs. evaluators)</li>
+      </ul>
+      <p><strong>Product Signals</strong></p>
+      <ul>
+        <li>API trial signups</li>
+        <li>Free credit usage patterns—someone burning through credits on realistic workloads is testing for production</li>
+        <li>Specific endpoints called (certain API patterns indicate enterprise use cases)</li>
+      </ul>
+
+      <h3>Layer 2: Identity Resolution and Enrichment</h3>
+      <p>A GitHub username isn't a lead. We needed to connect developer activity to companies.</p>
+      <pre>Developer Signal (GitHub user: ml_engineer_jane)
+        ↓
+Email domain extraction (from Git commits, if public)
+        ↓
+Company identification (Clearbit, Apollo, or manual)
+        ↓
+Firmographic enrichment:
+  - Company size
+  - Industry vertical
+  - Tech stack (AWS? Azure? PyTorch shop?)
+  - Existing AI/ML investment signals
+        ↓
+Account matching in Salesforce</pre>
+
+      <h3>Layer 3: Dual-Track Scoring</h3>
+      <p>Traditional lead scoring fails for PLG because it treats all engagement equally. We built parallel scoring tracks:</p>
+      <p><strong>Technical Engagement Score (Developer Track)</strong></p>
+      <ul>
+        <li>Points for: repo activity, API usage depth, documentation engagement, community participation</li>
+        <li>High score = strong technical validation happening</li>
+      </ul>
+      <p><strong>Commercial Readiness Score (Buyer Track)</strong></p>
+      <ul>
+        <li>Points for: pricing page views, security documentation requests, enterprise feature inquiries</li>
+        <li>High score = procurement process starting</li>
+      </ul>
+      <p>The magic was in the <em>combination</em>:</p>
+      <table>
+        <tr>
+          <th>Technical</th>
+          <th>Commercial</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>High</td>
+          <td>Low</td>
+          <td>Arm the champion: case studies, ROI tools, "how to pitch internally" content</td>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>High</td>
+          <td>Technical proof: sandbox environment, solution architecture call, pilot scoping</td>
+        </tr>
+        <tr>
+          <td>High</td>
+          <td>High</td>
+          <td>Enterprise sales engagement</td>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Low</td>
+          <td>Nurture: educational content, stay visible</td>
+        </tr>
+      </table>
+
+      <h3>Layer 4: Lifecycle Orchestration</h3>
+      <p>Signals flowed into Salesforce as lead and account activities. Marketo handled lifecycle automation based on score thresholds and trigger events.</p>
+      <p><strong>Champion Enablement Track</strong><br>
+      Trigger: Developer at enterprise company with 3+ engagement events, no commercial signals<br>
+      Content: Case study → ROI calculator → "Questions your CFO will ask" guide → Customer advisory call offer</p>
+
+      <h3>Layer 5: Sales Handoff with Context</h3>
+      <p>When an account hit threshold for sales engagement, the rep didn't just get a name. They got:</p>
+      <ul>
+        <li>Which developers at the company were active, and what they'd done</li>
+        <li>Which use case the account was likely evaluating (based on API patterns)</li>
+        <li>Competitive intel (had they also evaluated alternatives?)</li>
+        <li>Recommended talk track based on vertical and technical profile</li>
+        <li>Champion contact (the developer most engaged) for potential intro</li>
+      </ul>
+
+      <h2>The Takeaway</h2>
+      <p>Developer-led growth isn't about getting developers to fill out MQL forms. It's about building visibility into the evaluation process that's already happening—and orchestrating the right interventions at the right moments.</p>
+
+      <div class="takeaway-cards">
+        <div class="takeaway-card">
+          <strong>1. Fish where the fish are.</strong> If your buyers evaluate tools on GitHub and Hugging Face, that's where your funnel starts—not your website.
+        </div>
+        <div class="takeaway-card">
+          <strong>2. Separate technical validation from commercial readiness.</strong> These are different processes with different owners and different timelines. Scoring them separately lets you intervene appropriately.
+        </div>
+        <div class="takeaway-card">
+          <strong>3. Arm champions instead of capturing leads.</strong> The developer who loves your product is your best sales asset. Give them the tools to sell internally instead of trying to sell around them.
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Quick Facts</h4>
+        <dl class="quick-facts">
+          <dt>Company Type</dt>
+          <dd>Open Source Visual AI</dd>
+          <dt>Challenge</dt>
+          <dd>Developer engagement invisible to CRM</dd>
+          <dt>Key Metric</dt>
+          <dd>$18.3M+ partner pipeline</dd>
+          <dt>Approach</dt>
+          <dd>Multi-layer signal capture & dual-track scoring</dd>
+        </dl>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Key Concepts</h4>
+        <ul class="concepts-list">
+          <li>Developer-led growth</li>
+          <li>PLG motion</li>
+          <li>Dual-track scoring</li>
+          <li>Champion enablement</li>
+          <li>Identity resolution</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Case Studies</h4>
+        <nav class="nav-links">
+          <a href="case-study-02-propensity-scoring.html">02: Propensity Scoring</a>
+          <a href="case-study-03-lifecycle-archetypes.html">03: Lifecycle Archetypes</a>
+          <a href="case-study-04-privacy-pivot.html">04: Privacy Pivot</a>
+          <a href="case-study-05-government-marketplace.html">05: Government Marketplace</a>
+          <a href="case-study-06-clean-rooms.html">06: Clean Rooms</a>
+          <a href="index.html">← Back to Series Index</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Diagram Section -->
+  <section class="diagram-section">
+    <div class="diagram-container">
+      <h2>System Architecture</h2>
+      <div class="mermaid">
+flowchart LR
+    subgraph Sources["Signal Sources"]
+        GH[GitHub Activity]
+        HF[Hugging Face]
+        API[API Usage]
+        WEB[Website]
+    end
+
+    subgraph Enrichment["Enrichment Layer"]
+        ID[Identity Resolution]
+        FIRM[Firmographic Data]
+        MATCH[Account Matching]
+    end
+
+    subgraph Scoring["Dual-Track Scoring"]
+        TECH[Technical Score]
+        COMM[Commercial Score]
+    end
+
+    subgraph Actions["Orchestration"]
+        CHAMP[Champion Track]
+        PROOF[Technical Proof]
+        SALES[Sales Handoff]
+    end
+
+    GH --> ID
+    HF --> ID
+    API --> ID
+    WEB --> ID
+
+    ID --> FIRM
+    FIRM --> MATCH
+
+    MATCH --> TECH
+    MATCH --> COMM
+
+    TECH --> CHAMP
+    TECH --> SALES
+    COMM --> PROOF
+    COMM --> SALES
+
+    style Sources fill:#1e3a5f,color:#fff
+    style Enrichment fill:#0d9488,color:#fff
+    style Scoring fill:#1e3a5f,color:#fff
+    style Actions fill:#0d9488,color:#fff
+      </div>
+      <p class="diagram-caption">Developer signals flow through enrichment and dual-track scoring to trigger appropriate sales or nurture actions.</p>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="results-section">
+    <div class="results-container">
+      <h2>The Results</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">30%</div>
+          <div class="label">Organic Traffic Increase</div>
+          <div class="context">Through AI-driven discovery optimization</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">$18.3M+</div>
+          <div class="label">Partner Pipeline</div>
+          <div class="context">Via AWS, NVIDIA, Qualcomm co-marketing</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">Higher</div>
+          <div class="label">Win Rates</div>
+          <div class="context">Technical POC often done before first sales call</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">Clear</div>
+          <div class="label">Attribution</div>
+          <div class="context">First-touch traced to GitHub/HuggingFace activity</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Nav -->
+  <footer class="footer-nav">
+    <div class="footer-nav-container">
+      <a href="index.html">← Series Index</a>
+      <div class="prev-next">
+        <span style="color: var(--text-secondary);">First in series</span>
+        <a href="case-study-02-propensity-scoring.html">Next: Propensity Scoring →</a>
+      </div>
+    </div>
+    <div class="author-block">
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});
+  </script>
+</body>
+</html>

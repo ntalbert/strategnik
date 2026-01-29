@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17 Lifecycle Archetypes: 157% Velocity Improvement | Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #0d9488;
+      --background: #fafafa;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
+
+    /* Hero with animated transition */
+    .hero {
+      position: relative;
+      aspect-ratio: 16/9;
+      max-height: 600px;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero-image-03.png');
+      background-size: cover;
+      background-position: center;
+      transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s ease;
+      z-index: 1;
+    }
+
+    .hero.video-active .hero-background {
+      transform: scale(1.1);
+      opacity: 0.3;
+    }
+
+    .hero-video-container {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 1s ease 0.3s;
+    }
+
+    .hero.video-active .hero-video-container {
+      opacity: 1;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.4) 50%, rgba(30,58,95,0.2) 100%);
+      z-index: 3;
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 4;
+      padding: 60px;
+      max-width: 800px;
+    }
+
+    .hero-number {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards 0.5s;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards 0.7s;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards 0.9s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .content-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    @media (min-width: 900px) { .content-wrapper { grid-template-columns: 2fr 1fr; } }
+    .main-content h2 { font-size: 1.5rem; color: var(--primary); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--secondary); }
+    .main-content h2:first-child { margin-top: 0; }
+    .main-content h3 { font-size: 1.1rem; color: var(--primary); margin: 28px 0 12px; display: flex; align-items: center; gap: 12px; }
+    .pattern-icon { width: 32px; height: 32px; padding: 6px; background: linear-gradient(135deg, var(--primary) 0%, #2d4a6f 100%); border-radius: 8px; flex-shrink: 0; }
+    .pattern-icon svg { width: 100%; height: 100%; }
+    .pattern-icon svg path[opacity] { fill: rgba(255,255,255,0.4); }
+    .pattern-icon svg path:not([opacity]) { fill: #fff; }
+    .main-content p { margin-bottom: 16px; color: var(--text); }
+    .main-content ul, .main-content ol { margin: 16px 0; padding-left: 24px; }
+    .main-content li { margin-bottom: 8px; }
+    .main-content strong { color: var(--primary); }
+    .main-content pre { background: #1a1a2e; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 20px 0; line-height: 1.5; }
+    .main-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .main-content th, .main-content td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+    .main-content th { background: var(--primary); color: var(--white); font-weight: 600; }
+    .main-content tr:nth-child(even) { background: var(--background); }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .sidebar-box h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .quick-facts dt { font-size: 0.8rem; color: var(--text-secondary); margin-top: 12px; }
+    .quick-facts dt:first-child { margin-top: 0; }
+    .quick-facts dd { font-weight: 600; color: var(--text); }
+    .concepts-list { list-style: none; }
+    .concepts-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .concepts-list li:last-child { border-bottom: none; }
+    .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .nav-links a:hover { color: var(--secondary); }
+    .nav-links a:last-child { border-bottom: none; }
+
+    /* Tech Stack */
+    .tech-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tech-item { display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--background); border-radius: 6px; }
+    .tech-item img { width: 24px; height: 24px; border-radius: 4px; }
+    .tech-item span { font-size: 0.8rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+    .tech-item small { font-weight: 400; color: var(--text-secondary); }
+
+    /* Diagram Section - Video */
+    .diagram-section {
+      background: var(--white);
+      padding: 60px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .diagram-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .diagram-container h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .diagram-video-wrapper {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      background: #1a1a2e;
+    }
+
+    .diagram-video {
+      width: 100%;
+      display: block;
+    }
+
+    .diagram-caption {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    .results-section { padding: 60px 24px; background: var(--primary); }
+    .results-container { max-width: 1000px; margin: 0 auto; }
+    .results-container h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 32px; text-align: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .stat-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 28px; text-align: center; }
+    .stat-card .number { font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-card .label { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 8px; }
+    .stat-card .context { color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 8px; }
+    .takeaway-cards { display: grid; gap: 16px; margin-top: 32px; }
+    .takeaway-card { background: var(--white); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 0 8px 8px 0; }
+    .takeaway-card strong { color: var(--primary); }
+    .footer-nav { background: var(--white); border-top: 1px solid var(--border); padding: 40px 24px; }
+    .footer-nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-nav a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    .footer-nav a:hover { color: var(--secondary); }
+    .footer-nav .prev-next { display: flex; gap: 40px; }
+    .author-block { background: var(--background); padding: 24px; border-radius: 8px; margin-top: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .author-block p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+    .author-block a { color: var(--secondary); }
+    @media (max-width: 768px) { .hero-content { padding: 30px 24px; } .footer-nav-container { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <!-- Hero with Image-to-Video Transition -->
+  <section class="hero" id="hero">
+    <!-- Background image (moves back when video plays) -->
+    <div class="hero-background"></div>
+
+    <!-- Video container (fades in) -->
+    <div class="hero-video-container">
+      <video class="hero-video" id="heroVideo" muted playsinline>
+        <source src="hero-video-03.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Overlay gradient -->
+    <div class="hero-overlay"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <span class="hero-number">Case Study 03</span>
+      <h1>Building 17 Nurture Paths (And Why One Wasn't Enough)</h1>
+      <p class="subtitle">How lifecycle segmentation cut lead-to-value time from 47 days to 19—and the architecture behind it</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <main class="main-content">
+
+      <h2>The Situation</h2>
+      <p>The client sold data infrastructure to data engineering teams. Technical product, technical buyers, long evaluation cycles. Standard B2B playbook.</p>
+      <p>The marketing setup was familiar: leads came in, they got added to a nurture sequence, the same emails went out on the same schedule to everyone. One track. One set of content. Maybe a branch for "opened email" vs. "didn't open email." The sophistication ended there.</p>
+      <p>Lead velocity was the problem. From first touch to qualified opportunity averaged <strong>47 days</strong>. Sales complained that leads went cold. Marketing complained that sales didn't follow up fast enough. The blame game was well-rehearsed.</p>
+      <p>Analysis revealed that both teams were partially right—and both were missing the actual issue. The nurture approach treated every lead identically across every channel. A senior data engineer evaluating tools for a funded project saw the same ads, received the same emails, and was served the same content as a junior developer who downloaded a whitepaper out of curiosity.</p>
+      <p>The team wasn't slow. They were undifferentiated—and single-channel when they needed to be everywhere their prospects were, with the right content for each situation.</p>
+
+      <h2>The Insight</h2>
+      <p>"Lead nurturing" assumes leads are seeds that need water and sunlight on a predictable schedule. But leads aren't seeds. They're people in different situations with different needs at different moments—and they need different <em>types</em> of content through different channels.</p>
+      <p>A technical evaluator doesn't want case studies about business outcomes. They want documentation, benchmarks, and how-to guides. A business buyer building a case doesn't want technical deep-dives. They want ROI calculators, customer success stories, and executive summaries. And neither of them wants to receive this content only through email—they need to see it in the ads they scroll past, the retargeting that follows them, and the landing pages they hit.</p>
+      <p>Mapping the actual paths people took before becoming opportunities revealed distinct patterns—each calling for different content types, not just different messages:</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M48.5 482.3c0 16.4 13.3 29.7 29.7 29.7l237 0c-1-1.5-2-3.1-2.9-4.7l-22.5-40.4c-15.4-27.6-10.8-61 9.4-83.4-19.3-21.3-24.4-52.7-11.5-79.5-.5 0-1 0-1.5 0l-59.4 0c-98.5 0-178.3 79.8-178.3 178.3zm88-354.3a120 120 0 1 0 240 0 120 120 0 1 0 -240 0z"/><path fill="currentColor" d="M456.6 223.6c-13.3 0-24 10.7-24 24l0 5.9c0 19-24.2 33-40.7 23.5l-4.8-2.8c-11.6-6.7-26.4-2.6-32.9 9.1l-22.5 40.3c-6.3 11.2-2.6 25.3 8.3 32.1l4.5 2.8c16.3 10.1 16.2 40.1 0 50.2l-4.4 2.7c-10.9 6.8-14.6 20.9-8.3 32.1l22.5 40.4c6.5 11.7 21.4 15.8 33 9.1l4.8-2.8c16.5-9.5 40.7 4.5 40.7 23.5l0 5.9c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-6.1c0-18.9 24.1-32.8 40.5-23.4l4.9 2.9c11.6 6.7 26.5 2.6 33-9.1l22.4-40.4c6.2-11.2 2.5-25.3-8.3-32l-4.6-2.9c-16.2-10.1-16.2-39.9 0-50.1l4.7-2.9c10.8-6.8 14.4-20.8 8.2-32L607 283.3c-6.5-11.7-21.4-15.8-33-9.1l-5 2.9c-16.4 9.5-40.5-4.5-40.5-23.4l0-6.1c0-13.3-10.7-24-24-24l-48 0zm23.9 108.2a52 52 0 1 1 0 104 52 52 0 1 1 0-104z"/></svg></span>Pattern 1: The Technical Evaluator</h3>
+      <p>Multiple docs visits, GitHub activity, maybe a support question. Zero pricing page views. They're solving a technical problem and haven't thought about buying anything yet.</p>
+      <p><strong>Content that works:</strong> How-to documentation, integration guides, benchmark comparisons. Retargeting ads featuring technical content, not sales messages.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path opacity=".4" fill="currentColor" d="M16 482.3C16 498.7 29.3 512 45.7 512l356.6 0c.6 0 1.1 0 1.7 0-90.9-2.1-164-76.5-164-168 0-13.8 1.7-27.2 4.8-40l-50.5 0C95.8 304 16 383.8 16 482.3zM104 128c0 66.3 53.7 120 120 120 20.9 0 40.5-5.3 57.7-14.7 10.7-12.2 23.2-22.9 37.1-31.6 15.8-20.3 25.2-45.9 25.2-73.6 0-66.3-53.7-120-120-120S104 61.7 104 128z"/><path fill="currentColor" d="M480 344.1a72 72 0 1 0 -144 0 72 72 0 1 0 144 0zm-5.8 100.1c-19 12.6-41.7 19.9-66.2 19.9-66.3 0-120-53.7-120-120s53.7-120 120-120 120 53.7 120 120c0 24.5-7.3 47.2-19.9 66.2L569 471.1c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-60.8-60.9z"/></svg></span>Pattern 2: The Assigned Researcher</h3>
+      <p>Pricing page visit, competitor comparison content, security documentation download. Little technical engagement. Someone got told "find us some options for X" and they're checking boxes on a vendor list.</p>
+      <p><strong>Content that works:</strong> Comparison matrices, feature checklists, security attestations. Ads promoting "vs. competitor" content and procurement-ready materials.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M128 96l0 49c5.2-.7 10.6-1 16-1 70.7 0 128 57.3 128 128 0 27.7-8.8 53.4-23.8 74.4 42.8 17.5 75.1 55.4 84.8 101.6l211 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L192 32c-35.3 0-64 28.7-64 64zM303 207c9.4-9.4 24.6-9.4 33.9 0l31 31 78.1-78.1-30.1 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l88 0c13.3 0 24 10.7 24 24l0 88c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-30.1-95 95c-4.5 4.5-10.6 7-17 7s-12.5-2.5-17-7l-48-48c-9.4-9.4-9.4-24.6 0-33.9z"/><path fill="currentColor" d="M144 352a80 80 0 1 0 0-160 80 80 0 1 0 0 160zM96 384c-53 0-96 43-96 96 0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32 0-53-43-96-96-96l-96 0z"/></svg></span>Pattern 3: The Champion Building a Case</h3>
+      <p>High engagement across everything—technical content, business case content, pricing. Repeat visits over weeks. They've decided they want the product and are assembling the internal pitch.</p>
+      <p><strong>Content that works:</strong> ROI calculators, internal pitch decks, case studies with quantified outcomes. Retargeting with business value messaging, not technical features.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M48 482.3C48 498.7 61.3 512 77.7 512l356.6 0c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3l-59.4 0C127.8 304 48 383.8 48 482.3zM136 128a120 120 0 1 0 240 0 120 120 0 1 0 -240 0z"/><path fill="currentColor" d="M568 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 48-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l48 0 0 48c0 13.3 10.7 24 24 24s24-10.7 24-24l0-48 48 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-48z"/></svg></span>Pattern 4: The Existing User Expanding</h3>
+      <p>Already a customer. New use case API calls, or new team members activating. Expansion opportunity, not new logo pursuit.</p>
+      <p><strong>Content that works:</strong> Advanced use case guides, "what's new" feature releases, customer advisory invitations. No acquisition ads—these are expansion conversations.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path opacity=".4" fill="currentColor" d="M16 482.3C16 498.7 29.3 512 45.7 512L276 512c-22.7-31.5-36-70.2-36-112 0-34.8 9.3-67.5 25.5-95.6-3.9-.3-7.8-.4-11.8-.4l-59.4 0C95.8 304 16 383.8 16 482.3zM104 128a120 120 0 1 0 240 0 120 120 0 1 0 -240 0z"/><path fill="currentColor" d="M432 544a144 144 0 1 0 0-288 144 144 0 1 0 0 288zm16-208l0 48 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0c-8.8 0-16-7.2-16-16l0-64c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg></span>Pattern 5: The Tire Kicker</h3>
+      <p>Downloaded a whitepaper or attended a webinar weeks ago, then vanished. Single touchpoint, no follow-up engagement. Curiosity without intent—needs reactivation before nurturing makes sense.</p>
+      <p><strong>Content that works:</strong> Low-commitment content (short videos, industry reports). Broad retargeting to stay visible without being pushy.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path opacity=".4" fill="currentColor" d="M344 128a120 120 0 1 1 -240 0 120 120 0 1 1 240 0z"/><path fill="currentColor" d="M254.5 304l-61 0c-9.7 0-17.5 7.8-17.5 17.5 0 4.2 1.5 8.2 4.2 11.4l27.4 32-31 115.1-.6 0-34.6-138.5c-2.2-8.7-11.1-14-19.5-10.8-61.9 23.6-105.9 83.6-105.9 153.8 0 15.1 12.3 27.4 27.4 27.4l361.1 0c15.1 0 27.4-12.3 27.4-27.4 0-70.2-44-130.2-105.9-153.8-8.4-3.2-17.3 2.1-19.5 10.8l-34.6 138.5-.6 0-31-115.1 27.4-32c2.7-3.2 4.2-7.2 4.2-11.4 0-9.7-7.8-17.5-17.5-17.5z"/></svg></span>Pattern 6: The Manager Doing Due Diligence</h3>
+      <p>Technical manager title, steady engagement with architecture docs and integration guides. Comparing options methodically. Not in a rush, but building a shortlist for a real project.</p>
+      <p><strong>Content that works:</strong> Architecture decision guides, total cost of ownership calculators, implementation timelines. Steady-cadence retargeting with proof points.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path opacity=".4" fill="currentColor" d="M144 144c0 44.2 35.8 80 80 80s80-35.8 80-80l-160 0z"/><path fill="currentColor" d="M224 224c-44.2 0-80-35.8-80-80l160 0c0 44.2-35.8 80-80 80zM96 16l0 128c0 70.7 57.3 128 128 128s128-57.3 128-128l0-128c0-8.8-7.2-16-16-16l-3.2 0c-3.2 0-6.2 .9-8.9 2.7l-20 13.3-2.2 1.4c-12.7 8.5-29.6 6.8-40.4-4L237.7-10.3C234-14 229.1-16 224-16s-10 2-13.7 5.7L186.6 13.4c-10.8 10.8-27.7 12.5-40.4 4L144 16 124 2.7C121.4 .9 118.3 0 115.2 0L112 0c-8.8 0-16 7.2-16 16zm84.6 304C89.7 320 16 393.7 16 484.6 16 499.7 28.3 512 43.4 512l361.1 0c15.1 0 27.4-12.3 27.4-27.4 0-90.9-73.7-164.6-164.6-164.6l-86.9 0z"/></svg></span>Pattern 7: The Executive Sponsor</h3>
+      <p>VP or C-level, jumped straight to pricing and security documentation. Fast engagement velocity. Someone already sold them internally—they're validating the decision, not making it.</p>
+      <p><strong>Content that works:</strong> Executive summaries, peer case studies (same title/industry), security and compliance packages. Fast-track to sales conversation.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M48.3 482.3C48.3 498.7 61.6 512 78 512l356.6 0c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3l-59.4 0c-98.5 0-178.3 79.8-178.3 178.3zm88-354.3a120 120 0 1 0 240 0 120 120 0 1 0 -240 0z"/><path fill="currentColor" d="M585.7 105.9c7.8-10.7 22.8-13.1 33.5-5.3s13.1 22.8 5.3 33.5L522.1 274.9c-4.2 5.7-10.7 9.3-17.8 9.8s-14-2.2-18.9-7.3l-46.4-48c-9.2-9.5-9-24.7 .6-33.9 9.5-9.2 24.7-8.9 33.9 .6l26.5 27.4 85.6-117.7z"/></svg></span>Pattern 8: The Returning Evaluator</h3>
+      <p>Was active 6+ months ago, went dark, now back. Something changed—new project, new budget cycle, or the alternative they chose didn't work out. High intent, but context has shifted.</p>
+      <p><strong>Content that works:</strong> "What's new since you left" updates, competitive switch stories, fresh case studies. Re-engagement ads acknowledging the return.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M0 416l0 32c0 17.7 14.3 32 32 32l86.7 0c-4.3-9.8-6.7-20.6-6.7-32l0-16c0-53.2 20-101.8 52.9-138.6-11.7-3.5-24.1-5.4-36.9-5.4-70.7 0-128 57.3-128 128zM24 160a72 72 0 1 0 144 0 72 72 0 1 0 -144 0zM160 432l0 16c0 17.7 14.3 32 32 32l156.8 0c-7.1-21.6-6.3-44.4 10.7-64-14-16.2-20.5-39.7-11.4-63.3 6.6-17.1 15.9-33.1 27.4-47.3 5.4-6.6 11.6-11.7 18.3-15.4-22.1-11.5-47.2-18-73.8-18-88.4 0-160 71.6-160 160zm56-312a104 104 0 1 0 208 0 104 104 0 1 0 -208 0zm256 40a72 72 0 1 0 144 0 72 72 0 1 0 -144 0z"/><path fill="currentColor" d="M631.5 370c2.6 6.8-.5 14.3-6.8 17.9-21.9 12.6-21.9 43.5 0 56.2 6.3 3.6 9.5 11.1 6.8 18-4.8 12.4-11.5 24.1-19.9 34.4-4.6 5.7-12.7 6.7-19 3-21.8-12.6-48.6 2.8-48.6 28.1 0 7.3-4.9 13.8-12.1 14.9-12.9 2-26.8 2-39.7 0-7.2-1.1-12.1-7.6-12.1-14.9 0-25.2-26.8-40.7-48.6-28.1-6.3 3.6-14.4 2.6-19-3-8.4-10.3-15.1-22-19.9-34.4-2.6-6.8 .5-14.3 6.8-17.9 21.9-12.6 21.9-43.5 0-56.2-6.3-3.6-9.5-11.1-6.8-17.9 4.8-12.4 11.5-24.1 19.9-34.4 4.6-5.7 12.7-6.7 19-3 21.8 12.6 48.6-2.8 48.6-28.1 0-7.3 4.9-13.8 12.1-14.9 12.9-2 26.8-2 39.7 0 7.2 1.1 12.1 7.6 12.1 14.9 0 25.2 26.8 40.7 48.6 28.1 6.3-3.6 14.4-2.6 19 3 8.4 10.3 15.1 22 19.9 34.4zM512 456a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg></span>Pattern 9: The Team Lead Scaling</h3>
+      <p>Technical manager with fast engagement across performance benchmarks, team collaboration features, and enterprise pricing. Their team outgrew the current solution. Timeline is real.</p>
+      <p><strong>Content that works:</strong> Scale calculators, team deployment guides, enterprise feature comparisons. High-velocity retargeting with urgency messaging.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path opacity=".4" fill="currentColor" d="M16 482.3C16 383.8 95.8 304 194.3 304l48.6 0c-1.9 6.8-2.9 14-2.9 21.3l0 31.1c0 58.1 21 113 57.2 155.6L45.7 512C29.3 512 16 498.7 16 482.3zM344 128a120 120 0 1 1 -240 0 120 120 0 1 1 240 0z"/><path fill="currentColor" d="M432 494.8l13.3-6.3C495.8 464.8 528 414 528 358.2l0-19.6-96-32 0 188.1zm-122.1-198l112-37.3c6.6-2.2 13.7-2.2 20.2 0l112 37.3c13.1 4.4 21.9 16.6 21.9 30.4l0 31.1c0 74.4-43 142.1-110.2 173.7l-18.5 8.7c-4.8 2.2-10 3.4-15.2 3.4s-10.5-1.2-15.2-3.4L398.2 532C331 500.3 288 432.6 288 358.2l0-31.1c0-13.8 8.8-26 21.9-30.4z"/></svg></span>Pattern 10: The Compliance Checker</h3>
+      <p>Business buyer focused almost exclusively on security, SOC 2, GDPR, and vendor questionnaires. Zero product engagement. They're not evaluating features—they're checking boxes for procurement.</p>
+      <p><strong>Content that works:</strong> Pre-filled security questionnaires, compliance attestation packages, audit documentation. No product content—just procurement support.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M48.4 482.3c0 16.4 13.3 29.7 29.7 29.7l356.6 0c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3l-59.4 0c-98.5 0-178.3 79.8-178.3 178.3zm88-354.3a120 120 0 1 0 240 0 120 120 0 1 0 -240 0z"/><path fill="currentColor" d="M612.3 158.1c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-33.9 33.9-33.9-33.9c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l33.9 33.9-33.9 33.9c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l33.9-33.9 33.9 33.9c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-33.9-33.9 33.9-33.9z"/></svg></span>Pattern 11: The Stalled Champion</h3>
+      <p>Was highly engaged, clearly wanted to buy, then went quiet. Internal blockers: budget freeze, reorg, competing priority. Still interested but stuck. Needs air cover, not more product content.</p>
+      <p><strong>Content that works:</strong> "Keep the conversation warm" content—industry trends, thought leadership, customer community invites. Light-touch retargeting to maintain presence without pressure.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M128 96l0 49c5.2-.7 10.6-1 16-1 70.7 0 128 57.3 128 128 0 27.7-8.8 53.4-23.8 74.4 42.8 17.5 75.1 55.4 84.8 101.6l211 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L192 32c-35.3 0-64 28.7-64 64zM303 207c9.4-9.4 24.6-9.4 33.9 0l31 31 78.1-78.1-30.1 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l88 0c13.3 0 24 10.7 24 24l0 88c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-30.1-95 95c-4.5 4.5-10.6 7-17 7s-12.5-2.5-17-7l-48-48c-9.4-9.4-9.4-24.6 0-33.9z"/><path fill="currentColor" d="M144 352a80 80 0 1 0 0-160 80 80 0 1 0 0 160zM96 384c-53 0-96 43-96 96 0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32 0-53-43-96-96-96l-96 0z"/></svg></span>Pattern 12: The Power User Looking for More</h3>
+      <p>Existing customer hitting advanced documentation, API limits content, and enterprise feature pages. They've hit the ceiling of their current tier. Expansion conversation waiting to happen.</p>
+      <p><strong>Content that works:</strong> Upgrade path calculators, advanced feature tutorials, customer success check-ins. No ads—direct outreach from CSM.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path opacity=".4" fill="currentColor" d="M80 482.3c0 16.4 13.3 29.7 29.7 29.7l332.5 0-206.6-206.6C147.8 316.6 80 391.5 80 482.3z"/><path fill="currentColor" d="M41-24.9c-9.4-9.4-24.6-9.4-33.9 0S-2.3-.3 7 9.1l528 528c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L311.5 245.7c55-10.9 96.5-59.5 96.5-117.7 0-66.3-53.7-120-120-120-58.2 0-106.8 41.5-117.7 96.5L41-24.9z"/></svg></span>Pattern 13: The Dormant Account</h3>
+      <p>Existing customer with declining usage and zero engagement. At risk of churn. Needs success intervention, not marketing—but marketing needs to flag it.</p>
+      <p><strong>Content that works:</strong> Re-engagement campaigns with new feature highlights, success team intervention, health check invitations. Risk mitigation, not selling.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M128 96c0-35.3 28.7-64 64-64l352 0c35.3 0 64 28.7 64 64l0 256-96 0 0-32c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 32-123.8 0c-3.9-2-7.9-3.9-12.1-5.6 15-21 23.8-46.7 23.8-74.4 0-70.7-57.3-128-128-128-5.4 0-10.8 .3-16 1l0-49z"/><path fill="currentColor" d="M64 272a80 80 0 1 1 160 0 80 80 0 1 1 -160 0zM0 480c0-53 43-96 96-96l96 0c53 0 96 43 96 96 0 17.7-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32zM260.2 352l347.8 0 0 32c0 35.3-28.7 64-64 64l-211 0c-8.8-41.8-36-76.8-72.8-96z"/></svg></span>Pattern 14: The New Hire at Existing Customer</h3>
+      <p>New contact at a customer account, hitting getting-started docs and onboarding content. Not an expansion signal—they're just ramping up. Treat as enablement, not sales.</p>
+      <p><strong>Content that works:</strong> Onboarding sequences, getting-started guides, training resources. Suppress from acquisition campaigns entirely.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path opacity=".4" fill="currentColor" d="M16 482.3C16 498.7 29.3 512 45.7 512l356.6 0c.6 0 1.1 0 1.7 0-90.9-2.1-164-76.5-164-168 0-13.8 1.7-27.2 4.8-40l-50.5 0C95.8 304 16 383.8 16 482.3zM104 128c0 66.3 53.7 120 120 120 20.9 0 40.5-5.3 57.7-14.7 10.7-12.2 23.2-22.9 37.1-31.6 15.8-20.3 25.2-45.9 25.2-73.6 0-66.3-53.7-120-120-120S104 61.7 104 128z"/><path fill="currentColor" d="M480 344.1a72 72 0 1 0 -144 0 72 72 0 1 0 144 0zm-5.8 100.1c-19 12.6-41.7 19.9-66.2 19.9-66.3 0-120-53.7-120-120s53.7-120 120-120 120 53.7 120 120c0 24.5-7.3 47.2-19.9 66.2L569 471.1c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-60.8-60.9z"/></svg></span>Pattern 15: The Competitive Shopper</h3>
+      <p>Fast engagement, but focused on comparison pages and "vs competitor" content. Actively evaluating alternatives. Needs differentiation messaging and proof points, not generic nurture.</p>
+      <p><strong>Content that works:</strong> Competitive battle cards (customer-facing versions), switch case studies, migration guides. Aggressive retargeting with differentiation messaging.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path opacity=".4" fill="currentColor" d="M0 288L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-128-192 0 0 32c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-32-192 0z"/><path fill="currentColor" d="M192 56c0-4.4 3.6-8 8-8l112 0c4.4 0 8 3.6 8 8l0 40-128 0 0-40zM144 96L64 96C28.7 96 0 124.7 0 160l0 128 512 0 0-128c0-35.3-28.7-64-64-64l-80 0 0-40c0-30.9-25.1-56-56-56L200 0c-30.9 0-56 25.1-56 56l0 40z"/></svg></span>Pattern 16: The Budget Holder Warming Up</h3>
+      <p>Business buyer with steady engagement over weeks: ROI calculator, case studies, procurement guides. Building the business case slowly. Will buy—but on their timeline, not yours.</p>
+      <p><strong>Content that works:</strong> ROI calculators, CFO-ready business cases, procurement timelines. Steady retargeting with business value content, matched to their pace.</p>
+
+      <h3><span class="pattern-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path opacity=".4" fill="currentColor" d="M0 416c0-70.7 57.3-128 128-128 12.8 0 25.2 1.9 36.9 5.4-32.9 36.8-52.9 85.4-52.9 138.6l0 16c0 11.4 2.4 22.2 6.7 32L32 480c-17.7 0-32-14.3-32-32l0-32zM168 160a72 72 0 1 1 -144 0 72 72 0 1 1 144 0zm448 0a72 72 0 1 1 -144 0 72 72 0 1 1 144 0zM475.1 293.4c11.7-3.5 24.1-5.4 36.9-5.4 70.7 0 128 57.3 128 128l0 32c0 17.7-14.3 32-32 32l-86.7 0c4.3-9.8 6.7-20.6 6.7-32l0-16c0-53.2-20-101.8-52.9-138.6z"/><path fill="currentColor" d="M160 432c0-88.4 71.6-160 160-160s160 71.6 160 160l0 16c0 17.7-14.3 32-32 32l-256 0c-17.7 0-32-14.3-32-32l0-16zm56-312a104 104 0 1 1 208 0 104 104 0 1 1 -208 0z"/></svg></span>Pattern 17: The Internal Advocate</h3>
+      <p>Technical manager sharing content internally (forwarding emails, multiple people from same domain engaging). They're selling for you. Arm them with ammunition, not sales pressure.</p>
+      <p><strong>Content that works:</strong> Internal presentation templates, shareable one-pagers, team trial invitations. Multi-stakeholder retargeting across the account.</p>
+
+      <p>Each pattern called for radically different content types delivered through different channels at different speeds. One email nurture track couldn't do any of this.</p>
+
+      <h2>The System</h2>
+
+      <h3>Layer 1: Archetype Definition</h3>
+      <p>The engagement defined 17 distinct lifecycle archetypes based on three dimensions:</p>
+      <p><strong>Dimension 1: Persona</strong></p>
+      <ul>
+        <li>Technical Individual Contributor (data engineers, ML engineers)</li>
+        <li>Technical Manager (engineering leads, architects)</li>
+        <li>Business Buyer (VP Eng, CTO, technical executives)</li>
+        <li>Champion (anyone who's shown intent to advocate internally)</li>
+        <li>Existing Customer (current users in different modes)</li>
+      </ul>
+      <p><strong>Dimension 2: Intent Stage</strong></p>
+      <ul>
+        <li>Problem Aware (knows they have a problem, exploring options)</li>
+        <li>Solution Aware (knows the category, evaluating vendors)</li>
+        <li>Product Aware (knows the client specifically, deep in evaluation)</li>
+        <li>Decision Stage (ready to buy, needs final push or procurement support)</li>
+      </ul>
+      <p><strong>Dimension 3: Engagement Velocity</strong></p>
+      <ul>
+        <li>Fast (multiple high-value actions in short window)</li>
+        <li>Steady (consistent engagement over time)</li>
+        <li>Stalled (was engaged, went quiet)</li>
+        <li>New (first engagement, disposition unknown)</li>
+      </ul>
+
+      <h3>Layer 2: Classification Logic</h3>
+      <p>Each archetype required entry criteria—a combination of explicit attributes and behavioral signals. Example for <strong>Champion - Building Case</strong>:</p>
+      <pre>ENTRY CRITERIA (ALL must be true):
+  - Contact has 5+ engagement events in past 30 days
+  - AND engagement spans 3+ content categories:
+      - Technical content (docs, architecture guides)
+      - Business case content (ROI calculators, case studies)
+      - Evaluation content (pricing, comparison guides)
+  - AND at least one high-intent action:
+      - Demo request OR pricing page visit 2+ times
+  - AND not yet an open opportunity in Salesforce
+
+EXIT CRITERIA (ANY triggers exit):
+  - Opportunity created → exit to sales process
+  - OR no engagement for 21+ days → exit to "Champion - Stalled"</pre>
+
+      <h3>Layer 3: Multi-Channel Orchestration</h3>
+      <p>This wasn't an email nurture program. Each archetype received coordinated content across multiple channels—email, paid ads, retargeting, and on-site experiences—with content matched to their specific situation:</p>
+      <table>
+        <tr><th>Archetype</th><th>Channels</th><th>Content Types</th><th>Velocity</th></tr>
+        <tr><td>Champion - Building Case</td><td>Email, LinkedIn ads, retargeting</td><td>ROI calculator, internal pitch deck, executive case studies</td><td>High (2-3x/week)</td></tr>
+        <tr><td>Technical Evaluator</td><td>Email, retargeting, GitHub sponsors</td><td>How-to docs, benchmark reports, integration guides</td><td>Medium (1-2x/week)</td></tr>
+        <tr><td>Business Buyer - Decision</td><td>Email, LinkedIn ads, display retargeting</td><td>CFO-ready business case, peer case studies, procurement guides</td><td>High (2-3x/week)</td></tr>
+        <tr><td>Competitive Shopper</td><td>Search ads, retargeting, email</td><td>Comparison matrices, switch case studies, migration guides</td><td>High (aggressive)</td></tr>
+        <tr><td>Manager - Due Diligence</td><td>Email, display retargeting</td><td>TCO calculator, architecture guides, implementation timeline</td><td>Steady (1x/week)</td></tr>
+        <tr><td>Stalled Champion</td><td>Low-frequency retargeting, email</td><td>Industry thought leadership, community invites, "what's new"</td><td>Low (2x/month)</td></tr>
+        <tr><td>Customer - Expansion</td><td>In-app, email, CSM outreach</td><td>Upgrade calculator, advanced tutorials, success check-ins</td><td>Triggered by usage</td></tr>
+      </table>
+      <p>The key insight: a Technical Evaluator should never see an ad promoting ROI calculators. A Champion building a business case should never see retargeting for how-to documentation. Channel and content had to match the archetype—not just the message cadence.</p>
+      <p><strong>How the ads actually worked:</strong> Every archetype had a corresponding HubSpot segment that synced directly to Google, Meta, LinkedIn, TikTok, and AdRoll. No third-party intent data providers. No buying audience segments from data brokers. First-party behavioral data—collected from the client's own properties—powered the targeting. When someone's behavior moved them from "Technical Evaluator" to "Champion Building a Case," their ad experience changed within hours, not days.</p>
+
+      <h3>Layer 4: Velocity Optimization</h3>
+      <p><strong>Faster Classification:</strong> Evaluation happened in real-time on every event, not nightly batches. High-intent archetypes triggered sales alerts within minutes.</p>
+      <p><strong>Parallel Processing:</strong> If someone entered as "Technical Evaluator" but then hit decision-stage signals, they immediately moved—no "finish the current sequence first."</p>
+      <p><strong>First-Party Audience Sync:</strong> HubSpot segments synced directly to Google, Meta, LinkedIn, TikTok, and AdRoll for account-level targeting. When multiple contacts from the same account hit high-intent thresholds, coordinated ad campaigns activated automatically—no third-party intent data required.</p>
+      <p><strong>LinkedIn Contact Extraction:</strong> To build complete contact profiles for account-level targeting, the team used PhantomBuster to extract LinkedIn profile data without triggering LinkedIn's bot detection. This was critical—LinkedIn's aggressive session monitoring would lock out accounts attempting direct scraping. PhantomBuster's rotating sessions and rate limiting kept extractions running smoothly, feeding enriched contact data into HubSpot for segmentation.</p>
+
+      <h2>The Takeaway</h2>
+      <p>Lifecycle marketing isn't about email drip sequences. It's about orchestrating the right content through the right channels based on pattern recognition. The 17 archetypes sound complex, but the underlying principle is simple: different people in different situations need different content types delivered through different channels at different speeds.</p>
+
+      <div class="takeaway-cards">
+        <div class="takeaway-card">
+          <strong>1. Content type matters more than message frequency.</strong> A technical evaluator who sees ROI-focused ads will ignore them—not because the ad was bad, but because it's wrong for their situation. A champion building a business case doesn't need more how-to documentation. Match content type to archetype, not just cadence.
+        </div>
+        <div class="takeaway-card">
+          <strong>2. Channels must coordinate.</strong> If someone sees your retargeting ad for a case study, then gets an email about documentation, then hits a landing page promoting a calculator—you're three different companies to them. Orchestrate across channels with consistent archetype-matched content.
+        </div>
+        <div class="takeaway-card">
+          <strong>3. Speed is still a feature.</strong> When someone signals decision-stage intent, they don't want educational content across any channel. They want a conversation. Every hour of delay is an opportunity for a competitor to show up.
+        </div>
+        <div class="takeaway-card">
+          <strong>4. Build for exit, not just entry.</strong> Every archetype needs clear exit criteria—what moves someone out (positively or negatively). Tracks that accumulate contacts without progression are nurture purgatory, regardless of how many channels you're using.
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Quick Facts</h4>
+        <dl class="quick-facts">
+          <dt>Company Type</dt>
+          <dd>Data Infrastructure</dd>
+          <dt>Challenge</dt>
+          <dd>47-day lead-to-value time</dd>
+          <dt>Key Metric</dt>
+          <dd>157% velocity improvement</dd>
+          <dt>Approach</dt>
+          <dd>17 archetypes, multi-channel</dd>
+          <dt>Channels</dt>
+          <dd>Email, 1P ad sync, in-app</dd>
+          <dt>Ad Platforms</dt>
+          <dd>Google, Meta, LinkedIn, TikTok, AdRoll</dd>
+        </dl>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Key Concepts</h4>
+        <ul class="concepts-list">
+          <li>Lifecycle archetypes</li>
+          <li>Multi-channel orchestration</li>
+          <li>First-party audience sync</li>
+          <li>Content-to-archetype matching</li>
+          <li>Real-time classification</li>
+          <li>Coordinated retargeting</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Tech Stack</h4>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=32" alt="Salesforce">
+            <span>Salesforce<br><small>CRM</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=hubspot.com&sz=32" alt="HubSpot">
+            <span>HubSpot<br><small>MAP + Sync</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=n8n.io&sz=32" alt="n8n">
+            <span>n8n<br><small>Automation</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=phantombuster.com&sz=32" alt="PhantomBuster">
+            <span>PhantomBuster<br><small>LinkedIn Extract</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=ads.google.com&sz=32" alt="Google Ads">
+            <span>Google Ads<br><small>1P Sync</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=facebook.com&sz=32" alt="Meta">
+            <span>Meta<br><small>1P Sync</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" alt="LinkedIn">
+            <span>LinkedIn<br><small>1P Sync</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=32" alt="TikTok">
+            <span>TikTok<br><small>1P Sync</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=adroll.com&sz=32" alt="AdRoll">
+            <span>AdRoll<br><small>1P Sync</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=peopledatalabs.com&sz=32" alt="People Data Labs">
+            <span>People Data Labs<br><small>Enrichment</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=zerobounce.net&sz=32" alt="ZeroBounce">
+            <span>ZeroBounce<br><small>Verification</small></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Case Studies</h4>
+        <nav class="nav-links">
+          <a href="case-study-01-developer-discovery.html">01: Developer Discovery</a>
+          <a href="case-study-02-propensity-scoring.html">02: Propensity Scoring</a>
+          <a href="case-study-04-privacy-pivot.html">04: Privacy Pivot</a>
+          <a href="case-study-05-government-marketplace.html">05: Government Marketplace</a>
+          <a href="case-study-06-clean-rooms.html">06: Clean Rooms</a>
+          <a href="index.html">← Back to Series Index</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Diagram Section - Video -->
+  <section class="diagram-section">
+    <div class="diagram-container">
+      <h2>Archetype Classification and Track Routing</h2>
+      <div class="diagram-video-wrapper">
+        <video class="diagram-video" autoplay muted loop playsinline>
+          <source src="diagram-video-03.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="diagram-caption">Engagement events trigger real-time classification across three dimensions, routing contacts to archetype-specific content and channel orchestration.</p>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="results-container">
+      <h2>The Results</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">157%</div>
+          <div class="label">Velocity Improvement</div>
+          <div class="context">Lead-to-value time: 47 days to ~18 days</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">25-30%</div>
+          <div class="label">Cost Reduction</div>
+          <div class="context">Lower cost per MQL and SQL</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">40%</div>
+          <div class="label">Traffic Surge</div>
+          <div class="context">Daily website traffic within 2 months</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">17</div>
+          <div class="label">Distinct Archetypes</div>
+          <div class="context">Each with custom track and cadence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-nav">
+    <div class="footer-nav-container">
+      <a href="index.html">← Series Index</a>
+      <div class="prev-next">
+        <a href="case-study-02-propensity-scoring.html">← Prev: Propensity Scoring</a>
+        <a href="case-study-04-privacy-pivot.html">Next: Privacy Pivot →</a>
+      </div>
+    </div>
+    <div class="author-block">
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Hero video transition effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const hero = document.getElementById('hero');
+      const heroVideo = document.getElementById('heroVideo');
+
+      // Start the transition after a brief delay to let the image be seen
+      setTimeout(() => {
+        hero.classList.add('video-active');
+        heroVideo.play().catch(() => {});
+      }, 800);
+
+      // Loop the video
+      heroVideo.addEventListener('ended', () => {
+        heroVideo.currentTime = 0;
+        heroVideo.play().catch(() => {});
+      });
+    });
+  </script>
+</body>
+</html>

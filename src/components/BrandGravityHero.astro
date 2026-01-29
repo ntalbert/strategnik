@@ -1,0 +1,185 @@
+---
+interface Props {
+  overlayOpacity?: number;
+}
+
+const { overlayOpacity = 0.35 } = Astro.props;
+---
+
+<div class="parallax-container">
+  <!-- WebGL Background Layer -->
+  <div class="video-layer brand-gravity-container" id="brand-gravity-bg">
+    <!-- Canvas and icons injected by JavaScript -->
+  </div>
+  <div class="video-overlay" style={`--overlay-opacity: ${overlayOpacity}`}></div>
+
+  <!-- Floating text layer - scrolls over visualization -->
+  <div class="content-layer">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .parallax-container {
+    position: relative;
+  }
+
+  .video-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .brand-gravity-container {
+    background: #000510;
+  }
+
+  .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, calc(var(--overlay-opacity) * 0.8)) 0%,
+      rgba(0, 0, 0, var(--overlay-opacity)) 30%,
+      rgba(0, 0, 0, var(--overlay-opacity)) 70%,
+      rgba(0, 0, 0, calc(var(--overlay-opacity) * 1.2)) 100%
+    );
+  }
+
+  .content-layer {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* WebGL Canvas */
+  :global(#brand-gravity-canvas) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* Label container for HTML icons */
+  :global(#brand-gravity-labels) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Individual icon styling */
+  :global(.brand-gravity-icon) {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  :global(.brand-gravity-icon i) {
+    font-size: 22px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    :global(.brand-gravity-icon) {
+      width: 40px;
+      height: 40px;
+    }
+
+    :global(.brand-gravity-icon i) {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    :global(.brand-gravity-icon) {
+      width: 32px;
+      height: 32px;
+    }
+
+    :global(.brand-gravity-icon i) {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const videoLayer = document.querySelector('.video-layer');
+    const videoOverlay = document.querySelector('.video-overlay');
+    const parallaxContainer = document.querySelector('.parallax-container');
+
+    if (videoLayer && parallaxContainer) {
+      // Fade out visualization when leaving parallax section
+      gsap.to([videoLayer, videoOverlay], {
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: parallaxContainer,
+          start: 'bottom 60%',
+          end: 'bottom 10%',
+          scrub: true,
+        },
+      });
+    }
+
+    // Floating text elements with depth effect
+    const floatingTexts = document.querySelectorAll('[data-parallax-text]');
+    floatingTexts.forEach((el) => {
+      const speed = parseFloat(el.getAttribute('data-parallax-text') || '0.1');
+
+      gsap.to(el, {
+        y: `${speed * 100}%`,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+  });
+</script>
+
+<!-- Load dependencies -->
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<!-- Load Brand Gravity visualization -->
+<script is:inline src="/js/brand-gravity-bg.js"></script>
+<script is:inline>
+  // Initialize when fonts are ready
+  document.fonts.ready.then(function() {
+    if (window.BrandGravity) {
+      window.BrandGravity.init('brand-gravity-bg');
+    }
+  });
+</script>

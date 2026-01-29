@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propensity Scoring That Actually Works | Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #0d9488;
+      --background: #fafafa;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
+    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
+    /* Featured image: Four interconnected database cylinders (Salesforce, Marketo, DemandBase, LinkedIn) with data streams converging into a central "single source of truth" hub. Emphasize the transformation from chaos to order. */
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 60px; max-width: 800px; }
+    .hero-number { display: inline-block; background: var(--secondary); color: var(--white); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+    .hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+    .content-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    @media (min-width: 900px) { .content-wrapper { grid-template-columns: 2fr 1fr; } }
+    .main-content h2 { font-size: 1.5rem; color: var(--primary); margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--secondary); }
+    .main-content h2:first-child { margin-top: 0; }
+    .main-content h3 { font-size: 1.1rem; color: var(--primary); margin: 28px 0 12px; }
+    .main-content p { margin-bottom: 16px; color: var(--text); }
+    .main-content ul, .main-content ol { margin: 16px 0; padding-left: 24px; }
+    .main-content li { margin-bottom: 8px; }
+    .main-content strong { color: var(--primary); }
+    .main-content pre { background: #1a1a2e; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; margin: 20px 0; line-height: 1.5; }
+    .main-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .main-content th, .main-content td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+    .main-content th { background: var(--primary); color: var(--white); font-weight: 600; }
+    .main-content tr:nth-child(even) { background: var(--background); }
+    .sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .sidebar-box h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .quick-facts dt { font-size: 0.8rem; color: var(--text-secondary); margin-top: 12px; }
+    .quick-facts dt:first-child { margin-top: 0; }
+    .quick-facts dd { font-weight: 600; color: var(--text); }
+    .concepts-list { list-style: none; }
+    .concepts-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .concepts-list li:last-child { border-bottom: none; }
+    .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+    .nav-links a:hover { color: var(--secondary); }
+    .nav-links a:last-child { border-bottom: none; }
+    .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
+    .diagram-container { max-width: 900px; margin: 0 auto; }
+    .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
+    .mermaid { display: flex; justify-content: center; margin: 24px 0; }
+    .diagram-caption { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; }
+    .results-section { padding: 60px 24px; background: var(--primary); }
+    .results-container { max-width: 1000px; margin: 0 auto; }
+    .results-container h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 32px; text-align: center; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .stat-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 28px; text-align: center; }
+    .stat-card .number { font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-card .label { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin-top: 8px; }
+    .stat-card .context { color: rgba(255,255,255,0.7); font-size: 0.8rem; margin-top: 8px; }
+    .takeaway-cards { display: grid; gap: 16px; margin-top: 32px; }
+    .takeaway-card { background: var(--white); border-left: 4px solid var(--secondary); padding: 20px 24px; border-radius: 0 8px 8px 0; }
+    .takeaway-card strong { color: var(--primary); }
+    .footer-nav { background: var(--white); border-top: 1px solid var(--border); padding: 40px 24px; }
+    .footer-nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-nav a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    .footer-nav a:hover { color: var(--secondary); }
+    .footer-nav .prev-next { display: flex; gap: 40px; }
+    .author-block { background: var(--background); padding: 24px; border-radius: 8px; margin-top: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .author-block p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+    .author-block a { color: var(--secondary); }
+    @media (max-width: 768px) { .hero-content { padding: 30px 24px; } .footer-nav-container { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-number">Case Study 02</span>
+      <h1>Building a Propensity Scoring System That Actually Works</h1>
+      <p class="subtitle">How Data Governance Made Predictive Models 30% More Accurate</p>
+    </div>
+  </section>
+
+  <div class="content-wrapper">
+    <main class="main-content">
+
+      <h2>The Situation</h2>
+      <p>The marketing team had all the tools. Salesforce for CRM. Marketo for automation. DemandBase for ABM and intent data. LinkedIn Ads for paid targeting. Four platforms, significant annual spend, and a dashboard that could tell you anything you wanted to know.</p>
+      <p>Except it couldn't tell you which accounts were actually likely to buy.</p>
+      <p>The propensity model existed—technically. But sales didn't trust it. "Your 'hot' leads are garbage," was the polite version of the feedback. Marketing would point to the data showing high intent scores. Sales would point to the conversations that went nowhere.</p>
+      <p><strong>Both were right.</strong> The model was mathematically sound. It was also practically useless.</p>
+      <p>I was brought in to fix demand gen, but within the first two weeks, it became clear that the problem wasn't campaigns or content or targeting. The problem was data.</p>
+
+      <h2>The Insight</h2>
+      <p>Propensity models are only as good as the data feeding them. Garbage in, garbage out—everyone knows this. But the failure mode I found wasn't garbage data. It was <em>inconsistent</em> data.</p>
+      <p>The four systems had been implemented at different times by different teams with different naming conventions:</p>
+      <ul>
+        <li>Salesforce had "IBM Corporation" as an account. Marketo had "IBM" and "IBM Corp" as separate records. DemandBase had "International Business Machines."</li>
+        <li>Industry classifications didn't match. Salesforce used a custom picklist. DemandBase used SIC codes.</li>
+        <li>The same contact might exist in three systems with three different titles.</li>
+        <li>Intent signals from DemandBase weren't consistently flowing to Salesforce.</li>
+      </ul>
+      <p>The model was mathematically weighting data—but it was doing math on records that weren't actually the same entities.</p>
+      <p><strong>The insight: The prediction problem was actually a data governance problem.</strong></p>
+
+      <h2>The System</h2>
+
+      <h3>Layer 1: Data Audit and Mapping</h3>
+      <p>First, we mapped every field across all four systems. The output was brutal:</p>
+      <ul>
+        <li>47 fields that should have been synchronized</li>
+        <li>23 fields with naming inconsistencies</li>
+        <li>12 fields with conflicting data types</li>
+        <li>3 systems with no automated sync</li>
+      </ul>
+
+      <h3>Layer 2: Standardization Rules</h3>
+      <p><strong>Company Identification</strong></p>
+      <ul>
+        <li>Primary key: Domain name (most reliable unique identifier)</li>
+        <li>Secondary matching: Legal entity name with fuzzy matching</li>
+        <li>Standardization: All company names normalized to D&B format</li>
+      </ul>
+      <p><strong>Industry Taxonomy</strong></p>
+      <ul>
+        <li>Standard: Adopted DemandBase industry categories as source of truth</li>
+        <li>Mapping: Built translation tables from SIC codes and Salesforce picklists</li>
+      </ul>
+
+      <h3>Layer 3: Integration Architecture</h3>
+      <pre>DemandBase (Intent Data)
+    │
+    ├──→ Salesforce Account (nightly batch + real-time for surges)
+    │        │
+    │        └──→ Marketo (account-level intent visible in automation)
+    │
+LinkedIn Ads
+    │
+    ├──→ Marketo (engagement tracking)
+    │        │
+    │        └──→ Salesforce Lead/Contact
+    │
+Marketo (Behavioral Data)
+    │
+    └──→ Salesforce (bi-directional sync, 15-minute intervals)</pre>
+
+      <h3>Layer 4: The Propensity Model</h3>
+      <p>With clean, synchronized data, we rebuilt the scoring model:</p>
+      <p><strong>Input Signals (weighted by predictive power):</strong></p>
+      <ul>
+        <li><em>Firmographic:</em> Industry alignment, employee count, tech stack, geography</li>
+        <li><em>Behavioral:</em> Website visits by page value, content downloads, email engagement</li>
+        <li><em>Intent:</em> DemandBase surge scores, keyword research, competitor signals</li>
+        <li><em>Historical:</em> Similarity to closed-won accounts</li>
+      </ul>
+      <table>
+        <tr><th>Score Range</th><th>Classification</th><th>Sales Action</th></tr>
+        <tr><td>80-100</td><td>Sales-Ready</td><td>Immediate outreach, high priority</td></tr>
+        <tr><td>60-79</td><td>Marketing Qualified</td><td>Accelerated nurture, SDR qualification</td></tr>
+        <tr><td>40-59</td><td>Engaged</td><td>Standard nurture, monitor for surge</td></tr>
+        <tr><td>20-39</td><td>Aware</td><td>Light-touch digital, brand awareness</td></tr>
+        <tr><td>0-19</td><td>Cold</td><td>Exclude from active campaigns</td></tr>
+      </table>
+
+      <h3>Layer 5: Vertical Segmentation</h3>
+      <p>Rather than one model to rule them all, we calibrated for high-value verticals:</p>
+      <p><strong>Banking/Financial Services:</strong> Heavier weight on compliance content, longer lookback window</p>
+      <p><strong>Retail:</strong> Seasonal adjustment, customer experience content weight, peak period multiplier</p>
+
+      <h2>The Takeaway</h2>
+      <p>Most companies don't have a prediction problem. They have a data problem masquerading as a prediction problem.</p>
+
+      <div class="takeaway-cards">
+        <div class="takeaway-card">
+          <strong>1. Audit before you build.</strong> We lost a month before I realized the model wasn't the problem. That month would have been saved by starting with a data audit.
+        </div>
+        <div class="takeaway-card">
+          <strong>2. Domain is your friend.</strong> Email domain as the primary key for matching solved most of our account matching challenges.
+        </div>
+        <div class="takeaway-card">
+          <strong>3. Vertical calibration beats universal models.</strong> A model trained on all accounts will be mediocre at predicting any specific segment.
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h4>Quick Facts</h4>
+        <dl class="quick-facts">
+          <dt>Company Type</dt>
+          <dd>Enterprise Network Infrastructure</dd>
+          <dt>Challenge</dt>
+          <dd>Sales didn't trust propensity scores</dd>
+          <dt>Key Metric</dt>
+          <dd>30% accuracy improvement</dd>
+          <dt>Root Cause</dt>
+          <dd>Data inconsistency across 4 systems</dd>
+        </dl>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Key Concepts</h4>
+        <ul class="concepts-list">
+          <li>Data governance</li>
+          <li>CRM integration</li>
+          <li>Propensity modeling</li>
+          <li>Vertical segmentation</li>
+          <li>Domain-based matching</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Case Studies</h4>
+        <nav class="nav-links">
+          <a href="case-study-01-developer-discovery.html">01: Developer Discovery</a>
+          <a href="case-study-03-lifecycle-archetypes.html">03: Lifecycle Archetypes</a>
+          <a href="case-study-04-privacy-pivot.html">04: Privacy Pivot</a>
+          <a href="case-study-05-government-marketplace.html">05: Government Marketplace</a>
+          <a href="case-study-06-clean-rooms.html">06: Clean Rooms</a>
+          <a href="index.html">← Back to Series Index</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <section class="diagram-section">
+    <div class="diagram-container">
+      <h2>Four-System Data Sync Architecture</h2>
+      <div class="mermaid">
+flowchart TB
+    subgraph Systems["Marketing Systems"]
+        SF[Salesforce<br/>CRM]
+        MK[Marketo<br/>Automation]
+        DB[DemandBase<br/>ABM/Intent]
+        LI[LinkedIn<br/>Ads]
+    end
+
+    subgraph Governance["Data Governance Layer"]
+        DOM[Domain-Based<br/>Matching]
+        STD[Standardization<br/>Rules]
+        REC[Reconciliation<br/>Jobs]
+    end
+
+    subgraph Model["Propensity Model"]
+        FIRM[Firmographic<br/>Signals]
+        BEH[Behavioral<br/>Signals]
+        INT[Intent<br/>Signals]
+        SCORE[Propensity<br/>Score 0-100]
+    end
+
+    SF <--> DOM
+    MK <--> DOM
+    DB --> DOM
+    LI --> MK
+
+    DOM --> STD
+    STD --> REC
+    REC --> SF
+
+    SF --> FIRM
+    MK --> BEH
+    DB --> INT
+
+    FIRM --> SCORE
+    BEH --> SCORE
+    INT --> SCORE
+
+    style Systems fill:#1e3a5f,color:#fff
+    style Governance fill:#0d9488,color:#fff
+    style Model fill:#1e3a5f,color:#fff
+      </div>
+      <p class="diagram-caption">Data governance layer ensures consistency across four systems before feeding the propensity model.</p>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="results-container">
+      <h2>The Results</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">26%</div>
+          <div class="label">Data Integrity Improvement</div>
+          <div class="context">Across all four platforms</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">30%</div>
+          <div class="label">Prediction Accuracy</div>
+          <div class="context">Propensity-to-buy improvement</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">25%</div>
+          <div class="label">Engagement Increase</div>
+          <div class="context">Banking/Finance vertical campaigns</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">&lt;3%</div>
+          <div class="label">Duplicate Rate</div>
+          <div class="context">Down from ~15%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-nav">
+    <div class="footer-nav-container">
+      <a href="index.html">← Series Index</a>
+      <div class="prev-next">
+        <a href="case-study-01-developer-discovery.html">← Prev: Developer Discovery</a>
+        <a href="case-study-03-lifecycle-archetypes.html">Next: Lifecycle Archetypes →</a>
+      </div>
+    </div>
+    <div class="author-block">
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+    </div>
+  </footer>
+
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
+</body>
+</html>
