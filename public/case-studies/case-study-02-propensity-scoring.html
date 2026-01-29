@@ -53,6 +53,12 @@
     .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
     .nav-links a:hover { color: var(--secondary); }
     .nav-links a:last-child { border-bottom: none; }
+    /* Tech Stack */
+    .tech-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tech-item { display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--background); border-radius: 6px; }
+    .tech-item img { width: 24px; height: 24px; border-radius: 4px; }
+    .tech-item span { font-size: 0.8rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+    .tech-item small { font-weight: 400; color: var(--text-secondary); }
     .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
     .diagram-container { max-width: 900px; margin: 0 auto; }
     .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
@@ -98,10 +104,10 @@
       <p>Except it couldn't tell you which accounts were actually likely to buy.</p>
       <p>The propensity model existed—technically. But sales didn't trust it. "Your 'hot' leads are garbage," was the polite version of the feedback. Marketing would point to the data showing high intent scores. Sales would point to the conversations that went nowhere.</p>
       <p><strong>Both were right.</strong> The model was mathematically sound. It was also practically useless.</p>
-      <p>I was brought in to fix demand gen, but within the first two weeks, it became clear that the problem wasn't campaigns or content or targeting. The problem was data.</p>
+      <p>The initial engagement was to fix demand gen, but within the first two weeks, it became clear that the problem wasn't campaigns or content or targeting. The problem was data.</p>
 
       <h2>The Insight</h2>
-      <p>Propensity models are only as good as the data feeding them. Garbage in, garbage out—everyone knows this. But the failure mode I found wasn't garbage data. It was <em>inconsistent</em> data.</p>
+      <p>Propensity models are only as good as the data feeding them. Garbage in, garbage out—everyone knows this. But the failure mode wasn't garbage data. It was <em>inconsistent</em> data.</p>
       <p>The four systems had been implemented at different times by different teams with different naming conventions:</p>
       <ul>
         <li>Salesforce had "IBM Corporation" as an account. Marketo had "IBM" and "IBM Corp" as separate records. DemandBase had "International Business Machines."</li>
@@ -115,7 +121,7 @@
       <h2>The System</h2>
 
       <h3>Layer 1: Data Audit and Mapping</h3>
-      <p>First, we mapped every field across all four systems. The output was brutal:</p>
+      <p>First, every field across all four systems was mapped. The output was brutal:</p>
       <ul>
         <li>47 fields that should have been synchronized</li>
         <li>23 fields with naming inconsistencies</li>
@@ -154,7 +160,7 @@ Marketo (Behavioral Data)
     └──→ Salesforce (bi-directional sync, 15-minute intervals)</pre>
 
       <h3>Layer 4: The Propensity Model</h3>
-      <p>With clean, synchronized data, we rebuilt the scoring model:</p>
+      <p>With clean, synchronized data, the scoring model was rebuilt:</p>
       <p><strong>Input Signals (weighted by predictive power):</strong></p>
       <ul>
         <li><em>Firmographic:</em> Industry alignment, employee count, tech stack, geography</li>
@@ -172,7 +178,7 @@ Marketo (Behavioral Data)
       </table>
 
       <h3>Layer 5: Vertical Segmentation</h3>
-      <p>Rather than one model to rule them all, we calibrated for high-value verticals:</p>
+      <p>Rather than one model to rule them all, the system was calibrated for high-value verticals:</p>
       <p><strong>Banking/Financial Services:</strong> Heavier weight on compliance content, longer lookback window</p>
       <p><strong>Retail:</strong> Seasonal adjustment, customer experience content weight, peak period multiplier</p>
 
@@ -181,10 +187,10 @@ Marketo (Behavioral Data)
 
       <div class="takeaway-cards">
         <div class="takeaway-card">
-          <strong>1. Audit before you build.</strong> We lost a month before I realized the model wasn't the problem. That month would have been saved by starting with a data audit.
+          <strong>1. Audit before you build.</strong> A month was lost before realizing the model wasn't the problem. That time would have been saved by starting with a data audit.
         </div>
         <div class="takeaway-card">
-          <strong>2. Domain is your friend.</strong> Email domain as the primary key for matching solved most of our account matching challenges.
+          <strong>2. Domain is your friend.</strong> Email domain as the primary key for matching solved most of the account matching challenges.
         </div>
         <div class="takeaway-card">
           <strong>3. Vertical calibration beats universal models.</strong> A model trained on all accounts will be mediocre at predicting any specific segment.
@@ -217,6 +223,32 @@ Marketo (Behavioral Data)
           <li>Vertical segmentation</li>
           <li>Domain-based matching</li>
         </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Tech Stack</h4>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=32" alt="Salesforce">
+            <span>Salesforce<br><small>CRM</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=marketo.com&sz=32" alt="Marketo">
+            <span>Marketo<br><small>Automation</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=demandbase.com&sz=32" alt="DemandBase">
+            <span>DemandBase<br><small>ABM + Intent</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" alt="LinkedIn">
+            <span>LinkedIn Ads<br><small>Paid Media</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=dnb.com&sz=32" alt="D&B">
+            <span>D&B<br><small>Data Standard</small></span>
+          </div>
+        </div>
       </div>
 
       <div class="sidebar-box">

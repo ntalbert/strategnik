@@ -53,6 +53,12 @@
     .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
     .nav-links a:hover { color: var(--secondary); }
     .nav-links a:last-child { border-bottom: none; }
+    /* Tech Stack */
+    .tech-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tech-item { display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--background); border-radius: 6px; }
+    .tech-item img { width: 24px; height: 24px; border-radius: 4px; }
+    .tech-item span { font-size: 0.8rem; font-weight: 500; color: var(--text); line-height: 1.3; }
+    .tech-item small { font-weight: 400; color: var(--text-secondary); }
     .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
     .diagram-container { max-width: 900px; margin: 0 auto; }
     .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
@@ -96,13 +102,13 @@
       <h2>The Situation</h2>
       <p>The company operated a marketplace connecting organizations with domain experts for consulting engagements. Think of it as Gerson Lehrman or AlphaSights, but with a focus on specialized knowledge areas including federal government expertise.</p>
       <p>Two-sided marketplaces have a chicken-and-egg problem. Buyers won't come if there aren't enough experts. Experts won't sign up if there aren't enough paying engagements. You have to build both sides simultaneously—and the acquisition cost for both can kill you before you reach critical mass.</p>
-      <p>When I joined, the government vertical was a hypothesis. The existing motion was:</p>
+      <p>At project start, the government vertical was a hypothesis. The existing motion was:</p>
       <ul>
         <li><strong>Demand:</strong> Generic B2B marketing to "enterprise" with occasional government contractor wins</li>
         <li><strong>Supply:</strong> Expert recruitment through LinkedIn outreach and referrals</li>
       </ul>
       <p>CAC was high on both sides. Close rates were low. The thesis was promising but the execution was generic.</p>
-      <p>My job was to build a repeatable acquisition engine for both sides of the marketplace, specifically targeting the government sector.</p>
+      <p>The objective was to build a repeatable acquisition engine for both sides of the marketplace, specifically targeting the government sector.</p>
 
       <h2>The Insight</h2>
       <p>Government contracting is a <strong>public business</strong>. Unlike commercial B2B where everything happens behind closed doors, federal procurement generates massive amounts of public data:</p>
@@ -119,7 +125,7 @@
         <li>Major programs they managed are often documented in public records</li>
         <li>GAO reports, congressional testimony, and press releases name specific officials</li>
       </ul>
-      <p>The insight: We could build targeting criteria from public data that commercial intelligence tools couldn't match.</p>
+      <p>The insight: targeting criteria could be built from public data that commercial intelligence tools couldn't match.</p>
       <p>The second insight was about <strong>timing</strong>. Government contractors need experts at specific moments: proposal phase, post-award staffing, recompete preparation. Catching contractors at the right moment was as important as reaching them at all.</p>
 
       <h2>The System</h2>
@@ -166,7 +172,7 @@
     - OR "Consultant" OR "Advisor" (indicates availability)</pre>
 
       <p><strong>Experience Verification</strong></p>
-      <p>LinkedIn profiles told part of the story. We cross-referenced with FPDS/USAspending (contracting officer records), GAO reports (program managers named), congressional testimony archives, and professional associations (NCMA, AFCEA).</p>
+      <p>LinkedIn profiles told part of the story. Cross-referencing with FPDS/USAspending (contracting officer records), GAO reports (program managers named), congressional testimony archives, and professional associations (NCMA, AFCEA) completed the picture.</p>
 
       <h3>Layer 3: Two-Sided Matching</h3>
       <p>The matching logic connected contractor needs with expert supply:</p>
@@ -223,6 +229,36 @@ DOD cyber contract proposal    →   Ex-DOD cyber program manager
           <li>Government contracting</li>
           <li>Expert network matching</li>
         </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h4>Tech Stack</h4>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=sam.gov&sz=32" alt="SAM.gov">
+            <span>SAM.gov<br><small>Registrations</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=usaspending.gov&sz=32" alt="USAspending">
+            <span>USAspending<br><small>Contract Awards</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=fpds.gov&sz=32" alt="FPDS">
+            <span>FPDS<br><small>Procurement Data</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" alt="LinkedIn">
+            <span>LinkedIn<br><small>Sales Navigator</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=hubspot.com&sz=32" alt="HubSpot">
+            <span>HubSpot<br><small>CRM</small></span>
+          </div>
+          <div class="tech-item">
+            <img src="https://www.google.com/s2/favicons?domain=phantombuster.com&sz=32" alt="PhantomBuster">
+            <span>PhantomBuster<br><small>Data Extraction</small></span>
+          </div>
+        </div>
       </div>
 
       <div class="sidebar-box">
