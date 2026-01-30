@@ -19,7 +19,7 @@ const navLinks = [
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center bg-black/70 rounded-xl px-6 py-3 gap-8">
+      <div class="hidden md:flex items-center bg-black rounded-xl px-6 py-3 gap-8">
         {navLinks.map((link) => (
           <a
             href={link.href}
@@ -33,7 +33,7 @@ const navLinks = [
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-3 bg-black/70 rounded-xl text-white hover:text-gray-300 transition-colors"
+        class="md:hidden p-3 bg-black rounded-xl text-white hover:text-gray-300 transition-colors"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -48,7 +48,7 @@ const navLinks = [
   <!-- Mobile Navigation -->
   <div id="mobile-menu" class="hidden md:hidden mt-6">
     <div class="container-content">
-      <div class="bg-black/70 rounded-xl px-6 py-4 space-y-4">
+      <div class="bg-black rounded-xl px-6 py-4 space-y-4">
         {navLinks.map((link) => (
           <a
             href={link.href}
