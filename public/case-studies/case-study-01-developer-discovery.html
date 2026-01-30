@@ -67,14 +67,14 @@
     .site-logo {
       background: rgba(0,0,0,0.7);
       border-radius: 12px;
-      padding: 12px 20px;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: white;
+      padding: 8px 16px;
       text-decoration: none;
       transition: background 0.2s;
+      display: flex;
+      align-items: center;
     }
     .site-logo:hover { background: rgba(0,0,0,0.85); }
+    .site-logo img { height: 40px; width: auto; }
     .nav-desktop {
       display: none;
       background: rgba(0,0,0,0.7);
@@ -553,7 +553,7 @@
   <!-- Site Header -->
   <header class="site-header">
     <nav>
-      <a href="/" class="site-logo">Strategnik</a>
+      <a href="/" class="site-logo"><img src="/logo.png" alt="Strategnik - B2B Marketing Strategy"></a>
       <div class="nav-desktop">
         <a href="/physics-of-marketing">Framework</a>
         <a href="/writing">Writing</a>
