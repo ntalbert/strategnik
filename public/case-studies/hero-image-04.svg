@@ -1,0 +1,51 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg04" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+    <linearGradient id="accent04" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg04)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="200" x2="1920" y2="200" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1920" y2="400" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="600" x2="1920" y2="600" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="800" x2="1920" y2="800" stroke="#fff" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="1080" stroke="#fff" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="1080" stroke="#fff" stroke-width="1"/>
+    <line x1="1200" y1="0" x2="1200" y2="1080" stroke="#fff" stroke-width="1"/>
+    <line x1="1600" y1="0" x2="1600" y2="1080" stroke="#fff" stroke-width="1"/>
+  </g>
+
+  <!-- Shield icon representing privacy -->
+  <g transform="translate(760, 340)">
+    <path d="M200 0 L400 80 L400 240 C400 360 300 440 200 480 C100 440 0 360 0 240 L0 80 Z" fill="none" stroke="url(#accent04)" stroke-width="8" opacity="0.8"/>
+    <path d="M200 60 L340 120 L340 240 C340 320 270 380 200 410 C130 380 60 320 60 240 L60 120 Z" fill="url(#accent04)" opacity="0.2"/>
+    <!-- Lock icon inside -->
+    <rect x="150" y="200" width="100" height="80" rx="8" fill="none" stroke="#fff" stroke-width="6"/>
+    <path d="M170 200 L170 160 C170 130 185 110 200 110 C215 110 230 130 230 160 L230 200" fill="none" stroke="#fff" stroke-width="6"/>
+    <circle cx="200" cy="240" r="12" fill="#fff"/>
+  </g>
+
+  <!-- Disruption lines -->
+  <g opacity="0.6">
+    <line x1="100" y1="300" x2="600" y2="350" stroke="#f97316" stroke-width="3" stroke-dasharray="20,10"/>
+    <line x1="1320" y1="400" x2="1820" y2="350" stroke="#f97316" stroke-width="3" stroke-dasharray="20,10"/>
+    <line x1="200" y1="700" x2="700" y2="750" stroke="#f97316" stroke-width="3" stroke-dasharray="20,10"/>
+    <line x1="1220" y1="750" x2="1720" y2="700" stroke="#f97316" stroke-width="3" stroke-dasharray="20,10"/>
+  </g>
+
+  <!-- Floating data points -->
+  <circle cx="300" cy="250" r="8" fill="#f97316" opacity="0.7"/>
+  <circle cx="1600" cy="300" r="6" fill="#f97316" opacity="0.5"/>
+  <circle cx="400" cy="800" r="10" fill="#f97316" opacity="0.6"/>
+  <circle cx="1500" cy="850" r="7" fill="#f97316" opacity="0.4"/>
+  <circle cx="250" cy="550" r="5" fill="#fff" opacity="0.3"/>
+  <circle cx="1700" cy="600" r="8" fill="#fff" opacity="0.3"/>
+</svg>
