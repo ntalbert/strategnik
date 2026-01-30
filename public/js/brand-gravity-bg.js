@@ -320,9 +320,9 @@
     gravityWellGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
     const material = new THREE.LineBasicMaterial({
-      color: 0x4090d0,
+      color: 0x00d4ff,
       transparent: true,
-      opacity: 0.5
+      opacity: 0.8
     });
 
     gravityWellMesh = new THREE.LineSegments(gravityWellGeometry, material);
@@ -348,7 +348,7 @@
       positions.array[i * 3 + 1] = -depression;
     }
     positions.needsUpdate = true;
-    gravityWellMesh.material.opacity = 0.3 + currentPhase * 0.5;
+    gravityWellMesh.material.opacity = 0.6 + currentPhase * 0.4;
   }
 
   // ============================================
