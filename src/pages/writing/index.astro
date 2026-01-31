@@ -101,54 +101,16 @@ const posts = allPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
   description="Observations on B2B SaaS marketing, demand generation, and the physics of growth."
 >
 
-  <!-- Hero with Video Transition -->
-  <section class="relative">
-    <!-- Hero Media Container -->
-    <div class="relative aspect-[21/9] max-h-[500px] overflow-hidden bg-gray-900" id="writing-hero">
-      <!-- Static Image (shows first) -->
-      <img
-        src="/writing-hero.png"
-        alt="Growth Physics visualization - aerial view of connected network"
-        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1500 ease-in-out z-10"
-        id="writing-hero-image"
-      />
-      <!-- Video (fades in) -->
-      <video
-        class="absolute inset-0 w-full h-full object-cover"
-        autoplay
-        muted
-        loop
-        playsinline
-        id="writing-hero-video"
-      >
-        <source src="/writing-hero.mp4" type="video/mp4" />
-      </video>
-      <!-- Gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-20"></div>
-      <!-- Text Content -->
-      <div class="absolute inset-0 flex items-end z-30">
-        <div class="container-narrow pb-12">
-          <p class="text-blue-bright font-bold tracking-wide mb-4">Writing</p>
-          <h1 class="text-display-lg text-white mb-4" data-animate-hero>Growth Physics: Field Notes</h1>
-          <p class="text-body-lg text-white/90 max-w-prose" data-animate-hero-sub>
-            Loops, losses, and the occasional win.
-          </p>
-        </div>
-      </div>
+  <!-- Hero -->
+  <section class="section">
+    <div class="container-narrow">
+      <p class="section-label">Writing</p>
+      <h1 class="text-display-lg mb-6" data-animate-hero>Growth Physics: Field Notes</h1>
+      <p class="text-display text-gray-600 max-w-prose" data-animate-hero-sub>
+        Loops, losses, and the occasional win.
+      </p>
     </div>
   </section>
-
-  <script>
-    // Fade out image to reveal video after page loads
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const heroImage = document.getElementById('writing-hero-image');
-        if (heroImage) {
-          heroImage.style.opacity = '0';
-        }
-      }, 1500);
-    });
-  </script>
 
   <!-- All Content -->
   <section class="section-sm border-t border-gray-200">
