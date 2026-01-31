@@ -13,7 +13,7 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="Two-Sided Marketplace Case Study: Government Expert Network Acquisition">
   <meta property="og:description" content="Two-sided marketplace marketing case study showing how to build acquisition using SAM.gov procurement data and LinkedIn outreach for government contractor expert networks.">
-  <meta property="og:image" content="https://www.strategnik.com/case-studies/hero-image-05.svg">
+  <meta property="og:image" content="https://www.strategnik.com/case-studies/hero-image-05.png">
   <meta property="og:image:width" content="1920">
   <meta property="og:image:height" content="1080">
   <meta property="og:image:alt" content="Two-sided marketplace architecture showing government contractor matching with expert network">
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Two-Sided Marketplace Case Study: Government Expert Network Acquisition">
   <meta name="twitter:description" content="Two-sided marketplace marketing case study showing how to build acquisition using SAM.gov procurement data and LinkedIn outreach for government contractor expert networks.">
-  <meta name="twitter:image" content="https://www.strategnik.com/case-studies/hero-image-05.svg">
+  <meta name="twitter:image" content="https://www.strategnik.com/case-studies/hero-image-05.png">
   <meta name="twitter:image:alt" content="Two-sided marketplace architecture showing government contractor matching with expert network">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,10 +59,15 @@
     .mobile-menu a { display: block; padding: 12px 0; color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu a:hover { color: #d1d5db; }
-    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
-    /* Featured image: Two-sided marketplace visualization with government buildings/contractors on left side and expert profile cards on right side, connected through a central matching hub with bidirectional data flows. Public data sources (SAM.gov, USAspending, LinkedIn) feeding into both sides. Dark blue with teal connection lines. */
-    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
-    .hero-content { position: relative; z-index: 1; padding: 60px; max-width: 800px; }
+    /* Hero with animated transition */
+    .hero { position: relative; aspect-ratio: 16/9; max-height: 600px; overflow: hidden; }
+    .hero-background { position: absolute; inset: 0; background-image: url('hero-image-05.png'); background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s ease; z-index: 1; }
+    .hero.video-active .hero-background { transform: scale(1.1); opacity: 0.3; }
+    .hero-video-container { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease 0.3s; }
+    .hero.video-active .hero-video-container { opacity: 1; }
+    .hero-video { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.4) 50%, rgba(30,58,95,0.2) 100%); z-index: 3; }
+    .hero-content { position: absolute; bottom: 0; left: 0; right: 0; z-index: 4; padding: 60px; max-width: 800px; }
     .hero-number { display: inline-block; background: var(--secondary); color: var(--white); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
     .hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
     .hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
@@ -154,7 +159,22 @@
     </div>
   </header>
 
-  <section class="hero">
+  <!-- Hero with Image-to-Video Transition -->
+  <section class="hero" id="hero">
+    <!-- Background image (moves back when video plays) -->
+    <div class="hero-background"></div>
+
+    <!-- Video container (fades in) -->
+    <div class="hero-video-container">
+      <video class="hero-video" id="heroVideo" muted playsinline>
+        <source src="hero-video-05.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Overlay gradient -->
+    <div class="hero-overlay"></div>
+
+    <!-- Content -->
     <div class="hero-content">
       <span class="hero-number">Case Study 05</span>
       <h1>Building a Two-Sided Acquisition Engine for Government Expert Networks</h1>
@@ -447,6 +467,29 @@ flowchart TB
   </footer>
 
   <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
-  <script>document.getElementById('mobileMenuBtn').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('open'); });</script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    // Hero video transition effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const hero = document.getElementById('hero');
+      const heroVideo = document.getElementById('heroVideo');
+
+      // Start the transition after a brief delay to let the image be seen
+      setTimeout(() => {
+        hero.classList.add('video-active');
+        heroVideo.play().catch(() => {});
+      }, 800);
+
+      // Loop the video
+      heroVideo.addEventListener('ended', () => {
+        heroVideo.currentTime = 0;
+        heroVideo.play().catch(() => {});
+      });
+    });
+  </script>
 </body>
 </html>
