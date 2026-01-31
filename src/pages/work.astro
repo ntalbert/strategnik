@@ -175,14 +175,14 @@ const workHistory = [
   </section>
 
   <!-- Work History -->
-  <section class="section border-t border-gray-200 overflow-hidden">
+  <section class="section border-t border-gray-800 overflow-hidden">
     <div class="container-content">
       <p class="section-label" data-kinetic data-kinetic-direction="left">Experience</p>
       <h2 class="text-display mb-12" data-kinetic-up>Selected Work</h2>
 
       <div class="space-y-16">
         {workHistory.map((work, index) => (
-          <div class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-100 pb-12 last:border-0">
+          <div class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-800 pb-12 last:border-0">
             <!-- Video Column (1/3) -->
             <div class="flex justify-center md:justify-start">
               <video
@@ -199,11 +199,11 @@ const workHistory = [
             <div>
               <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
                 <div data-kinetic data-kinetic-direction={index % 2 === 0 ? 'left' : 'right'}>
-                  <h3 class="text-heading text-black font-bold flex items-center gap-3">
+                  <h3 class="text-heading text-white font-bold flex items-center gap-3">
                     <img src={work.logo} alt={`${work.company} logo`} class="h-6 w-auto" />
-                    {work.company} <span class="italic font-normal text-gray-500">— {work.companyDesc}</span>
+                    {work.company} <span class="italic font-normal text-gray-400">— {work.companyDesc}</span>
                   </h3>
-                  <p class="text-small text-gray-600">{work.role} · {work.period}</p>
+                  <p class="text-small text-gray-400">{work.role} · {work.period}</p>
                 </div>
                 {work.outcome && (
                   <span class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="5" data-float-duration="2">
@@ -211,10 +211,10 @@ const workHistory = [
                   </span>
                 )}
               </div>
-              <p class="text-body text-gray-600 mb-2" data-animate>
+              <p class="text-body text-gray-400 mb-2" data-animate>
                 {work.context}
               </p>
-              <p class="text-body text-gray-600" data-animate data-animate-delay="0.1">
+              <p class="text-body text-gray-400" data-animate data-animate-delay="0.1">
                 {work.highlight}
               </p>
             </div>

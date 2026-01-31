@@ -54,11 +54,11 @@ const concepts = [
       <h1 class="text-display-lg mb-8 text-balance" data-animate-hero>
         The Physics of Marketing Investment
       </h1>
-      <p class="text-body-lg text-gray-600 mb-6" data-animate-hero-sub>
+      <p class="text-body-lg text-gray-400 mb-6" data-animate-hero-sub>
         Marketing isn't art or science—it's engineering. The same laws that govern
         physical systems govern marketing systems.
       </p>
-      <p class="text-body text-gray-600" data-animate data-animate-delay="0.6">
+      <p class="text-body text-gray-400" data-animate data-animate-delay="0.6">
         This framework applies concepts from physics to explain why some marketing
         investments compound while others dissipate, and how to diagnose what's
         actually happening in your marketing system.
@@ -67,16 +67,16 @@ const concepts = [
   </section>
 
   <!-- Quote -->
-  <section class="section-sm border-t border-gray-200">
+  <section class="section-sm border-t border-gray-800">
     <div class="container-narrow">
-      <blockquote class="text-heading text-black" data-animate>
+      <blockquote class="text-heading text-white" data-animate>
         "Understand the physics, and you'll make better investment decisions."
       </blockquote>
     </div>
   </section>
 
   <!-- Concepts -->
-  <section class="section border-t border-gray-200">
+  <section class="section border-t border-gray-800">
     <div class="container-narrow">
       <p class="section-label">The Forces</p>
       <h2 class="text-display mb-12" data-animate>Core Concepts</h2>
@@ -85,11 +85,11 @@ const concepts = [
         {concepts.map((concept) => (
           <div class={`flex items-baseline justify-between gap-8 ${!concept.ready ? 'opacity-50' : ''}`}>
             <div class="flex-grow">
-              <h3 class="text-heading text-black mb-1">{concept.name}</h3>
-              <p class="text-body text-gray-600">{concept.description}</p>
+              <h3 class="text-heading text-white mb-1">{concept.name}</h3>
+              <p class="text-body text-gray-400">{concept.description}</p>
             </div>
             {concept.ready ? (
-              <a href={`/physics-of-marketing/${concept.slug}`} class="text-accent hover:text-black transition-colors shrink-0">
+              <a href={`/physics-of-marketing/${concept.slug}`} class="text-accent hover:text-white transition-colors shrink-0">
                 →
               </a>
             ) : (
@@ -102,7 +102,7 @@ const concepts = [
   </section>
 
   <!-- Origin -->
-  <section class="section border-t border-gray-200">
+  <section class="section border-t border-gray-800">
     <div class="container-narrow">
       <p class="section-label">Origin</p>
       <h2 class="text-heading mb-6" data-animate>Where this came from</h2>
