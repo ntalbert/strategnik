@@ -11,7 +11,8 @@ const {
   description = "Observations on B2B SaaS marketing, demand generation, and the physics of growth."
 } = Astro.props;
 
-const BEEHIIV_PUBLICATION_ID = "pub_eef97a64-405c-43b4-b0d0-6c6fb5c858c1";
+// Replace with your Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
 ---
 
 {variant === 'default' && (
@@ -21,8 +22,7 @@ const BEEHIIV_PUBLICATION_ID = "pub_eef97a64-405c-43b4-b0d0-6c6fb5c858c1";
       <h2 class="text-display mb-4">{heading}</h2>
       <p class="text-body-lg text-gray-400 mb-8 max-w-prose">{description}</p>
       <form
-        action={`https://www.beehiiv.com/subscribe/${BEEHIIV_PUBLICATION_ID}`}
-        method="POST"
+        id="newsletter-form-default"
         class="flex flex-col sm:flex-row gap-4 max-w-md"
       >
         <input
@@ -35,12 +35,12 @@ const BEEHIIV_PUBLICATION_ID = "pub_eef97a64-405c-43b4-b0d0-6c6fb5c858c1";
         />
         <button
           type="submit"
-          class="px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors whitespace-nowrap"
+          class="px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Subscribe
         </button>
       </form>
-      <p class="text-small text-gray-400 mt-4">
+      <p id="newsletter-message-default" class="text-small text-gray-400 mt-4">
         No spam. Unsubscribe anytime.
       </p>
     </div>
@@ -52,8 +52,7 @@ const BEEHIIV_PUBLICATION_ID = "pub_eef97a64-405c-43b4-b0d0-6c6fb5c858c1";
     <div class="container-narrow">
       <p class="text-small text-gray-400 mb-4">Stay updated</p>
       <form
-        action={`https://www.beehiiv.com/subscribe/${BEEHIIV_PUBLICATION_ID}`}
-        method="POST"
+        id="newsletter-form-compact"
         class="flex gap-4"
       >
         <input
@@ -71,14 +70,14 @@ const BEEHIIV_PUBLICATION_ID = "pub_eef97a64-405c-43b4-b0d0-6c6fb5c858c1";
           Subscribe →
         </button>
       </form>
+      <p id="newsletter-message-compact" class="text-small text-gray-400 mt-2 hidden"></p>
     </div>
   </div>
 )}
 
 {variant === 'inline' && (
   <form
-    action={`https://www.beehiiv.com/subscribe/${BEEHIIV_PUBLICATION_ID}`}
-    method="POST"
+    id="newsletter-form-inline"
     class="flex gap-4"
   >
     <input
@@ -97,3 +96,52 @@ const BEEHIIV_PUBLICATION_ID = "pub_eef97a64-405c-43b4-b0d0-6c6fb5c858c1";
     </button>
   </form>
 )}
+
+<script define:vars={{ GOOGLE_SCRIPT_URL }}>
+  document.querySelectorAll('[id^="newsletter-form-"]').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formEl = e.target;
+      const variant = formEl.id.replace('newsletter-form-', '');
+      const messageEl = document.getElementById(`newsletter-message-${variant}`);
+      const submitBtn = formEl.querySelector('button[type="submit"]');
+      const emailInput = formEl.querySelector('input[name="email"]');
+      const email = emailInput.value;
+
+      // Disable form while submitting
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Subscribing...';
+
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
+        });
+
+        // Show success message
+        if (messageEl) {
+          messageEl.textContent = "You're subscribed! Thanks for signing up.";
+          messageEl.classList.remove('hidden', 'text-red-400');
+          messageEl.classList.add('text-green-400');
+        }
+        emailInput.value = '';
+        submitBtn.textContent = 'Subscribed!';
+
+      } catch (error) {
+        // Show error message
+        if (messageEl) {
+          messageEl.textContent = 'Something went wrong. Please try again.';
+          messageEl.classList.remove('hidden', 'text-green-400');
+          messageEl.classList.add('text-red-400');
+        }
+        submitBtn.textContent = 'Subscribe';
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script>

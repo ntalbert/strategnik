@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import { getCollection } from 'astro:content';
-import { getPublishedPosts, getPostDate } from '../../lib/beehiiv';
 
 // ============================================
 // LOCAL POSTS - From content collection
@@ -12,14 +11,15 @@ const contentPosts = await getCollection('posts', ({ data }) => {
   return data.draft !== true;
 });
 
-const localPosts = contentPosts.map((post) => ({
-  title: post.data.title,
-  description: post.data.description,
-  date: post.data.date,
-  category: post.data.category,
-  slug: post.slug,
-  url: null, // null = local post (will link to /writing/[slug])
-}));
+const posts = contentPosts
+  .map((post) => ({
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date,
+    category: post.data.category,
+    slug: post.slug,
+  }))
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
 
 // ============================================
 // CASE STUDIES - Marketing Infrastructure Series
@@ -63,24 +63,6 @@ const caseStudies = [
   },
 ];
 
-// ============================================
-// BEEHIIV POSTS - Fetched automatically
-// ============================================
-const beehiivPosts = await getPublishedPosts(20);
-const transformedBeehiivPosts = beehiivPosts.map((post) => ({
-  title: post.title,
-  description: post.subtitle || 'Read more on this topic...',
-  date: getPostDate(post),
-  category: post.content_tags?.[0] || 'field-notes',
-  slug: post.slug,
-  url: post.web_url, // Links to Beehiiv
-}));
-
-// ============================================
-// COMBINE & SORT - Newest first
-// ============================================
-const allPosts = [...localPosts, ...transformedBeehiivPosts];
-const posts = allPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <BaseLayout
@@ -142,38 +124,34 @@ const posts = allPosts.sort((a, b) => b.date.getTime() - a.date.getTime());
         ))}
 
         {/* Articles */}
-        {posts.map((post) => {
-          const href = post.url || `/writing/${post.slug}`;
-          const isExternal = !!post.url;
-          return (
-            <a href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined} class="group block bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 hover:shadow-lg transition-all duration-300 relative">
-              <!-- Article Ribbon -->
-              <div class="absolute top-3 left-3 z-10">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-900 border border-gray-700 text-gray-400 shadow-sm">
-                  Article
-                </span>
-              </div>
-              <div class="aspect-video bg-gray-800 relative overflow-hidden">
-                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-                  <div class="text-center px-6">
-                    <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center">
-                      <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                      </svg>
-                    </div>
+        {posts.map((post) => (
+          <a href={`/writing/${post.slug}`} class="group block bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 hover:shadow-lg transition-all duration-300 relative">
+            <!-- Article Ribbon -->
+            <div class="absolute top-3 left-3 z-10">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-900 border border-gray-700 text-gray-400 shadow-sm">
+                Article
+              </span>
+            </div>
+            <div class="aspect-video bg-gray-800 relative overflow-hidden">
+              <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+                <div class="text-center px-6">
+                  <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                    </svg>
                   </div>
                 </div>
               </div>
-              <div class="p-5">
-                <h3 class="font-semibold text-white group-hover:text-accent transition-colors mb-2 line-clamp-2">{post.title}</h3>
-                <p class="text-sm text-gray-400 mb-4 line-clamp-2">{post.description}</p>
-                <span class="inline-flex items-center text-sm font-medium text-accent group-hover:translate-x-1 transition-transform">
-                  Read more <span class="ml-1">{isExternal ? '↗' : '→'}</span>
-                </span>
-              </div>
-            </a>
-          );
-        })}
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-white group-hover:text-accent transition-colors mb-2 line-clamp-2">{post.title}</h3>
+              <p class="text-sm text-gray-400 mb-4 line-clamp-2">{post.description}</p>
+              <span class="inline-flex items-center text-sm font-medium text-accent group-hover:translate-x-1 transition-transform">
+                Read more <span class="ml-1">→</span>
+              </span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
