@@ -2,37 +2,24 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
+import { getCollection } from 'astro:content';
 import { getPublishedPosts, getPostDate } from '../../lib/beehiiv';
 
 // ============================================
-// LOCAL POSTS - Add your posts here
+// LOCAL POSTS - From content collection
 // ============================================
-const localPosts = [
-  {
-    title: "Momentum: Why Some Marketing Investments Compound",
-    description: "In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better and bad ones get worse.",
-    date: new Date('2025-01-10'),
-    category: 'physics',
-    slug: 'momentum-marketing-investments',
-    url: null, // null = local post (will link to /writing/[slug])
-  },
-  {
-    title: "The Friction Problem Nobody Talks About",
-    description: "Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with.",
-    date: new Date('2025-01-05'),
-    category: 'field-notes',
-    slug: 'friction-problem',
-    url: null,
-  },
-  {
-    title: "Inflection Points: When to Pour Fuel on the Fire",
-    description: "The difference between growth-stage success and failure often comes down to recognizing the moment when your marketing engine is ready to scale.",
-    date: new Date('2024-12-28'),
-    category: 'playbook',
-    slug: 'inflection-points',
-    url: null,
-  },
-  ];
+const contentPosts = await getCollection('posts', ({ data }) => {
+  return data.draft !== true;
+});
+
+const localPosts = contentPosts.map((post) => ({
+  title: post.data.title,
+  description: post.data.description,
+  date: post.data.date,
+  category: post.data.category,
+  slug: post.slug,
+  url: null, // null = local post (will link to /writing/[slug])
+}));
 
 // ============================================
 // CASE STUDIES - Marketing Infrastructure Series
