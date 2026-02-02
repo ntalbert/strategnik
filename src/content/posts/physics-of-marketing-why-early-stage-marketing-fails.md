@@ -101,5 +101,3 @@ Physics doesn't care about your board's patience. It cares about whether you app
 ---
 
 *Next in this series: **Surface Area**—why most startups are invisible for structural reasons, not effort reasons, and how to engineer the minimum viable footprint for market detection.*
-
-*Nick Talbert is a marketing executive and growth leader specializing in AI commercialization and B2B go-to-market strategy. He writes at strategnik.com.*
