@@ -5,6 +5,7 @@ description: >-
 date: 2025-02-03T00:00:00.000Z
 category: physics
 featured: true
+image: /images/posts/momentum-tree-fall.png
 ---
 
 **CMO tenure in tech averages under 2.5 years—but content marketing takes 2+ years to compound.** This fundamental mismatch explains why B2B SaaS companies routinely destroy marketing programs worth millions, only to spend even more rebuilding them. The data shows that pausing marketing for one year requires five years of spend to recover, while companies maintaining investment during downturns achieve 256% higher sales than those who stop.
@@ -14,6 +15,8 @@ The pattern is predictable: new CMO arrives, inherits a content program 18 month
 ---
 
 ## CMO tenure creates structural instability for long-term programs
+
+![The Growth Trajectory: Paid vs Organic CAC Over 5 Years - Paid CAC becomes unsustainable while organic compounds into sustainable growth](/images/posts/cac-comparison-diagram.png)
 
 The oft-cited claim that marketing leaders churn every 18-24 months is **verified for tech and SaaS specifically**, though broader CMO tenure runs longer. [Spencer Stuart's 20th annual tenure study](https://www.spencerstuart.com/research-and-insight/cmo-tenure-study-2024) (2024) found Fortune 500 CMOs average **4.3 years**, but tech-specific data tells a different story:
 
