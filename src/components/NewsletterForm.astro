@@ -11,8 +11,7 @@ const {
   description = "Observations on B2B SaaS marketing, demand generation, and the physics of growth."
 } = Astro.props;
 
-// Replace with your Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
+const FORMSPREE_URL = "https://formspree.io/f/xpqlbarl";
 ---
 
 {variant === 'default' && (
@@ -23,6 +22,8 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
       <p class="text-body-lg text-gray-400 mb-8 max-w-prose">{description}</p>
       <form
         id="newsletter-form-default"
+        action={FORMSPREE_URL}
+        method="POST"
         class="flex flex-col sm:flex-row gap-4 max-w-md"
       >
         <input
@@ -35,7 +36,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
         />
         <button
           type="submit"
-          class="px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          class="px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors whitespace-nowrap"
         >
           Subscribe
         </button>
@@ -53,6 +54,8 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
       <p class="text-small text-gray-400 mb-4">Stay updated</p>
       <form
         id="newsletter-form-compact"
+        action={FORMSPREE_URL}
+        method="POST"
         class="flex gap-4"
       >
         <input
@@ -70,7 +73,6 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
           Subscribe →
         </button>
       </form>
-      <p id="newsletter-message-compact" class="text-small text-gray-400 mt-2 hidden"></p>
     </div>
   </div>
 )}
@@ -78,6 +80,8 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
 {variant === 'inline' && (
   <form
     id="newsletter-form-inline"
+    action={FORMSPREE_URL}
+    method="POST"
     class="flex gap-4"
   >
     <input
@@ -96,52 +100,3 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || "";
     </button>
   </form>
 )}
-
-<script define:vars={{ GOOGLE_SCRIPT_URL }}>
-  document.querySelectorAll('[id^="newsletter-form-"]').forEach(form => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const formEl = e.target;
-      const variant = formEl.id.replace('newsletter-form-', '');
-      const messageEl = document.getElementById(`newsletter-message-${variant}`);
-      const submitBtn = formEl.querySelector('button[type="submit"]');
-      const emailInput = formEl.querySelector('input[name="email"]');
-      const email = emailInput.value;
-
-      // Disable form while submitting
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Subscribing...';
-
-      try {
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
-        });
-
-        // Show success message
-        if (messageEl) {
-          messageEl.textContent = "You're subscribed! Thanks for signing up.";
-          messageEl.classList.remove('hidden', 'text-red-400');
-          messageEl.classList.add('text-green-400');
-        }
-        emailInput.value = '';
-        submitBtn.textContent = 'Subscribed!';
-
-      } catch (error) {
-        // Show error message
-        if (messageEl) {
-          messageEl.textContent = 'Something went wrong. Please try again.';
-          messageEl.classList.remove('hidden', 'text-green-400');
-          messageEl.classList.add('text-red-400');
-        }
-        submitBtn.textContent = 'Subscribe';
-        submitBtn.disabled = false;
-      }
-    });
-  });
-</script>
