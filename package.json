@@ -13,11 +13,11 @@
     "optimize:seo": "node scripts/optimize-seo.cjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/mdx": "^4.3.13",
     "@astrojs/react": "^4.4.2",
-    "@astrojs/vercel": "^7.8.2",
+    "@astrojs/vercel": "^9.0.4",
     "@vercel/postgres": "^0.10.0",
-    "astro": "^4.16.0",
+    "astro": "^5.17.1",
     "gray-matter": "^4.0.3",
     "gsap": "^3.14.2",
     "react": "^19.2.4",
@@ -25,7 +25,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/tailwind": "^6.0.2",
     "tailwindcss": "^3.4.0"
   }
 }

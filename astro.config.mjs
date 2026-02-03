@@ -2,13 +2,13 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://strategnik.com',
-  output: 'hybrid',
+  output: 'static',
   adapter: vercel({
-    runtime: 'nodejs20.x'
+    isr: false
   }),
   integrations: [
     tailwind(),
