@@ -60,6 +60,8 @@ The critical difference between Seed/Series A and Series B isn't ambition—it's
 
 ## Series C and Beyond: Measure Efficiency, Not Just Revenue
 
+![Mass Working For You vs Mass Working Against You - Efficiency ratio determines whether your GTM system compounds or drags](/images/posts/mass-efficiency-contrast.png)
+
 By Series C, the GTM system has significant mass. Brand presence is established. Multiple channels are producing at scale. The sales motion is documented and repeatable. The distance to self-sustaining revenue isn't a mystery—you're either there or you can see the trajectory clearly. The physics challenge shifts: the system is no longer too light to control. The risk is that it becomes too heavy to move efficiently. Bloated spend, channel fatigue, slowing growth rates masked by absolute revenue numbers, and organizational complexity that creates drag on every motion.
 
 The goal at this stage reflects that shift. The question isn't "are we building momentum?" or "are we compounding what works?"—it's "are we extracting maximum return from the mass we've built, expanding into adjacent segments, and defending the position we've earned?"
