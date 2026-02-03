@@ -6,9 +6,11 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "npm run validate:seo && astro build",
+    "build:optimized": "npm run optimize:seo && npm run validate:seo && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "validate:seo": "node scripts/validate-seo.cjs"
+    "validate:seo": "node scripts/validate-seo.cjs",
+    "optimize:seo": "node scripts/optimize-seo.cjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.0",
