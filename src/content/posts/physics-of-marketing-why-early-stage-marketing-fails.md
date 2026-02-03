@@ -47,6 +47,12 @@ These numbers are estimates, and I want to be careful not to overclaim from my o
 
 What I find harder to explain with a talent argument is the consistency across functions. If this were primarily about wrong hires or wrong stage-fit, you'd expect the marketing and sales patterns to diverge—different skills, different failure modes, different timelines. Instead, from the marketing side, I kept watching the sales leader next to me live the same story at the same pace. That's what made me think the problem might be structural.
 
+<div style="background: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 24px 28px; margin: 32px 0; text-align: center;">
+  <p style="font-size: 1.1rem; font-weight: 600; color: #fff; margin: 0 0 8px;">Have you lived this pattern?</p>
+  <p style="color: #9ca3af; margin: 0 0 16px; line-height: 1.6;">I'm building a cross-functional dataset on GTM leader tenure by stage—the data that doesn't exist yet. Whether you've led marketing or sales at a startup, or hired GTM leaders as a founder, CEO, or board member, your experience matters.</p>
+  <a href="/survey" style="display: inline-block; background: #5eead4; color: #0f172a; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none;">Take the 3-Minute Survey →</a>
+</div>
+
 ## Why the Same Playbook Produces Different Results
 
 Consider what a Seed or Series A company actually looks like from a GTM perspective. Almost nobody knows who you are. You have minimal market presence—no installed base, few case studies, negligible word of mouth. You have very few levers to pull: maybe one or two channels on the marketing side, a handful of active deals on the sales side. And the big question—how far away is self-sustaining, repeatable revenue?—is genuinely unanswerable.
