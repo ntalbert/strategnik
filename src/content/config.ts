@@ -9,6 +9,7 @@ const posts = defineCollection({
     category: z.enum(['field-notes', 'case-study', 'playbook', 'physics']),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
+    image: z.string().optional(),
   }),
 });
 
