@@ -7,8 +7,7 @@ const { Pool } = pg;
 
 export const POST: APIRoute = async ({ request }) => {
   const pool = new Pool({
-    connectionString: process.env.POSTGRES_URL_NON_POOLING || process.env.POSTGRES_URL,
-    ssl: { rejectUnauthorized: false }
+    connectionString: process.env.POSTGRES_URL_NON_POOLING || process.env.POSTGRES_URL
   });
 
   try {
