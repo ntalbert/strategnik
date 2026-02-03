@@ -164,4 +164,4 @@ I've been developing one for several years. It reframes GTM investment around th
 
 ---
 
-*Nick Talbert is a marketing and GTM executive with 20+ years of experience leading growth at B2B SaaS and technology companies, including roles at companies later acquired by Amazon and AOL. He writes about go-to-market strategy at strategnik.com.*
+*Nick Talbert is a marketing and GTM executive with 20+ years of experience leading growth at B2B SaaS and technology companies, including roles at companies later acquired by Amazon and AOL. He writes about go-to-market strategy at [strategnik.com](https://strategnik.com).*
