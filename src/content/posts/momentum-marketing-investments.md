@@ -29,6 +29,8 @@ The conventional explanation when a program isn't showing results at month twelv
 
 ## The Data Has Gotten More Extreme
 
+![The Growth Paradox: Paid Acquisition vs. Organic & Brand Building - A comparative analysis showing paid channels leading to unsustainable costs while organic builds toward market leadership](/images/posts/paid-vs-organic-toll-roads.png)
+
 The data on this is striking. And it's gotten more extreme precisely because the way buyers discover solutions is shifting underneath us.
 
 [Les Binet and Peter Field](https://ipa.co.uk/knowledge/effectiveness-research-analysis/les-binet-peter-field) analyzed 996 campaigns across 700 brands through the IPA Databank and quantified the mechanism. Brand-building campaigns — the compounding kind — are *less* efficient than activation campaigns in the short term. But their efficiency *grows* over time. Activation campaigns show the inverse: efficient immediately, declining after a few months. Their recommended allocation is 60% brand (compounding) to 40% activation (transactional). Most B2B SaaS companies invert this ratio because short-term activation is the only thing that shows results in a quarterly review. Meanwhile, the acquisition economics keep diverging — [First Page Sage's 2026 benchmarks](https://firstpagesage.com/marketing/cac-by-channel-fc/) put B2B organic CAC at $942 versus $1,907 for paid, and paid costs have inflated 222% over eight years while organic CAC falls as authority builds.
