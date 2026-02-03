@@ -1,5 +1,5 @@
 ---
-title: 'Sales Funnel Friction: The Hidden Cost Beyond Conversion Rates'
+title: 'Funnel Friction: The Hidden Cost Beyond Conversions'
 description: >-
   Sales funnel friction costs more than conversions—it trains buyers to avoid
   you. Learn to identify and reduce friction that hurts buyer experience.

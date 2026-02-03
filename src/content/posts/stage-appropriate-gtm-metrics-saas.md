@@ -1,7 +1,7 @@
 ---
 title: 'The Metrics That Turn a Revolving Door Into a GTM Engine'
 description: >-
-  Pipeline targets from a fundraising model aren't goals—they're hopes. Here are the specific metrics GTM leaders and boards should track at Seed, Series A, B, C and beyond.
+  Pipeline targets from fundraising models aren't goals—they're hopes. The metrics GTM leaders should track at each stage.
 date: 2025-02-03T00:00:00.000Z
 category: physics
 featured: false

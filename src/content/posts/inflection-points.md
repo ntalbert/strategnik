@@ -1,9 +1,7 @@
 ---
-title: 'When to Scale Marketing: Recognizing Your Growth Inflection Point'
+title: 'When to Scale Marketing: Finding Your Inflection Point'
 description: >-
-  Learn when to scale marketing spend and avoid costly mistakes. Framework for
-  recognizing growth inflection points and timing your marketing investment
-  decisions.
+  Learn when to scale marketing spend. Framework for recognizing growth inflection points and timing your investment decisions.
 date: 2024-12-28T00:00:00.000Z
 category: playbook
 featured: false

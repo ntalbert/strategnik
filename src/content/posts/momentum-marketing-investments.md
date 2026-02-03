@@ -1,7 +1,7 @@
 ---
 title: 'How Leadership Churn Destroys Marketing Momentum in B2B SaaS'
 description: >-
-  CMO tenure in tech averages under 2.5 years—but content marketing takes 2+ years to compound. This mismatch explains why B2B SaaS companies routinely destroy marketing programs worth millions.
+  CMO tenure in tech averages under 2.5 years—but content takes 2+ years to compound. Why B2B SaaS companies destroy programs worth millions.
 date: 2025-02-03T00:00:00.000Z
 category: physics
 featured: true

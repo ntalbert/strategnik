@@ -1,7 +1,7 @@
 ---
 title: 'Why Every GTM Leader You Hire Fails in the Same Way'
 description: >-
-  The average first VP of Sales at a Series A startup lasts 7 months. The head of marketing makes it to 14. Two functions, same curve. It's not a talent problem—it's a physics problem.
+  The average VP of Sales at Series A lasts 7 months. Marketing makes it to 14. Same curve. It's not talent—it's physics.
 date: 2025-02-03T00:00:00.000Z
 category: physics
 featured: true
