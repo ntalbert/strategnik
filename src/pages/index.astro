@@ -2,6 +2,52 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import BrandGravityHero from '../components/BrandGravityHero.astro';
+import { getCollection } from 'astro:content';
+
+// Fetch posts from content collection
+const contentPosts = await getCollection('posts', ({ data }) => data.draft !== true);
+
+const posts = contentPosts.map((post) => ({
+  title: post.data.title,
+  description: post.data.description,
+  date: post.data.date,
+  image: post.data.image,
+  url: `/writing/${post.slug}`,
+  type: 'Article',
+}));
+
+// Case studies with dates for sorting
+const caseStudies = [
+  {
+    title: "Building 17 Nurture Paths",
+    description: "How lifecycle segmentation cut lead-to-value time from 47 days to 19",
+    image: "/case-studies/hero-image-03.png",
+    url: '/case-studies/case-study-03-lifecycle-archetypes.html',
+    date: new Date('2025-01-15'),
+    type: 'Case Study',
+  },
+  {
+    title: "Developer-to-Enterprise Pipeline",
+    description: "Turning GitHub stars into six-figure deals for open source AI",
+    image: "/case-studies/hero-image-01.png",
+    url: '/case-studies/case-study-01-developer-discovery.html',
+    date: new Date('2025-01-10'),
+    type: 'Case Study',
+  },
+  {
+    title: "Propensity Scoring That Works",
+    description: "How data governance made predictive models 30% more accurate",
+    image: "/case-studies/hero-image-02.png",
+    url: '/case-studies/case-study-02-propensity-scoring.html',
+    date: new Date('2025-01-05'),
+    type: 'Case Study',
+  },
+];
+
+// Combine and sort by date, take latest 3
+const allContent = [...posts, ...caseStudies]
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
+  .slice(0, 3);
 ---
 
 <BaseLayout title="Home">
@@ -32,7 +78,7 @@ import BrandGravityHero from '../components/BrandGravityHero.astro';
     <div class="h-[20vh]"></div>
 
     <!-- Quick Proof -->
-    <section class="pb-32">
+    <section class="pb-16">
       <div class="container-narrow text-center">
         <p class="text-body-lg text-white font-bold mb-6">
           20+ years in B2B SaaS — 3 companies acquired — ~100% avg pipeline growth
@@ -40,6 +86,48 @@ import BrandGravityHero from '../components/BrandGravityHero.astro';
         <p class="text-body text-gray-400 max-w-prose mx-auto">
           Most recently VP of Marketing and Growth at BRIA AI, where I built signal-driven growth systems that drove 120% MAU lift.
         </p>
+      </div>
+    </section>
+
+    <!-- Featured Content Carousel -->
+    <section class="pb-32">
+      <div class="container-content">
+        <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold text-center">Latest</p>
+        <div class="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+          {allContent.map((item) => (
+            <a
+              href={item.url}
+              class="group flex-shrink-0 w-[320px] md:w-[380px] bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 hover:shadow-lg transition-all duration-300 snap-start"
+            >
+              <div class="aspect-video bg-gray-800 relative overflow-hidden">
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+                    <div class="w-12 h-12 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-900/90 text-white backdrop-blur-sm">
+                    {item.type}
+                  </span>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold text-white group-hover:text-blue-bright transition-colors mb-2 line-clamp-2">{item.title}</h3>
+                <p class="text-sm text-gray-400 line-clamp-2">{item.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 
