@@ -27,9 +27,13 @@ const formattedDate = frontmatter.date.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
 });
+
+// Build absolute image URL for OG tags
+const siteUrl = Astro.site?.origin || 'https://strategnik.com';
+const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined;
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout title={frontmatter.title} description={frontmatter.description} image={ogImage}>
   <article class="section">
     <div class="container-narrow">
       <!-- Back link -->
