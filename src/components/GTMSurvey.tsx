@@ -312,11 +312,7 @@ const FOUNDER_SECTIONS = [
   { id: "contact", title: "Optional Info" },
 ];
 
-interface GTMSurveyProps {
-  googleScriptUrl: string;
-}
-
-export default function GTMSurvey({ googleScriptUrl }: GTMSurveyProps) {
+export default function GTMSurvey() {
   const [path, setPath] = useState<string | null>(null);
   const [section, setSection] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -348,7 +344,7 @@ export default function GTMSurvey({ googleScriptUrl }: GTMSurveyProps) {
     return false;
   };
 
-  const submitToGoogleSheets = async () => {
+  const submitSurvey = async () => {
     setSubmitting(true);
     setError(null);
 
@@ -359,16 +355,20 @@ export default function GTMSurvey({ googleScriptUrl }: GTMSurveyProps) {
         ...answers,
       };
 
-      const response = await fetch(googleScriptUrl, {
+      const response = await fetch('/api/survey', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       });
 
-      // With no-cors, we can't read the response, but if no error thrown, assume success
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Submission failed');
+      }
+
       setSubmitted(true);
     } catch (err) {
       console.error('Survey submission error:', err);
@@ -777,7 +777,7 @@ export default function GTMSurvey({ googleScriptUrl }: GTMSurveyProps) {
           ) : (
             <button
               disabled={submitting}
-              onClick={submitToGoogleSheets}
+              onClick={submitSurvey}
               style={{
                 padding: "14px 32px", borderRadius: 10, background: COLORS.accent,
                 color: "#fff", border: "none", cursor: submitting ? "wait" : "pointer",

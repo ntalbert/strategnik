@@ -1,7 +1,5 @@
 ---
 import GTMSurvey from '../components/GTMSurvey';
-
-const googleScriptUrl = import.meta.env.PUBLIC_SURVEY_SCRIPT_URL || '';
 ---
 
 <!DOCTYPE html>
@@ -42,6 +40,6 @@ const googleScriptUrl = import.meta.env.PUBLIC_SURVEY_SCRIPT_URL || '';
     </style>
   </head>
   <body>
-    <GTMSurvey client:load googleScriptUrl={googleScriptUrl} />
+    <GTMSurvey client:load />
   </body>
 </html>
