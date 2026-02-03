@@ -69,6 +69,8 @@ The physics framework gives us a way to distinguish real momentum from expensive
 
 Mass is your accumulated market presence — brand recognition, content library, customer base, word of mouth, the breadth of third-party mentions that AI systems use to decide whether you're authoritative. Mass is slow to build and slow to decay. It's the reason a mediocre campaign from a well-known brand outperforms a brilliant campaign from a brand nobody recognizes — and the reason AI systems cite established brands preferentially. Mass doesn't make noise. It bends gravity.
 
+![Strategic Progression: Velocity vs. Mass - Velocity first leads to exhaustion and spent resources while mass first builds effortless momentum](/images/posts/velocity-vs-mass-progression.png)
+
 Velocity is what most marketing teams optimize for: campaign performance, conversion rates, pipeline speed, launch cadence. Velocity is visible, measurable, and satisfying to improve. It's also fragile. A campaign ends. A channel saturates. A quarter resets. Velocity without mass is activity that doesn't accumulate into anything durable.
 
 The counterintuitive part is the sequence. Mass must come first. You need accumulated market presence before velocity produces compounding returns. A startup running aggressive paid campaigns at high velocity but with no brand mass isn't building momentum. They're renting attention at an escalating price. Each dollar spent produces roughly the same return as the last — or worse, as auction dynamics drive costs up. That's linear growth. That's a treadmill.
