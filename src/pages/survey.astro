@@ -1,0 +1,47 @@
+---
+import GTMSurvey from '../components/GTMSurvey';
+
+const googleScriptUrl = import.meta.env.PUBLIC_SURVEY_SCRIPT_URL || '';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GTM Tenure Study | Research Survey</title>
+    <meta name="description" content="Contribute to original research on why GTM leader tenure follows structural patterns. 3-5 minute anonymous survey for VP+ marketing, sales, and revenue leaders." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The GTM Tenure Study | Research Survey" />
+    <meta property="og:description" content="There's plenty of opinion on why GTM leaders churn. There's almost no cross-functional data by stage. This survey aims to change that." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://strategnik.com/survey" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The GTM Tenure Study | Research Survey" />
+    <meta name="twitter:description" content="Contribute to original research on GTM leader tenure patterns. 3-5 minutes, anonymous." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+  </head>
+  <body>
+    <GTMSurvey client:load googleScriptUrl={googleScriptUrl} />
+  </body>
+</html>
