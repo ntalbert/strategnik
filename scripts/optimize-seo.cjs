@@ -20,6 +20,7 @@ const readline = require('readline');
 
 const POSTS_DIR = path.join(__dirname, '..', 'src', 'content', 'posts');
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
+const AUTO_ACCEPT = process.argv.includes('--yes') || process.argv.includes('-y');
 
 const colors = {
   red: '\x1b[31m',
@@ -297,7 +298,14 @@ async function applyChanges(result, jsonData) {
     log(colors.dim, `      Current:  "${jsonData.title.current}"`);
     log(colors.green, `      Proposed: "${jsonData.title.proposed}"`);
 
-    const answer = await promptUser('      Apply this change? (y/n): ');
+    let answer = 'n';
+    if (AUTO_ACCEPT) {
+      answer = 'y';
+      log(colors.cyan, '      Auto-accepting (--yes flag)');
+    } else {
+      answer = await promptUser('      Apply this change? (y/n): ');
+    }
+
     if (answer === 'y' || answer === 'yes') {
       newFrontmatter.title = jsonData.title.proposed;
       updated = true;
@@ -312,7 +320,14 @@ async function applyChanges(result, jsonData) {
     log(colors.green, `      Proposed: "${jsonData.description.proposed}"`);
     log(colors.cyan, `      Length: ${jsonData.description.proposed.length} chars`);
 
-    const answer = await promptUser('      Apply this change? (y/n): ');
+    let answer = 'n';
+    if (AUTO_ACCEPT) {
+      answer = 'y';
+      log(colors.cyan, '      Auto-accepting (--yes flag)');
+    } else {
+      answer = await promptUser('      Apply this change? (y/n): ');
+    }
+
     if (answer === 'y' || answer === 'yes') {
       newFrontmatter.description = jsonData.description.proposed;
       updated = true;
@@ -356,24 +371,30 @@ async function main() {
   log(colors.blue, `📁 Found ${files.length} posts to analyze\n`);
 
   // Ask which posts to analyze
-  console.log('Posts available:');
-  files.forEach((file, i) => {
-    console.log(`   ${i + 1}. ${file}`);
-  });
-  console.log(`   a. All posts`);
-
-  const selection = await promptUser('\nSelect post number (or "a" for all): ');
-
   let filesToProcess = [];
-  if (selection === 'a' || selection === 'all') {
+
+  if (AUTO_ACCEPT) {
+    log(colors.cyan, '🤖 Auto mode enabled (--yes flag) - processing all posts\n');
     filesToProcess = files;
   } else {
-    const index = parseInt(selection) - 1;
-    if (index >= 0 && index < files.length) {
-      filesToProcess = [files[index]];
+    console.log('Posts available:');
+    files.forEach((file, i) => {
+      console.log(`   ${i + 1}. ${file}`);
+    });
+    console.log(`   a. All posts`);
+
+    const selection = await promptUser('\nSelect post number (or "a" for all): ');
+
+    if (selection === 'a' || selection === 'all') {
+      filesToProcess = files;
     } else {
-      log(colors.red, 'Invalid selection');
-      process.exit(1);
+      const index = parseInt(selection) - 1;
+      if (index >= 0 && index < files.length) {
+        filesToProcess = [files[index]];
+      } else {
+        log(colors.red, 'Invalid selection');
+        process.exit(1);
+      }
     }
   }
 

@@ -1,8 +1,11 @@
 ---
-title: "Inflection Points: When to Pour Fuel on the Fire"
-description: "The difference between growth-stage success and failure often comes down to recognizing the moment when your marketing engine is ready to scale."
-date: 2024-12-28
-category: "playbook"
+title: 'When to Scale Marketing: Recognizing Your Growth Inflection Point'
+description: >-
+  Learn when to scale marketing spend and avoid costly mistakes. Framework for
+  recognizing growth inflection points and timing your marketing investment
+  decisions.
+date: 2024-12-28T00:00:00.000Z
+category: playbook
 featured: false
 ---
 

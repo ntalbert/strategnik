@@ -1,8 +1,10 @@
 ---
-title: "The Friction Problem Nobody Talks About"
-description: "Every point of friction in your funnel isn't just losing you leads—it's training the market that you're hard to work with."
-date: 2025-01-05
-category: "field-notes"
+title: 'Sales Funnel Friction: The Hidden Cost Beyond Conversion Rates'
+description: >-
+  Sales funnel friction costs more than conversions—it trains buyers to avoid
+  you. Learn to identify and reduce friction that hurts buyer experience.
+date: 2025-01-05T00:00:00.000Z
+category: field-notes
 featured: false
 ---
 

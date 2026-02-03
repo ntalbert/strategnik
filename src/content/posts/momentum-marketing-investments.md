@@ -1,8 +1,10 @@
 ---
-title: "Momentum: Why Some Marketing Investments Compound"
-description: "In physics, momentum equals mass times velocity. In marketing, it's the force that makes good programs get better and bad ones get worse."
-date: 2025-01-10
-category: "physics"
+title: 'Marketing Momentum: How Smart Investments Compound'
+description: >-
+  Discover how marketing momentum drives compounding returns. Learn why some
+  marketing investments build on themselves while others don't.
+date: 2025-01-10T00:00:00.000Z
+category: physics
 featured: true
 ---
 

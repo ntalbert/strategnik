@@ -1,8 +1,11 @@
 ---
-title: "The Physics Behind Every Failed GTM Hire"
-description: "It May Not Be a Talent Problem. It Might Be a Physics Problem. A structural explanation for why GTM leaders churn so fast at early-stage companies."
-date: 2025-02-02
-category: "physics"
+title: 'Why Early Stage Marketing Fails: The Physics of GTM Leadership Turnover'
+description: >-
+  Discover why early stage marketing fails and GTM leaders churn every 7-18
+  months. Data-driven analysis of startup marketing problems and structural
+  solutions for better retention.
+date: 2025-02-02T00:00:00.000Z
+category: physics
 featured: true
 ---
 
