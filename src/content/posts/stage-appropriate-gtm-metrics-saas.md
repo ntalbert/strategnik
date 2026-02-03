@@ -39,6 +39,8 @@ These aren't soft metrics. They're the leading indicators that determine whether
 
 ## Series B: Measure Compounding, Not Just Growth
 
+![GTM Engine Configurations: Parallel Tracks vs Compound Engine - Marketing and Sales working together drives accelerating results](/images/posts/gtm-engine-comparison.png)
+
 The system has gained enough mass to hold a trajectory and enough levers to provide real control. You know your ICPs. You have channels with real conversion history. The sales cycle is documented, not assumed. The goals shift from signal to scale—compounding the motions already at work and improving the machine's efficiency.
 
 The tooling infrastructure should already be in place from the prior stage. If it isn't—if a new GTM leader inherits a Series B company with Seed-stage instrumentation—expect 60–90 days to close the gap before these metrics are trustworthy. That's a red flag worth surfacing in the interview process.
