@@ -5,6 +5,7 @@ description: >-
 date: 2025-02-02T00:00:00.000Z
 category: physics
 featured: true
+image: /images/posts/physics-rocket-chair.png
 ---
 
 The VP of Sales lasted seven months. The head of marketing made it to fourteen. The replacements did about the same. By the time the company raised its Series B, it had cycled through three sales leaders and two marketing leaders—and the pipeline problem hadn't changed.
