@@ -19,6 +19,8 @@ If you look at it that way—as a problem of mass, velocity, and measurable dist
 
 ## A Well-Documented Problem with a Shallow Explanation
 
+![Placeholder: GTM leader tenure data visualization](/images/posts/placeholder-tenure-data.jpg)
+
 On the marketing side, the most rigorous data comes from Spencer Stuart's annual CMO Tenure Study, which has tracked the role for nearly twenty years. Their 2023 findings: Fortune 500 CMO average tenure is 4.2 years, slightly below the 4.6-year C-suite average. At the top 100 U.S. advertisers, it drops to 3.1 years—the lowest since 2009. Three out of four CMOs at those top advertisers were holding the position for the first time.
 
 On the sales side, the data is even more stark. Bravado's research finds that the average first VP of Sales at a Series A SaaS startup is just seven months. The typical company cycles through three VPs of Sales in the first eighteen months. Seven months. That's barely enough time to complete a full sales cycle at most B2B companies, let alone build a repeatable process.
@@ -30,6 +32,8 @@ All of this work is worth reading. But it shares a common frame: it treats tenur
 What pushed me past those explanations was what I kept seeing from the marketing side: the sales leader next to me was living the same story. Same structural constraints, same unrealistic timelines, same outcome—just faster, because they were closer to the revenue number. Two different functions, same curve. If this were really about individual talent or stage-fit, you'd expect more variation between the two roles. Instead, they move in lockstep. That points to something deeper than the people in the seats.
 
 ## The Data Gap That Hides the Real Pattern
+
+![Placeholder: Data gap illustration - funding stages](/images/posts/placeholder-data-gap.jpg)
 
 Spencer Stuart covers Fortune 500 companies and top advertisers. Bravado covers early-stage sales hires. Nobody has published a comprehensive, cross-functional view of GTM leader tenure by company funding stage. That's a significant blind spot.
 
@@ -55,6 +59,8 @@ What I find harder to explain with a talent argument is the consistency across f
 
 ## Why the Same Playbook Produces Different Results
 
+![Placeholder: Physics of mass and velocity in GTM](/images/posts/placeholder-physics-playbook.jpg)
+
 Consider what a Seed or Series A company actually looks like from a GTM perspective. Almost nobody knows who you are. You have minimal market presence—no installed base, few case studies, negligible word of mouth. You have very few levers to pull: maybe one or two channels on the marketing side, a handful of active deals on the sales side. And the big question—how far away is self-sustaining, repeatable revenue?—is genuinely unanswerable.
 
 Now drop a marketing leader and a sales leader into that environment and give them a venture-backed timeline.
@@ -67,6 +73,8 @@ And here's the variable everyone misses: at early stages, nobody knows how far a
 
 ## The Replacement Trap
 
+![Placeholder: Revolving door of GTM leaders](/images/posts/placeholder-replacement-trap.jpg)
+
 When growth stalls at an early-stage company, the instinct is to replace the most visible person in the revenue equation. Usually, that's the head of sales first—they're closest to the number. When the next sales leader stumbles, the head of marketing is also blamed for the quality of the pipeline. Sometimes, both get replaced in the same cycle.
 
 The new leaders inherit a system that's only marginally heavier. The company has a bit more market presence—the first team's work didn't vanish. Some channels have been tested. Some deals have been won or lost, generating data. But the underlying structure hasn't fundamentally changed. If the system is still too light to hold a trajectory, if the levers are still too few to provide real control, if the distance to repeatable revenue is still unknowable—the new team faces the same constraints. And they face them at the added cost of lost institutional knowledge, reset relationships, broken handoff processes, and depleted morale across both functions.
@@ -76,6 +84,8 @@ The first GTM team's most valuable contribution may have been the data they gene
 As companies mature through funding stages, this dynamic shifts. By Series B, there's real market presence—the system has gained mass. Multiple channels are producing signals, giving GTM leaders more levers and control. The distance to repeatable revenue becomes measurable. The marketing and sales motions start compounding on each other instead of operating in parallel. The system is heavy enough to hold a trajectory, so course corrections get smaller and less existential. Tenure lengthens across both functions—not because the leaders are necessarily more talented, but because the system has become more controllable.
 
 ## The Goals That Would Have Saved the Last Three Hires
+
+![Placeholder: Stage-appropriate goals framework](/images/posts/placeholder-goals-framework.jpg)
 
 If the tenure pattern is structural, then the goaling has to be structural too. You can't set the same expectations for a GTM team operating in a light, low-control system as you would for one with real mass and multiple compounding channels. The goals need to reflect what's actually measurable and meaningful at each stage—and what builds toward the next one.
 
