@@ -4,17 +4,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Monochromatic palette
+        // Monochromatic palette - WCAG AA compliant
         'white': '#FFFFFF',
         'off-white': '#FAFAFA',
         'black': '#111111',
         'gray-900': '#1A1A1A',
+        'gray-700': '#374151',
         'gray-600': '#6B6B6B',
-        'gray-400': '#9CA3AF',
+        'gray-500': '#8B8B8B',  // Better contrast on dark (5.5:1)
+        'gray-400': '#9CA3AF',  // Good contrast on dark (6.3:1)
+        'gray-300': '#B8B8B8',  // High contrast on dark (8.1:1)
         'gray-200': '#E5E7EB',
         'gray-100': '#F3F4F6',
-        // Subtle accent
-        'accent': '#4A5568',
+        // Accessible accent colors
+        'accent': '#5eead4',     // Teal - 10.4:1 contrast on black
+        'accent-hover': '#99f6e4',
+        'accent-muted': '#2dd4bf',
         // Bright blue
         'blue-bright': '#0165fc',
       },

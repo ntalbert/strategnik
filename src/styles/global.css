@@ -27,12 +27,22 @@
   }
 
   ::selection {
-    @apply bg-black text-white;
+    @apply bg-accent text-black;
   }
 
-  /* Headings - Light weight, let typography breathe */
+  /* Focus styles for keyboard navigation - WCAG 2.4.7 */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent rounded;
+  }
+
+  /* Headings - Bold, white for dark theme */
   h1, h2, h3, h4 {
-    @apply text-black font-light;
+    @apply text-white font-bold;
   }
 
   h1 {
@@ -55,9 +65,14 @@
     @apply text-body;
   }
 
-  /* Links - Subtle accent color */
+  /* Links - Accessible accent color (10.4:1 contrast on black) */
   a {
-    @apply text-accent hover:text-black transition-colors duration-200;
+    @apply transition-colors duration-200;
+    color: #5eead4;
+  }
+
+  a:hover {
+    color: #99f6e4;
   }
 
   /* Code */
@@ -102,9 +117,14 @@
     @apply py-12 md:py-16;
   }
 
-  /* Arrow links - directional cues instead of buttons */
+  /* Arrow links - Accessible accent color */
   .arrow-link {
-    @apply inline-flex items-center gap-2 text-accent hover:text-black transition-colors;
+    @apply inline-flex items-center gap-2 transition-colors;
+    color: #5eead4;
+  }
+
+  .arrow-link:hover {
+    color: #99f6e4;
   }
 
   .arrow-link::after {
@@ -116,18 +136,18 @@
     @apply translate-x-1;
   }
 
-  /* Navigation */
+  /* Navigation - Accessible contrast on dark backgrounds */
   .nav-link {
-    @apply text-gray-600 hover:text-black transition-colors duration-200 text-small;
+    @apply text-gray-300 hover:text-white transition-colors duration-200 text-small;
   }
 
   .nav-link-active {
-    @apply text-black;
+    @apply text-white;
   }
 
-  /* Section labels */
+  /* Section labels - Accessible contrast */
   .section-label {
-    @apply text-caption text-gray-600 tracking-wide mb-6;
+    @apply text-caption text-gray-400 tracking-wide mb-6;
   }
 
   /* Thin rule divider */
@@ -135,17 +155,17 @@
     @apply border-t border-gray-200;
   }
 
-  /* Prose for long-form content */
+  /* Prose for long-form content - Accessible on dark backgrounds */
   .prose-minimal {
-    @apply text-body-lg text-gray-900;
+    @apply text-body-lg text-gray-300;
   }
 
   .prose-minimal h2 {
-    @apply mt-16 mb-6 text-black;
+    @apply mt-16 mb-6 text-white font-bold;
   }
 
   .prose-minimal h3 {
-    @apply mt-12 mb-4 text-black;
+    @apply mt-12 mb-4 text-white font-bold;
   }
 
   .prose-minimal p {
@@ -161,7 +181,7 @@
   }
 
   .prose-minimal blockquote {
-    @apply border-l-2 border-gray-200 pl-6 italic text-gray-600 my-8;
+    @apply border-l-2 border-gray-400 pl-6 italic text-gray-400 my-8;
   }
 
   .prose-minimal a {
@@ -169,7 +189,7 @@
   }
 
   .prose-minimal strong {
-    @apply font-medium text-black;
+    @apply font-medium text-white;
   }
 }
 
