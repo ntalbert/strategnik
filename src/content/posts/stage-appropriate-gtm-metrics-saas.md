@@ -5,6 +5,7 @@ description: >-
 date: 2025-02-03T00:00:00.000Z
 category: physics
 featured: false
+image: /images/posts/revolving-door-chaos.png
 ---
 
 Most early-stage SaaS companies set the same pipeline and revenue targets for their GTM team regardless of whether the company has any market presence, any channel history, or any real data on what the sales cycle actually looks like. Then they're surprised when the VP of Sales lasts seven months and the head of marketing makes it to fourteen.
@@ -16,6 +17,8 @@ This is the practical follow-up. If the tenure problem is structural, the goalin
 What follows is the framework I've refined over twenty years and multiple company stages. It's organized by funding stage because that's the proxy most boards and founders use for company maturity, even though the real variable is system mass—how much market presence, channel history, and compounding motion exists in the GTM engine.
 
 ## Seed and Series A: Measure Signal, Not Pipeline
+
+![Pipeline Theater vs Signal Engine - Focus on quality signals and calibrated measurement for sustainable growth](/images/posts/gtm-measurement-comparison.png)
 
 The system doesn't have enough mass to produce predictable revenue outcomes yet. Pipeline targets set from a fundraising model aren't goals—they're hopes. What the GTM team can produce at this stage is something more valuable than early revenue: signal. Which ICPs actually engage? Which ones convert, and at what velocity? Which channels produce real conversations versus noise? What does the actual sales cycle look like—not the one in the pitch deck, but the one in the CRM?
 
