@@ -1,135 +1,95 @@
 ---
-title: 'How Leadership Churn Destroys Marketing Momentum in B2B SaaS'
-description: >-
-  CMO tenure in tech averages under 2.5 years—but content takes 2+ years to compound. Why B2B SaaS companies destroy programs worth millions.
+title: "Why Your Best Marketing Programs Look Like They're Failing"
+description: "The investments that compound are the ones you're most tempted to kill."
 date: 2025-02-03T00:00:00.000Z
 category: physics
 featured: true
 image: /images/posts/momentum-tree-fall.png
 ---
 
-**CMO tenure in tech averages under 2.5 years—but content marketing takes 2+ years to compound.** This fundamental mismatch explains why B2B SaaS companies routinely destroy marketing programs worth millions, only to spend even more rebuilding them. The data shows that pausing marketing for one year requires five years of spend to recover, while companies maintaining investment during downturns achieve 256% higher sales than those who stop.
+I spent eighteen months building a content program that my CEO called "the slow one." Every board meeting, he'd point to paid campaigns generating leads that week and ask why content wasn't performing at the same level. Every quarter, I'd show a slightly better graph and make the same pitch: give it time, the curve is building.
 
-The pattern is predictable: new CMO arrives, inherits a content program 18 months into its compounding curve, kills it to "make their mark," launches something new—and exits before anyone sees returns. The cycle repeats.
+At month fourteen, our cost per lead from content was still 3x higher than paid. At month eighteen, it crossed over — content was cheaper. By month twenty-four, it was half the cost of paid and falling. By month thirty, it was generating 40% of pipeline on 15% of budget, and every month it got cheaper without us spending another dollar.
 
----
+The same CEO who wanted to kill it started calling it "our moat."
 
-## CMO tenure creates structural instability for long-term programs
+Here's what nobody told me early in my career, and what I've confirmed over twenty years of building marketing programs: the investments that compound are the ones that look worst in their first year. They follow a curve that's specifically designed to fool you into quitting.
 
-![The Growth Trajectory: Paid vs Organic CAC Over 5 Years - Paid CAC becomes unsustainable while organic compounds into sustainable growth](/images/posts/cac-comparison-diagram.png)
+## The Compounding Curve
 
-The oft-cited claim that marketing leaders churn every 18-24 months is **verified for tech and SaaS specifically**, though broader CMO tenure runs longer. [Spencer Stuart's 20th annual tenure study](https://www.spencerstuart.com/research-and-insight/cmo-tenure-study-2024) (2024) found Fortune 500 CMOs average **4.3 years**, but tech-specific data tells a different story:
+The conventional view of marketing investment is linear. Spend a dollar, get some fraction of a result. Spend two dollars, get roughly twice the result. This is how paid acquisition works, and it's how most executives evaluate marketing performance — including the marketing leaders themselves.
 
-- **Tech industry CMO tenure: under 2.5 years** ([Korn Ferry 2020](https://www.kornferry.com/insights/this-week-in-leadership/age-of-the-cmo))
-- **Silicon Valley CMOs: 6-18 months** ([Kalungi industry analysis](https://www.kalungi.com/blog/saas-cmo-tenure))
-- **High-growth SaaS organizations: 18-24 months** ([Scion Executive Search 2025](https://www.scionexecutivesearch.com/))
-- **SaaS CMO churn runs 10x higher than acceptable customer churn** ([Kalungi](https://www.kalungi.com/blog/saas-cmo-tenure))
+But the most valuable marketing investments don't work this way. They follow a compounding curve: flat, flat, flat, then steep. Nearly worthless for months, then increasingly valuable for years. The problem is that at the decision point — the moment when a program gets evaluated for continuation or cancellation — compounding programs are indistinguishable from programs that simply aren't working.
 
-[Korn Ferry's 2020 study](https://www.kornferry.com/insights/this-week-in-leadership/age-of-the-cmo) of the top 1,000 U.S. companies by revenue found CMO tenure at **3.5 years—the shortest of all C-suite titles**. Tech CMOs came in at just **3.0 years**, the shortest by industry. Compare this to CEO tenure at 6.9 years or CFO tenure approaching 5 years.
+This is where the physics of momentum matters. In physics, momentum is mass times velocity — but the useful insight isn't the formula. It's the asymmetry. Building momentum requires sustained force over time against resistance. Once an object has momentum, it requires very little energy to maintain. And stopping it, then restarting from zero, costs more than the original investment because you've lost all the accumulated energy.
 
-The volatility intensified through 2024-2025. [Forrester's August 2025 research](https://www.forrester.com/blogs/b2b-cmo-tenure-continues-to-decline/) found **over one in five Fortune 500 companies changed marketing leadership in the prior 12 months**. Overall CMO tenure dropped to 3.9 years, with B2B CMO presence in the C-suite falling from 48% to 42%. Johnson & Johnson, Starbucks, and UPS all eliminated or restructured their CMO roles.
+Marketing programs follow the same curve. A brand that's been building market presence for eighteen months requires almost nothing to maintain its recognition — and each new campaign performs better because it's drafted behind the authority of everything that came before. A brand that's reached recognition threshold converts at higher rates across every channel, making every other dollar more efficient. Content from an established authority gets cited by AI systems, shared by peers, and discovered through referrals — each piece amplifying every piece that came before it.
 
-[Gartner's 2024 survey](https://www.gartner.com/en/marketing/research/cmo-leadership-vision) of 125 CEOs and CFOs reveals why: only **27% said CMO performance exceeded expectations**, and **69% cited failure to deliver promised results** as the top scenario leading to CMO removal. Marketing budgets simultaneously collapsed from **11.0% of revenue in 2020 to 7.7% in 2024**—less runway to prove results before the next leadership change.
+The conventional explanation when a program isn't showing results at month twelve: it isn't working. The physics explanation: it hasn't built enough mass to generate visible momentum yet. These two readings of the same data lead to opposite decisions. One says cut. The other says hold.
 
----
+## The Data Has Gotten More Extreme
 
-## Content marketing requires 2-5 years to compound—longer than most CMOs last
+The data on this is striking. And it's gotten more extreme precisely because the way buyers discover solutions is shifting underneath us.
 
-[Ahrefs' May 2025 study](https://ahrefs.com/blog/how-long-does-it-take-to-rank/) of 1.3 million keywords and 2 million URLs delivers the definitive data on how long SEO takes to work: **only 1.74% of newly published pages rank in Google's top 10 within one year**. That's down from 5.7% in their 2017 study. The average #1 ranking page is now **5 years old**, up from 2 years in 2017.
+[Les Binet and Peter Field](https://ipa.co.uk/knowledge/effectiveness-research-analysis/les-binet-peter-field) analyzed 996 campaigns across 700 brands through the IPA Databank and quantified the mechanism. Brand-building campaigns — the compounding kind — are *less* efficient than activation campaigns in the short term. But their efficiency *grows* over time. Activation campaigns show the inverse: efficient immediately, declining after a few months. Their recommended allocation is 60% brand (compounding) to 40% activation (transactional). Most B2B SaaS companies invert this ratio because short-term activation is the only thing that shows results in a quarterly review. Meanwhile, the acquisition economics keep diverging — [First Page Sage's 2026 benchmarks](https://firstpagesage.com/marketing/cac-by-channel-fc/) put B2B organic CAC at $942 versus $1,907 for paid, and paid costs have inflated 222% over eight years while organic CAC falls as authority builds.
 
-The timeline for content marketing ROI follows a predictable curve:
+Now, here's where it gets interesting for anyone watching their organic traffic decline: traditional discovery channels are compressing. [Seer Interactive's 2025 study](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update) of 3,119 queries across 42 organizations found organic click-through rates dropped 61% for queries where Google's AI Overviews appear. [Over 60% of Google searches](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/) now end without a click. AI-generated summaries from ChatGPT, Perplexity, and Google itself are answering questions that used to send traffic to your site.
 
-| Milestone | Typical timeline |
-|-----------|------------------|
-| First rankings appear | 1-3 months |
-| Initial organic traffic | 3-6 months |
-| Meaningful ROI visible | 6-9 months |
-| **Compounding effect begins** | **12-24 months** |
-| Full maturity | 24-36+ months |
+If you read that and think compounding investment is dead, you're making the same linear-thinking mistake this post is about.
 
-[HubSpot's research on compounding posts](https://blog.hubspot.com/marketing/compounding-blog-posts-702) quantifies the compounding effect: **10% of their blog posts are "compounding posts" that generate 38% of total traffic**. A single compounding post delivers the same lifetime traffic as six regular posts. Critically, **75% of HubSpot's monthly blog views come from older posts**, and **90% of their monthly leads come from content they didn't publish that month**.
+What's actually happening is that accumulated brand mass — the compounding asset — is becoming *more* important, not less. [Seer Interactive's analysis](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update) of 500+ AI citations found that brand search volume is the strongest predictor of whether an AI system cites you. Brands that get cited in Google's AI Overviews see 35% higher organic click-through rates than brands that don't. The gap between cited and invisible isn't small. It's the difference between compounding in the new channel and disappearing from it entirely.
 
-Blog content has a half-life of approximately **2 years**, according to [2025 research analyzing 5 million social media posts](https://www.meltwater.com/en/blog/content-half-life). Compare that to LinkedIn's 24-hour half-life, Facebook's 5 hours, or X/Twitter's 15-20 minutes. Content is the only marketing channel where investments literally appreciate.
+The compounding dynamic didn't break. The measurement changed. Instead of ranking on page one, the question is whether AI considers you authoritative enough to cite. And what determines that? The same accumulated mass that drove compounding before: domain authority, content depth, brand recognition, and the kind of consistent investment that takes eighteen months to pay off and then pays off for years. An [AirOps study](https://www.airops.com/blog/content-refresh-launch) found that 95% of ChatGPT citations come from content published or updated within the last ten months. Freshness matters — but only if you've already built the authority that gets you into the citation set at all.
 
-The math problem becomes obvious: a CMO with 18-24 month tenure inherits programs 12-18 months from compounding, won't see results during their tenure, and has every incentive to start fresh rather than nurture what exists.
+The cost of interruption makes this worse. The [Ehrenberg-Bass Institute](https://marketingscience.info/when-brands-stop-advertising/) found that brands that stop investing see sales decline 16% in year one, 25% by year two, and 36% by year three. Their research shows recovery takes disproportionately longer than the hiatus — a one-year pause requires more than a year of renewed spend just to reclaim lost ground. In a world where AI systems preferentially cite established authorities, the penalty for going dark is even steeper — you don't just lose momentum, you lose the citation position that compounds into future visibility.
 
----
+## Why Smart Leaders Keep Making the Same Mistake
 
-## HubSpot, Moz, and Drift show how momentum gets destroyed
+So why do smart leaders keep making the same mistake?
 
-**HubSpot's 2024 traffic collapse** demonstrates content strategy debt in action. Their blog suffered a **36% decline in one month**—dropping from 13.5 million visits in November 2024 to 8.6 million in December 2024. Some analyses showed [70-80% decline over the longer period](https://www.searchenginejournal.com/hubspot-traffic-drop/535067/).
+Because the compounding curve has a specific, predictable failure mode built into it — and it maps perfectly to how companies make decisions.
 
-The cause: a years-long strategy prioritizing "traffic at all costs" over topical relevance. HubSpot ranked for terms like "shrug emoji," resignation letter templates, and real estate license requirements—none related to their CRM product. When Google's December 2024 algorithm updates penalized lack of topical authority, the house of cards collapsed.
+In the first six months of any compounding program, you're generating cost with almost no visible return. You're publishing content nobody discovers, building authority that neither search engines nor AI systems have recognized, creating brand impressions that haven't reached frequency threshold. The program is *working* — mass is accumulating — but there's nothing to show for it on a dashboard.
 
-A former HubSpot SEO team member noted the fix "isn't an overnight process... can take **YEARS** to properly execute" at their scale of thousands of articles. The strategic decision to chase traffic over relevance created compounding liability rather than compounding value.
+From months six through twelve, early signal appears. Some traffic, some leads, maybe a few attributable opportunities. Brand search volume ticks up slightly. An AI tool cites you for the first time on an obscure query. But the numbers are modest, and on a per-dollar basis, the program looks terrible compared to paid channels that produce immediate results. This is the most dangerous period. There's just enough data to evaluate — and not enough to show compounding. A quarterly review at this point will surface a program that costs more per lead than alternatives and has "no clear path to scale."
 
-**[Moz's strategic pivot](https://moz.com/blog/moz-refocuses-on-seo-software)** cost them market leadership they never recovered. In August 2016, after 2.5 years pursuing an "all-in-one inbound marketing" vision, the board reversed course: refocus on core SEO software, prioritize profitability, and lay off over a quarter of employees. The company had chased products like "Moz Analytics" and "Moz Content"—all ultimately unwound.
+After month twelve, if the program has been funded consistently, compounding begins to emerge. Cost per lead starts declining. Content generates leads on its own. AI systems start citing you on higher-value queries because you've crossed the authority threshold. The curve inflects. Each additional dollar produces more than the last.
 
-By 2018, both Ahrefs and Semrush had overtaken Moz in traffic. The company's infrastructure costs ballooned to an estimated **44% of ARR** versus 6-13% for competitors. Moz was eventually [acquired by iContact in 2021](https://www.moz.com/blog/moz-is-joining-the-icontact-family) after years of struggling. Notably, in 2017 Moz deleted over **200 articles—a third of their blog content**—to improve quality, reflecting the accumulated debt from their strategic drift.
+The problem: standard planning cycles — quarterly business reviews, annual budgets, leadership transitions — are tuned to evaluate programs right in that six-to-twelve-month danger zone. The evaluation window is perfectly calibrated to kill compounding programs before they compound.
 
-**Drift's** marketing success was heavily tied to [Dave Gerhardt](https://www.exitfive.com/), who grew traffic from 200 to **27,000 monthly visitors in under a year**. When he left for Privy in 2019, returned as Chief Brand Officer in 2021, then left again to found Exit Five, the institutional knowledge departed with him. Drift was subsequently [acquired by Salesloft](https://salesloft.com/resources/blog/salesloft-drift-acquisition/) (Vista Equity PE ownership), repositioned as "Salesloft Marketing," and absorbed into a larger organization—a common PE playbook that frequently disrupts marketing momentum.
+This isn't a metaphor. It's a measurement problem. The systems companies use to assess marketing performance are structurally biased against the investments that produce the highest long-term returns. If you evaluate compounding programs on the same timeline and with the same metrics as transactional ones, compounding will always lose — until the day it dominates, at which point you'll wonder why you don't have more of it.
 
-**Pardot's brand elimination** illustrates acquisition-driven momentum destruction. Salesforce acquired ExactTarget for $2.5 billion in 2013 (which included Pardot, itself acquired for $95 million). In 2014, Pardot was the "fastest-growing marketing automation system," gaining 1,128 new customers in a single month. By 2022, [Salesforce rebranded it to "Marketing Cloud Account Engagement"](https://www.salesforce.com/products/marketing-cloud/marketing-automation/), shut down the website, and retired the brand—eliminating years of built equity.
+I saw this play out with a webinar program I ran for a year. Attendance grew. Lead volume grew. Pipeline grew. It looked like compounding. Then I ran the numbers and realized attendance was growing because we were spending more on promotion each quarter. Strip out the increasing spend, and per-dollar performance was flat. That wasn't momentum — that was linear growth in costume. Real compounding shows up as improving returns on *consistent* investment, not improving results on *increasing* investment.
 
----
+## Mass, Velocity, and the Sequence That Matters
 
-## Rebuilding costs 3-5x more than maintaining through downturns
+The physics framework gives us a way to distinguish real momentum from expensive motion — and to understand why the sequence of investments matters as much as the investments themselves.
 
-[The Ehrenberg-Bass Institute's 20-year study](https://www.marketingscience.info/) of 70 Australian brands quantified exactly what happens when advertising stops:
+Mass is your accumulated market presence — brand recognition, content library, customer base, word of mouth, the breadth of third-party mentions that AI systems use to decide whether you're authoritative. Mass is slow to build and slow to decay. It's the reason a mediocre campaign from a well-known brand outperforms a brilliant campaign from a brand nobody recognizes — and the reason AI systems cite established brands preferentially. Mass doesn't make noise. It bends gravity.
 
-| Time without advertising | Average sales decline |
-|--------------------------|----------------------|
-| 1 year | 16% |
-| 2 years | 25% |
-| 3 years | 36% |
+Velocity is what most marketing teams optimize for: campaign performance, conversion rates, pipeline speed, launch cadence. Velocity is visible, measurable, and satisfying to improve. It's also fragile. A campaign ends. A channel saturates. A quarter resets. Velocity without mass is activity that doesn't accumulate into anything durable.
 
-Their conclusion: "It may take **over a year of spend to make up for a one-year hiatus**." The recovery costs exceed the savings.
+The counterintuitive part is the sequence. Mass must come first. You need accumulated market presence before velocity produces compounding returns. A startup running aggressive paid campaigns at high velocity but with no brand mass isn't building momentum. They're renting attention at an escalating price. Each dollar spent produces roughly the same return as the last — or worse, as auction dynamics drive costs up. That's linear growth. That's a treadmill.
 
-[IPA/Data2Decisions modeling](https://ipa.co.uk/knowledge/publications-reports/advertising-in-a-downturn) from the Institute of Practitioners in Advertising found even starker numbers. A brand cutting budget to zero for one year requires **5 years to recover to pre-cut sales levels**, with cumulative profit loss of £1.7 million. A 50% budget cut for one year still requires **3 years to recover**.
+Compounding happens when velocity acts on existing mass. Content published by a site with established authority ranks faster — and gets cited by AI systems. Campaigns from a recognized brand convert at higher rates across every channel. Each new touchpoint reinforces every previous touchpoint. The return on dollar 1,000 is genuinely higher than the return on dollar 1. That's the flywheel — and it works regardless of whether discovery happens through a Google search, an AI-generated answer, or a colleague forwarding your newsletter.
 
-[The Advertising Research Foundation's 2016 study](https://thearf.org/) of 15 CPG brands that reduced TV ad spend by 25-75% found 11 of 15 experienced negative sales impact. **For every $1 decline in TV ad spend, brands lost $3 in sales return**—combined loss of $94 million across the studied brands.
+This dynamic changes at different stages. At Series A, you have almost no mass. Applying force — campaigns, spend, outbound — to a light object produces erratic, unpredictable results. You're building mass, full stop. At Series B, real presence emerges and programs can start compounding because there's enough mass to generate consistent velocity. At Series C and beyond, mass becomes the dominant force — the weight of the brand carries campaigns further on less spend.
 
-[Nielsen's marketing mix models](https://www.nielsen.com/insights/2020/advertising-through-a-downturn/) show **2% long-term revenue loss per quarter** when brands go off-air, with **3-5 years required to recover equity losses** after extended dark periods. [Kantar Millward Brown](https://www.kantar.com/inspiration/advertising-media/going-dark-the-impact-of-cutting-advertising) found that **60% of brands going dark for 6+ months decline on at least one key brand metric**, with communication awareness dropping 39% and trial intent falling 21%.
+The mistake at early stages is expecting momentum when you should be building mass. The mistake at later stages is treating compounding investments the same as transactional ones in planning and evaluation. A paid campaign's job is to generate pipeline this quarter. A content program's job is to make every future quarter progressively cheaper. Evaluating both on quarterly pipeline contribution guarantees you'll underfund the one that matters most for long-term economics.
 
-The competitive transfer is equally damaging. [Analytic Partners' 2022 ROI Genome Report](https://analyticpartners.com/roi-genome/) (covering hundreds of billions in spend across 750+ brands) found brands that cut spend **risk losing 15% of their business to competitors** who maintain investment. Companies that increased media investment during recession saw **60% ROI improvements** while competitors retreated.
+## What to Do About It
 
-The [McGraw-Hill study](https://www.aaaa.org/) of 600 companies across the 1981-82 recession delivers the most striking comparison: companies that continued advertising achieved **256% higher sales by 1985**. Companies that stopped saw only 18% sales increase post-recession.
+If you're a founder or board member, the move is structural. Build the evaluation framework that lets compounding programs survive their first year. That means tracking cost per lead *trend* over time, not point-in-time comparison to paid. Track brand search volume growth as a leading indicator — it's now the strongest predictor of whether AI systems cite your brand, making it the closest thing you have to a forward-looking metric for discovery in the AI era. Define success at month twelve as "cost per lead declining quarter over quarter," not "cost per lead competitive with paid." The programs worth protecting are the ones whose economics improve with time — even if the starting economics look terrible.
 
----
+If you're a marketing leader, the move is making the invisible visible. The reason compounding programs get killed is that their value is structural and hard to see on a dashboard. A paid campaign shows a direct line from spend to leads. A brand program builds authority that shows up as AI citations, branded search volume, and improving conversion rates across every other channel — none of which appear in the campaign report. You need to show the compounding curve explicitly — cost per lead at month three, month six, month nine, month twelve, plus brand search volume trend and AI citation frequency — before someone questions the spend. The trendline is your argument. Not the snapshot.
 
-## Compounding channels diverge dramatically from paid over time
+The math is unambiguous. Brand-driven channels produce acquisition costs at half those of paid, and the cost trends move in opposite directions. In a world where AI systems preferentially cite authoritative brands, the compounding advantage of accumulated mass is accelerating, not shrinking. Every month you keep a compounding program funded is a month its economics improve. Every month you pause it is a month you'll eventually pay five times over to rebuild.
 
-The data definitively shows paid acquisition costs trending upward while organic costs trend downward—the fundamental case for compounding investments.
+That content program I almost lost at month twelve? By year three, it was the single largest source of qualified pipeline in the company. Cost per lead had dropped 80% from its first-year average. The paid campaigns we'd considered redirecting budget toward had gotten 30% more expensive over the same period.
 
-**Customer acquisition costs have inflated 222% over eight years** according to [SimplicityDX research](https://www.simplicitydx.com/blog/ecommerce-customer-acquisition-cost), with a **60% increase over just the past five years** ([Paddle](https://www.paddle.com/resources/customer-acquisition-cost)). The 2024 increase alone was 14% year-over-year per [Benchmarkit's SaaS Performance Metrics](https://www.benchmarkit.ai/).
+The counterintuitive truth about marketing momentum: the programs most worth protecting are the ones that look least worth protecting. The flat part of the curve isn't evidence of failure. It's the price of the inflection that follows.
 
-Platform-specific inflation compounds the problem:
-
-- **Google Ads CPC increased 10% in 2024**, with 86% of industries seeing higher costs ([WordStream](https://www.wordstream.com/blog/ws/google-ads-benchmarks))
-- **Meta CPM jumped 19.2% in Q1 2025** versus Q1 2024, reaching $10.88 ([Revealbot](https://revealbot.com/facebook-advertising-costs))
-- **Facebook Lead Campaigns saw 20% higher CPL** year-over-year in 2025 ([Metadata.io](https://metadata.io/resources/paid-social-benchmarks))
-
-[First Page Sage's 2026 benchmarks](https://firstpagesage.com/seo-blog/b2b-cac-by-channel/) reveal the channel-level divergence: B2B organic channels average **$942 CAC** versus **$1,907 for paid channels**—organic outperforms paid by more than 2x. Thought leadership SEO delivers $647 CAC compared to PPC/SEM at $802 or LinkedIn Ads at $982.
-
-[Les Binet and Peter Field's IPA Databank analysis](https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it) of 996 campaigns across 700 brands established the optimal split at **60:40 brand building to sales activation** (updated to 62:38 in later work). Their core finding: brand campaigns' efficiency **grows over time**—less efficient short-term, but dramatically more efficient long-term. The inverse is true for activation: efficient immediately, but not efficient drivers of 3+ year growth.
-
-[ProfitWell research](https://www.paddle.com/resources/profitwell-metrics) adds that **customers acquired through organic content retain 30% better** than those from paid campaigns, and [HubSpot data](https://blog.hubspot.com/marketing/customer-acquisition-cost) shows organic customers have **25-30% lower CAC**.
-
-The compounding math is unambiguous: [Search Engine Land analysis](https://searchengineland.com/seo-vs-ppc-long-term-roi-391827) shows that around the 6-9 month mark, "the CAC curve starts to flip. Your CAC for SEO gets lower. Much lower. **And it keeps getting lower over time.**" Meanwhile, paid channels require ever-increasing spend just to maintain—never compound.
-
----
-
-## Conclusion
-
-The structural mismatch between CMO tenure and content compounding timelines creates a self-perpetuating cycle of destruction and rebuilding. With tech CMOs lasting under 2.5 years and content requiring 2-5 years to mature, the incentives favor short-term pivots over long-term value creation.
-
-The data points to three actionable insights for B2B SaaS leaders:
-
-1. **Protect compounding programs through leadership transitions** by documenting strategy, building institutional memory, and evaluating CMO candidates on their willingness to nurture existing programs
-2. **Quantify the true cost of strategy pivots**—not just the investment required, but the 3-5 year recovery timeline and 3x sales loss per dollar cut
-3. **Shift budget allocation toward compounding channels**, following the 60:40 brand-to-activation split while recognizing that organic CAC runs half the cost of paid in B2B
-
-Marketing momentum isn't just a metaphor—it's a measurable asset that takes years to build and months to destroy. Every leadership transition that resets strategy costs companies not just the sunk investment, but the compounding returns that investment would have generated for years to come.
+The only thing more expensive than building momentum is building it twice.
 
 ---
 
