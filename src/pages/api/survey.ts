@@ -5,7 +5,43 @@ export const prerender = false;
 
 const { Pool } = pg;
 
+// Simple rate limiting (5 submissions per IP per hour)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW = 60 * 60 * 1000; // 1 hour
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW });
+    return false;
+  }
+
+  if (record.count >= RATE_LIMIT) {
+    return true;
+  }
+
+  record.count++;
+  return false;
+}
+
 export const POST: APIRoute = async ({ request }) => {
+  // Rate limiting
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ||
+             request.headers.get('x-real-ip') ||
+             'unknown';
+
+  if (isRateLimited(ip)) {
+    return new Response(JSON.stringify({
+      success: false,
+      error: 'Too many submissions. Please try again later.'
+    }), {
+      status: 429,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
   const connectionString = process.env.POSTGRES_URL_NON_POOLING || process.env.POSTGRES_URL || '';
 
   const pool = new Pool({

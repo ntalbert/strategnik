@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block API routes
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://strategnik.com/sitemap.xml
