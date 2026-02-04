@@ -1,4 +1,5 @@
 ---
+import { Analytics } from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ScrollAnimations from '../components/ScrollAnimations.astro';
@@ -66,5 +67,6 @@ const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
     </main>
     <Footer />
     <ScrollAnimations />
+    <Analytics />
   </body>
 </html>

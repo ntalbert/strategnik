@@ -16,6 +16,7 @@
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/react": "^4.4.2",
     "@astrojs/vercel": "^9.0.4",
+    "@vercel/analytics": "^1.6.1",
     "@vercel/postgres": "^0.10.0",
     "astro": "^5.17.1",
     "gray-matter": "^4.0.3",
