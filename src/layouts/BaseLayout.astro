@@ -1,5 +1,5 @@
 ---
-import { Analytics } from '@vercel/analytics/astro';
+import Analytics from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ScrollAnimations from '../components/ScrollAnimations.astro';
@@ -59,6 +59,9 @@ const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+    <!-- Vercel Web Analytics -->
+    <Analytics />
   </head>
   <body class="min-h-screen flex flex-col bg-black text-white">
     <Header />
@@ -67,6 +70,5 @@ const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
     </main>
     <Footer />
     <ScrollAnimations />
-    <Analytics />
   </body>
 </html>
