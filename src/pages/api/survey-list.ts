@@ -5,7 +5,17 @@ export const prerender = false;
 
 const { Pool } = pg;
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async ({ request }) => {
+  // Check for admin secret
+  const url = new URL(request.url);
+  const secret = url.searchParams.get('secret');
+
+  if (secret !== process.env.ADMIN_SECRET) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
   const connectionString = process.env.POSTGRES_URL_NON_POOLING || process.env.POSTGRES_URL || '';
 
   const pool = new Pool({
