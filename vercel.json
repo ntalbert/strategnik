@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/writing",
+      "destination": "/thinking",
+      "permanent": true
+    },
+    {
+      "source": "/writing/:slug*",
+      "destination": "/thinking/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/work",
+      "destination": "/experience",
+      "permanent": true
+    }
+  ]
+}
