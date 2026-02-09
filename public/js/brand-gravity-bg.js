@@ -118,6 +118,7 @@
         text-align: right;
         z-index: 1000;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        transition: opacity 0.3s ease;
       }
 
       #brand-gravity-phase-label {
@@ -137,8 +138,8 @@
 
       .brand-gravity-legend {
         position: fixed;
-        top: 100px;
-        right: 20px;
+        top: 160px;
+        left: 24px;
         background: rgba(10, 20, 40, 0.8);
         padding: 16px;
         border-radius: 12px;
@@ -146,6 +147,20 @@
         backdrop-filter: blur(10px);
         z-index: 1000;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        transition: opacity 0.3s ease;
+      }
+
+      @media (min-width: 768px) {
+        .brand-gravity-legend {
+          left: 32px;
+          top: 180px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .brand-gravity-legend {
+          left: 48px;
+        }
       }
 
       .brand-gravity-legend .legend-item {
@@ -278,6 +293,36 @@
     document.addEventListener('mouseup', () => {
       isDragging = false;
     });
+
+    // Scroll handler to fade legend with the animation
+    const legend = document.querySelector('.brand-gravity-legend');
+    const brandLabel = document.querySelector('.brand-gravity-label');
+    if (legend) {
+      window.addEventListener('scroll', () => {
+        const parallaxContainer = document.querySelector('.parallax-container');
+        if (!parallaxContainer) return;
+
+        const rect = parallaxContainer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Start fading when bottom of parallax container reaches 60% of viewport
+        // Fully hidden when bottom reaches 10% of viewport
+        const fadeStart = windowHeight * 0.6;
+        const fadeEnd = windowHeight * 0.1;
+
+        if (rect.bottom > fadeStart) {
+          legend.style.opacity = '1';
+          if (brandLabel) brandLabel.style.opacity = '1';
+        } else if (rect.bottom < fadeEnd) {
+          legend.style.opacity = '0';
+          if (brandLabel) brandLabel.style.opacity = '0';
+        } else {
+          const progress = (rect.bottom - fadeEnd) / (fadeStart - fadeEnd);
+          legend.style.opacity = progress.toString();
+          if (brandLabel) brandLabel.style.opacity = progress.toString();
+        }
+      });
+    }
 
     // Icon clicks
     icons.forEach(icon => {
