@@ -13,7 +13,7 @@ interface Props {
 
 const { title, description, date, category, slug, url, thumbnail, featured = false, variant = 'light' } = Astro.props;
 
-const href = url || `/writing/${slug}`;
+const href = url || `/thinking/${slug}`;
 const isExternal = !!url;
 
 const formattedDate = date.toLocaleDateString('en-US', {

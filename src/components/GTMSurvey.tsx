@@ -414,7 +414,7 @@ export default function GTMSurvey() {
             </p>
           )}
           <a
-            href="/writing/physics-of-marketing-why-early-stage-marketing-fails"
+            href="/thinking/physics-of-marketing-why-early-stage-marketing-fails"
             style={{
               display: "inline-block", marginTop: 24, padding: "12px 24px",
               background: COLORS.accent, color: "#fff", borderRadius: 8,

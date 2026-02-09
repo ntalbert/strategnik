@@ -10,7 +10,7 @@ image: /images/posts/revolving-door-chaos.png
 
 Most early-stage SaaS companies set the same pipeline and revenue targets for their GTM team regardless of whether the company has any market presence, any channel history, or any real data on what the sales cycle actually looks like. Then they're surprised when the VP of Sales lasts seven months and the head of marketing makes it to fourteen.
 
-I wrote about [why that pattern is structural, not a talent problem](/writing/why-gtm-leaders-churn-early-stage-saas)—the system at early stages is too light to produce predictable outcomes, too narrow to give leaders real control, and too early to measure against targets it can't yet deliver. If you haven't read that piece, start there. The short version: GTM leader churn correlates with company maturity more than individual capability, and the tenure pattern across marketing and sales tracks in lockstep because both functions are fighting the same physics.
+I wrote about [why that pattern is structural, not a talent problem](/thinking/why-gtm-leaders-churn-early-stage-saas)—the system at early stages is too light to produce predictable outcomes, too narrow to give leaders real control, and too early to measure against targets it can't yet deliver. If you haven't read that piece, start there. The short version: GTM leader churn correlates with company maturity more than individual capability, and the tenure pattern across marketing and sales tracks in lockstep because both functions are fighting the same physics.
 
 This is the practical follow-up. If the tenure problem is structural, the goaling has to be structural too. You can't set the same expectations for a GTM team operating in a system with almost no market mass and two channels as you would for one with real brand gravity and a dozen compounding motions. The goals need to reflect what's actually measurable and meaningful at each stage—and what builds toward the next one.
 
@@ -96,6 +96,6 @@ Distance transforms entirely. Pre-IPO, the target shifts from repeatable revenue
 
 ---
 
-*This is the companion piece to [Why Every GTM Leader You Hire Fails in the Same Way](/writing/why-gtm-leaders-churn-early-stage-saas), which covers the structural diagnosis behind GTM leader churn. Together they form part of the [Physics of Marketing](/physics-of-marketing) framework.*
+*This is the companion piece to [Why Every GTM Leader You Hire Fails in the Same Way](/thinking/why-gtm-leaders-churn-early-stage-saas), which covers the structural diagnosis behind GTM leader churn. Together they form part of the [Physics of Marketing](/physics-of-marketing) framework.*
 
 *Nick Talbert is a marketing and GTM executive with 20+ years of experience leading growth at B2B SaaS and technology companies, including roles at companies later acquired by Amazon and AOL. He writes about go-to-market strategy at [strategnik.com](https://strategnik.com).*

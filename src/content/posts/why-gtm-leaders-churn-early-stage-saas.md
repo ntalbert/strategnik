@@ -84,7 +84,7 @@ The next time you're in a room where someone says, "We need to upgrade the GTM l
 
 If the problem is structural, the fix has to be structural too. That means setting expectations and metrics that match the system's actual physics at each stage—measuring signal and learning velocity at Series A instead of pipeline volume, measuring compounding efficiency at Series B instead of raw growth, and measuring system leverage at Series C instead of just topline revenue.
 
-I've mapped out what stage-appropriate GTM metrics actually look like—the specific KPIs, when they become meaningful, and how both GTM leaders and boards can use them to stop the revolving door. That's the companion piece: [What to Measure Instead →](/writing/stage-appropriate-gtm-metrics-saas)
+I've mapped out what stage-appropriate GTM metrics actually look like—the specific KPIs, when they become meaningful, and how both GTM leaders and boards can use them to stop the revolving door. That's the companion piece: [What to Measure Instead →](/thinking/stage-appropriate-gtm-metrics-saas)
 
 ---
 

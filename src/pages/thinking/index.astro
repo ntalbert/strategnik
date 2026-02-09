@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { getCollection } from 'astro:content';
+
+// ============================================
+// LOCAL POSTS - From content collection
+// ============================================
+const contentPosts = await getCollection('posts', ({ data }) => {
+  return data.draft !== true;
+});
+
+const posts = contentPosts
+  .map((post) => ({
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date,
+    category: post.data.category,
+    slug: post.slug,
+    image: post.data.image,
+  }))
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
+
+// ============================================
+// CASE STUDIES - Marketing Infrastructure Series
+// ============================================
+const caseStudies = [
+  {
+    title: "Building 17 Nurture Paths (And Why One Wasn't Enough)",
+    subtitle: "How lifecycle segmentation cut lead-to-value time from 47 days to 19—and the architecture behind it",
+    image: "/case-studies/hero-image-03.png",
+    url: '/case-studies/case-study-03-lifecycle-archetypes.html',
+  },
+  {
+    title: "Developer-to-Enterprise Pipeline for Open Source AI",
+    subtitle: "How we turned GitHub stars into six-figure deals by building visibility into the developer evaluation process",
+    image: "/case-studies/hero-image-01.png",
+    url: '/case-studies/case-study-01-developer-discovery.html',
+  },
+  {
+    title: "Propensity Scoring That Actually Works",
+    subtitle: "How data governance made predictive models 30% more accurate",
+    image: "/case-studies/hero-image-02.png",
+    url: '/case-studies/case-study-02-propensity-scoring.html',
+  },
+  {
+    title: "Three Weeks to Fix a 300% Cost Increase",
+    subtitle: "The iOS 14.5 Playbook—when Apple's privacy changes tripled SQL costs overnight",
+    image: "/case-studies/hero-image-04.svg",
+    url: '/case-studies/case-study-04-privacy-pivot.html',
+  },
+  {
+    title: "Two-Sided Acquisition for Government Expert Networks",
+    subtitle: "Mining public procurement data to match contractors with former federal executives",
+    image: "/case-studies/hero-image-05.png",
+    url: '/case-studies/case-study-05-government-marketplace.html',
+  },
+  {
+    title: "Clean Room Data Architecture",
+    subtitle: "Privacy-first measurement before it was mandatory—building cross-screen attribution without sharing raw data",
+    image: "/case-studies/hero-image-06.svg",
+    url: '/case-studies/case-study-06-clean-rooms.html',
+  },
+];
+
+---
+
+<BaseLayout
+  title="Writing"
+  description="Observations on B2B SaaS marketing, demand generation, and the physics of growth."
+>
+
+  <!-- Hero -->
+  <section class="section">
+    <div class="container-narrow">
+      <p class="section-label">Writing</p>
+      <h1 class="text-display-lg mb-6" data-animate-hero>Growth Physics: Field Notes</h1>
+      <p class="text-display text-gray-400 max-w-prose" data-animate-hero-sub>
+        Loops, losses, and the occasional win.
+      </p>
+    </div>
+  </section>
+
+  <!-- All Content -->
+  <section class="section-sm border-t border-gray-800">
+    <div class="container-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Case Studies */}
+        {caseStudies.map((study) => (
+          <a href={study.url} class="group block bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 hover:shadow-lg transition-all duration-300 relative">
+            <!-- Case Study Ribbon -->
+            <div class="absolute top-3 left-3 z-10">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-900 text-white shadow-sm">
+                Case Study
+              </span>
+            </div>
+            <div class="aspect-video bg-gray-900 relative overflow-hidden">
+              {study.image ? (
+                <img
+                  src={study.image}
+                  alt={study.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+                  <div class="text-center px-6">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-gray-700 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-white group-hover:text-accent transition-colors mb-2 line-clamp-2">{study.title}</h3>
+              <p class="text-sm text-gray-400 mb-4 line-clamp-2">{study.subtitle}</p>
+              <span class="inline-flex items-center text-sm font-medium text-accent group-hover:translate-x-1 transition-transform">
+                Read more <span class="ml-1">→</span>
+              </span>
+            </div>
+          </a>
+        ))}
+
+        {/* Articles */}
+        {posts.map((post) => (
+          <a href={`/thinking/${post.slug}`} class="group block bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 hover:shadow-lg transition-all duration-300 relative">
+            <!-- Article Ribbon -->
+            <div class="absolute top-3 left-3 z-10">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-900 border border-gray-700 text-gray-400 shadow-sm">
+                Article
+              </span>
+            </div>
+            <div class="aspect-video bg-gray-800 relative overflow-hidden">
+              {post.image ? (
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+                  <div class="text-center px-6">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold text-white group-hover:text-accent transition-colors mb-2 line-clamp-2">{post.title}</h3>
+              <p class="text-sm text-gray-400 mb-4 line-clamp-2">{post.description}</p>
+              <span class="inline-flex items-center text-sm font-medium text-accent group-hover:translate-x-1 transition-transform">
+                Read more <span class="ml-1">→</span>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <NewsletterForm
+    variant="default"
+    heading="Never miss an update"
+    description="Get new posts delivered to your inbox. No spam, just thinking about demand generation and B2B SaaS growth."
+  />
+
+</BaseLayout>

@@ -12,7 +12,7 @@ const posts = contentPosts.map((post) => ({
   description: post.data.description,
   date: post.data.date,
   image: post.data.image,
-  url: `/writing/${post.slug}`,
+  url: `/thinking/${post.slug}`,
   type: 'Article',
 }));
 
@@ -284,8 +284,8 @@ const allContent = [...posts, ...caseStudies]
       </div>
 
       <div class="mt-10">
-        <a href="/work" class="text-blue-bright hover:text-white transition-colors font-bold">
-          See all work →
+        <a href="/experience" class="text-blue-bright hover:text-white transition-colors font-bold">
+          See all experience →
         </a>
       </div>
     </div>

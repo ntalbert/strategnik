@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const workHistory = [
+  {
+    company: "BRIA AI",
+    companyDesc: "Visual Generative AI",
+    role: "VP, Marketing & Growth Operations",
+    period: "2024-2026",
+    context: "Open-source visual generative AI platform serving enterprise customers including EA, P&G, Lucasfilm, Disney, and Rakuten.",
+    highlight: "Generated $18.3M+ in partner-sourced pipeline via AWS, NVIDIA, and Qualcomm co-marketing programs. Built developer pipeline through community engagement and PLG experimentation. Drove 30% increase in organic traffic through AI-driven discovery optimization.",
+    outcome: null,
+    video: "/videos/work-bria.mp4",
+    logo: "/logos/bria.svg"
+  },
+  {
+    company: "Wallarm",
+    companyDesc: "API Security Platform",
+    role: "Demand Gen & Dev Community",
+    period: "2023-2024",
+    context: "API and application security platform targeting developer and security teams.",
+    highlight: "20% increase in marketing-sourced pipeline through optimized lead routing and scoring. 30% enhancement in lead quality through data-centric ABM strategy with DemandBase integration. 18% uplift in conversion rates via CRO initiatives.",
+    outcome: null,
+    video: "/videos/work-wallarm.mp4",
+    logo: "/logos/wallarm.svg"
+  },
+  {
+    company: "Lumen Technologies",
+    companyDesc: "Enterprise Network Infrastructure",
+    role: "ABM Demand Gen Engine Build",
+    period: "2023-2024",
+    context: "Enterprise network and edge computing infrastructure.",
+    highlight: "26% improvement in data integrity across Salesforce, Marketo, and DemandBase. Developed predictive analytics model improving propensity-to-buy scores by 30%. 25% increase in engagement for banking/finance and retail sectors.",
+    outcome: null,
+    video: "/videos/work-lumen.mp4",
+    logo: "/logos/lumen.png"
+  },
+  {
+    company: "Crux",
+    companyDesc: "Data Engineering Platform",
+    role: "Demand Gen Engine Build",
+    period: "2022-2023",
+    context: "Data engineering platform targeting technical data teams.",
+    highlight: "157% increase in lead-to-value velocity through optimized CRM workflows. 25-30% reduction in average cost per MQL and SQL. 40% surge in daily website traffic within two months via rapid-deployment SEO program.",
+    outcome: null,
+    video: "/videos/work-sizmek.mp4",
+    logo: "/logos/crux.png"
+  },
+  {
+    company: "OnFrontiers",
+    companyDesc: "Expert Network Marketplace",
+    role: "Two-Sided Marketplace Growth",
+    period: "2021-2022",
+    context: "Expert network marketplace connecting enterprise buyers with domain experts.",
+    highlight: "Built simultaneous demand-side (enterprise buyers) and supply-side (expert network) audiences. 30% reduction in Customer Acquisition Cost through automation and attribution. Delivered 100+ new website pages establishing organic discovery infrastructure.",
+    outcome: null,
+    video: "/videos/work-onfrontiers.mp4",
+    logo: "/logos/onfrontiers.png"
+  },
+  {
+    company: "Quartile",
+    companyDesc: "E-commerce Advertising Automation",
+    role: "VP of Marketing & Operations",
+    period: "2021-2022",
+    context: "E-commerce advertising automation platform.",
+    highlight: "Managed $13M annual budget with full attribution visibility. Counteracted 300% surge in SQL costs (Apple privacy updates) in under three weeks through rapid ABM pivot. Reduced BANT-qualified SQL costs by 30% via CRM optimization.",
+    outcome: null,
+    video: "/videos/work-quartile-new.mp4",
+    logo: "/logos/quartile.png"
+  },
+  {
+    company: "Certent",
+    companyDesc: "Equity Management SaaS",
+    role: "Senior Director, Global Demand Marketing",
+    period: "2018-2021",
+    context: "Equity management and financial reporting SaaS.",
+    highlight: "53% increase in marketing-to-sales pipeline speed. 170% surge in pipeline volume via integrated Salesforce and Marketo automation. ~40% reduction in CAC through continuous analytics optimization. Built infrastructure achieving 35% EBITDA target.",
+    outcome: "Acquired by insightsoftware",
+    video: "/videos/work-certent.mp4",
+    logo: "/logos/certent.png"
+  },
+  {
+    company: "VideoAmp",
+    companyDesc: "Cross-Platform TV Measurement",
+    role: "Senior Director of Product Management",
+    period: "2017-2018",
+    context: "Cross-platform TV and digital measurement platform.",
+    highlight: "Defined and operationalized clean room methodologies for activation and measurement within Google clean rooms. Built integrations enabling brands to combine first-party data with Acxiom audiences and set-top box viewership signals.",
+    outcome: null,
+    video: "/videos/work-sizmek.mp4",
+    logo: "/logos/videoamp.png"
+  },
+  {
+    company: "Sizmek",
+    companyDesc: "Ad Serving & Creative Optimization",
+    role: "VP of Product Management",
+    period: "2009-2014",
+    context: "Global ad serving and creative optimization platform.",
+    highlight: "Led team of 12 product managers, marketers, and analysts. Owned product vision for advertiser reporting console and smart creative versioning. Defined PRDs for OLAP-based analytics enabling performance analysis across placements, audiences, and messaging.",
+    outcome: "Acquired by Amazon",
+    video: "/videos/work-sizmek.mp4",
+    logo: "/logos/sizmek.jpg"
+  },
+  {
+    company: "Adapt.tv",
+    companyDesc: "Video Advertising DSP",
+    role: "Associate VP, Product",
+    period: "2014-2015",
+    context: "Video advertising platform and DSP.",
+    highlight: "Led integration of Convertro multi-touch attribution data into AOL One Platform. Owned end-to-end methodology for ingesting, normalizing, and activating attribution signals across display and video at enterprise scale.",
+    outcome: "Acquired by AOL",
+    video: "/videos/work-adapttv.mp4",
+    logo: "/logos/adapttv.png"
+  }
+];
+---
+
+<BaseLayout
+  title="Work"
+  description="Selected projects and outcomes from 20+ years building demand generation engines for B2B SaaS companies."
+>
+
+  <!-- Hero -->
+  <section class="section bg-black overflow-hidden">
+    <div class="container-content">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Video -->
+        <div class="rounded-xl overflow-hidden">
+          <video
+            class="w-full h-auto lazy-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            data-src="/videos/flora.mp4"
+          >
+          </video>
+        </div>
+        <!-- Text with kinetic typography -->
+        <div>
+          <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold" data-kinetic data-kinetic-direction="left">Work</p>
+          <h1 class="text-display-lg text-white font-extrabold mb-8" data-kinetic-up>
+            Build the systems that see what dashboards miss
+          </h1>
+          <p class="text-body-lg text-white font-bold" data-kinetic data-kinetic-direction="right">
+            Three exits. A pattern: I get brought in when the old approach breaks, I architect and build the system that sees what's actually happening, leave it better than I found it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats with floating numbers -->
+  <section class="section-sm bg-black overflow-hidden">
+    <div class="container-content">
+      <div class="flex flex-wrap gap-12 justify-center">
+        <div class="text-center" data-float data-float-intensity="8" data-float-duration="2.5">
+          <p class="text-display-lg text-white font-extrabold">20+</p>
+          <p class="text-small text-[#0165fc] font-bold">Years in Tech</p>
+        </div>
+        <div class="text-center" data-float data-float-intensity="12" data-float-duration="3">
+          <p class="text-display-lg text-white font-extrabold">3</p>
+          <p class="text-small text-[#0165fc] font-bold">Acquisitions</p>
+        </div>
+        <div class="text-center" data-float data-float-intensity="10" data-float-duration="2.8">
+          <p class="text-display-lg text-white font-extrabold">~100%</p>
+          <p class="text-small text-[#0165fc] font-bold">Avg Pipeline Growth</p>
+        </div>
+        <div class="text-center" data-float data-float-intensity="6" data-float-duration="3.2">
+          <p class="text-display-lg text-white font-extrabold">~32%</p>
+          <p class="text-small text-[#0165fc] font-bold">Avg CAC Reduction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work History -->
+  <section class="section border-t border-gray-800 overflow-hidden">
+    <div class="container-content">
+      <p class="section-label" data-kinetic data-kinetic-direction="left">Experience</p>
+      <h2 class="text-display mb-12" data-kinetic-up>Selected Work</h2>
+
+      <div class="space-y-16">
+        {workHistory.map((work, index) => (
+          <div class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-800 pb-12 last:border-0">
+            <!-- Video Column (1/3) -->
+            <div class="flex justify-center md:justify-start">
+              <video
+                class="w-full max-w-[280px] aspect-video object-cover rounded-2xl lazy-video"
+                muted
+                loop
+                playsinline
+                preload="none"
+                data-src={work.video}
+              >
+              </video>
+            </div>
+            <!-- Content Column (2/3) with kinetic text -->
+            <div>
+              <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+                <div data-kinetic data-kinetic-direction={index % 2 === 0 ? 'left' : 'right'}>
+                  <h3 class="text-heading text-white font-bold flex items-center gap-3">
+                    <img src={work.logo} alt={`${work.company} logo`} class="h-6 w-auto" />
+                    {work.company} <span class="italic font-normal text-gray-400">— {work.companyDesc}</span>
+                  </h3>
+                  <p class="text-small text-gray-400">{work.role} · {work.period}</p>
+                </div>
+                {work.outcome && (
+                  <span class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="5" data-float-duration="2">
+                    {work.outcome}
+                  </span>
+                )}
+              </div>
+              <p class="text-body text-gray-400 mb-2" data-animate>
+                {work.context}
+              </p>
+              <p class="text-body text-gray-400" data-animate data-animate-delay="0.1">
+                {work.highlight}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Earlier Work with parallax columns -->
+  <section class="section bg-black overflow-hidden">
+    <div class="container-content">
+      <p class="text-caption text-[#0165fc] tracking-wide mb-6 font-bold" data-kinetic data-kinetic-direction="left">Earlier Career</p>
+      <h2 class="text-display text-white font-extrabold mb-8" data-kinetic-up>Agency, Academia & Brand Strategy</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div data-parallax data-speed="0.15" data-direction="up">
+          <h3 class="text-heading text-white font-bold mb-4" data-kinetic data-kinetic-direction="left">Agency Leadership</h3>
+          <p class="text-body text-gray-300 mb-4" data-animate>
+            Account Strategy Director across top agencies including Goodby & Silverstein, Carat SF, and David/Goliath. Managed eight-figure media budgets and oversaw teams for 45+ clients.
+          </p>
+          <p class="text-body text-gray-300 mb-4" data-animate data-animate-delay="0.1">
+            Enterprise clients included Bellagio Hotel and Casino, Discovery Channel, Yahoo!, Conde Nast, Kodak, EA, Adobe, and Cadbury-Schweppes.
+          </p>
+          <p class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="5" data-float-duration="2.5">Nominated for Ad Age's "Top People to Watch Under 30"</p>
+        </div>
+        <div data-parallax data-speed="0.25" data-direction="up">
+          <h3 class="text-heading text-white font-bold mb-4" data-kinetic data-kinetic-direction="right">Academia & Brand Consulting</h3>
+          <p class="text-body text-gray-300 mb-4" data-animate>
+            10 years as Adjunct Professor of Digital Marketing Strategy at Academy of Art University. Developed curriculum bridging technical infrastructure, data strategy, and creative execution.
+          </p>
+          <p class="text-body text-gray-300 mb-4" data-animate data-animate-delay="0.1">
+            Senior Brand Strategist at Tattoo Brand Consulting—research contributed to greenlight of Travel Channel's <em>Bizarre Foods</em> and <em>Anthony Bourdain: No Reservations</em>.
+          </p>
+          <p class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="6" data-float-duration="2.8">University of Chicago Executive Program in Behavioral Economics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA with scale and kinetic effects -->
+  <section class="section border-t border-gray-800 bg-black overflow-hidden">
+    <div class="container-content text-center">
+      <h2 class="text-display text-white font-extrabold mb-4" data-scroll-scale data-scale-start="0.9" data-scale-end="1">Want the full story?</h2>
+      <p class="text-body-lg text-gray-300 mb-8 max-w-prose mx-auto" data-kinetic-up>
+        The best way to understand how I work is to have a conversation.
+        No pitch, just discussion.
+      </p>
+      <div class="flex flex-wrap gap-8 justify-center">
+        <a href="mailto:nick@strategnik.com" class="text-white font-bold hover:text-[#0165fc] transition-colors text-lg" data-kinetic data-kinetic-direction="left">
+          Get in touch →
+        </a>
+        <a href="/about" class="text-[#0165fc] font-bold hover:text-white transition-colors text-lg" data-kinetic data-kinetic-direction="right">
+          Read more about me →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lazy load videos script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lazyVideos = document.querySelectorAll('.lazy-video');
+
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const video = entry.target as HTMLVideoElement;
+            const src = video.dataset.src;
+
+            if (src && !video.querySelector('source')) {
+              const source = document.createElement('source');
+              source.src = src;
+              source.type = 'video/mp4';
+              video.appendChild(source);
+              video.load();
+              video.play().catch(() => {});
+            }
+
+            videoObserver.unobserve(video);
+          }
+        });
+      }, {
+        rootMargin: '100px',
+        threshold: 0.1
+      });
+
+      lazyVideos.forEach(video => videoObserver.observe(video));
+    });
+  </script>
+</BaseLayout>
