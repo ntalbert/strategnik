@@ -138,7 +138,7 @@
 
       .brand-gravity-legend {
         position: fixed;
-        top: 320px;
+        top: 280px;
         left: 24px;
         background: rgba(10, 20, 40, 0.8);
         padding: 16px;
@@ -153,14 +153,14 @@
       @media (min-width: 768px) {
         .brand-gravity-legend {
           left: 32px;
-          top: 340px;
+          top: 300px;
         }
       }
 
       @media (min-width: 1024px) {
         .brand-gravity-legend {
           left: 48px;
-          top: 360px;
+          top: 320px;
         }
       }
 
