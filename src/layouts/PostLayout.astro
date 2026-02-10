@@ -10,6 +10,7 @@ interface Props {
     category: string;
     featured?: boolean;
     image?: string;
+    video?: string;
   };
 }
 
@@ -59,14 +60,26 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
         <p class="text-xl text-gray-400 max-w-prose">{frontmatter.description}</p>
       </header>
 
-      <!-- Header Image -->
+      <!-- Header Image/Video -->
       {frontmatter.image && (
-        <div class="mb-12 -mx-4 md:-mx-8 lg:-mx-16">
+        <div class="mb-12 -mx-4 md:-mx-8 lg:-mx-16 relative overflow-hidden rounded-lg">
           <img
+            id="hero-image"
             src={frontmatter.image}
             alt={frontmatter.title}
-            class="w-full h-auto rounded-lg"
+            class="w-full h-auto rounded-lg transition-opacity duration-1000"
           />
+          {frontmatter.video && (
+            <video
+              id="hero-video"
+              src={frontmatter.video}
+              autoplay
+              muted
+              loop
+              playsinline
+              class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-0 transition-opacity duration-1000"
+            />
+          )}
         </div>
       )}
 
@@ -281,3 +294,18 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
     border-bottom: none;
   }
 </style>
+
+<script>
+  // Image to video transition
+  const heroImage = document.getElementById('hero-image');
+  const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
+
+  if (heroImage && heroVideo) {
+    heroVideo.addEventListener('canplay', () => {
+      setTimeout(() => {
+        heroVideo.style.opacity = '1';
+        heroImage.style.opacity = '0';
+      }, 1000);
+    });
+  }
+</script>

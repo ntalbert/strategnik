@@ -5,6 +5,8 @@ description: >-
 date: 2025-02-10T00:00:00.000Z
 category: physics
 featured: true
+image: /images/field-unification.webp
+video: /images/field-unification.mp4
 ---
 
 I sat in a pipeline review last year where the VP of Marketing, the VP of Sales, and the Head of CS were all presenting their numbers from the same quarter, about the same customers, and telling three different stories. Marketing showed a record number of MQLs. Sales showed pipeline was down. CS showed expansion revenue stalling. The CRO asked the RevOps lead to reconcile. She pulled up a fourth dashboard.
