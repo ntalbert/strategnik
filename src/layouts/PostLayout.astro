@@ -62,13 +62,7 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
 
       <!-- Header Image/Video -->
       {frontmatter.image && (
-        <div class="mb-12 -mx-4 md:-mx-8 lg:-mx-16 relative overflow-hidden rounded-lg">
-          <img
-            id="hero-image"
-            src={frontmatter.image}
-            alt={frontmatter.title}
-            class="w-full h-auto rounded-lg transition-opacity duration-1000"
-          />
+        <div class="mb-12 -mx-4 md:-mx-8 lg:-mx-16 relative overflow-hidden rounded-lg aspect-video">
           {frontmatter.video && (
             <video
               id="hero-video"
@@ -78,9 +72,15 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
               loop
               playsinline
               preload="auto"
-              class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-0 transition-opacity duration-1000"
+              class="absolute inset-0 w-full h-full object-cover rounded-lg z-0"
             />
           )}
+          <img
+            id="hero-image"
+            src={frontmatter.image}
+            alt={frontmatter.title}
+            class="absolute inset-0 w-full h-full object-cover rounded-lg z-10 transition-opacity duration-1000"
+          />
         </div>
       )}
 
