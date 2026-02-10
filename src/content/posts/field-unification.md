@@ -55,6 +55,8 @@ In a unified field, these aren't separate functions. They're the same force expr
 
 ## Orbital Mechanics: What AI-Native Retention Actually Looks Like
 
+![Quarterly Review vs AI-Native Retention vs Unified Field](/images/field-unification-orbital.webp)
+
 Here's where the old split causes the most damage, and where the physics makes the strongest case for unification.
 
 In most B2B SaaS companies, the moment a deal closes, the field loses most of its accumulated information. The buyer's pain points, the conversations that moved the deal forward, the competitive alternatives they evaluated, the internal politics that shaped the decision — all of it lives in a sales rep's head, maybe partially in CRM notes that read like haiku written under duress. That's my estimate based on twenty years of watching this pattern, not a sourced number — but if you've ever sat through an onboarding call where the customer had to re-explain why they bought, you know the loss is real.
