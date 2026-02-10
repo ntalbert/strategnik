@@ -9,25 +9,29 @@ image: /images/field-unification.webp
 video: /images/field-unification.mp4
 ---
 
+*The walls between Marketing, Sales, and CS were built to manage an information gap. AI is closing that gap — and when the reason for the walls disappears, the walls become the problem.*
+
 I sat in a pipeline review last year where the VP of Marketing, the VP of Sales, and the Head of CS were all presenting their numbers from the same quarter, about the same customers, and telling three different stories. Marketing showed a record number of MQLs. Sales showed pipeline was down. CS showed expansion revenue stalling. The CRO asked the RevOps lead to reconcile. She pulled up a fourth dashboard.
 
 Four dashboards. One quarter. Zero agreement on what happened.
 
-I've been thinking about why this keeps happening — at this company, and at the half-dozen others where I've watched the same meeting play out over the past three years. The standard diagnosis is an alignment problem. But what if it's actually a physics problem? What if the reason these teams can't agree on what's happening is that we've organized them around a distinction that doesn't actually exist?
+I've watched versions of this meeting play out at half a dozen companies over the past three years. The specific numbers change. The argument doesn't. And every time, the proposed fix is the same: better alignment. Tighter SLAs. Shared KPIs. More RevOps headcount to patch the walls between teams.
 
-## One Force, Two Measurements
+Nobody asks whether the walls should be there in the first place.
 
-In the early 1800s, electricity and magnetism were treated as separate forces. Different labs studied them. Different instruments measured them. Scientists built entire careers specializing in one or the other. Then James Clerk Maxwell showed they were expressions of the same underlying field. Not two forces that worked well together. One force, manifesting differently depending on the frame of reference.
+## One Force, Measured Through Walls
 
-The insight wasn't that electricity and magnetism should collaborate more effectively. It was that the distinction was wrong. And recognizing that didn't just simplify the science — it predicted entirely new phenomena, from electromagnetic waves to radio to everything modern communications is built on.
+In the early 1800s, electricity and magnetism were treated as separate forces. Different labs studied them. Different instruments measured them. Scientists built entire careers on one side of the wall or the other. Then James Clerk Maxwell showed they were expressions of the same underlying field. Not two forces that worked well together. One force, manifesting differently depending on the frame of reference.
+
+The insight wasn't that electricity and magnetism should collaborate more effectively. It was that the wall between them was wrong. And tearing it down didn't just simplify the science — it predicted entirely new phenomena, from electromagnetic waves to radio to everything modern communications is built on.
 
 I think we're approaching a similar moment in how companies organize their go-to-market.
 
-For most of the history of B2B software, we've split the revenue field into separate forces. Marketing generates demand. Sales converts it. Customer success retains it. Three teams, three leaders, three dashboards, three budgets — connected by a CRM that mostly functions as a shared spreadsheet with better branding. Each team measures the field with different instruments, and each instrument tells a different story about the same underlying reality.
+For most of the history of B2B software, we've built walls that split the revenue field into separate forces. Marketing generates demand. Sales converts it. Customer success retains it. Three teams, three leaders, three dashboards, three budgets — connected by a CRM that mostly functions as a shared spreadsheet with better branding. Each team measures the field through its own wall, with its own instruments, and each instrument tells a different story about the same underlying reality.
 
-This split made sense when information was expensive. Marketing knew the market but not the buyer. Sales knew the buyer but not the market. CS knew the product experience but not the purchase context. There was a real information asymmetry between functions, and we built org charts around it. The handoffs existed because no single team could see the whole field.
+These walls made sense when information was expensive. Marketing knew the market but not the buyer. Sales knew the buyer but not the market. CS knew the product experience but not the purchase context. There was a real information asymmetry between functions, and we built org charts around it. The walls existed because no single team could see the whole field.
 
-AI is collapsing that information asymmetry. And when you remove the force that split the field apart, the field reunifies.
+AI is collapsing that information asymmetry. And when you remove the force that built the walls, the walls become dead weight.
 
 ## The Evidence for Reunification
 
@@ -91,10 +95,10 @@ Instead of enforcing process compliance across teams with different incentives, 
 
 ## What to Do About This
 
-If you're a founder or board member, I'm not telling you to reunify the field overnight. Organizational structures have inertia — one of the most reliable laws in Market Physics. But start watching for evidence that the split is fighting the physics: your best deals don't follow the funnel you designed. Your AI tools keep breaking your org chart — every implementation spawns a "who owns this?" debate. Your retention side is leaking the information your acquisition side already generated. If your best revenue doesn't flow through the pipeline you built, the pipeline is the problem, not the revenue.
+If you're a founder or board member, I'm not telling you to tear the walls down overnight. Organizational structures have inertia — one of the most reliable laws in Market Physics. But start watching for evidence that the walls are fighting the physics: your best deals don't follow the funnel you designed. Your AI tools keep breaking your org chart — every implementation spawns a "who owns this?" debate. Your retention side is leaking the information your acquisition side already generated. If your best revenue doesn't flow through the pipeline you built, the pipeline is the problem, not the revenue.
 
-If you're a GTM leader or RevOps operator, start building toward unification within the current structure. Push for a unified data model that conserves information across the acquisition-retention boundary. Instrument that boundary so you can measure the energy loss. When you implement AI agents, resist the urge to assign them to one side of the field — design them to operate across the full customer lifecycle, and use that as evidence for why the split is artificial. And if you're in RevOps specifically: start learning to write field equations. The plumbing is getting automated. The architecture is just beginning.
+If you're a GTM leader or RevOps operator, start building toward unification within the current structure. Push for a unified data model that conserves information across the acquisition-retention boundary. Instrument that boundary so you can measure the energy loss. When you implement AI agents, resist the urge to assign them to one side of the wall — design them to operate across the full customer lifecycle, and use that as evidence for why the walls are artificial. And if you're in RevOps specifically: start learning to write field equations. The plumbing is getting automated. The architecture is just beginning.
 
-Maxwell didn't tell electricians and magneticians to collaborate better. He showed them they were studying the same thing.
+Maxwell didn't tell electricians and magneticians to collaborate better. He tore down the wall between them and showed they were studying the same thing.
 
-The GTM leaders who see this first won't just have better-aligned teams. They'll have a fundamentally different — and structurally faster — revenue system.
+AI is about to do the same to your GTM org. Let it.
