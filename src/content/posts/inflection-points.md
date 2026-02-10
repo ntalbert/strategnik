@@ -1,7 +1,7 @@
 ---
-title: 'When to Scale Marketing: Finding Your Inflection Point'
+title: 'When to Scale Growth: Finding Your Inflection Point'
 description: >-
-  Learn when to scale marketing spend. Framework for recognizing growth inflection points and timing your investment decisions.
+  Learn when to scale growth spend. Framework for recognizing growth inflection points and timing your investment decisions.
 date: 2024-12-28T00:00:00.000Z
 category: playbook
 featured: false
@@ -17,7 +17,7 @@ This is the inflection point problem.
 
 In mathematics, an inflection point is where a curve changes from concave to convex—where the rate of change itself changes.
 
-In marketing, it's the moment when incremental investment starts yielding exponential returns.
+In growth, it's the moment when incremental investment starts yielding exponential returns.
 
 Before the inflection point, you're building. After it, you're scaling.
 
@@ -34,7 +34,7 @@ Inflection points don't announce themselves. But they leave clues:
 
 **Lagging indicators:**
 - Pipeline coverage consistently above 3x
-- Marketing-sourced revenue percentage stable
+- Growth-sourced revenue percentage stable
 - Customer acquisition costs trending down
 - Expansion revenue growing
 
@@ -46,7 +46,7 @@ Most companies scale too early. The pattern is predictable:
 
 1. Raise funding
 2. Hire aggressively
-3. Increase marketing spend 3-5x
+3. Increase growth spend 3-5x
 4. Watch efficiency collapse
 5. Cut back, retrench, restart
 
@@ -109,4 +109,4 @@ Pouring fuel on the fire means accepting risk. Efficiency will likely dip before
 
 But the companies that break out—the ones that go from $10M to $50M to $100M—are the ones that recognize their inflection point and have the courage to act.
 
-The physics of marketing say that objects in motion tend to stay in motion. Your job is to know when the motion is ready for acceleration.
+The physics of growth say that objects in motion tend to stay in motion. Your job is to know when the motion is ready for acceleration.

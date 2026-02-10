@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
 
 const STAGES = ["Pre-Seed", "Seed", "Series A", "Series B", "Series C", "Series D+", "Public"];
-const FUNCTIONS = ["Marketing", "Sales / Revenue", "Both (CRO / GTM)", "Other"];
+const FUNCTIONS = ["Growth", "Sales / Revenue", "Both (CRO / GTM)", "Other"];
 const TITLES_GTM = [
-  "VP Marketing", "CMO", "Head of Marketing", "Director of Marketing",
+  "VP Growth", "CMO", "Head of Growth", "Director of Growth",
   "VP Sales", "CRO", "Head of Sales", "Director of Sales",
   "VP Growth", "Head of GTM", "Other"
 ];
@@ -20,7 +20,7 @@ const OUTCOMES = [
 const STATED_REASONS = [
   "Performance / missed targets",
   "Strategic misalignment with CEO",
-  "Conflict between sales and marketing",
+  "Conflict between sales and growth",
   "Company pivot / changed direction",
   "Budget constraints / downsizing",
   "Leadership change above me",
@@ -36,7 +36,7 @@ const REAL_REASONS = [
   "Political dynamics / CEO wanted a different profile",
   "Genuine skill gap — I wasn't right for the role",
   "The go-to-market motion hadn't been figured out yet",
-  "Sales and marketing were set up to fail separately",
+  "Sales and growth were set up to fail separately",
   "The board's timeline was unrealistic for the stage",
   "Honestly, the stated reason was the real reason",
   "Other"
@@ -414,7 +414,7 @@ export default function GTMSurvey() {
             </p>
           )}
           <a
-            href="/thinking/physics-of-marketing-why-early-stage-marketing-fails"
+            href="/thinking/physics-of-growth-why-early-stage-growth-fails"
             style={{
               display: "inline-block", marginTop: 24, padding: "12px 24px",
               background: COLORS.accent, color: "#fff", borderRadius: 8,
@@ -465,7 +465,7 @@ export default function GTMSurvey() {
 
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             {[
-              { id: "gtm", label: "I've held a GTM leadership role", sub: "VP+ in Marketing, Sales, or Revenue" },
+              { id: "gtm", label: "I've held a GTM leadership role", sub: "VP+ in Growth, Sales, or Revenue" },
               { id: "founder", label: "I've hired GTM leaders", sub: "Founder, CEO, or Board member" },
             ].map((opt) => (
               <button
@@ -570,7 +570,7 @@ export default function GTMSurvey() {
             <Question number={10} label="Could you measure what mattered?" sublabel="Could you actually track the metrics that would prove your strategy was working?">
               <Radio name="measurement" options={MEASUREMENT} value={answers.measurement || ""} onChange={(v) => set("measurement", v)} />
             </Question>
-            <Question number={11} label="How many channels / levers did you have?" sublabel="Marketing channels, sales motions, partner programs — things you could actively work.">
+            <Question number={11} label="How many channels / levers did you have?" sublabel="Growth channels, sales motions, partner programs — things you could actively work.">
               <Radio name="levers" options={LEVERS} value={answers.levers || ""} onChange={(v) => set("levers", v)} />
             </Question>
             <Question number={12} label="Did you build the stack or inherit it?">
@@ -644,7 +644,7 @@ export default function GTMSurvey() {
       case 1:
         return (
           <>
-            <Question number={3} label="How many GTM leaders (VP+ marketing or sales) has your company had in the last 3 years?">
+            <Question number={3} label="How many GTM leaders (VP+ growth or sales) has your company had in the last 3 years?">
               <Radio name="gtmCount" options={FOUNDER_GTM_COUNT} value={answers.gtmCount || ""} onChange={(v) => set("gtmCount", v)} />
             </Question>
             <Question number={4} label="Between hires, what changed?" sublabel="Select the option that best describes the pattern.">

@@ -58,7 +58,7 @@ Your content here...
 
 ### New Physics Concept
 
-Add a new page in `src/pages/physics-of-marketing/`. Follow the structure of `momentum.astro` or `friction.astro` as templates.
+Add a new page in `src/pages/physics-of-growth/`. Follow the structure of `momentum.astro` or `friction.astro` as templates.
 
 ## Configuration
 
@@ -114,7 +114,7 @@ Currently using Inter as placeholder. Target: Söhne family from Klim Type.
 - [ ] Connect Beehiiv publication ID
 - [ ] Add LinkedIn URL to footer
 - [ ] Create OG images for social sharing
-- [ ] Add more Physics of Marketing concepts
+- [ ] Add more Physics of Growth concepts
 - [ ] Set up content collections for proper blog functionality
 
 ---

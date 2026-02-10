@@ -3,7 +3,7 @@
 ## Project Overview
 - **Site**: https://www.strategnik.com
 - **Owner**: Nick Talbert
-- **Purpose**: B2B marketing consulting site with case studies, writing, and services
+- **Purpose**: B2B growth consulting site with case studies, writing, and services
 - **Framework**: Astro (static site generator)
 - **Styling**: Tailwind CSS
 - **Hosting**: GitHub Pages (deploys automatically on push to main)
@@ -41,7 +41,7 @@
 │   │   ├── work.astro            # Work/portfolio page
 │   │   ├── writing/
 │   │   │   └── index.astro       # Writing/blog listing page
-│   │   └── physics-of-marketing/
+│   │   └── physics-of-growth/
 │   │       ├── index.astro       # Framework overview
 │   │       ├── momentum.astro    # Momentum concept page
 │   │       └── friction.astro    # Friction concept page
@@ -74,7 +74,7 @@
 | Services | https://www.strategnik.com/services |
 | Work | https://www.strategnik.com/work |
 | Writing | https://www.strategnik.com/writing |
-| Framework | https://www.strategnik.com/physics-of-marketing |
+| Framework | https://www.strategnik.com/physics-of-growth |
 | Case Study 01 | https://www.strategnik.com/case-studies/case-study-01-developer-discovery.html |
 | Case Study 02 | https://www.strategnik.com/case-studies/case-study-02-propensity-scoring.html |
 | Case Study 03 | https://www.strategnik.com/case-studies/case-study-03-lifecycle-archetypes.html |

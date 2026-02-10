@@ -8,9 +8,9 @@ featured: false
 image: /images/posts/revolving-door-chaos.png
 ---
 
-Most early-stage SaaS companies set the same pipeline and revenue targets for their GTM team regardless of whether the company has any market presence, any channel history, or any real data on what the sales cycle actually looks like. Then they're surprised when the VP of Sales lasts seven months and the head of marketing makes it to fourteen.
+Most early-stage SaaS companies set the same pipeline and revenue targets for their GTM team regardless of whether the company has any market presence, any channel history, or any real data on what the sales cycle actually looks like. Then they're surprised when the VP of Sales lasts seven months and the head of growth makes it to fourteen.
 
-I wrote about [why that pattern is structural, not a talent problem](/thinking/why-gtm-leaders-churn-early-stage-saas)—the system at early stages is too light to produce predictable outcomes, too narrow to give leaders real control, and too early to measure against targets it can't yet deliver. If you haven't read that piece, start there. The short version: GTM leader churn correlates with company maturity more than individual capability, and the tenure pattern across marketing and sales tracks in lockstep because both functions are fighting the same physics.
+I wrote about [why that pattern is structural, not a talent problem](/thinking/why-gtm-leaders-churn-early-stage-saas)—the system at early stages is too light to produce predictable outcomes, too narrow to give leaders real control, and too early to measure against targets it can't yet deliver. If you haven't read that piece, start there. The short version: GTM leader churn correlates with company maturity more than individual capability, and the tenure pattern across growth and sales tracks in lockstep because both functions are fighting the same physics.
 
 This is the practical follow-up. If the tenure problem is structural, the goaling has to be structural too. You can't set the same expectations for a GTM team operating in a system with almost no market mass and two channels as you would for one with real brand gravity and a dozen compounding motions. The goals need to reflect what's actually measurable and meaningful at each stage—and what builds toward the next one.
 
@@ -35,11 +35,11 @@ Expect 3–6 months to instrument the basics—CRM hygiene, attribution, lead sc
 
 These aren't soft metrics. They're the leading indicators that determine whether revenue can happen at scale. A GTM team that delivers clear, improving signal on ICP fit, channel viability, and sales cycle reality in the first year has done the job—even if the absolute pipeline number doesn't match the board deck. That data is what makes the next phase possible.
 
-**What this looks like in practice:** Instead of telling your Series A marketing leader "generate $2M in pipeline this quarter," you're asking "which of our three ICP hypotheses is producing the highest quality conversations, and how fast are we learning which channels reach them?" Instead of telling your VP of Sales "close $500K this quarter," you're asking "what does the real sales cycle look like for each segment, and where are we losing deals?" The absolute numbers matter—but at this stage, the *trend* and the *learning rate* matter more.
+**What this looks like in practice:** Instead of telling your Series A growth leader "generate $2M in pipeline this quarter," you're asking "which of our three ICP hypotheses is producing the highest quality conversations, and how fast are we learning which channels reach them?" Instead of telling your VP of Sales "close $500K this quarter," you're asking "what does the real sales cycle look like for each segment, and where are we losing deals?" The absolute numbers matter—but at this stage, the *trend* and the *learning rate* matter more.
 
 ## Series B: Measure Compounding, Not Just Growth
 
-![GTM Engine Configurations: Parallel Tracks vs Compound Engine - Marketing and Sales working together drives accelerating results](/images/posts/gtm-engine-comparison.png)
+![GTM Engine Configurations: Parallel Tracks vs Compound Engine - Growth and Sales working together drives accelerating results](/images/posts/gtm-engine-comparison.png)
 
 The system has gained enough mass to hold a trajectory and enough levers to provide real control. You know your ICPs. You have channels with real conversion history. The sales cycle is documented, not assumed. The goals shift from signal to scale—compounding the motions already at work and improving the machine's efficiency.
 
@@ -50,13 +50,13 @@ The tooling infrastructure should already be in place from the prior stage. If i
 | **Pipeline Volume & Velocity** | Qualified pipeline generated and sped through stages, against proven ICP segments | Monthly reporting |
 | **Stage Conversion Rates** | Conversion % at each funnel stage; identifies where the system loses momentum | Monthly reporting |
 | **CAC Payback** | Customer acquisition cost relative to first-year revenue; tracked by segment and channel | Quarterly; stable by Q2–Q3 |
-| **Marketing–Sales Compound Rate** | The degree to which marketing-sourced pipeline converts at higher rates or shorter cycles than outbound-only | Quarterly comparison |
+| **Growth–Sales Compound Rate** | The degree to which growth-sourced pipeline converts at higher rates or shorter cycles than outbound-only | Quarterly comparison |
 | **Expansion Revenue** | Net revenue retention; upsell/cross-sell from installed base as an indicator of product-market depth | Quarterly reporting |
 | **ICP Penetration** | % of total addressable accounts in target segments reached, engaged, or converted | Quarterly; tracks ceiling |
 
 The critical difference between Seed/Series A and Series B isn't ambition—it's the relationship between inputs and outputs. At Series B, the system has sufficient mass and levers that the inputs have a known, measurable relationship to the results. Course corrections are adjustments, not pivots.
 
-**The metric most teams miss at this stage: Marketing–Sales Compound Rate.** This measures whether the two functions are actually reinforcing each other or just operating in parallel. If marketing-sourced pipeline converts at the same rate and velocity as cold outbound, your marketing isn't creating leverage—it's just generating leads. The whole point of building marketing mass is that it should produce warmer, faster, cheaper pipeline than outbound alone. If it's not, that's a system problem worth diagnosing before you scale spend.
+**The metric most teams miss at this stage: Growth–Sales Compound Rate.** This measures whether the two functions are actually reinforcing each other or just operating in parallel. If growth-sourced pipeline converts at the same rate and velocity as cold outbound, your growth isn't creating leverage—it's just generating leads. The whole point of building growth mass is that it should produce warmer, faster, cheaper pipeline than outbound alone. If it's not, that's a system problem worth diagnosing before you scale spend.
 
 ## Series C and Beyond: Measure Efficiency, Not Just Revenue
 
@@ -92,10 +92,10 @@ Distance transforms entirely. Pre-IPO, the target shifts from repeatable revenue
 
 **If you're a GTM leader:** Negotiate these expectations before you accept the role. Walk into the interview with a stage-appropriate view of what you'll measure and why—and how long it will take to instrument. Show the board that you understand the difference between momentum toward repeatable revenue and premature revenue theater. A founder who sees that you know how to set goals that match the system's actual physics is a founder who will give you the time to deliver—and trust what you report back.
 
-**For both:** The real prize isn't just longer tenure. It's alignment. When GTM leaders and the board are oriented around the same stage-appropriate metrics—when marketing, sales, and leadership are reading the same instrument panel—they stop finger-pointing and start solving the actual problem. That shared understanding is what turns a revolving door into a GTM engine.
+**For both:** The real prize isn't just longer tenure. It's alignment. When GTM leaders and the board are oriented around the same stage-appropriate metrics—when growth, sales, and leadership are reading the same instrument panel—they stop finger-pointing and start solving the actual problem. That shared understanding is what turns a revolving door into a GTM engine.
 
 ---
 
-*This is the companion piece to [Why Every GTM Leader You Hire Fails in the Same Way](/thinking/why-gtm-leaders-churn-early-stage-saas), which covers the structural diagnosis behind GTM leader churn. Together they form part of the [Physics of Marketing](/physics-of-marketing) framework.*
+*This is the companion piece to [Why Every GTM Leader You Hire Fails in the Same Way](/thinking/why-gtm-leaders-churn-early-stage-saas), which covers the structural diagnosis behind GTM leader churn. Together they form part of the [Physics of Growth](/physics-of-growth) framework.*
 
-*Nick Talbert is a marketing and GTM executive with 20+ years of experience leading growth at B2B SaaS and technology companies, including roles at companies later acquired by Amazon and AOL. He writes about go-to-market strategy at [strategnik.com](https://strategnik.com).*
+*Nick Talbert is a growth and GTM executive with 20+ years of experience leading growth at B2B SaaS and technology companies, including roles at companies later acquired by Amazon and AOL. He writes about go-to-market strategy at [strategnik.com](https://strategnik.com).*
