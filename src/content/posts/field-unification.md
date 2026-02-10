@@ -31,6 +31,8 @@ AI is collapsing that information asymmetry. And when you remove the force that 
 
 ## The Evidence for Reunification
 
+![The Cycle of Misalignment: Why Alignment Tools Fail](/images/field-unification-cycle.webp)
+
 The data suggests the split is already failing — and that the tools we built to manage it are treating symptoms, not the underlying physics.
 
 Forrester's 2025 State of RevOps survey found that 58% of B2B companies cite process misalignment as their primary barrier to growth. That number hasn't moved meaningfully in years despite billions spent on alignment tools and RevOps hires. In physics terms, we keep adding more sophisticated instruments to measure two separate forces, when the actual problem is that we're measuring one force with two instruments and wondering why the readings don't match.
