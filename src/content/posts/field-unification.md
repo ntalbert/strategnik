@@ -73,6 +73,8 @@ And the compounding effect flows through the entire field. Retention generates t
 
 ## RevOps: Writing the Field Equations
 
+![Friction Management to Field Architecture: The RevOps Transformation](/images/field-unification-revops.webp)
+
 Maxwell didn't just prove the field was unified. He wrote the equations that described how it behaved. Four equations that governed everything — how electric fields create magnetic fields, how magnetic fields create electric fields, and how they propagate together through space.
 
 RevOps has the same opportunity — and the same transformation ahead.
