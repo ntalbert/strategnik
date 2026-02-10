@@ -21,18 +21,23 @@
 
   // Wait for DOM to be ready
   document.addEventListener('DOMContentLoaded', () => {
-    // Set initial state for all animated elements
-    gsap.set('[data-animate]', {
-      opacity: 0,
-      y: 30,
-    });
+    // Set initial state for all animated elements (only if they exist)
+    const animateElements = document.querySelectorAll('[data-animate]');
+    if (animateElements.length > 0) {
+      gsap.set(animateElements, {
+        opacity: 0,
+        y: 30,
+      });
+    }
 
-    gsap.set('[data-animate-fade]', {
-      opacity: 0,
-    });
+    const fadeElements = document.querySelectorAll('[data-animate-fade]');
+    if (fadeElements.length > 0) {
+      gsap.set(fadeElements, {
+        opacity: 0,
+      });
+    }
 
     // Animate elements with data-animate attribute (fade up)
-    const animateElements = document.querySelectorAll('[data-animate]');
     animateElements.forEach((el) => {
       const delay = el.dataset.animateDelay || 0;
 
@@ -51,7 +56,6 @@
     });
 
     // Animate elements with data-animate-fade (simple fade)
-    const fadeElements = document.querySelectorAll('[data-animate-fade]');
     fadeElements.forEach((el) => {
       const delay = el.dataset.animateDelay || 0;
 
