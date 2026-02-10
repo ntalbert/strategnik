@@ -62,25 +62,15 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
 
       <!-- Header Image/Video -->
       {frontmatter.image && (
-        <div class="mb-12 -mx-4 md:-mx-8 lg:-mx-16 relative overflow-hidden rounded-lg aspect-video">
+        <div id="hero-media" class="hero-media-container mb-12 -mx-4 md:-mx-8 lg:-mx-16">
+          <div class="hero-background" style={`background-image: url('${frontmatter.image}')`}></div>
           {frontmatter.video && (
-            <video
-              id="hero-video"
-              src={frontmatter.video}
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-              class="absolute inset-0 w-full h-full object-cover rounded-lg z-0"
-            />
+            <div class="hero-video-container">
+              <video id="hero-video" class="hero-video" muted playsinline loop>
+                <source src={frontmatter.video} type="video/mp4" />
+              </video>
+            </div>
           )}
-          <img
-            id="hero-image"
-            src={frontmatter.image}
-            alt={frontmatter.title}
-            class="absolute inset-0 w-full h-full object-cover rounded-lg z-10 transition-opacity duration-1000"
-          />
         </div>
       )}
 
@@ -294,19 +284,64 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
   .prose tbody tr:last-child td {
     border-bottom: none;
   }
+
+  /* Hero media with video transition */
+  .hero-media-container {
+    position: relative;
+    aspect-ratio: 16/9;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s ease;
+    z-index: 1;
+  }
+
+  .hero-media-container.video-active .hero-background {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+
+  .hero-video-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s ease 0.3s;
+  }
+
+  .hero-media-container.video-active .hero-video-container {
+    opacity: 1;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 </style>
 
 <script>
-  // Image to video transition
-  const heroImage = document.getElementById('hero-image') as HTMLImageElement;
+  // Hero video transition effect (same as case studies)
+  const heroMedia = document.getElementById('hero-media');
   const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
 
-  if (heroImage && heroVideo) {
-    // Force transition after 2 seconds regardless of video state
+  if (heroMedia && heroVideo) {
     setTimeout(() => {
+      heroMedia.classList.add('video-active');
       heroVideo.play().catch(() => {});
-      heroVideo.style.opacity = '1';
-      heroImage.style.opacity = '0';
-    }, 2000);
+    }, 1000);
+
+    // Loop the video
+    heroVideo.addEventListener('ended', () => {
+      heroVideo.currentTime = 0;
+      heroVideo.play().catch(() => {});
+    });
   }
 </script>
