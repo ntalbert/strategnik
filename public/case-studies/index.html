@@ -114,15 +114,37 @@
     .case-study-card {
       background: var(--white);
       border-radius: 12px;
-      padding: 32px;
       margin-bottom: 24px;
       border: 1px solid var(--border);
       transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      overflow: hidden;
     }
 
     .case-study-card:hover {
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       transform: translateY(-2px);
+    }
+
+    .case-study-card .card-image {
+      flex-shrink: 0;
+      width: 280px;
+      background: var(--background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .case-study-card .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .case-study-card .card-content {
+      padding: 32px;
+      flex: 1;
     }
 
     .case-study-card .number {
@@ -167,6 +189,16 @@
       font-size: 0.85rem;
       color: var(--text-secondary);
       font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .case-study-card {
+        flex-direction: column;
+      }
+      .case-study-card .card-image {
+        width: 100%;
+        height: 200px;
+      }
     }
 
     /* Themes */
@@ -344,51 +376,81 @@
       <h2>The Case Studies</h2>
 
       <article class="case-study-card">
-        <span class="number">01</span>
-        <h3><a href="case-study-01-developer-discovery.html">Developer-to-Enterprise Pipeline for Open Source AI</a></h3>
-        <p class="tagline">How We Turned GitHub Stars into Six-Figure Deals</p>
-        <p>Building a demand generation engine for an open-source visual AI company. The challenge: developers evaluate tools on GitHub and Hugging Face, not through demo request forms. The solution: a multi-layer system that captures developer signals, connects them to organizations, and triggers the right intervention at the right moment.</p>
-        <p class="concepts">Key concepts: Developer-led growth, PLG motion, dual-track scoring, champion enablement</p>
+        <div class="card-image">
+          <img src="hero-image-01.png" alt="Developer-to-Enterprise Pipeline">
+        </div>
+        <div class="card-content">
+          <span class="number">01</span>
+          <h3><a href="case-study-01-developer-discovery.html">Developer-to-Enterprise Pipeline for Open Source AI</a></h3>
+          <p class="tagline">How We Turned GitHub Stars into Six-Figure Deals</p>
+          <p>Building a demand generation engine for an open-source visual AI company. The challenge: developers evaluate tools on GitHub and Hugging Face, not through demo request forms. The solution: a multi-layer system that captures developer signals, connects them to organizations, and triggers the right intervention at the right moment.</p>
+          <p class="concepts">Key concepts: Developer-led growth, PLG motion, dual-track scoring, champion enablement</p>
+        </div>
       </article>
 
       <article class="case-study-card">
-        <span class="number">02</span>
-        <h3><a href="case-study-02-propensity-scoring.html">Propensity Scoring That Actually Works</a></h3>
-        <p class="tagline">How Data Governance Made Predictive Models 30% More Accurate</p>
-        <p>Fixing a propensity model that sales didn't trust. The problem wasn't the math—it was data inconsistency across four marketing systems. The solution: a data governance framework that created a single source of truth before rebuilding the scoring model.</p>
-        <p class="concepts">Key concepts: Data governance, CRM integration, propensity modeling, vertical segmentation</p>
+        <div class="card-image">
+          <img src="hero-image-02.png" alt="Propensity Scoring">
+        </div>
+        <div class="card-content">
+          <span class="number">02</span>
+          <h3><a href="case-study-02-propensity-scoring.html">Propensity Scoring That Actually Works</a></h3>
+          <p class="tagline">How Data Governance Made Predictive Models 30% More Accurate</p>
+          <p>Fixing a propensity model that sales didn't trust. The problem wasn't the math—it was data inconsistency across four marketing systems. The solution: a data governance framework that created a single source of truth before rebuilding the scoring model.</p>
+          <p class="concepts">Key concepts: Data governance, CRM integration, propensity modeling, vertical segmentation</p>
+        </div>
       </article>
 
       <article class="case-study-card">
-        <span class="number">03</span>
-        <h3><a href="case-study-03-lifecycle-archetypes.html">17 Lifecycle Archetypes</a></h3>
-        <p class="tagline">The Architecture Behind 157% Velocity Improvement</p>
-        <p>Replacing one-size-fits-all nurture with pattern-based lifecycle marketing. Different people in different situations need different things at different speeds. The solution: 17 distinct archetypes with custom cadences, content, and exit criteria.</p>
-        <p class="concepts">Key concepts: Lifecycle marketing, behavioral segmentation, velocity optimization, marketing automation architecture</p>
+        <div class="card-image">
+          <img src="hero-image-03.png" alt="17 Lifecycle Archetypes">
+        </div>
+        <div class="card-content">
+          <span class="number">03</span>
+          <h3><a href="case-study-03-lifecycle-archetypes.html">17 Lifecycle Archetypes</a></h3>
+          <p class="tagline">The Architecture Behind 157% Velocity Improvement</p>
+          <p>Replacing one-size-fits-all nurture with pattern-based lifecycle marketing. Different people in different situations need different things at different speeds. The solution: 17 distinct archetypes with custom cadences, content, and exit criteria.</p>
+          <p class="concepts">Key concepts: Lifecycle marketing, behavioral segmentation, velocity optimization, marketing automation architecture</p>
+        </div>
       </article>
 
       <article class="case-study-card">
-        <span class="number">04</span>
-        <h3><a href="case-study-04-privacy-pivot.html">Three Weeks to Fix a 300% Cost Increase</a></h3>
-        <p class="tagline">The iOS 14.5 Playbook</p>
-        <p>When Apple's privacy changes tripled SQL costs overnight, we had three weeks to stop the bleeding. The solution wasn't fixing the tracking—it was reducing channel dependency, rebuilding measurement, and accepting that precision attribution wasn't coming back.</p>
-        <p class="concepts">Key concepts: Privacy adaptation, channel diversification, first-party data strategy, blended attribution</p>
+        <div class="card-image">
+          <img src="digital-disconnect.webp" alt="iOS 14.5 Privacy Pivot">
+        </div>
+        <div class="card-content">
+          <span class="number">04</span>
+          <h3><a href="case-study-04-privacy-pivot.html">Three Weeks to Fix a 300% Cost Increase</a></h3>
+          <p class="tagline">The iOS 14.5 Playbook</p>
+          <p>When Apple's privacy changes tripled SQL costs overnight, we had three weeks to stop the bleeding. The solution wasn't fixing the tracking—it was reducing channel dependency, rebuilding measurement, and accepting that precision attribution wasn't coming back.</p>
+          <p class="concepts">Key concepts: Privacy adaptation, channel diversification, first-party data strategy, blended attribution</p>
+        </div>
       </article>
 
       <article class="case-study-card">
-        <span class="number">05</span>
-        <h3><a href="case-study-05-government-marketplace.html">Two-Sided Acquisition for Government Expert Networks</a></h3>
-        <p class="tagline">Scraping Public Data to Match Contractors with Former Federal Executives</p>
-        <p>Building both sides of a marketplace simultaneously: government contractors as buyers, former federal executives as experts. The solution: mining public procurement data (SAM.gov, USAspending, FPDS) for demand signals while sourcing and verifying expert supply through LinkedIn and public records.</p>
-        <p class="concepts">Key concepts: Two-sided marketplaces, public data intelligence, government contracting, expert networks</p>
+        <div class="card-image">
+          <img src="government-marketplace.webp" alt="Government Expert Networks">
+        </div>
+        <div class="card-content">
+          <span class="number">05</span>
+          <h3><a href="case-study-05-government-marketplace.html">Two-Sided Acquisition for Government Expert Networks</a></h3>
+          <p class="tagline">Scraping Public Data to Match Contractors with Former Federal Executives</p>
+          <p>Building both sides of a marketplace simultaneously: government contractors as buyers, former federal executives as experts. The solution: mining public procurement data (SAM.gov, USAspending, FPDS) for demand signals while sourcing and verifying expert supply through LinkedIn and public records.</p>
+          <p class="concepts">Key concepts: Two-sided marketplaces, public data intelligence, government contracting, expert networks</p>
+        </div>
       </article>
 
       <article class="case-study-card">
-        <span class="number">06</span>
-        <h3><a href="case-study-06-clean-rooms.html">Clean Room Data Architecture</a></h3>
-        <p class="tagline">Privacy-First Measurement Before It Was Mandatory</p>
-        <p>Building cross-screen TV and digital measurement when data partners wouldn't share data with each other. The solution: a clean room architecture where analysis happens at the intersection of data sets without anyone seeing anyone else's raw data.</p>
-        <p class="concepts">Key concepts: Data clean rooms, privacy-first architecture, cross-screen measurement, identity matching</p>
+        <div class="card-image">
+          <img src="clean-rooms.webp" alt="Clean Room Data Architecture">
+        </div>
+        <div class="card-content">
+          <span class="number">06</span>
+          <h3><a href="case-study-06-clean-rooms.html">Clean Room Data Architecture</a></h3>
+          <p class="tagline">Privacy-First Measurement Before It Was Mandatory</p>
+          <p>Building cross-screen TV and digital measurement when data partners wouldn't share data with each other. The solution: a clean room architecture where analysis happens at the intersection of data sets without anyone seeing anyone else's raw data.</p>
+          <p class="concepts">Key concepts: Data clean rooms, privacy-first architecture, cross-screen measurement, identity matching</p>
+        </div>
       </article>
     </div>
   </section>
