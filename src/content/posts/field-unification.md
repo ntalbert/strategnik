@@ -1,5 +1,5 @@
 ---
-title: 'Field Unification: AI Is Dissolving the Line Between Marketing and Sales'
+title: 'AI Is About to Collapse the Walls Between Your GTM Teams. Let It'
 description: >-
   Why the Marketing/Sales split is a physics problem, not an alignment problem. How AI is collapsing information asymmetry and what unified revenue operations actually looks like.
 date: 2025-02-10T00:00:00.000Z
