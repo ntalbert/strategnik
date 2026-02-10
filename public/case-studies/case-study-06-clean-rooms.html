@@ -329,49 +329,9 @@ What DID NOT happen:
 
   <section class="diagram-section">
     <div class="diagram-container">
-      <h2>Clean Room Architecture: Data Intersection</h2>
-      <div class="mermaid">
-flowchart TB
-    subgraph DataOwners["Data Owners (Separate)"]
-        BRAND[Brand<br/>First-Party Data]
-        MEDIA[VideoAmp<br/>Media Exposure]
-        MEASURE[Nielsen<br/>Outcomes]
-        AUDIENCE[Acxiom<br/>Segments]
-    end
-
-    subgraph CleanRoom["Secure Clean Room Environment"]
-        HASH[Hashed<br/>Identifiers]
-        MATCH[Privacy-Preserving<br/>Match]
-        COMPUTE[Computation<br/>Layer]
-        AGG[Aggregation<br/>+ Thresholds]
-        DIFF[Differential<br/>Privacy]
-    end
-
-    subgraph Output["Aggregated Output Only"]
-        LIFT[Sales Lift<br/>Analysis]
-        ATTR[Attribution<br/>Weights]
-        LOOK[Lookalike<br/>Segments]
-    end
-
-    BRAND -->|"Hashed before entry"| HASH
-    MEDIA -->|"Hashed before entry"| HASH
-    MEASURE -->|"Hashed before entry"| HASH
-    AUDIENCE -->|"Hashed before entry"| HASH
-
-    HASH --> MATCH
-    MATCH --> COMPUTE
-    COMPUTE --> AGG
-    AGG --> DIFF
-
-    DIFF --> LIFT
-    DIFF --> ATTR
-    DIFF --> LOOK
-
-    style DataOwners fill:#1e3a5f,color:#fff
-    style CleanRoom fill:#0d9488,color:#fff
-    style Output fill:#1e3a5f,color:#fff
-      </div>
-      <p class="diagram-caption">Data from multiple owners enters the clean room as hashed identifiers. Computation happens at the intersection, but only aggregated, privacy-safe results exit.</p>
+      <h2>Clean Room Architecture: The Shift</h2>
+      <img src="/case-studies/clean-rooms-diagram.webp" alt="Traditional Model vs Clean Room Model - showing the shift from exposed PII and raw identifiers to hashed IDs with secure intersection" style="width: 100%; max-width: 900px; margin: 0 auto; display: block; border-radius: 12px;">
+      <p class="diagram-caption">Traditional data sharing exposes PII and requires trust. Clean rooms keep data in secure silos while enabling measurement through hashed identifiers and aggregated outputs.</p>
     </div>
   </section>
 
