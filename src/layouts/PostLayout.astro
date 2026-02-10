@@ -302,35 +302,11 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
   const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
 
   if (heroImage && heroVideo) {
-    let transitioned = false;
-
-    const doTransition = () => {
-      if (transitioned) return;
-      transitioned = true;
-      setTimeout(() => {
-        heroVideo.style.opacity = '1';
-        heroImage.style.opacity = '0';
-      }, 1000);
-    };
-
-    // Multiple fallbacks for video ready state
-    heroVideo.addEventListener('loadeddata', doTransition, { once: true });
-    heroVideo.addEventListener('canplay', doTransition, { once: true });
-    heroVideo.addEventListener('playing', doTransition, { once: true });
-
-    // Check if video is already ready
-    if (heroVideo.readyState >= 2) {
-      doTransition();
-    }
-
-    // Fallback timeout in case events don't fire
+    // Force transition after 2 seconds regardless of video state
     setTimeout(() => {
-      if (!transitioned && heroVideo.readyState >= 1) {
-        doTransition();
-      }
-    }, 3000);
-
-    // Ensure video plays
-    heroVideo.play().catch(() => {});
+      heroVideo.play().catch(() => {});
+      heroVideo.style.opacity = '1';
+      heroImage.style.opacity = '0';
+    }, 2000);
   }
 </script>
