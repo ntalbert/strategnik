@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/thinking/field-unification",
+      "destination": "/thinking/ai-collapsing-gtm-walls",
+      "permanent": true
+    },
+    {
       "source": "/writing",
       "destination": "/thinking",
       "permanent": true

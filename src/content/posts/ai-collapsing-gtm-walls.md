@@ -5,8 +5,8 @@ description: >-
 date: 2025-02-10T00:00:00.000Z
 category: physics
 featured: true
-image: /images/field-unification.webp
-video: /images/field-unification.mp4
+image: /images/ai-collapsing-gtm-walls.webp
+video: /images/ai-collapsing-gtm-walls.mp4
 ---
 
 *The walls between Marketing, Sales, and CS were built to manage an information gap. AI is closing that gap — and when the reason for the walls disappears, the walls become the problem.*
@@ -35,7 +35,7 @@ AI is collapsing that information asymmetry. And when you remove the force that 
 
 ## The Evidence for Reunification
 
-![The Cycle of Misalignment: Why Alignment Tools Fail](/images/field-unification-cycle.webp)
+![The Cycle of Misalignment: Why Alignment Tools Fail](/images/ai-collapsing-gtm-walls-cycle.webp)
 
 The data suggests the split is already failing — and that the tools we built to manage it are treating symptoms, not the underlying physics.
 
@@ -59,7 +59,7 @@ In a unified field, these aren't separate functions. They're the same force expr
 
 ## Orbital Mechanics: What AI-Native Retention Actually Looks Like
 
-![Quarterly Review vs AI-Native Retention vs Unified Field](/images/field-unification-orbital.webp)
+![Quarterly Review vs AI-Native Retention vs Unified Field](/images/ai-collapsing-gtm-walls-orbital.webp)
 
 Here's where the old split causes the most damage, and where the physics makes the strongest case for unification.
 
@@ -77,7 +77,7 @@ And the compounding effect flows through the entire field. Retention generates t
 
 ## RevOps: Writing the Field Equations
 
-![Friction Management to Field Architecture: The RevOps Transformation](/images/field-unification-revops.webp)
+![Friction Management to Field Architecture: The RevOps Transformation](/images/ai-collapsing-gtm-walls-revops.webp)
 
 Maxwell didn't just prove the field was unified. He wrote the equations that described how it behaved. Four equations that governed everything — how electric fields create magnetic fields, how magnetic fields create electric fields, and how they propagate together through space.
 
