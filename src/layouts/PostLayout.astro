@@ -77,6 +77,7 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
               muted
               loop
               playsinline
+              preload="auto"
               class="absolute inset-0 w-full h-full object-cover rounded-lg opacity-0 transition-opacity duration-1000"
             />
           )}
@@ -297,27 +298,39 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
 
 <script>
   // Image to video transition
-  document.addEventListener('DOMContentLoaded', () => {
-    const heroImage = document.getElementById('hero-image') as HTMLImageElement;
-    const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
+  const heroImage = document.getElementById('hero-image') as HTMLImageElement;
+  const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
 
-    if (heroImage && heroVideo) {
-      const doTransition = () => {
-        setTimeout(() => {
-          heroVideo.style.opacity = '1';
-          heroImage.style.opacity = '0';
-        }, 1000);
-      };
+  if (heroImage && heroVideo) {
+    let transitioned = false;
 
-      // Check if video is already ready
-      if (heroVideo.readyState >= 3) {
-        doTransition();
-      } else {
-        heroVideo.addEventListener('canplaythrough', doTransition, { once: true });
-      }
+    const doTransition = () => {
+      if (transitioned) return;
+      transitioned = true;
+      setTimeout(() => {
+        heroVideo.style.opacity = '1';
+        heroImage.style.opacity = '0';
+      }, 1000);
+    };
 
-      // Ensure video plays
-      heroVideo.play().catch(() => {});
+    // Multiple fallbacks for video ready state
+    heroVideo.addEventListener('loadeddata', doTransition, { once: true });
+    heroVideo.addEventListener('canplay', doTransition, { once: true });
+    heroVideo.addEventListener('playing', doTransition, { once: true });
+
+    // Check if video is already ready
+    if (heroVideo.readyState >= 2) {
+      doTransition();
     }
-  });
+
+    // Fallback timeout in case events don't fire
+    setTimeout(() => {
+      if (!transitioned && heroVideo.readyState >= 1) {
+        doTransition();
+      }
+    }, 3000);
+
+    // Ensure video plays
+    heroVideo.play().catch(() => {});
+  }
 </script>
