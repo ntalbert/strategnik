@@ -297,15 +297,27 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
 
 <script>
   // Image to video transition
-  const heroImage = document.getElementById('hero-image');
-  const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroImage = document.getElementById('hero-image') as HTMLImageElement;
+    const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
 
-  if (heroImage && heroVideo) {
-    heroVideo.addEventListener('canplay', () => {
-      setTimeout(() => {
-        heroVideo.style.opacity = '1';
-        heroImage.style.opacity = '0';
-      }, 1000);
-    });
-  }
+    if (heroImage && heroVideo) {
+      const doTransition = () => {
+        setTimeout(() => {
+          heroVideo.style.opacity = '1';
+          heroImage.style.opacity = '0';
+        }, 1000);
+      };
+
+      // Check if video is already ready
+      if (heroVideo.readyState >= 3) {
+        doTransition();
+      } else {
+        heroVideo.addEventListener('canplaythrough', doTransition, { once: true });
+      }
+
+      // Ensure video plays
+      heroVideo.play().catch(() => {});
+    }
+  });
 </script>
