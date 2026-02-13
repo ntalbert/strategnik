@@ -387,6 +387,91 @@
       margin: 0 auto;
     }
 
+    /* Header Navigation */
+    .site-header {
+      padding: 24px 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-header .logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .site-nav a {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .site-nav a:hover {
+      color: var(--secondary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      padding: 12px;
+      background: var(--primary);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .mobile-menu-btn svg {
+      width: 24px;
+      height: 24px;
+      color: var(--white);
+    }
+
+    .mobile-nav {
+      display: none;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .mobile-nav.active {
+      display: block;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 12px 24px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .mobile-nav a:hover {
+      background: var(--background);
+      color: var(--secondary);
+    }
+
+    @media (max-width: 768px) {
+      .site-nav {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
     @media (max-width: 768px) {
       .hero {
         padding: 60px 0;
@@ -399,6 +484,34 @@
   </style>
 </head>
 <body>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="Strategnik">
+      </a>
+      <nav class="site-nav">
+        <a href="/physics-of-growth">Framework</a>
+        <a href="/case-studies">Playbooks</a>
+        <a href="/thinking">Writing</a>
+        <a href="/experience">Experience</a>
+        <a href="/services">Services</a>
+      </nav>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="/physics-of-growth">Framework</a>
+    <a href="/case-studies">Playbooks</a>
+    <a href="/thinking">Writing</a>
+    <a href="/experience">Experience</a>
+    <a href="/services">Services</a>
+  </nav>
 
   <!-- Hero -->
   <section class="hero">
@@ -629,6 +742,15 @@
       <p>This series is based on real projects with details generalized to protect client confidentiality. Technical architectures represent actual implementations; specific metrics are accurate to the projects described.</p>
     </div>
   </section>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
