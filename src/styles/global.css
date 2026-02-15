@@ -8,11 +8,31 @@
  */
 
 /* Custom Fonts */
+
+/* Söhne Breit - Body text (Book Italic) */
+@font-face {
+  font-family: 'Soehne Breit';
+  src: url('/fonts/soehne-breit-buch-kursiv.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Söhne Breit - Headings (Kräftig/Bold) */
+@font-face {
+  font-family: 'Soehne Breit';
+  src: url('/fonts/soehne-breit-kraftig.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Söhne Mono - Code/Monospace */
 @font-face {
   font-family: 'Sohne Mono';
   src: url('/fonts/SohneMono-KraftigKursiv.otf') format('opentype');
-  font-weight: 400 700;
-  font-style: normal;
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -23,7 +43,7 @@
   }
 
   body {
-    @apply text-black font-sans;
+    @apply text-black font-sans italic;
   }
 
   ::selection {
@@ -42,7 +62,7 @@
 
   /* Headings - Bold, white for dark theme */
   h1, h2, h3, h4 {
-    @apply text-white font-bold;
+    @apply text-white font-bold not-italic;
   }
 
   h1 {

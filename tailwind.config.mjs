@@ -24,9 +24,9 @@ export default {
         'blue-bright': '#0165fc',
       },
       fontFamily: {
-        'sans': ['Sohne Mono', 'JetBrains Mono', 'monospace'],
+        'sans': ['Soehne Breit', 'system-ui', 'sans-serif'],
         'mono': ['Sohne Mono', 'JetBrains Mono', 'monospace'],
-        'display': ['Sohne Mono', 'monospace'],
+        'display': ['Soehne Breit', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // Minimal type scale with light weights
