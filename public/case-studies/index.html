@@ -237,17 +237,39 @@
       border-bottom: 1px solid var(--gray-800);
     }
 
-    .overview h2 {
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+      .overview-image {
+        order: -1;
+      }
+    }
+
+    .overview-content h2 {
       font-size: 1.75rem;
       margin-bottom: 24px;
     }
 
-    .overview p {
+    .overview-content p {
       color: var(--gray-300);
       margin-bottom: 16px;
-      max-width: 800px;
       font-size: 1.05rem;
       line-height: 1.8;
+    }
+
+    .overview-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--gray-800);
     }
 
     /* Case Studies Grid */
@@ -540,10 +562,17 @@
   <!-- Overview -->
   <section class="overview">
     <div class="container">
-      <h2>Building Infrastructure, Not Campaigns</h2>
-      <p>Most marketing teams optimize campaigns. These six projects built something different: the infrastructure underneath them.</p>
-      <p>Every case study here started with the same realization — the growth problem wasn't creative, messaging, or channel selection. It was architectural. Developer signals invisible to CRM. Scoring models nobody trusted because the data was inconsistent. Attribution that collapsed overnight when a platform changed its rules. A marketplace with no reliable way to build supply.</p>
-      <p>The fixes weren't campaigns. They were systems — data pipelines, scoring frameworks, lifecycle architectures, clean rooms — that made the campaigns work, or made them unnecessary.</p>
+      <div class="overview-grid">
+        <div class="overview-content">
+          <h2>Building Infrastructure, Not Campaigns</h2>
+          <p>Most marketing teams optimize campaigns. These six projects built something different: the infrastructure underneath them.</p>
+          <p>Every case study here started with the same realization — the growth problem wasn't creative, messaging, or channel selection. It was architectural. Developer signals invisible to CRM. Scoring models nobody trusted because the data was inconsistent. Attribution that collapsed overnight when a platform changed its rules. A marketplace with no reliable way to build supply.</p>
+          <p>The fixes weren't campaigns. They were systems — data pipelines, scoring frameworks, lifecycle architectures, clean rooms — that made the campaigns work, or made them unnecessary.</p>
+        </div>
+        <div class="overview-image">
+          <img src="/case-studies/infrastructure-illustration.png" alt="Marketing Infrastructure Illustration showing data pipelines, scoring frameworks, lifecycle architecture, and attribution systems">
+        </div>
+      </div>
     </div>
   </section>
 
