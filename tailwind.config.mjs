@@ -24,8 +24,8 @@ export default {
         'blue-bright': '#0165fc',
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'monospace'],
+        'sans': ['Sohne Mono', 'JetBrains Mono', 'monospace'],
+        'mono': ['Sohne Mono', 'JetBrains Mono', 'monospace'],
         'display': ['Sohne Mono', 'monospace'],
       },
       fontSize: {

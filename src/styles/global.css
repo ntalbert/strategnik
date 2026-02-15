@@ -11,8 +11,8 @@
 @font-face {
   font-family: 'Sohne Mono';
   src: url('/fonts/SohneMono-KraftigKursiv.otf') format('opentype');
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 400 700;
+  font-style: normal;
   font-display: swap;
 }
 
