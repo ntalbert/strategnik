@@ -4,27 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Building a Two-Sided Acquisition Engine for Government Expert Networks | Case Study</title>
-  <meta name="description" content="Two-sided marketplace growth case study: How to build acquisition for government contractor expert networks using SAM.gov data, procurement intelligence, and LinkedIn outreach. Learn B2B marketplace growth strategies for matching supply and demand.">
-  <meta name="keywords" content="two-sided marketplace, marketplace growth, government contracting, SAM.gov, procurement data, expert network, B2B marketplace, supply and demand acquisition, LinkedIn outreach, federal contractors, GovTech, marketplace growth, network effects">
-  <meta name="author" content="Nick Talbert">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.strategnik.com/case-studies/case-study-05-government-marketplace.html">
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Two-Sided Marketplace Case Study: Government Expert Network Acquisition">
-  <meta property="og:description" content="Two-sided marketplace growth case study showing how to build acquisition using SAM.gov procurement data and LinkedIn outreach for government contractor expert networks.">
-  <meta property="og:image" content="https://www.strategnik.com/case-studies/government-marketplace.webp">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="1080">
-  <meta property="og:image:alt" content="Two-sided marketplace architecture showing government contractor matching with expert network">
-  <meta property="og:url" content="https://www.strategnik.com/case-studies/case-study-05-government-marketplace.html">
-  <meta property="og:site_name" content="Strategnik">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Two-Sided Marketplace Case Study: Government Expert Network Acquisition">
-  <meta name="twitter:description" content="Two-sided marketplace growth case study showing how to build acquisition using SAM.gov procurement data and LinkedIn outreach for government contractor expert networks.">
-  <meta name="twitter:image" content="https://www.strategnik.com/case-studies/government-marketplace.webp">
-  <meta name="twitter:image:alt" content="Two-sided marketplace architecture showing government contractor matching with expert network">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -41,33 +20,10 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
-    /* Site Header */
-    .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 100; padding: 24px; }
-    .site-header nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .site-logo { text-decoration: none; transition: opacity 0.2s; display: flex; align-items: center; }
-    .site-logo:hover { opacity: 0.8; }
-    .site-logo img { height: 240px; width: auto; }
-    .nav-desktop { display: none; background: #000; border-radius: 12px; padding: 12px 24px; gap: 32px; }
-    @media (min-width: 768px) { .nav-desktop { display: flex; } }
-    .nav-desktop a { color: white; text-decoration: none; font-weight: 700; font-size: 1rem; transition: color 0.2s; }
-    .nav-desktop a:hover { color: #d1d5db; }
-    .mobile-menu-btn { display: flex; background: #000; border: none; border-radius: 12px; padding: 12px; cursor: pointer; }
-    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
-    .mobile-menu-btn svg { width: 24px; height: 24px; color: white; }
-    .mobile-menu { display: none; position: absolute; top: 80px; left: 24px; right: 24px; background: rgba(0,0,0,0.9); border-radius: 12px; padding: 16px 24px; }
-    .mobile-menu.open { display: block; }
-    .mobile-menu a { display: block; padding: 12px 0; color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover { color: #d1d5db; }
-    /* Hero with animated transition */
-    .hero { position: relative; aspect-ratio: 16/9; max-height: 600px; overflow: hidden; }
-    .hero-background { position: absolute; inset: 0; background-image: url('government-marketplace.webp'); background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s ease; z-index: 1; }
-    .hero.video-active .hero-background { transform: scale(1.1); opacity: 0.3; }
-    .hero-video-container { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease 0.3s; }
-    .hero.video-active .hero-video-container { opacity: 1; }
-    .hero-video { width: 100%; height: 100%; object-fit: cover; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.4) 50%, rgba(30,58,95,0.2) 100%); z-index: 3; }
-    .hero-content { position: absolute; bottom: 0; left: 0; right: 0; z-index: 4; padding: 60px; max-width: 800px; }
+    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
+    /* Featured image: Two-sided marketplace visualization with government buildings/contractors on left side and expert profile cards on right side, connected through a central matching hub with bidirectional data flows. Public data sources (SAM.gov, USAspending, LinkedIn) feeding into both sides. Dark blue with teal connection lines. */
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 60px; max-width: 800px; }
     .hero-number { display: inline-block; background: var(--secondary); color: var(--white); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
     .hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
     .hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
@@ -97,12 +53,6 @@
     .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
     .nav-links a:hover { color: var(--secondary); }
     .nav-links a:last-child { border-bottom: none; }
-    /* Tech Stack */
-    .tech-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .tech-item { display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--background); border-radius: 6px; }
-    .tech-item img { width: 24px; height: 24px; border-radius: 4px; }
-    .tech-item span { font-size: 0.8rem; font-weight: 500; color: var(--text); line-height: 1.3; }
-    .tech-item small { font-weight: 400; color: var(--text-secondary); }
     .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
     .diagram-container { max-width: 900px; margin: 0 auto; }
     .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
@@ -132,49 +82,7 @@
 </head>
 <body>
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <nav>
-      <a href="/" class="site-logo"><img src="/logo-dark.png" alt="Strategnik - B2B Growth Strategy"></a>
-      <div class="nav-desktop">
-        <a href="/physics-of-growth">Framework</a>
-        <a href="/case-studies">Playbooks</a>
-        <a href="/thinking">Writing</a>
-        <a href="/experience">Experience</a>
-        <a href="/services">Services</a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="/">Home</a>
-      <a href="/physics-of-growth">Framework</a>
-      <a href="/case-studies">Playbooks</a>
-      <a href="/thinking">Writing</a>
-      <a href="/experience">Experience</a>
-      <a href="/services">Services</a>
-    </div>
-  </header>
-
-  <!-- Hero with Image-to-Video Transition -->
-  <section class="hero" id="hero">
-    <!-- Background image (moves back when video plays) -->
-    <div class="hero-background"></div>
-
-    <!-- Video container (fades in) -->
-    <div class="hero-video-container">
-      <video class="hero-video" id="heroVideo" muted playsinline>
-        <source src="government-marketplace.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <!-- Overlay gradient -->
-    <div class="hero-overlay"></div>
-
-    <!-- Content -->
+  <section class="hero">
     <div class="hero-content">
       <span class="hero-number">Case Study 05</span>
       <h1>Building a Two-Sided Acquisition Engine for Government Expert Networks</h1>
@@ -188,13 +96,13 @@
       <h2>The Situation</h2>
       <p>The company operated a marketplace connecting organizations with domain experts for consulting engagements. Think of it as Gerson Lehrman or AlphaSights, but with a focus on specialized knowledge areas including federal government expertise.</p>
       <p>Two-sided marketplaces have a chicken-and-egg problem. Buyers won't come if there aren't enough experts. Experts won't sign up if there aren't enough paying engagements. You have to build both sides simultaneously—and the acquisition cost for both can kill you before you reach critical mass.</p>
-      <p>At project start, the government vertical was a hypothesis. The existing motion was:</p>
+      <p>When I joined, the government vertical was a hypothesis. The existing motion was:</p>
       <ul>
-        <li><strong>Demand:</strong> Generic B2B growth to "enterprise" with occasional government contractor wins</li>
+        <li><strong>Demand:</strong> Generic B2B marketing to "enterprise" with occasional government contractor wins</li>
         <li><strong>Supply:</strong> Expert recruitment through LinkedIn outreach and referrals</li>
       </ul>
       <p>CAC was high on both sides. Close rates were low. The thesis was promising but the execution was generic.</p>
-      <p>The objective was to build a repeatable acquisition engine for both sides of the marketplace, specifically targeting the government sector.</p>
+      <p>My job was to build a repeatable acquisition engine for both sides of the marketplace, specifically targeting the government sector.</p>
 
       <h2>The Insight</h2>
       <p>Government contracting is a <strong>public business</strong>. Unlike commercial B2B where everything happens behind closed doors, federal procurement generates massive amounts of public data:</p>
@@ -211,7 +119,7 @@
         <li>Major programs they managed are often documented in public records</li>
         <li>GAO reports, congressional testimony, and press releases name specific officials</li>
       </ul>
-      <p>The insight: targeting criteria could be built from public data that commercial intelligence tools couldn't match.</p>
+      <p>The insight: We could build targeting criteria from public data that commercial intelligence tools couldn't match.</p>
       <p>The second insight was about <strong>timing</strong>. Government contractors need experts at specific moments: proposal phase, post-award staffing, recompete preparation. Catching contractors at the right moment was as important as reaching them at all.</p>
 
       <h2>The System</h2>
@@ -258,7 +166,7 @@
     - OR "Consultant" OR "Advisor" (indicates availability)</pre>
 
       <p><strong>Experience Verification</strong></p>
-      <p>LinkedIn profiles told part of the story. Cross-referencing with FPDS/USAspending (contracting officer records), GAO reports (program managers named), congressional testimony archives, and professional associations (NCMA, AFCEA) completed the picture.</p>
+      <p>LinkedIn profiles told part of the story. We cross-referenced with FPDS/USAspending (contracting officer records), GAO reports (program managers named), congressional testimony archives, and professional associations (NCMA, AFCEA).</p>
 
       <h3>Layer 3: Two-Sided Matching</h3>
       <p>The matching logic connected contractor needs with expert supply:</p>
@@ -315,40 +223,6 @@ DOD cyber contract proposal    →   Ex-DOD cyber program manager
           <li>Government contracting</li>
           <li>Expert network matching</li>
         </ul>
-      </div>
-
-      <div class="sidebar-box">
-        <h4>Tech Stack</h4>
-        <div class="tech-stack">
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=sam.gov&sz=32" alt="SAM.gov">
-            <span>SAM.gov<br><small>Registrations</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=usaspending.gov&sz=32" alt="USAspending">
-            <span>USAspending<br><small>Contract Awards</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=fpds.gov&sz=32" alt="FPDS">
-            <span>FPDS<br><small>Procurement Data</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" alt="LinkedIn">
-            <span>LinkedIn<br><small>Sales Nav + Matched Audiences</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=facebook.com&sz=32" alt="Meta">
-            <span>Meta CAPI<br><small>1st Party Targeting</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=hubspot.com&sz=32" alt="HubSpot">
-            <span>HubSpot<br><small>CRM</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=phantombuster.com&sz=32" alt="PhantomBuster">
-            <span>PhantomBuster<br><small>Data Extraction</small></span>
-          </div>
-        </div>
       </div>
 
       <div class="sidebar-box">
@@ -466,34 +340,10 @@ flowchart TB
       </div>
     </div>
     <div class="author-block">
-      <p><strong>Nick Talbert</strong> builds growth infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
     </div>
   </footer>
 
   <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
-  <script>
-    // Mobile menu toggle
-    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    });
-
-    // Hero video transition effect
-    document.addEventListener('DOMContentLoaded', () => {
-      const hero = document.getElementById('hero');
-      const heroVideo = document.getElementById('heroVideo');
-
-      // Start the transition after a brief delay to let the image be seen
-      setTimeout(() => {
-        hero.classList.add('video-active');
-        heroVideo.play().catch(() => {});
-      }, 800);
-
-      // Loop the video
-      heroVideo.addEventListener('ended', () => {
-        heroVideo.currentTime = 0;
-        heroVideo.play().catch(() => {});
-      });
-    });
-  </script>
 </body>
 </html>

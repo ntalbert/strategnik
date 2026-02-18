@@ -4,30 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Propensity Scoring That Actually Works | Case Study</title>
-  <meta name="description" content="B2B propensity scoring case study: How technographic signals, infrastructure change detection, and data governance improved predictive lead scoring accuracy by 30%. Learn to build propensity models using Salesforce, DemandBase, and BuiltWith data.">
-  <meta name="keywords" content="propensity scoring, lead scoring, predictive analytics, B2B growth, technographic data, data governance, Salesforce integration, DemandBase, ABM, account-based growth, intent data, growth automation, CRM data quality, enterprise sales">
-  <meta name="author" content="Nick Talbert">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.strategnik.com/case-studies/case-study-02-propensity-scoring.html">
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Propensity Scoring Case Study: 30% Accuracy Improvement with Technographic Signals">
-  <meta property="og:description" content="B2B propensity scoring case study showing how technographic signals and data governance improved predictive lead scoring by 30%.">
-  <meta property="og:image" content="https://www.strategnik.com/case-studies/hero-image-02.png">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="1080">
-  <meta property="og:image:alt" content="Data visualization showing technographic signal architecture for B2B propensity scoring">
-  <meta property="og:url" content="https://www.strategnik.com/case-studies/case-study-02-propensity-scoring.html">
-  <meta property="og:site_name" content="Strategnik">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Propensity Scoring Case Study: 30% Accuracy Improvement with Technographic Signals">
-  <meta name="twitter:description" content="B2B propensity scoring case study showing how technographic signals and data governance improved predictive lead scoring by 30%.">
-  <meta name="twitter:image" content="https://www.strategnik.com/case-studies/hero-image-02.png">
-  <meta name="twitter:image:alt" content="Data visualization showing technographic signal architecture for B2B propensity scoring">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <style>
     :root {
       --primary: #1e3a5f;
@@ -40,31 +20,10 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--background); color: var(--text); line-height: 1.7; }
-    /* Site Header */
-    .site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 100; padding: 24px; }
-    .site-header nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .site-logo { text-decoration: none; transition: opacity 0.2s; display: flex; align-items: center; }
-    .site-logo:hover { opacity: 0.8; }
-    .site-logo img { height: 240px; width: auto; }
-    .nav-desktop { display: none; background: #000; border-radius: 12px; padding: 12px 24px; gap: 32px; }
-    @media (min-width: 768px) { .nav-desktop { display: flex; } }
-    .nav-desktop a { color: white; text-decoration: none; font-weight: 700; font-size: 1rem; transition: color 0.2s; }
-    .nav-desktop a:hover { color: #d1d5db; }
-    .mobile-menu-btn { display: flex; background: #000; border: none; border-radius: 12px; padding: 12px; cursor: pointer; }
-    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
-    .mobile-menu-btn svg { width: 24px; height: 24px; color: white; }
-    .mobile-menu { display: none; position: absolute; top: 80px; left: 24px; right: 24px; background: rgba(0,0,0,0.9); border-radius: 12px; padding: 16px 24px; }
-    .mobile-menu.open { display: block; }
-    .mobile-menu a { display: block; padding: 12px 0; color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover { color: #d1d5db; }
-    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: #0f172a; display: flex; align-items: flex-end; overflow: hidden; }
-    .hero-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .hero-image { z-index: 2; transition: opacity 1.5s ease-in-out; }
-    .hero-image.fade-out { opacity: 0; }
-    .hero-video { z-index: 1; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.4) 100%); z-index: 3; }
-    .hero-content { position: relative; z-index: 4; padding: 60px; max-width: 800px; }
+    .hero { position: relative; aspect-ratio: 16/9; max-height: 500px; background: linear-gradient(135deg, var(--primary) 0%, #0f2942 100%); display: flex; align-items: flex-end; overflow: hidden; }
+    /* Featured image: Four interconnected database cylinders (Salesforce, Marketo, DemandBase, LinkedIn) with data streams converging into a central "single source of truth" hub. Emphasize the transformation from chaos to order. */
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,58,95,0.95) 0%, rgba(30,58,95,0.3) 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 60px; max-width: 800px; }
     .hero-number { display: inline-block; background: var(--secondary); color: var(--white); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
     .hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--white); font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
     .hero .subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
@@ -94,36 +53,11 @@
     .nav-links a { display: block; padding: 12px 0; color: var(--primary); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
     .nav-links a:hover { color: var(--secondary); }
     .nav-links a:last-child { border-bottom: none; }
-    /* Tech Stack */
-    .tech-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .tech-item { display: flex; align-items: center; gap: 10px; padding: 8px; background: var(--background); border-radius: 6px; }
-    .tech-item img { width: 24px; height: 24px; border-radius: 4px; }
-    .tech-item span { font-size: 0.8rem; font-weight: 500; color: var(--text); line-height: 1.3; }
-    .tech-item small { font-weight: 400; color: var(--text-secondary); }
     .diagram-section { background: var(--white); padding: 60px 24px; border-top: 1px solid var(--border); }
     .diagram-container { max-width: 900px; margin: 0 auto; }
     .diagram-container h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
+    .mermaid { display: flex; justify-content: center; margin: 24px 0; }
     .diagram-caption { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; }
-    .architecture-diagram { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .diagram-row { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; width: 100%; }
-    .diagram-group { background: var(--background); border-radius: 12px; padding: 16px; }
-    .group-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; text-align: center; }
-    .techno-group { background: rgba(13,148,136,0.1); }
-    .techno-group .group-label { color: #0d9488; }
-    .systems-group { background: rgba(30,58,95,0.1); }
-    .systems-group .group-label { color: #1e3a5f; }
-    .governance-group { background: rgba(74,85,104,0.1); }
-    .governance-group .group-label { color: #4a5568; }
-    .model-group { background: rgba(30,58,95,0.1); }
-    .model-group .group-label { color: #1e3a5f; }
-    .group-items { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    .group-items.horizontal { flex-direction: row; }
-    .diagram-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 0.85rem; font-weight: 500; text-align: center; min-width: 100px; }
-    .diagram-box small { display: block; font-weight: 400; color: var(--text-secondary); font-size: 0.75rem; margin-top: 2px; }
-    .diagram-box.highlight { background: #0d9488; color: white; border-color: #0d9488; }
-    .diagram-box.highlight small { color: rgba(255,255,255,0.8); }
-    .diagram-arrow { font-size: 1.5rem; color: var(--text-secondary); }
-    .score-output { background: var(--primary); color: white; padding: 16px 32px; border-radius: 8px; font-weight: 600; font-size: 1.1rem; }
     .results-section { padding: 60px 24px; background: var(--primary); }
     .results-container { max-width: 1000px; margin: 0 auto; }
     .results-container h2 { font-size: 1.5rem; color: var(--white); margin-bottom: 32px; text-align: center; }
@@ -148,36 +82,7 @@
 </head>
 <body>
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <nav>
-      <a href="/" class="site-logo"><img src="/logo-dark.png" alt="Strategnik - B2B Growth Strategy"></a>
-      <div class="nav-desktop">
-        <a href="/physics-of-growth">Framework</a>
-        <a href="/case-studies">Playbooks</a>
-        <a href="/thinking">Writing</a>
-        <a href="/experience">Experience</a>
-        <a href="/services">Services</a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="/">Home</a>
-      <a href="/physics-of-growth">Framework</a>
-      <a href="/case-studies">Playbooks</a>
-      <a href="/thinking">Writing</a>
-      <a href="/experience">Experience</a>
-      <a href="/services">Services</a>
-    </div>
-  </header>
-
   <section class="hero">
-    <img src="hero-image-02.png" alt="B2B propensity scoring data visualization showing technographic signals and predictive analytics architecture" class="hero-media hero-image" id="heroImage">
-    <video src="hero-video-02.mp4" class="hero-media hero-video" id="heroVideo" autoplay muted loop playsinline></video>
     <div class="hero-content">
       <span class="hero-number">Case Study 02</span>
       <h1>Building a Propensity Scoring System That Actually Works</h1>
@@ -189,15 +94,14 @@
     <main class="main-content">
 
       <h2>The Situation</h2>
-      <p>An enterprise network security company had a sophisticated go-to-market motion—at least on paper. Salesforce for CRM. Marketo for automation. DemandBase for ABM and intent data. LinkedIn Ads for paid targeting. Four platforms, significant annual spend, and dashboards that could slice data any way you wanted.</p>
-      <p>The company's value proposition was clear: when businesses update their infrastructure—new POS systems, supply chain software, edge computing deployments—their network security architecture often can't keep up. These inflection points create vulnerability windows. The sales team knew exactly when to have the conversation: right after a major infrastructure change, when the prospect realizes their security posture needs to be re-evaluated.</p>
-      <p>The problem? The propensity model couldn't identify these moments. Sales didn't trust growth's "hot leads." Growth pointed to high intent scores. Sales pointed to conversations that went nowhere.</p>
-      <p><strong>Both were right.</strong> The model was mathematically sound. It was also practically useless—because it was missing the technographic signals that actually predicted buying behavior.</p>
-      <p>The initial engagement was to fix demand gen, but within the first two weeks, it became clear that the problem wasn't campaigns or content or targeting. The problem was data—specifically, the absence of infrastructure change signals that would indicate an opportune time to approach.</p>
+      <p>The marketing team had all the tools. Salesforce for CRM. Marketo for automation. DemandBase for ABM and intent data. LinkedIn Ads for paid targeting. Four platforms, significant annual spend, and a dashboard that could tell you anything you wanted to know.</p>
+      <p>Except it couldn't tell you which accounts were actually likely to buy.</p>
+      <p>The propensity model existed—technically. But sales didn't trust it. "Your 'hot' leads are garbage," was the polite version of the feedback. Marketing would point to the data showing high intent scores. Sales would point to the conversations that went nowhere.</p>
+      <p><strong>Both were right.</strong> The model was mathematically sound. It was also practically useless.</p>
+      <p>I was brought in to fix demand gen, but within the first two weeks, it became clear that the problem wasn't campaigns or content or targeting. The problem was data.</p>
 
       <h2>The Insight</h2>
-      <p>Propensity models are only as good as the data feeding them. Garbage in, garbage out—everyone knows this. But the failure mode here was two-fold: <em>inconsistent</em> data and <em>missing</em> data.</p>
-      <p><strong>Problem 1: Data Inconsistency</strong></p>
+      <p>Propensity models are only as good as the data feeding them. Garbage in, garbage out—everyone knows this. But the failure mode I found wasn't garbage data. It was <em>inconsistent</em> data.</p>
       <p>The four systems had been implemented at different times by different teams with different naming conventions:</p>
       <ul>
         <li>Salesforce had "IBM Corporation" as an account. Marketo had "IBM" and "IBM Corp" as separate records. DemandBase had "International Business Machines."</li>
@@ -205,21 +109,13 @@
         <li>The same contact might exist in three systems with three different titles.</li>
         <li>Intent signals from DemandBase weren't consistently flowing to Salesforce.</li>
       </ul>
-      <p><strong>Problem 2: Missing Technographic Signals</strong></p>
-      <p>The model had no visibility into the infrastructure changes that actually triggered buying behavior. Sales knew from experience that certain events signaled an opportune moment to engage:</p>
-      <ul>
-        <li><strong>New POS terminal providers</strong> – retail and hospitality accounts upgrading payment infrastructure</li>
-        <li><strong>New supply chain software</strong> – logistics and manufacturing accounts connecting new systems</li>
-        <li><strong>New edge computing deployments</strong> – any account pushing compute to distributed locations</li>
-        <li><strong>Fiber availability</strong> – whether the building housing the account's servers had fiber connectivity (prerequisite for their solution)</li>
-      </ul>
-      <p>These signals weren't in DemandBase. They weren't in Salesforce. They existed in disparate technographic databases and public infrastructure records, but nobody had connected them to the propensity model.</p>
-      <p><strong>The insight: The prediction problem was a data governance problem AND a signal coverage problem.</strong></p>
+      <p>The model was mathematically weighting data—but it was doing math on records that weren't actually the same entities.</p>
+      <p><strong>The insight: The prediction problem was actually a data governance problem.</strong></p>
 
       <h2>The System</h2>
 
       <h3>Layer 1: Data Audit and Mapping</h3>
-      <p>First, every field across all four systems was mapped. The output was brutal:</p>
+      <p>First, we mapped every field across all four systems. The output was brutal:</p>
       <ul>
         <li>47 fields that should have been synchronized</li>
         <li>23 fields with naming inconsistencies</li>
@@ -240,30 +136,8 @@
         <li>Mapping: Built translation tables from SIC codes and Salesforce picklists</li>
       </ul>
 
-      <h3>Layer 3: Technographic Signal Collection</h3>
-      <p>A new data pipeline was built to capture infrastructure change signals:</p>
-      <p><strong>Technology Change Detection:</strong></p>
-      <ul>
-        <li><em>POS Systems:</em> Monitoring for new payment processor integrations (Square, Clover, Toast, etc.)</li>
-        <li><em>Supply Chain:</em> Tracking new ERP and logistics platform deployments (SAP, Oracle, Manhattan Associates)</li>
-        <li><em>Edge Computing:</em> Identifying accounts deploying IoT gateways, CDN infrastructure, or distributed compute</li>
-        <li><em>Cloud Migration:</em> AWS, Azure, GCP adoption signals indicating infrastructure modernization</li>
-      </ul>
-      <p><strong>Infrastructure Readiness:</strong></p>
-      <ul>
-        <li><em>Fiber Availability:</em> Cross-referenced account addresses against fiber infrastructure databases to confirm the building could support the solution</li>
-        <li><em>Data Center Proximity:</em> Geographic analysis of account locations relative to network points of presence</li>
-      </ul>
-      <p>These signals were enriched using technographic data providers and mapped to account records using domain-based matching. An open-source ETL pipeline (Airbyte) orchestrated the data flows between sources and the warehouse.</p>
-
-      <h3>Layer 4: Integration Architecture</h3>
-      <pre>Technographic Signals (BuiltWith, HG Data, Fiber Maps)
-    │
-    └──→ Airbyte ETL ──→ Data Warehouse (daily refresh)
-             │
-             └──→ Salesforce Account (custom fields)
-
-DemandBase (Intent Data)
+      <h3>Layer 3: Integration Architecture</h3>
+      <pre>DemandBase (Intent Data)
     │
     ├──→ Salesforce Account (nightly batch + real-time for surges)
     │        │
@@ -279,49 +153,41 @@ Marketo (Behavioral Data)
     │
     └──→ Salesforce (bi-directional sync, 15-minute intervals)</pre>
 
-      <h3>Layer 5: The Propensity Model</h3>
-      <p>With clean, synchronized data and new technographic signals, the scoring model was rebuilt:</p>
+      <h3>Layer 4: The Propensity Model</h3>
+      <p>With clean, synchronized data, we rebuilt the scoring model:</p>
       <p><strong>Input Signals (weighted by predictive power):</strong></p>
       <ul>
-        <li><em>Technographic Change:</em> Recent POS, supply chain, or edge computing deployments (highest weight)</li>
-        <li><em>Infrastructure Readiness:</em> Fiber availability at primary location, data center proximity</li>
-        <li><em>Firmographic:</em> Industry alignment, employee count, existing tech stack, geography</li>
+        <li><em>Firmographic:</em> Industry alignment, employee count, tech stack, geography</li>
         <li><em>Behavioral:</em> Website visits by page value, content downloads, email engagement</li>
         <li><em>Intent:</em> DemandBase surge scores, keyword research, competitor signals</li>
         <li><em>Historical:</em> Similarity to closed-won accounts</li>
       </ul>
-      <p>The model heavily weighted <strong>technographic change signals</strong> because historical analysis showed that accounts with recent infrastructure changes were 3.2x more likely to convert than accounts with high intent scores alone.</p>
       <table>
         <tr><th>Score Range</th><th>Classification</th><th>Sales Action</th></tr>
         <tr><td>80-100</td><td>Sales-Ready</td><td>Immediate outreach, high priority</td></tr>
-        <tr><td>60-79</td><td>Growth Qualified</td><td>Accelerated nurture, SDR qualification</td></tr>
+        <tr><td>60-79</td><td>Marketing Qualified</td><td>Accelerated nurture, SDR qualification</td></tr>
         <tr><td>40-59</td><td>Engaged</td><td>Standard nurture, monitor for surge</td></tr>
         <tr><td>20-39</td><td>Aware</td><td>Light-touch digital, brand awareness</td></tr>
         <tr><td>0-19</td><td>Cold</td><td>Exclude from active campaigns</td></tr>
       </table>
 
-      <h3>Layer 6: Vertical Segmentation</h3>
-      <p>Rather than one model to rule them all, the system was calibrated for high-value verticals with specific technographic triggers:</p>
-      <p><strong>Retail/Hospitality:</strong> Heavy weight on POS terminal changes, seasonal adjustment for post-holiday infrastructure upgrades</p>
-      <p><strong>Logistics/Manufacturing:</strong> Supply chain software deployments, warehouse management system changes, IoT sensor rollouts</p>
-      <p><strong>Banking/Financial Services:</strong> Compliance-driven infrastructure updates, ATM network modernization, branch connectivity changes</p>
-      <p><strong>Healthcare:</strong> EHR migrations, telehealth platform deployments, medical device connectivity</p>
+      <h3>Layer 5: Vertical Segmentation</h3>
+      <p>Rather than one model to rule them all, we calibrated for high-value verticals:</p>
+      <p><strong>Banking/Financial Services:</strong> Heavier weight on compliance content, longer lookback window</p>
+      <p><strong>Retail:</strong> Seasonal adjustment, customer experience content weight, peak period multiplier</p>
 
       <h2>The Takeaway</h2>
-      <p>Most propensity models fail because they're missing the signals that actually predict buying behavior. Intent data tells you someone is researching. Technographic change data tells you they're ready to act.</p>
+      <p>Most companies don't have a prediction problem. They have a data problem masquerading as a prediction problem.</p>
 
       <div class="takeaway-cards">
         <div class="takeaway-card">
-          <strong>1. Find your trigger signals.</strong> For this network security company, infrastructure changes (new POS, supply chain software, edge deployments) were 3x more predictive than intent scores. Every product has trigger events—find yours.
+          <strong>1. Audit before you build.</strong> We lost a month before I realized the model wasn't the problem. That month would have been saved by starting with a data audit.
         </div>
         <div class="takeaway-card">
-          <strong>2. Cross-reference with readiness.</strong> A trigger signal without infrastructure readiness (in this case, fiber availability) is a false positive. The best leads had both: a recent change AND the ability to implement the solution.
+          <strong>2. Domain is your friend.</strong> Email domain as the primary key for matching solved most of our account matching challenges.
         </div>
         <div class="takeaway-card">
-          <strong>3. Audit before you build.</strong> A month was lost before realizing the model wasn't the problem. Starting with a data audit—and a clear articulation of what signals matter—would have saved significant time.
-        </div>
-        <div class="takeaway-card">
-          <strong>4. Domain is your friend.</strong> Email domain as the primary key for matching solved most of the account matching challenges when combining data from multiple sources.
+          <strong>3. Vertical calibration beats universal models.</strong> A model trained on all accounts will be mediocre at predicting any specific segment.
         </div>
       </div>
 
@@ -332,66 +198,25 @@ Marketo (Behavioral Data)
         <h4>Quick Facts</h4>
         <dl class="quick-facts">
           <dt>Company Type</dt>
-          <dd>Enterprise Network Security</dd>
+          <dd>Enterprise Network Infrastructure</dd>
           <dt>Challenge</dt>
-          <dd>Propensity model missing key buying signals</dd>
+          <dd>Sales didn't trust propensity scores</dd>
           <dt>Key Metric</dt>
           <dd>30% accuracy improvement</dd>
           <dt>Root Cause</dt>
-          <dd>Missing technographic signals + data inconsistency</dd>
-          <dt>Key Insight</dt>
-          <dd>Infrastructure changes (POS, supply chain, edge) predict buying intent</dd>
+          <dd>Data inconsistency across 4 systems</dd>
         </dl>
       </div>
 
       <div class="sidebar-box">
         <h4>Key Concepts</h4>
         <ul class="concepts-list">
-          <li>Technographic signaling</li>
-          <li>Infrastructure change triggers</li>
-          <li>Propensity modeling</li>
           <li>Data governance</li>
+          <li>CRM integration</li>
+          <li>Propensity modeling</li>
           <li>Vertical segmentation</li>
           <li>Domain-based matching</li>
         </ul>
-      </div>
-
-      <div class="sidebar-box">
-        <h4>Tech Stack</h4>
-        <div class="tech-stack">
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=salesforce.com&sz=32" alt="Salesforce">
-            <span>Salesforce<br><small>CRM</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=marketo.com&sz=32" alt="Marketo">
-            <span>Marketo<br><small>Automation</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=demandbase.com&sz=32" alt="DemandBase">
-            <span>DemandBase<br><small>ABM + Intent</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=builtwith.com&sz=32" alt="BuiltWith">
-            <span>BuiltWith<br><small>Technographics</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=hginsights.com&sz=32" alt="HG Insights">
-            <span>HG Insights<br><small>Tech Install Data</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" alt="LinkedIn">
-            <span>LinkedIn Ads<br><small>Paid Media</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=dnb.com&sz=32" alt="D&B">
-            <span>D&B<br><small>Data Standard</small></span>
-          </div>
-          <div class="tech-item">
-            <img src="https://www.google.com/s2/favicons?domain=airbyte.com&sz=32" alt="Airbyte">
-            <span>Airbyte<br><small>ETL Pipeline</small></span>
-          </div>
-        </div>
       </div>
 
       <div class="sidebar-box">
@@ -410,54 +235,51 @@ Marketo (Behavioral Data)
 
   <section class="diagram-section">
     <div class="diagram-container">
-      <h2>Technographic Signal Architecture</h2>
-      <div class="architecture-diagram">
-        <div class="diagram-row">
-          <div class="diagram-group techno-group">
-            <div class="group-label">Technographic Signals</div>
-            <div class="group-items">
-              <div class="diagram-box">BuiltWith<br><small>Tech Stack Changes</small></div>
-              <div class="diagram-box">HG Insights<br><small>Install Data</small></div>
-              <div class="diagram-box">Fiber Maps<br><small>Infrastructure</small></div>
-            </div>
-          </div>
-          <div class="diagram-group systems-group">
-            <div class="group-label">Growth Systems</div>
-            <div class="group-items">
-              <div class="diagram-box">Salesforce<br><small>CRM</small></div>
-              <div class="diagram-box">Marketo<br><small>Automation</small></div>
-              <div class="diagram-box">DemandBase<br><small>ABM/Intent</small></div>
-            </div>
-          </div>
-        </div>
-        <div class="diagram-arrow">↓</div>
-        <div class="diagram-row">
-          <div class="diagram-group governance-group">
-            <div class="group-label">Data Governance Layer</div>
-            <div class="group-items horizontal">
-              <div class="diagram-box">Domain-Based Matching</div>
-              <div class="diagram-box">Standardization Rules</div>
-            </div>
-          </div>
-        </div>
-        <div class="diagram-arrow">↓</div>
-        <div class="diagram-row">
-          <div class="diagram-group model-group">
-            <div class="group-label">Propensity Model Inputs</div>
-            <div class="group-items horizontal">
-              <div class="diagram-box highlight">Technographic<br>Change Signals</div>
-              <div class="diagram-box highlight">Infrastructure<br>Readiness</div>
-              <div class="diagram-box">Firmographic<br>Signals</div>
-              <div class="diagram-box">Intent<br>Signals</div>
-            </div>
-          </div>
-        </div>
-        <div class="diagram-arrow">↓</div>
-        <div class="diagram-row">
-          <div class="score-output">Propensity Score 0-100</div>
-        </div>
+      <h2>Four-System Data Sync Architecture</h2>
+      <div class="mermaid">
+flowchart TB
+    subgraph Systems["Marketing Systems"]
+        SF[Salesforce<br/>CRM]
+        MK[Marketo<br/>Automation]
+        DB[DemandBase<br/>ABM/Intent]
+        LI[LinkedIn<br/>Ads]
+    end
+
+    subgraph Governance["Data Governance Layer"]
+        DOM[Domain-Based<br/>Matching]
+        STD[Standardization<br/>Rules]
+        REC[Reconciliation<br/>Jobs]
+    end
+
+    subgraph Model["Propensity Model"]
+        FIRM[Firmographic<br/>Signals]
+        BEH[Behavioral<br/>Signals]
+        INT[Intent<br/>Signals]
+        SCORE[Propensity<br/>Score 0-100]
+    end
+
+    SF <--> DOM
+    MK <--> DOM
+    DB --> DOM
+    LI --> MK
+
+    DOM --> STD
+    STD --> REC
+    REC --> SF
+
+    SF --> FIRM
+    MK --> BEH
+    DB --> INT
+
+    FIRM --> SCORE
+    BEH --> SCORE
+    INT --> SCORE
+
+    style Systems fill:#1e3a5f,color:#fff
+    style Governance fill:#0d9488,color:#fff
+    style Model fill:#1e3a5f,color:#fff
       </div>
-      <p class="diagram-caption">Technographic change signals (POS, supply chain, edge computing) combined with infrastructure readiness (fiber availability) drove the highest predictive accuracy.</p>
+      <p class="diagram-caption">Data governance layer ensures consistency across four systems before feeding the propensity model.</p>
     </div>
   </section>
 
@@ -498,23 +320,10 @@ Marketo (Behavioral Data)
       </div>
     </div>
     <div class="author-block">
-      <p><strong>Nick Talbert</strong> builds growth infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
+      <p><strong>Nick Talbert</strong> builds marketing infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology. <a href="https://linkedin.com/in/nicktalbert">LinkedIn</a> | <a href="mailto:nicktalbert@mac.com">nicktalbert@mac.com</a></p>
     </div>
   </footer>
 
-  <script>document.getElementById('mobileMenuBtn').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('open'); });</script>
-  <script>
-    // Hero image to video transition
-    window.addEventListener('load', function() {
-      const heroImage = document.getElementById('heroImage');
-      const heroVideo = document.getElementById('heroVideo');
-      if (heroImage && heroVideo) {
-        heroVideo.play();
-        setTimeout(function() {
-          heroImage.classList.add('fade-out');
-        }, 1500);
-      }
-    });
-  </script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#1e3a5f', primaryTextColor: '#fff', primaryBorderColor: '#0d9488', lineColor: '#6b7280', secondaryColor: '#0d9488' }});</script>
 </body>
 </html>

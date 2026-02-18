@@ -88,11 +88,11 @@
   /* Links - Accessible accent color (10.4:1 contrast on black) */
   a {
     @apply transition-colors duration-200;
-    color: #5eead4;
+    color: #1de2c4;
   }
 
   a:hover {
-    color: #99f6e4;
+    color: #4ae8d0;
   }
 
   /* Code */
@@ -140,11 +140,11 @@
   /* Arrow links - Accessible accent color */
   .arrow-link {
     @apply inline-flex items-center gap-2 transition-colors;
-    color: #5eead4;
+    color: #1de2c4;
   }
 
   .arrow-link:hover {
-    color: #99f6e4;
+    color: #4ae8d0;
   }
 
   .arrow-link::after {
