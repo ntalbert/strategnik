@@ -1,0 +1,40 @@
+---
+import FunnelCalculator from '../components/calculator/FunnelCalculator';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B2B Funnel Velocity Calculator | Strategnik</title>
+    <meta name="description" content="Model how B2B marketing accounts flow through your funnel over time. Calculate true CPL, timeline to revenue, and total investment using cohort-based velocity curves." />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="B2B Funnel Velocity Calculator | Strategnik" />
+    <meta property="og:description" content="How long until marketing spend becomes closed revenue? Model cohort-based funnel velocity, true CPL, and investment timelines." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://strategnik.com/calculator" />
+    <meta property="og:site_name" content="Strategnik" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="B2B Funnel Velocity Calculator | Strategnik" />
+    <meta name="twitter:description" content="How long until marketing spend becomes closed revenue? Model cohort-based funnel velocity with real-world B2B conversion patterns." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    </style>
+  </head>
+  <body>
+    <FunnelCalculator client:load />
+  </body>
+</html>
