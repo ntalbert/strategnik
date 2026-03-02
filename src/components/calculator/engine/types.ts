@@ -70,6 +70,7 @@ export interface CalculatorInputs {
   simulationQuarters: number; // default 8
   startYear: number;          // e.g., 2025
   startQ: number;             // 1-4, e.g., 2 for Q2
+  userOverrides: UserOverrides;
 }
 
 // --- Output types ---
@@ -153,6 +154,8 @@ export interface SummaryMetrics {
   daysSavedVsBaseline: number;
   frequencyToCPLRatio: number;     // total frequency cost / total CPL cost
   effectiveCAC: number;            // total investment / closed won
+  unitEconomics: UnitEconomicsMetrics;
+  trapWarnings: TrapWarning[];
 }
 
 // Complete calculator outputs
@@ -178,6 +181,54 @@ export interface Scenario {
   inputs: CalculatorInputs;
   createdAt: number;
   updatedAt: number;
+}
+
+// --- ASP Scaling (PRD 4.11) ---
+
+export interface ASPScalingBand {
+  minASP: number;
+  maxASP: number;
+  oppToCloseAdj: number;
+  salesVelocityDays: number;
+  mqlToOppAdj: number;
+  leadToMQLAdj: number;
+  defaultCPL: number;
+  label: string;
+}
+
+export interface ASPScalingResult {
+  oppToCloseAdj: number;
+  salesVelocityDays: number;
+  mqlToOppAdj: number;
+  leadToMQLAdj: number;
+  suggestedCPL: number;
+  bandLabel: string;
+}
+
+// Tracks which fields the user has manually overridden
+export interface UserOverrides {
+  salesVelocityDays?: boolean;
+  blendedCPL?: boolean;
+}
+
+// --- Unit Economics (PRD 4.11.4) ---
+
+export interface UnitEconomicsMetrics {
+  ltvCacRatio: number;
+  cacPaybackMonths: number;
+  newCacRatio: number;
+  ltv: number;
+  cac: number;
+  grossMargin: number;
+  annualChurnRate: number;
+}
+
+export type TrafficLightStatus = 'green' | 'amber' | 'red';
+
+export interface TrapWarning {
+  id: 'too-good-cac' | 'sales-capacity' | 'overestimating-ltv';
+  message: string;
+  severity: 'warning';
 }
 
 // Campaign profile definition

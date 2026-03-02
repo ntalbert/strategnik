@@ -1,4 +1,4 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RTooltip, Legend, ResponsiveContainer, Line, ComposedChart } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RTooltip, Legend, ResponsiveContainer, Line, ComposedChart, ReferenceArea } from 'recharts';
 import { useCalculator } from '../state/context';
 
 const COLORS = {
@@ -36,6 +36,13 @@ export function TimelineTab() {
     'Cum. Revenue': q.cumulativeRevenue,
   }));
 
+  // Investment period boundaries for shading (PRD C.2)
+  const firstRevIdx = summary.firstRevenueQuarter;
+  const investmentPeriodStart = quarterly.length > 0 ? quarterly[0].quarterLabel : null;
+  const investmentPeriodEnd = firstRevIdx !== null && firstRevIdx < quarterly.length
+    ? quarterly[firstRevIdx].quarterLabel
+    : null;
+
   return (
     <div className="space-y-4">
       {/* Funnel Volume Chart */}
@@ -52,6 +59,16 @@ export function TimelineTab() {
                 formatter={(value: number, name: string) => [formatNum(value), name]}
               />
               <Legend wrapperStyle={{ fontSize: 11 }} />
+              {/* Investment Period Shading (PRD C.2) */}
+              {investmentPeriodStart && investmentPeriodEnd && firstRevIdx !== null && firstRevIdx > 0 && (
+                <ReferenceArea
+                  x1={investmentPeriodStart}
+                  x2={investmentPeriodEnd}
+                  fill="#FEF3C7"
+                  fillOpacity={0.4}
+                  label={{ value: 'Investment Period', position: 'insideTop', fontSize: 9, fill: '#92400E' }}
+                />
+              )}
               <Area type="monotone" dataKey="Leads" stackId="1" fill={COLORS.leads} stroke={COLORS.leads} fillOpacity={0.6} />
               <Area type="monotone" dataKey="MQLs" stackId="1" fill={COLORS.mqls} stroke={COLORS.mqls} fillOpacity={0.6} />
               <Area type="monotone" dataKey="Opportunities" stackId="1" fill={COLORS.opportunities} stroke={COLORS.opportunities} fillOpacity={0.6} />

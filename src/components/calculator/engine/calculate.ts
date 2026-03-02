@@ -11,22 +11,33 @@ import type {
   VelocityDistribution,
   BudgetConfig,
   AdvancedConfig,
+  ASPScalingResult,
+  UnitEconomicsMetrics,
+  TrapWarning,
+  UserOverrides,
 } from './types';
-import { CAMPAIGN_PROFILES, getQuarterLabel } from './defaults';
+import { CAMPAIGN_PROFILES, getQuarterLabel, UNIT_ECONOMICS_CONSTANTS, TRAP_THRESHOLDS } from './defaults';
+import { interpolateASPScaling } from './asp-scaling';
 
 /**
  * Pure calculation engine: CalculatorInputs → CalculatorOutputs
  * No side effects, no DOM, no React.
  */
 export function calculate(inputs: CalculatorInputs): CalculatorOutputs {
-  const { cohorts, budget, advanced, simulationQuarters, startYear, startQ, goals } = inputs;
+  const { cohorts, budget, advanced, simulationQuarters, startYear, startQ, goals, userOverrides } = inputs;
+
+  // ASP-linked scaling (PRD 4.11)
+  const aspScaling = interpolateASPScaling(goals.averageSellingPrice);
+  const effectiveSalesVelocity = userOverrides?.salesVelocityDays
+    ? advanced.salesVelocityDays
+    : aspScaling.salesVelocityDays;
 
   const cohortOutputs: CohortOutput[] = cohorts.map(cohort =>
-    processCohort(cohort, budget, advanced, goals.averageSellingPrice, simulationQuarters, startYear, startQ)
+    processCohort(cohort, budget, advanced, goals.averageSellingPrice, simulationQuarters, startYear, startQ, aspScaling, effectiveSalesVelocity)
   );
 
   const quarterly = aggregateQuarterly(cohortOutputs, simulationQuarters, startYear, startQ, budget);
-  const summary = calculateSummary(quarterly, inputs);
+  const summary = calculateSummary(quarterly, inputs, effectiveSalesVelocity);
 
   return { quarterly, cohorts: cohortOutputs, summary };
 }
@@ -41,11 +52,13 @@ function processCohort(
   totalQuarters: number,
   startYear: number,
   startQ: number,
+  aspScaling: ASPScalingResult,
+  effectiveSalesVelocity: number,
 ): CohortOutput {
   const profile = CAMPAIGN_PROFILES[cohort.profileId];
-  const rates = getEffectiveRates(cohort, profile.conversionRates);
+  const rates = getEffectiveRates(cohort, profile.conversionRates, aspScaling);
   const velocity = getEffectiveVelocity(cohort, profile.velocityDistribution);
-  const { quarterlyDropoutRate, salesVelocityDays, maxVelocityImprovement } = advanced;
+  const { quarterlyDropoutRate, maxVelocityImprovement } = advanced;
   const agencyRate = budget.inHouseCreative ? 0.12 : budget.agencyPercent;
 
   const totalPotentialLeads = cohort.totalAccounts * rates.accountToLead;
@@ -81,12 +94,12 @@ function processCohort(
     if (oppsPerQ[q] <= 0) continue;
 
     const programQuarter = q - cohort.startQuarter;
-    const effectiveVelocity = getEffectiveSalesVelocity(
-      salesVelocityDays, maxVelocityImprovement, programQuarter
+    const velocity = getEffectiveSalesVelocity(
+      effectiveSalesVelocity, maxVelocityImprovement, programQuarter
     );
 
     // Cross-quarter allocation (PRD 4.8.3)
-    const quarterDelay = effectiveVelocity / 90;
+    const quarterDelay = velocity / 90;
     const fullQuarters = Math.floor(quarterDelay);
     const fractionalSplit = quarterDelay - fullQuarters;
     const totalCloses = oppsPerQ[q] * rates.oppToClose;
@@ -201,13 +214,31 @@ function sum(arr: number[]): number {
   return arr.reduce((a, b) => a + b, 0);
 }
 
-function getEffectiveRates(cohort: CohortDefinition, profileRates: ConversionRates): ConversionRates {
-  return {
-    accountToLead: cohort.conversionOverrides?.accountToLead ?? profileRates.accountToLead,
-    leadToMQL: cohort.conversionOverrides?.leadToMQL ?? profileRates.leadToMQL,
-    mqlToOpp: cohort.conversionOverrides?.mqlToOpp ?? profileRates.mqlToOpp,
-    oppToClose: cohort.conversionOverrides?.oppToClose ?? profileRates.oppToClose,
+/** Apply ASP-scaled conversion rates with user override precedence (PRD 4.11.3, 4.11.7) */
+function getEffectiveRates(
+  cohort: CohortDefinition,
+  profileRates: ConversionRates,
+  aspScaling: ASPScalingResult,
+): ConversionRates {
+  // Apply ASP scaling to profile base rates — accountToLead is NOT scaled (PRD 4.11.3)
+  const scaledRates: ConversionRates = {
+    accountToLead: profileRates.accountToLead,
+    leadToMQL: clamp(profileRates.leadToMQL * aspScaling.leadToMQLAdj, 0.20, 0.85),
+    mqlToOpp: clamp(profileRates.mqlToOpp * aspScaling.mqlToOppAdj, 0.08, 0.50),
+    oppToClose: clamp(profileRates.oppToClose * aspScaling.oppToCloseAdj, 0.05, 0.35),
   };
+
+  // User overrides take precedence over ASP-scaled defaults
+  return {
+    accountToLead: cohort.conversionOverrides?.accountToLead ?? scaledRates.accountToLead,
+    leadToMQL: cohort.conversionOverrides?.leadToMQL ?? scaledRates.leadToMQL,
+    mqlToOpp: cohort.conversionOverrides?.mqlToOpp ?? scaledRates.mqlToOpp,
+    oppToClose: cohort.conversionOverrides?.oppToClose ?? scaledRates.oppToClose,
+  };
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, value));
 }
 
 function getEffectiveVelocity(cohort: CohortDefinition, profileVelocity: VelocityDistribution): VelocityDistribution {
@@ -289,22 +320,101 @@ function aggregateQuarterly(
   return quarterly;
 }
 
+// --- Unit Economics (PRD 4.11.4) ---
+
+function calculateUnitEconomics(
+  asp: number,
+  totalInvestment: number,
+  totalClosedWon: number,
+  totalRevenue: number,
+): UnitEconomicsMetrics {
+  const { grossMargin, annualChurnRate } = UNIT_ECONOMICS_CONSTANTS;
+  const cac = totalClosedWon > 0 ? totalInvestment / totalClosedWon : 0;
+  const ltv = asp * (1 / annualChurnRate) * grossMargin;
+  const monthlyRevenuePerCustomer = asp / 12;
+  const cacPaybackMonths = (monthlyRevenuePerCustomer * grossMargin) > 0
+    ? cac / (monthlyRevenuePerCustomer * grossMargin)
+    : Infinity;
+  const newCacRatio = totalRevenue > 0 ? totalInvestment / totalRevenue : Infinity;
+  const ltvCacRatio = cac > 0 ? ltv / cac : Infinity;
+
+  return {
+    ltvCacRatio: isFinite(ltvCacRatio) ? ltvCacRatio : 0,
+    cacPaybackMonths: isFinite(cacPaybackMonths) ? cacPaybackMonths : 0,
+    newCacRatio: isFinite(newCacRatio) ? newCacRatio : 0,
+    ltv,
+    cac,
+    grossMargin,
+    annualChurnRate,
+  };
+}
+
+// --- Trap Detection (PRD 4.11.6) ---
+
+function detectTraps(
+  unitEconomics: UnitEconomicsMetrics,
+  totalOpportunities: number,
+  simulationQuarters: number,
+): TrapWarning[] {
+  const warnings: TrapWarning[] = [];
+
+  // Trap 1: CAC ratio too good to be true
+  if (unitEconomics.newCacRatio > 0 && unitEconomics.newCacRatio < TRAP_THRESHOLDS.tooGoodCAC) {
+    warnings.push({
+      id: 'too-good-cac',
+      message: 'These assumptions imply faster returns than typical B2B sales cycles produce. Verify your conversion rates against actual pipeline data.',
+      severity: 'warning',
+    });
+  }
+
+  // Trap 2: Sales capacity exceeded
+  const avgOppsPerQ = simulationQuarters > 0 ? totalOpportunities / simulationQuarters : 0;
+  if (avgOppsPerQ > TRAP_THRESHOLDS.salesCapacityOppsPerQ) {
+    warnings.push({
+      id: 'sales-capacity',
+      message: `Pipeline volume may exceed sales capacity. Your model generates ~${Math.round(avgOppsPerQ)} opportunities per quarter. Each AE can typically manage 10\u201315 active deals.`,
+      severity: 'warning',
+    });
+  }
+
+  // Trap 3: Overestimating LTV
+  if (unitEconomics.ltvCacRatio > TRAP_THRESHOLDS.overestimatingLTV) {
+    warnings.push({
+      id: 'overestimating-ltv',
+      message: `Your unit economics appear unusually strong (${unitEconomics.ltvCacRatio.toFixed(1)}:1 LTV:CAC). If annual churn increases from 12% to 20%, this ratio drops significantly. Stress-test your retention assumption.`,
+      severity: 'warning',
+    });
+  }
+
+  return warnings;
+}
+
 // --- Summary ---
 
-function calculateSummary(quarterly: QuarterlyOutput[], inputs: CalculatorInputs): SummaryMetrics {
-  const { goals, advanced } = inputs;
+function calculateSummary(quarterly: QuarterlyOutput[], inputs: CalculatorInputs, effectiveSalesVelocity: number): SummaryMetrics {
+  const { goals, advanced, simulationQuarters } = inputs;
 
   const firstRevQ = quarterly.find(q => q.closedWon > 0.001);
   const totalInvestment = quarterly.reduce((a, q) => a + q.totalCost, 0);
   const totalRevenue = quarterly.reduce((a, q) => a + q.revenue, 0);
   const totalLeads = quarterly.reduce((a, q) => a + q.leads, 0);
   const totalClosedWon = quarterly.reduce((a, q) => a + q.closedWon, 0);
+  const totalOpportunities = quarterly.reduce((a, q) => a + q.opportunities, 0);
   const totalFreqCost = quarterly.reduce((a, q) => a + q.frequencyCost, 0);
   const totalCPLCost = quarterly.reduce((a, q) => a + q.cplCost, 0);
 
   const crossoverQ = quarterly.find(q => q.cumulativeRevenue >= q.cumulativeCost);
   const lastQ = Math.max(0, quarterly.length - 1);
-  const currentVelocity = getEffectiveSalesVelocity(advanced.salesVelocityDays, advanced.maxVelocityImprovement, lastQ);
+  const currentVelocity = getEffectiveSalesVelocity(effectiveSalesVelocity, advanced.maxVelocityImprovement, lastQ);
+
+  const unitEconomics = calculateUnitEconomics(
+    goals.averageSellingPrice,
+    totalInvestment,
+    totalClosedWon,
+    totalRevenue,
+  );
+
+  const trapWarnings = detectTraps(unitEconomics, totalOpportunities, simulationQuarters);
 
   return {
     firstRevenueQuarter: firstRevQ ? firstRevQ.quarter : null,
@@ -320,8 +430,10 @@ function calculateSummary(quarterly: QuarterlyOutput[], inputs: CalculatorInputs
     crossoverQuarter: crossoverQ ? crossoverQ.quarter : null,
     crossoverQuarterLabel: crossoverQ ? crossoverQ.quarterLabel : 'Beyond modeled range',
     currentSalesVelocity: currentVelocity,
-    daysSavedVsBaseline: advanced.salesVelocityDays - currentVelocity,
+    daysSavedVsBaseline: effectiveSalesVelocity - currentVelocity,
     frequencyToCPLRatio: totalCPLCost > 0 ? totalFreqCost / totalCPLCost : 0,
     effectiveCAC: totalClosedWon > 0 ? totalInvestment / totalClosedWon : 0,
+    unitEconomics,
+    trapWarnings,
   };
 }

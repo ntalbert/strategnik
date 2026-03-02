@@ -33,13 +33,20 @@ export function HeroMetrics() {
   const { state } = useCalculator();
   const { summary } = state.outputs;
 
+  // Investment period: quarters from first spend to first revenue (PRD C.1)
+  const investmentPeriodQ = summary.firstRevenueQuarter !== null
+    ? summary.firstRevenueQuarter + 1
+    : null;
+
   const metrics = [
     {
       id: 'firstRevenue',
       label: 'First Revenue',
       value: summary.firstRevenueQuarterLabel,
-      sub: summary.firstRevenueAmount > 0 ? formatCurrency(summary.firstRevenueAmount) : '',
-      tooltip: TOOLTIPS.firstRevenueQuarter,
+      sub: investmentPeriodQ !== null
+        ? `${investmentPeriodQ}Q investment period \u00B7 ${formatCurrency(summary.firstRevenueAmount)}`
+        : 'No revenue within model horizon',
+      tooltip: TOOLTIPS.investmentPeriod,
       traffic: getTrafficLight('firstRevenue', summary.firstRevenueQuarter, state),
     },
     {

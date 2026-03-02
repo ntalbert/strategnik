@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useCallback, useMemo, type ReactNode } from 'react';
+import { createContext, useContext, useReducer, useMemo, type ReactNode } from 'react';
 import type {
   CalculatorInputs,
   CalculatorOutputs,
@@ -14,9 +14,17 @@ import type {
 import { calculate } from '../engine/calculate';
 import { validate } from '../engine/validate';
 import { createDefaultInputs, CAMPAIGN_PROFILES } from '../engine/defaults';
+import { interpolateASPScaling, getASPBandLabel } from '../engine/asp-scaling';
 import { loadScenarios, saveScenarios } from './scenarios';
 
 // --- State ---
+
+export interface ASPNotification {
+  bandLabel: string;
+  timestamp: number;
+  adjustedFields: string[];
+  preservedFields: string[];
+}
 
 export interface CalculatorState {
   inputs: CalculatorInputs;
@@ -31,6 +39,7 @@ export interface CalculatorState {
     showEmailCapture: boolean;
     compareScenarioIds: string[];
     isFirstVisit: boolean;
+    aspNotification: ASPNotification | null;
   };
 }
 
@@ -38,6 +47,8 @@ export interface CalculatorState {
 
 type Action =
   | { type: 'SET_GOALS'; payload: Partial<GoalsConfig> }
+  | { type: 'ASP_CHANGED'; newASP: number }
+  | { type: 'DISMISS_ASP_NOTIFICATION' }
   | { type: 'SET_COHORT'; cohortId: string; payload: Partial<CohortDefinition> }
   | { type: 'ADD_COHORT' }
   | { type: 'REMOVE_COHORT'; cohortId: string }
@@ -70,6 +81,52 @@ function reducer(state: CalculatorState, action: Action): CalculatorState {
       const inputs = { ...state.inputs, goals: { ...state.inputs.goals, ...action.payload } };
       return { ...state, inputs, ...recalculate(inputs) };
     }
+
+    case 'ASP_CHANGED': {
+      const scaling = interpolateASPScaling(action.newASP);
+      const goals = { ...state.inputs.goals, averageSellingPrice: action.newASP };
+      let budget = { ...state.inputs.budget };
+      let advanced = { ...state.inputs.advanced };
+      const adjustedFields: string[] = [];
+      const preservedFields: string[] = [];
+
+      // Update CPL if not manually overridden
+      if (!state.inputs.userOverrides?.blendedCPL) {
+        budget = { ...budget, blendedCPL: scaling.suggestedCPL };
+        adjustedFields.push('CPL');
+      } else {
+        preservedFields.push('CPL');
+      }
+
+      // Update sales velocity if not manually overridden
+      if (!state.inputs.userOverrides?.salesVelocityDays) {
+        advanced = { ...advanced, salesVelocityDays: scaling.salesVelocityDays };
+        adjustedFields.push('Sales Velocity');
+      } else {
+        preservedFields.push('Sales Velocity');
+      }
+
+      adjustedFields.push('Conversion Rates');
+
+      const inputs = { ...state.inputs, goals, budget, advanced };
+      return {
+        ...state,
+        inputs,
+        ...recalculate(inputs),
+        ui: {
+          ...state.ui,
+          aspNotification: {
+            bandLabel: scaling.bandLabel,
+            timestamp: Date.now(),
+            adjustedFields,
+            preservedFields,
+          },
+        },
+      };
+    }
+
+    case 'DISMISS_ASP_NOTIFICATION':
+      return { ...state, ui: { ...state.ui, aspNotification: null } };
 
     case 'SET_COHORT': {
       const cohorts = state.inputs.cohorts.map(c =>
@@ -112,7 +169,16 @@ function reducer(state: CalculatorState, action: Action): CalculatorState {
     }
 
     case 'SET_BUDGET': {
-      const inputs = { ...state.inputs, budget: { ...state.inputs.budget, ...action.payload } };
+      const userOverrides = { ...state.inputs.userOverrides };
+      // Track manual CPL override
+      if ('blendedCPL' in action.payload) {
+        userOverrides.blendedCPL = true;
+      }
+      const inputs = {
+        ...state.inputs,
+        budget: { ...state.inputs.budget, ...action.payload },
+        userOverrides,
+      };
       return { ...state, inputs, ...recalculate(inputs) };
     }
 
@@ -123,7 +189,16 @@ function reducer(state: CalculatorState, action: Action): CalculatorState {
     }
 
     case 'SET_ADVANCED': {
-      const inputs = { ...state.inputs, advanced: { ...state.inputs.advanced, ...action.payload } };
+      const userOverrides = { ...state.inputs.userOverrides };
+      // Track manual sales velocity override
+      if ('salesVelocityDays' in action.payload) {
+        userOverrides.salesVelocityDays = true;
+      }
+      const inputs = {
+        ...state.inputs,
+        advanced: { ...state.inputs.advanced, ...action.payload },
+        userOverrides,
+      };
       return { ...state, inputs, ...recalculate(inputs) };
     }
 
@@ -160,6 +235,8 @@ function reducer(state: CalculatorState, action: Action): CalculatorState {
       const scenario = state.scenarios.find(s => s.id === action.scenarioId);
       if (!scenario) return state;
       const inputs = JSON.parse(JSON.stringify(scenario.inputs));
+      // Ensure userOverrides exists for backwards compatibility with saved scenarios
+      if (!inputs.userOverrides) inputs.userOverrides = {};
       return { ...state, inputs, ...recalculate(inputs), activeScenarioId: scenario.id };
     }
 
@@ -235,6 +312,7 @@ function createInitialState(): CalculatorState {
       showEmailCapture: false,
       compareScenarioIds: [],
       isFirstVisit,
+      aspNotification: null,
     },
   };
 }

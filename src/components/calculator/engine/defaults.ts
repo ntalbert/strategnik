@@ -117,6 +117,25 @@ export const DEFAULT_GOALS: GoalsConfig = {
   averageSellingPrice: 100000,
 };
 
+// --- Unit Economics Constants (PRD 4.11.4) ---
+
+export const UNIT_ECONOMICS_CONSTANTS = {
+  grossMargin: 0.80,
+  annualChurnRate: 0.12,
+};
+
+export const UNIT_ECONOMICS_THRESHOLDS = {
+  ltvCac: { green: 3.0, amber: 1.5 },
+  cacPaybackMonths: { green: 18, amber: 30 },
+  newCacRatio: { green: 1.50, amber: 2.50 },
+};
+
+export const TRAP_THRESHOLDS = {
+  tooGoodCAC: 0.5,
+  salesCapacityOppsPerQ: 15,
+  overestimatingLTV: 5.0,
+};
+
 // --- Default Scenario Inputs ---
 
 export function createDefaultInputs(): CalculatorInputs {
@@ -139,6 +158,7 @@ export function createDefaultInputs(): CalculatorInputs {
     simulationQuarters: 8,
     startYear: 2025,
     startQ: 2,
+    userOverrides: {},
   };
 }
 
@@ -189,4 +209,11 @@ export const TOOLTIPS: Record<string, string> = {
   frequencyVsCPL: "The ratio of pre-lead targeting spend to lead-generation spend. In a typical ABM program, frequency targeting costs 5\u201310x more than CPL-based costs because you're paying to keep the entire targeting list warm, not just the accounts that convert. This ratio is the clearest illustration of why marketing ROI takes quarters to materialize\u2014the investment is front-loaded and continuous, while conversions trickle in.",
   currentSalesVelocity: "The effective sales cycle length for the current program quarter, accounting for the velocity improvement curve. At program start this equals your baseline (default 167 days). By Q4 it reaches the improved rate (default 117 days). Displayed alongside \u2018Days Saved\u2019 to show the compounding benefit of focused targeting on deal cycle compression.",
   daysSaved: "The cumulative reduction in sales cycle days since program launch. At full improvement (30% of 167 days), this equals 50 days faster. Frame this as ROI of focused targeting: \u201cDeals now close 50 days faster than when we started, because buyers arrive better educated and more aligned.\u201d",
+
+  // Unit Economics & ASP Scaling tooltips (PRD 4.11, Section C.5)
+  investmentPeriod: "The quarters between first marketing spend and first closed revenue. During this period, triggers are firing but prospects are still traversing the information-seeking cycle. Length driven by velocity distribution and sales velocity.",
+  ltvCac: "Lifetime customer value divided by fully-loaded acquisition cost. 3:1 is the minimum for sustainable B2B SaaS. Below 1.5:1 means you\u2019re spending more to acquire customers than they will return. Calculated using your ASP, an assumed 80% gross margin, and 12% annual churn.",
+  cacPayback: "Months to recover your customer acquisition cost from gross profit. The 2025 median for private SaaS is 23 months. Under 18 months is strong. Over 30 months means you\u2019re carrying unprofitable customers for 2+ years before breaking even.",
+  newCacRatio: "Total sales and marketing spend divided by new ARR acquired. The 2024 industry median is $2.00 per $1 of new ARR. Top-quartile companies achieve $1.00. If you\u2019re above $2.50, your acquisition engine is inefficient relative to peers.",
+  aspAdjustment: "Conversion rates and sales velocity are automatically scaled based on your Average Selling Price. Smaller deals close faster and at higher rates; larger deals take longer and close less frequently. This reflects empirical data across 847+ B2B SaaS companies. You can override any adjusted value in the Advanced panel.",
 };
