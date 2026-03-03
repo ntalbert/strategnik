@@ -3,6 +3,7 @@ import { TopBar } from './TopBar';
 import { InputPanel } from './panels/InputPanel';
 import { Dashboard } from './dashboard/Dashboard';
 import { EmailCaptureModal } from './export/EmailCaptureModal';
+import { ChartCaptureContainer } from './export/ChartCaptureContainer';
 
 function CalculatorLayout() {
   return (
@@ -17,6 +18,7 @@ function CalculatorLayout() {
         <Dashboard />
       </div>
       <EmailCaptureModal />
+      <ChartCaptureContainer />
       {/* Mobile banner */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-gray-900 text-white text-xs text-center py-2 px-4 z-50">
         To customize inputs and create scenarios, open on a desktop browser.
