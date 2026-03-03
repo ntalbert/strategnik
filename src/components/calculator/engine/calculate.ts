@@ -245,9 +245,8 @@ function processCohort(
     // CPL cost (PRD 4.6.1 Layer 2)
     const cplCost = leadsPerQ[q] * budget.blendedCPL;
 
-    // Agency cost (PRD 4.6.3) with content cost premium for inbound profiles
-    const totalMedia = frequencyCost + cplCost;
-    const agencyCost = totalMedia * agencyRate * profile.contentCostMultiplier;
+    // Agency cost applies to CPL/creative layer only — not frequency targeting
+    const agencyCost = cplCost * agencyRate * profile.contentCostMultiplier;
 
     // Software cost per cohort: flat quarterly, but we'll handle dedup in aggregation
     // For cohort view, show proportional share (actual flat cost is in aggregate)
