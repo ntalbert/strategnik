@@ -9,12 +9,13 @@ function formatCurrency(n: number): string {
 }
 
 function exportCSV(quarterly: any[]) {
-  const headers = ['Quarter', 'Leads', 'MQLs', 'Opportunities', 'Closed Won', 'Revenue', 'Frequency Cost', 'CPL Cost', 'Software', 'Agency', 'Total Cost', 'Cum. Revenue', 'Cum. Cost'];
+  const headers = ['Quarter', 'Leads', 'MQLs', 'Opportunities', 'Pipeline', 'Closed Won', 'Revenue', 'Frequency Cost', 'CPL Cost', 'Software', 'Agency', 'Total Cost', 'Cum. Revenue', 'Cum. Cost'];
   const rows = quarterly.map(q => [
     q.quarterLabel,
     q.leads.toFixed(1),
     q.mqls.toFixed(1),
     q.opportunities.toFixed(1),
+    Math.round(q.pipeline),
     q.closedWon.toFixed(2),
     Math.round(q.revenue),
     Math.round(q.frequencyCost),
@@ -60,6 +61,7 @@ export function DataTab() {
               <th className="text-right px-3 py-2 font-semibold text-gray-400">Leads</th>
               <th className="text-right px-3 py-2 font-semibold text-gray-400">MQLs</th>
               <th className="text-right px-3 py-2 font-semibold text-gray-400">Opps</th>
+              <th className="text-right px-3 py-2 font-semibold text-gray-400">Pipeline</th>
               <th className="text-right px-3 py-2 font-semibold text-gray-400">Won</th>
               <th className="text-right px-3 py-2 font-semibold text-gray-400">Revenue</th>
               <th className="text-right px-3 py-2 font-semibold text-gray-400">Freq. Cost</th>
@@ -76,6 +78,7 @@ export function DataTab() {
                 <td className="text-right px-3 py-2 text-gray-300">{formatNum(q.leads)}</td>
                 <td className="text-right px-3 py-2 text-gray-300">{formatNum(q.mqls)}</td>
                 <td className="text-right px-3 py-2 text-gray-300">{formatNum(q.opportunities)}</td>
+                <td className="text-right px-3 py-2 text-gray-300">{formatCurrency(q.pipeline)}</td>
                 <td className="text-right px-3 py-2 text-gray-300">{formatNum(q.closedWon)}</td>
                 <td className="text-right px-3 py-2 text-gray-300">{formatCurrency(q.revenue)}</td>
                 <td className="text-right px-3 py-2 text-gray-500">{formatCurrency(q.frequencyCost)}</td>
@@ -91,6 +94,7 @@ export function DataTab() {
               <td className="text-right px-3 py-2 text-white">{formatNum(quarterly.reduce((a, q) => a + q.leads, 0))}</td>
               <td className="text-right px-3 py-2 text-white">{formatNum(quarterly.reduce((a, q) => a + q.mqls, 0))}</td>
               <td className="text-right px-3 py-2 text-white">{formatNum(quarterly.reduce((a, q) => a + q.opportunities, 0))}</td>
+              <td className="text-right px-3 py-2 text-white">{formatCurrency(quarterly.reduce((a, q) => a + q.pipeline, 0))}</td>
               <td className="text-right px-3 py-2 text-white">{formatNum(quarterly.reduce((a, q) => a + q.closedWon, 0))}</td>
               <td className="text-right px-3 py-2 text-white">{formatCurrency(quarterly.reduce((a, q) => a + q.revenue, 0))}</td>
               <td className="text-right px-3 py-2 text-gray-500">{formatCurrency(quarterly.reduce((a, q) => a + q.frequencyCost, 0))}</td>

@@ -114,10 +114,14 @@ export function BudgetTab() {
             </ComposedChart>
           </ResponsiveContainer>
         </div>
-        <div className="mt-2 grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+        <div className="mt-2 grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
           <div className="bg-gray-800 rounded-lg p-2">
             <div className="text-gray-500">Total Investment</div>
             <div className="font-semibold text-white">{formatCurrency(summary.totalInvestment)}</div>
+          </div>
+          <div className="bg-gray-800 rounded-lg p-2">
+            <div className="text-gray-500">Total Pipeline</div>
+            <div className="font-semibold text-white">{formatCurrency(summary.totalPipeline)}</div>
           </div>
           <div className="bg-gray-800 rounded-lg p-2">
             <div className="text-gray-500">Total Revenue</div>
@@ -128,8 +132,8 @@ export function BudgetTab() {
             <div className="font-semibold text-white">{formatCurrency(summary.effectiveCAC)}</div>
           </div>
           <div className="bg-gray-800 rounded-lg p-2">
-            <div className="text-gray-500">Freq:CPL Ratio</div>
-            <div className="font-semibold text-white">{summary.frequencyToCPLRatio.toFixed(1)}x</div>
+            <div className="text-gray-500">Pipeline:Mktg</div>
+            <div className="font-semibold text-white">{summary.pipelineToMarketingRatio.toFixed(1)}:1</div>
           </div>
         </div>
       </div>

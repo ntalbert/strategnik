@@ -56,10 +56,14 @@ export interface AdvancedConfig {
   maxVelocityImprovement: number; // default 0.30
 }
 
+// Company stage for pipeline benchmarks
+export type CompanyStage = 'series-a' | 'growth' | 'high-growth';
+
 // Goals
 export interface GoalsConfig {
   arrGoal: number;           // default $6,000,000
   averageSellingPrice: number; // default $100,000
+  companyStage: CompanyStage;  // default 'series-a'
 }
 
 // Complete calculator inputs
@@ -111,6 +115,7 @@ export interface QuarterlyOutput {
   mqls: number;
   opportunities: number;
   closedWon: number;
+  pipeline: number;             // opportunities × ASP
   revenue: number;
   cumulativeRevenue: number;
   frequencyCost: number;
@@ -155,6 +160,8 @@ export interface SummaryMetrics {
   daysSavedVsBaseline: number;
   frequencyToCPLRatio: number;     // total frequency cost / total CPL cost
   effectiveCAC: number;            // total investment / closed won
+  totalPipeline: number;           // total opportunities × ASP
+  pipelineToMarketingRatio: number; // total pipeline / total investment
   unitEconomics: UnitEconomicsMetrics;
   trapWarnings: TrapWarning[];
 }

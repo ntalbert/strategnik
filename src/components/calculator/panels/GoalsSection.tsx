@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useCalculator } from '../state/context';
 import { NumberInput } from '../shared/NumberInput';
-import { TOOLTIPS, CAMPAIGN_PROFILES } from '../engine/defaults';
+import { Tooltip } from '../shared/Tooltip';
+import { TOOLTIPS, CAMPAIGN_PROFILES, PIPELINE_BENCHMARKS } from '../engine/defaults';
+import type { CompanyStage } from '../engine/types';
 
 export function GoalsSection() {
   const { state, dispatch } = useCalculator();
@@ -64,6 +66,35 @@ export function GoalsSection() {
         max={1000000}
         step={5000}
       />
+      {/* Company Stage Selector */}
+      <div className="space-y-1">
+        <label className="flex items-center text-xs font-medium text-gray-300">
+          Company Stage
+          <Tooltip content={TOOLTIPS.companyStage} />
+        </label>
+        <div className="grid grid-cols-3 gap-1">
+          {(Object.keys(PIPELINE_BENCHMARKS) as CompanyStage[]).map((stage) => {
+            const b = PIPELINE_BENCHMARKS[stage];
+            const isActive = goals.companyStage === stage;
+            return (
+              <button
+                key={stage}
+                onClick={() => dispatch({ type: 'SET_GOALS', payload: { companyStage: stage } })}
+                className={`px-2 py-1.5 text-[10px] rounded-md border transition-colors text-center leading-tight
+                  ${isActive
+                    ? 'border-[#1de2c4] bg-[#1de2c4]/10 text-[#1de2c4] font-medium'
+                    : 'border-gray-600 bg-gray-800 text-gray-400 hover:border-gray-500'}`}
+              >
+                {b.label}
+              </button>
+            );
+          })}
+        </div>
+        <div className="text-[9px] text-gray-500">
+          Target: {PIPELINE_BENCHMARKS[goals.companyStage].ratio}:1 pipeline-to-marketing ratio
+        </div>
+      </div>
+
       {/* ASP Change Notification (PRD C.4) */}
       {notification && (
         <div className="rounded-lg bg-[#1de2c4]/10 border border-[#1de2c4]/30 px-3 py-2 text-[11px] text-[#1de2c4] transition-opacity duration-300">

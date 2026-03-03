@@ -1,6 +1,6 @@
 import { useCalculator } from '../state/context';
 import { Tooltip } from '../shared/Tooltip';
-import { TOOLTIPS } from '../engine/defaults';
+import { TOOLTIPS, PIPELINE_BENCHMARKS } from '../engine/defaults';
 
 function formatCurrency(n: number): string {
   if (n >= 1000000) return `$${(n / 1000000).toFixed(1)}M`;
@@ -26,12 +26,21 @@ function getTrafficLight(metric: string, value: number | null, state: any): { co
     if (value !== null && value < 8000) return { color: 'border-amber-700 bg-amber-900/20', label: 'Typical', badgeColor: 'text-amber-400 bg-amber-900/40' };
     return { color: 'border-red-700 bg-red-900/20', label: 'High', badgeColor: 'text-red-400 bg-red-900/40' };
   }
+  if (metric === 'pipeline') {
+    const benchmark = state?.inputs?.goals?.companyStage
+      ? PIPELINE_BENCHMARKS[state.inputs.goals.companyStage].ratio
+      : 5.0;
+    if (value !== null && value >= benchmark) return { color: 'border-green-700 bg-green-900/20', label: 'On Target', badgeColor: 'text-green-400 bg-green-900/40' };
+    if (value !== null && value >= benchmark * 0.7) return { color: 'border-amber-700 bg-amber-900/20', label: 'Below Target', badgeColor: 'text-amber-400 bg-amber-900/40' };
+    return { color: 'border-red-700 bg-red-900/20', label: 'Pipeline Gap', badgeColor: 'text-red-400 bg-red-900/40' };
+  }
   return { color: 'border-gray-700 bg-gray-900/20', label: '', badgeColor: 'text-gray-400 bg-gray-800' };
 }
 
 export function HeroMetrics() {
   const { state } = useCalculator();
   const { summary } = state.outputs;
+  const stageBenchmark = PIPELINE_BENCHMARKS[state.inputs.goals.companyStage];
 
   // Investment period: quarters from first spend to first revenue (PRD C.1)
   const investmentPeriodQ = summary.firstRevenueQuarter !== null
@@ -48,6 +57,14 @@ export function HeroMetrics() {
         : 'No revenue within model horizon',
       tooltip: TOOLTIPS.investmentPeriod,
       traffic: getTrafficLight('firstRevenue', summary.firstRevenueQuarter, state),
+    },
+    {
+      id: 'pipeline',
+      label: 'Pipeline Generated',
+      value: formatCurrency(summary.totalPipeline),
+      sub: `${summary.pipelineToMarketingRatio.toFixed(1)}:1 ratio \u00B7 ${stageBenchmark.ratio}:1 target`,
+      tooltip: TOOLTIPS.pipelineRatio,
+      traffic: getTrafficLight('pipeline', summary.pipelineToMarketingRatio, state),
     },
     {
       id: 'investment',
@@ -68,7 +85,7 @@ export function HeroMetrics() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
       {metrics.map((m) => (
         <div key={m.id} className={`rounded-xl border p-4 ${m.traffic.color}`}>
           <div className="flex items-center justify-between mb-1">

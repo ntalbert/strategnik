@@ -114,7 +114,7 @@ export function calculate(inputs: CalculatorInputs): CalculatorOutputs {
     processCohort(cohort, budget, advanced, goals.averageSellingPrice, simulationQuarters, startYear, startQ, aspScaling, effectiveSalesVelocity, compoundingBoost)
   );
 
-  const quarterly = aggregateQuarterly(cohortOutputs, simulationQuarters, startYear, startQ, budget);
+  const quarterly = aggregateQuarterly(cohortOutputs, simulationQuarters, startYear, startQ, budget, goals.averageSellingPrice);
   const summary = calculateSummary(quarterly, inputs, effectiveSalesVelocity);
 
   return { quarterly, cohorts: cohortOutputs, summary };
@@ -362,6 +362,7 @@ function aggregateQuarterly(
   startYear: number,
   startQ: number,
   budget: BudgetConfig,
+  asp: number,
 ): QuarterlyOutput[] {
   const quarterly: QuarterlyOutput[] = [];
   let cumulativeRevenue = 0;
@@ -390,10 +391,12 @@ function aggregateQuarterly(
     cumulativeRevenue += revenue;
     cumulativeCost += totalCost;
 
+    const pipeline = opportunities * asp;
+
     quarterly.push({
       quarter: q,
       quarterLabel: getQuarterLabel(q, startYear, startQ),
-      leads, mqls, opportunities, closedWon, revenue, cumulativeRevenue,
+      leads, mqls, opportunities, closedWon, pipeline, revenue, cumulativeRevenue,
       frequencyCost, cplCost, softwareCost, agencyCost, totalCost, cumulativeCost,
     });
   }
@@ -514,6 +517,8 @@ function calculateSummary(quarterly: QuarterlyOutput[], inputs: CalculatorInputs
     daysSavedVsBaseline: effectiveSalesVelocity - currentVelocity,
     frequencyToCPLRatio: totalCPLCost > 0 ? totalFreqCost / totalCPLCost : 0,
     effectiveCAC: totalClosedWon > 0 ? totalInvestment / totalClosedWon : 0,
+    totalPipeline: totalOpportunities * goals.averageSellingPrice,
+    pipelineToMarketingRatio: totalInvestment > 0 ? (totalOpportunities * goals.averageSellingPrice) / totalInvestment : 0,
     unitEconomics,
     trapWarnings,
   };
