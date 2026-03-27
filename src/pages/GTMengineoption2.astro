@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PasswordGate from '../components/PasswordGate';
+import GTMArchitectureV2 from '../components/GTMArchitectureV2';
+---
+
+<BaseLayout
+  title="GTM Systems Architecture — Option 2"
+  description="Middleware-first GTM architecture — Syncari + Celigo + n8n middleware stack with Claude AI MEDDPICC extraction, stack audit, and field ownership matrix."
+>
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+  <PasswordGate client:load>
+    <GTMArchitectureV2 client:load />
+  </PasswordGate>
+</BaseLayout>

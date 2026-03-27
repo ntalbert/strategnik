@@ -17,55 +17,55 @@ const CAT = {
 };
 const PC: Record<number, string> = { 1: '#f59e0b', 2: '#60a5fa', 3: '#c084fc', 4: '#34d399' };
 const SD: Record<string, string | undefined> = { bi: undefined, uni: undefined, append: '2 5', read: '1 7' };
-const SL: Record<string, string> = { bi: '\u21c4 Bidirectional', uni: '\u2192 Unidirectional', append: '+ Append-only', read: '\u25e6 Read-only' };
+const SL: Record<string, string> = { bi: '⇄ Bidirectional', uni: '→ Unidirectional', append: '+ Append-only', read: '◦ Read-only' };
 
 const NODES = [
-  { id:'sf',  name:'Salesforce',       sub:'OWNS: Acct \u00b7 Opp \u00b7 Stage \u00b7 ACV \u00b7 Close Date',       cat:'core',   x:490, y:330, w:172 },
-  { id:'hs',  name:'HubSpot',          sub:'OWNS: Contact \u00b7 Lead \u00b7 MQL \u00b7 Scheduling',         cat:'core',   x:218, y:158, w:158 },
-  { id:'ns',  name:'NetSuite',         sub:'OWNS: Order \u00b7 RevRec \u00b7 Commission',                   cat:'core',   x:822, y:158, w:158 },
-  { id:'vib', name:'Vibe Prospecting', sub:'OWNS: ICP lists \u00b7 intent \u00b7 acct signals',             cat:'tof',    x:300, y:62,  w:172 },
-  { id:'lin', name:'LinkedIn SNav',    sub:'READ ONLY \u00b7 context overlay in SFDC',                 cat:'tof',    x:520, y:62,  w:135 },
-  { id:'n8n', name:'n8n',              sub:'SOLE MIDDLEWARE \u00b7 PDL \u00b7 Gong\u2192Claude \u00b7 all sync',    cat:'auto',   x:78,  y:162, w:148 },
-  { id:'gon', name:'Gong',             sub:'OWNS: Call Intel \u00b7 MEDDPICC via n8n+Claude',          cat:'seller', x:78,  y:310, w:120 },
-  { id:'cpq', name:'DealHub CPQ',      sub:'OWNS: Quote \u00b7 Pricing \u00b7 Approvals',                   cat:'sales',  x:855, y:258, w:132 },
+  { id:'sf',  name:'Salesforce',       sub:'OWNS: Acct · Opp · Stage · ACV · Close Date',       cat:'core',   x:490, y:330, w:172 },
+  { id:'hs',  name:'HubSpot',          sub:'OWNS: Contact · Lead · MQL · Scheduling',         cat:'core',   x:218, y:158, w:158 },
+  { id:'ns',  name:'NetSuite',         sub:'OWNS: Order · RevRec · Commission',                   cat:'core',   x:822, y:158, w:158 },
+  { id:'vib', name:'Vibe Prospecting', sub:'OWNS: ICP lists · intent · acct signals',             cat:'tof',    x:300, y:62,  w:172 },
+  { id:'lin', name:'LinkedIn SNav',    sub:'READ ONLY · context overlay in SFDC',                 cat:'tof',    x:520, y:62,  w:135 },
+  { id:'n8n', name:'n8n',              sub:'SOLE MIDDLEWARE · PDL · Gong→Claude · all sync',    cat:'auto',   x:78,  y:162, w:148 },
+  { id:'gon', name:'Gong',             sub:'OWNS: Call Intel · MEDDPICC via n8n+Claude',          cat:'seller', x:78,  y:310, w:120 },
+  { id:'cpq', name:'DealHub CPQ',      sub:'OWNS: Quote · Pricing · Approvals',                   cat:'sales',  x:855, y:258, w:132 },
   { id:'pan', name:'PandaDoc / CLM',   sub:'OWNS: Contract execution',                            cat:'sales',  x:855, y:358, w:140 },
-  { id:'vit', name:'Vitally',          sub:'OWNS: Health Score \u00b7 Renewal Risk',                   cat:'cs',     x:258, y:452, w:128 },
-  { id:'zen', name:'ZenDesk',          sub:'OWNS: Tickets \u00b7 CSAT',                                cat:'cs',     x:462, y:512, w:115 },
-  { id:'pen', name:'Pendo',            sub:'OWNS: Usage \u00b7 DAU/MAU \u00b7 Adoption',                    cat:'cs',     x:652, y:452, w:125 },
-  { id:'snw', name:'Snowflake',        sub:'WAREHOUSE \u00b7 dbt \u00b7 Census reverse ETL',                cat:'cs',     x:680, y:330, w:138 },
+  { id:'vit', name:'Vitally',          sub:'OWNS: Health Score · Renewal Risk',                   cat:'cs',     x:258, y:452, w:128 },
+  { id:'zen', name:'ZenDesk',          sub:'OWNS: Tickets · CSAT',                                cat:'cs',     x:462, y:512, w:115 },
+  { id:'pen', name:'Pendo',            sub:'OWNS: Usage · DAU/MAU · Adoption',                    cat:'cs',     x:652, y:452, w:125 },
+  { id:'snw', name:'Snowflake',        sub:'WAREHOUSE · dbt · Census reverse ETL',                cat:'cs',     x:680, y:330, w:138 },
   { id:'loo', name:'Loopio',           sub:'OWNS: RFP records',                                   cat:'collab', x:822, y:458, w:108 },
-  { id:'slk', name:'Slack',            sub:'RECEIVES: Alerts only \u00b7 no writes',                   cat:'collab', x:100, y:538, w:104 },
-  { id:'gws', name:'Google WS',        sub:'OWNS: Email activity \u00b7 Calendar',                     cat:'collab', x:278, y:538, w:128 },
+  { id:'slk', name:'Slack',            sub:'RECEIVES: Alerts only · no writes',                   cat:'collab', x:100, y:538, w:104 },
+  { id:'gws', name:'Google WS',        sub:'OWNS: Email activity · Calendar',                     cat:'collab', x:278, y:538, w:128 },
 ];
 
 const EDGES = [
-  {id:'e1',  from:'hs',  to:'sf',  label:'MQL handoff \u00b7 attribution',              objs:'Contact \u00b7 Lead \u00b7 Campaign',                sync:'bi',     phase:1},
-  {id:'e2',  from:'sf',  to:'ns',  label:'Quote-to-cash \u00b7 commissions',             objs:'Opportunity \u00b7 Order \u00b7 Commission',          sync:'bi',     phase:1},
-  {id:'e3',  from:'vib', to:'hs',  label:'ICP list import \u00b7 prospect records',     objs:'Contact \u00b7 Company',                        sync:'uni',    phase:1},
-  {id:'e4',  from:'vib', to:'sf',  label:'Account signals \u00b7 firmographic enrich',  objs:'Account \u00b7 Custom Signal Field',              sync:'uni',    phase:1},
-  {id:'e5',  from:'hs',  to:'n8n', label:'New contact trigger \u2192 PDL lookup',       objs:'Contact (trigger event)',                   sync:'uni',    phase:1},
+  {id:'e1',  from:'hs',  to:'sf',  label:'MQL handoff · attribution',              objs:'Contact · Lead · Campaign',                sync:'bi',     phase:1},
+  {id:'e2',  from:'sf',  to:'ns',  label:'Quote-to-cash · commissions',             objs:'Opportunity · Order · Commission',          sync:'bi',     phase:1},
+  {id:'e3',  from:'vib', to:'hs',  label:'ICP list import · prospect records',     objs:'Contact · Company',                        sync:'uni',    phase:1},
+  {id:'e4',  from:'vib', to:'sf',  label:'Account signals · firmographic enrich',  objs:'Account · Custom Signal Field',              sync:'uni',    phase:1},
+  {id:'e5',  from:'hs',  to:'n8n', label:'New contact trigger → PDL lookup',       objs:'Contact (trigger event)',                   sync:'uni',    phase:1},
   {id:'e6',  from:'n8n', to:'hs',  label:'Enriched fields upsert-only',            objs:'Contact (enriched fields)',                 sync:'uni',    phase:1},
-  {id:'e7',  from:'n8n', to:'sf',  label:'Outbound enrich \u00b7 blank fields only',    objs:'Contact \u00b7 Account (enrichment)',              sync:'uni',    phase:1},
-  {id:'e8',  from:'sf',  to:'cpq', label:'Opp triggers quote creation',            objs:'Opportunity \u2192 Quote',                      sync:'uni',    phase:2},
-  {id:'e9',  from:'cpq', to:'sf',  label:'Approved amount \u2192 Opp',                 objs:'Quote \u2192 Opportunity (Amount)',                sync:'uni',    phase:2},
-  {id:'e10', from:'cpq', to:'ns',  label:'Signed \u2192 auto order creation',          objs:'Quote \u2192 Sales Order',                       sync:'uni',    phase:2},
-  {id:'e11', from:'pan', to:'sf',  label:'Contract status sync',                   objs:'Contract \u2192 Opportunity (Status)',            sync:'bi',     phase:2},
-  {id:'e12', from:'pan', to:'ns',  label:'Executed \u2192 RevRec schedule',            objs:'Contract \u2192 Revenue Schedule',                sync:'uni',    phase:2},
-  {id:'e13', from:'pen', to:'sf',  label:'Usage \u00b7 DAU/MAU \u2192 Account',             objs:'Product Event \u2192 Account (Usage Fields)',     sync:'uni',    phase:2},
-  {id:'e14', from:'pen', to:'vit', label:'Usage \u2192 health score input',            objs:'Product Event \u2192 Health Metric',              sync:'uni',    phase:2},
-  {id:'e15', from:'gon', to:'sf',  label:'Call intel \u00b7 MEDDPICC via n8n+Claude',  objs:'Call \u2192 Opportunity (MEDDPICC Fields)',       sync:'uni',    phase:2},
-  {id:'e16', from:'gon', to:'n8n', label:'Transcripts \u2192 Claude API \u2192 MEDDPICC', objs:'Call Transcript \u2192 Structured JSON',          sync:'uni',    phase:2},
-  {id:'e17', from:'vit', to:'sf',  label:'Health scores \u00b7 renewal flags',         objs:'Customer \u2192 Account (Health, Risk Flag)',    sync:'bi',     phase:3},
-  {id:'e18', from:'zen', to:'sf',  label:'Ticket volume \u00b7 CSAT \u2192 Account',        objs:'Ticket \u2192 Account (Volume, CSAT)',           sync:'uni',    phase:3},
-  {id:'e19', from:'zen', to:'vit', label:'Support \u2192 health degradation',          objs:'Ticket \u2192 Health Metric',                    sync:'uni',    phase:3},
-  {id:'e20', from:'loo', to:'sf',  label:'RFP \u2192 Opportunity linkage',             objs:'RFP Record \u2192 Opportunity',                  sync:'uni',    phase:3},
-  {id:'e21', from:'sf',  to:'slk', label:'Deal alerts \u00b7 stage changes',           objs:'Opportunity (notification only)',            sync:'uni',    phase:3},
-  {id:'e22', from:'gws', to:'sf',  label:'Activity auto-log \u00b7 cal sync',          objs:'Email \u00b7 Calendar Event \u2192 Activity',          sync:'uni',    phase:3},
-  {id:'e23', from:'lin', to:'sf',  label:'Context overlay (read only)',            objs:'Contact \u00b7 Account (overlay widget)',        sync:'read',   phase:3},
-  {id:'e24', from:'ns',  to:'sf',  label:'ARR \u00b7 Invoice status (read)',           objs:'Subscription \u00b7 Invoice \u2192 Account',          sync:'read',   phase:4},
-  {id:'e25', from:'sf',  to:'snw', label:'Opp + Account \u2192 warehouse',            objs:'Opportunity \u00b7 Account \u00b7 Activity',            sync:'uni',    phase:4},
-  {id:'e26', from:'ns',  to:'snw', label:'Financial data \u2192 warehouse',           objs:'Order \u00b7 Invoice \u00b7 Revenue Schedule',        sync:'uni',    phase:4},
-  {id:'e27', from:'snw', to:'sf',  label:'Census reverse ETL \u2192 SFDC',            objs:'Computed Fields \u2192 Account \u00b7 Opportunity',   sync:'uni',    phase:4},
+  {id:'e7',  from:'n8n', to:'sf',  label:'Outbound enrich · blank fields only',    objs:'Contact · Account (enrichment)',              sync:'uni',    phase:1},
+  {id:'e8',  from:'sf',  to:'cpq', label:'Opp triggers quote creation',            objs:'Opportunity → Quote',                      sync:'uni',    phase:2},
+  {id:'e9',  from:'cpq', to:'sf',  label:'Approved amount → Opp',                 objs:'Quote → Opportunity (Amount)',                sync:'uni',    phase:2},
+  {id:'e10', from:'cpq', to:'ns',  label:'Signed → auto order creation',          objs:'Quote → Sales Order',                       sync:'uni',    phase:2},
+  {id:'e11', from:'pan', to:'sf',  label:'Contract status sync',                   objs:'Contract → Opportunity (Status)',            sync:'bi',     phase:2},
+  {id:'e12', from:'pan', to:'ns',  label:'Executed → RevRec schedule',            objs:'Contract → Revenue Schedule',                sync:'uni',    phase:2},
+  {id:'e13', from:'pen', to:'sf',  label:'Usage · DAU/MAU → Account',             objs:'Product Event → Account (Usage Fields)',     sync:'uni',    phase:2},
+  {id:'e14', from:'pen', to:'vit', label:'Usage → health score input',            objs:'Product Event → Health Metric',              sync:'uni',    phase:2},
+  {id:'e15', from:'gon', to:'sf',  label:'Call intel · MEDDPICC via n8n+Claude',  objs:'Call → Opportunity (MEDDPICC Fields)',       sync:'uni',    phase:2},
+  {id:'e16', from:'gon', to:'n8n', label:'Transcripts → Claude API → MEDDPICC', objs:'Call Transcript → Structured JSON',          sync:'uni',    phase:2},
+  {id:'e17', from:'vit', to:'sf',  label:'Health scores · renewal flags',         objs:'Customer → Account (Health, Risk Flag)',    sync:'bi',     phase:3},
+  {id:'e18', from:'zen', to:'sf',  label:'Ticket volume · CSAT → Account',        objs:'Ticket → Account (Volume, CSAT)',           sync:'uni',    phase:3},
+  {id:'e19', from:'zen', to:'vit', label:'Support → health degradation',          objs:'Ticket → Health Metric',                    sync:'uni',    phase:3},
+  {id:'e20', from:'loo', to:'sf',  label:'RFP → Opportunity linkage',             objs:'RFP Record → Opportunity',                  sync:'uni',    phase:3},
+  {id:'e21', from:'sf',  to:'slk', label:'Deal alerts · stage changes',           objs:'Opportunity (notification only)',            sync:'uni',    phase:3},
+  {id:'e22', from:'gws', to:'sf',  label:'Activity auto-log · cal sync',          objs:'Email · Calendar Event → Activity',          sync:'uni',    phase:3},
+  {id:'e23', from:'lin', to:'sf',  label:'Context overlay (read only)',            objs:'Contact · Account (overlay widget)',        sync:'read',   phase:3},
+  {id:'e24', from:'ns',  to:'sf',  label:'ARR · Invoice status (read)',           objs:'Subscription · Invoice → Account',          sync:'read',   phase:4},
+  {id:'e25', from:'sf',  to:'snw', label:'Opp + Account → warehouse',            objs:'Opportunity · Account · Activity',            sync:'uni',    phase:4},
+  {id:'e26', from:'ns',  to:'snw', label:'Financial data → warehouse',           objs:'Order · Invoice · Revenue Schedule',        sync:'uni',    phase:4},
+  {id:'e27', from:'snw', to:'sf',  label:'Census reverse ETL → SFDC',            objs:'Computed Fields → Account · Opportunity',   sync:'uni',    phase:4},
 ];
 
 const OWNERSHIP = [
@@ -78,7 +78,7 @@ const OWNERSHIP = [
   { cat:'Prospecting & Enrichment', color:'#06b6d4', rows:[
     {field:'ICP prospect lists',        owner:'Vibe Prospecting', readers:'HubSpot (import)',          sync:'uni',    rule:'Built via Explorium MCP co-pilot. Imported to HubSpot as new contacts. Dedup enforced at n8n before insert. No direct SFDC inserts.'},
     {field:'Account signals',           owner:'Vibe Prospecting', readers:'SFDC (signal field)',       sync:'uni',    rule:'Dedicated SFDC Account field. Not merged with rep-entered data.'},
-    {field:'Inbound contact enrich',    owner:'PDL via n8n',      readers:'HubSpot (upsert)',          sync:'uni',    rule:'Trigger: new contact created in HubSpot. n8n fires PDL lookup. Upsert-only \u2014 blank fields only. Trigger guard prevents re-enrichment loops. Pay-per-match controls spend.'},
+    {field:'Inbound contact enrich',    owner:'PDL via n8n',      readers:'HubSpot (upsert)',          sync:'uni',    rule:'Trigger: new contact created in HubSpot. n8n fires PDL lookup. Upsert-only — blank fields only. Trigger guard prevents re-enrichment loops. Pay-per-match controls spend.'},
     {field:'Outbound contact enrich',   owner:'PDL via n8n',      readers:'HubSpot, SFDC',             sync:'uni',    rule:'Same n8n + PDL infrastructure as inbound. Upsert-only. Blank fields only. 30-day write-lock honored. No INSERT permissions.'},
   ]},
   { cat:'Financial Records', color:'#60a5fa', rows:[
@@ -86,10 +86,10 @@ const OWNERSHIP = [
     {field:'Order / subscription',      owner:'NetSuite',         readers:'SFDC (display only)',        sync:'read',   rule:'Auto-created on signing. SFDC displays but cannot write back.'},
     {field:'Revenue recognition',       owner:'NetSuite',         readers:'Finance only',              sync:'none',   rule:'No GTM write access. Read-only display in SFDC.'},
     {field:'Commission',                owner:'NetSuite',         readers:'SFDC (display)',             sync:'read',   rule:'Calculated in NetSuite. Rep dashboard in SFDC is read-only.'},
-    {field:'Contract status',           owner:'PandaDoc/CLM',     readers:'SFDC, NetSuite',            sync:'uni',    rule:'Signed status \u2192 SFDC and triggers NetSuite order creation.'},
+    {field:'Contract status',           owner:'PandaDoc/CLM',     readers:'SFDC, NetSuite',            sync:'uni',    rule:'Signed status → SFDC and triggers NetSuite order creation.'},
   ]},
   { cat:'Activity & Seller Automation', color:'#34d399', rows:[
-    {field:'Call intelligence',         owner:'Gong',             readers:'SFDC (via n8n+Claude)',      sync:'uni',    rule:'Gong transcripts flow through n8n \u2192 Claude API \u2192 structured MEDDPICC fields written to SFDC Opp. Same n8n infrastructure as PDL enrichment \u2014 incremental build.'},
+    {field:'Call intelligence',         owner:'Gong',             readers:'SFDC (via n8n+Claude)',      sync:'uni',    rule:'Gong transcripts flow through n8n → Claude API → structured MEDDPICC fields written to SFDC Opp. Same n8n infrastructure as PDL enrichment — incremental build.'},
     {field:'Meeting / scheduling',      owner:'HubSpot',          readers:'SFDC (creates activity)',   sync:'uni',    rule:'HubSpot handles meeting scheduling natively. Every booked meeting auto-creates SFDC activity on Contact + Opp.'},
     {field:'Email activity',            owner:'Google WS',        readers:'SFDC',                      sync:'uni',    rule:'Auto-logged to SFDC only. Source email never modified. Simplified from dual-log.'},
     {field:'Buyer context',             owner:'LinkedIn SNav',    readers:'SFDC (overlay only)',       sync:'read',   rule:'Read-only overlay in SFDC. Never written into SFDC structured fields.'},
@@ -104,52 +104,52 @@ const OWNERSHIP = [
 ];
 
 const CONCURRENCY = [
-  {rule:'Update Lock',           detail:"While System A writes to Record X, System B\u2019s update for the same record is queued \u2014 not dropped. After A\u2019s write completes, B\u2019s update is evaluated field-by-field against the ownership matrix."},
+  {rule:'Update Lock',           detail:"While System A writes to Record X, System B’s update for the same record is queued — not dropped. After A’s write completes, B’s update is evaluated field-by-field against the ownership matrix."},
   {rule:'Circular Detection',    detail:'Every update is tagged with an origin stamp by n8n. If an update arrives destined for the same system it originated from, it is discarded. Eliminates infinite loops in bidirectional syncs.'},
   {rule:'Conflict Queue',        detail:'Any update violating the ownership matrix routes to a RevOps review queue. Nothing fails silently. Conflicting systems, values, and timestamps are logged. Human resolves once; the rule is then codified.'},
   {rule:'Enrichment Write-Lock', detail:'After a SFDC or HubSpot field is updated by a rep or workflow, it is write-locked for 30 days. PDL/n8n and Vibe Prospecting cannot overwrite during that window.'},
-  {rule:'No-Create Rule',        detail:'PDL/n8n and Vibe Prospecting are upsert-only at the middleware level \u2014 zero INSERT permissions enforced at n8n, not just tool config. New records flow through HubSpot (contacts) or SFDC (accounts/opps) only.'},
-  {rule:'PDL Trigger Guard',     detail:'n8n fires PDL enrichment on HubSpot contact creation only \u2014 not on updates. Prevents re-enrichment loops and controls spend. Pay-per-match means a missed trigger is cheaper than a duplicate call.'},
+  {rule:'No-Create Rule',        detail:'PDL/n8n and Vibe Prospecting are upsert-only at the middleware level — zero INSERT permissions enforced at n8n, not just tool config. New records flow through HubSpot (contacts) or SFDC (accounts/opps) only.'},
+  {rule:'PDL Trigger Guard',     detail:'n8n fires PDL enrichment on HubSpot contact creation only — not on updates. Prevents re-enrichment loops and controls spend. Pay-per-match means a missed trigger is cheaper than a duplicate call.'},
 ];
 
 const PHASES = [
-  {num:1,color:'#f59e0b',weeks:'Weeks 1\u20134',title:'Foundation: Golden Triangle + Enrichment Automation',
-   goal:'Establish SFDC \u21d4 HubSpot \u21d4 NetSuite as source of truth. Deploy Vibe Prospecting as outbound ICP list-build layer and PDL+n8n as inbound/outbound enrichment automation. Lock field ownership matrix and write-lock rules before any other tools are added.',
+  {num:1,color:'#f59e0b',weeks:'Weeks 1–4',title:'Foundation: Golden Triangle + Enrichment Automation',
+   goal:'Establish SFDC ⇔ HubSpot ⇔ NetSuite as source of truth. Deploy Vibe Prospecting as outbound ICP list-build layer and PDL+n8n as inbound/outbound enrichment automation. Lock field ownership matrix and write-lock rules before any other tools are added.',
    integrations:[
-     {tools:'HubSpot \u21d4 Salesforce',method:'Native HubSpot-SFDC connector + n8n',detail:'Bidirectional sync with field ownership enforced at n8n. HubSpot owns Contact/Lead. SFDC owns Account/Opportunity. MQL\u2192SQL handoff trigger defined. Objects synced: Contact, Lead, Campaign, Account.'},
-     {tools:'Salesforce \u21d4 NetSuite',method:'n8n middleware',detail:'Quote/Order sync with RevRec field mapping. Commission data flow for automated payouts. Objects synced: Opportunity, Order, Commission, Revenue Schedule.'},
-     {tools:'Vibe Prospecting \u2192 HubSpot + SFDC',method:'Explorium MCP + n8n upsert-only',detail:'ICP lists built via Explorium (Claude MCP co-pilot workflow). Imported to HubSpot as new contacts \u2014 dedup enforced at n8n before insert. Account signals written to dedicated SFDC field. Objects synced: Contact, Company, Account.'},
-     {tools:'PDL + n8n \u2192 HubSpot + SFDC',method:'n8n workflow + PDL API (pay-per-match)',detail:'Inbound: new contact created in HubSpot triggers n8n \u2192 PDL lookup \u2192 enriched fields upsert back. Outbound: same pipeline enriches SFDC contacts/accounts with blank-field-only writes. 30-day write-lock honored. Objects synced: Contact, Account.'},
+     {tools:'HubSpot ⇔ Salesforce',method:'Native HubSpot-SFDC connector + n8n',detail:'Bidirectional sync with field ownership enforced at n8n. HubSpot owns Contact/Lead. SFDC owns Account/Opportunity. MQL→SQL handoff trigger defined. Objects synced: Contact, Lead, Campaign, Account.'},
+     {tools:'Salesforce ⇔ NetSuite',method:'n8n middleware',detail:'Quote/Order sync with RevRec field mapping. Commission data flow for automated payouts. Objects synced: Opportunity, Order, Commission, Revenue Schedule.'},
+     {tools:'Vibe Prospecting → HubSpot + SFDC',method:'Explorium MCP + n8n upsert-only',detail:'ICP lists built via Explorium (Claude MCP co-pilot workflow). Imported to HubSpot as new contacts — dedup enforced at n8n before insert. Account signals written to dedicated SFDC field. Objects synced: Contact, Company, Account.'},
+     {tools:'PDL + n8n → HubSpot + SFDC',method:'n8n workflow + PDL API (pay-per-match)',detail:'Inbound: new contact created in HubSpot triggers n8n → PDL lookup → enriched fields upsert back. Outbound: same pipeline enriches SFDC contacts/accounts with blank-field-only writes. 30-day write-lock honored. Objects synced: Contact, Account.'},
    ],
    deliverables:['Field ownership matrix','GTM data dictionary','Dedup + write-lock rules in n8n','PDL+n8n enrichment live (inbound + outbound)','Baseline pipeline & attribution reports'],
   },
-  {num:2,color:'#60a5fa',weeks:'Weeks 5\u20138',title:'Revenue Intelligence + Seller Automation',
+  {num:2,color:'#60a5fa',weeks:'Weeks 5–8',title:'Revenue Intelligence + Seller Automation',
    goal:'Eliminate manual data entry for reps. Wire Gong, DealHub CPQ, PandaDoc, and Pendo. After this phase reps should not be manually logging calls, meetings, or quotes.',
    integrations:[
-     {tools:'Gong \u2192 n8n + Claude API \u2192 SFDC',method:'n8n workflow + Claude API + SFDC write',detail:'Gong call transcripts trigger n8n workflow. Claude API extracts structured MEDDPICC fields (Metrics, Economic Buyer, Decision Criteria, Decision Process, Paper Process, Identify Pain, Champion). Writes to dedicated SFDC Opportunity fields. Objects synced: Call Transcript \u2192 Opportunity (MEDDPICC).'},
-     {tools:'SFDC \u21d4 DealHub CPQ \u21d4 NetSuite',method:'DealHub native SFDC + n8n \u2192 NetSuite',detail:'SFDC Opportunity triggers quote in DealHub. Approved amount syncs back. On signing, webhook auto-creates NetSuite order. Objects synced: Opportunity, Quote, Sales Order.'},
-     {tools:'PandaDoc / CLM \u21d4 SFDC + NetSuite',method:'PandaDoc SFDC package + n8n',detail:'Opp triggers contract creation. Signed status syncs back to SFDC. Executed contract triggers RevRec in NetSuite. Objects synced: Contract, Opportunity, Revenue Schedule.'},
-     {tools:'Pendo \u2192 Salesforce + Vitally',method:'Pendo native connectors',detail:'Feature adoption and DAU/MAU written to SFDC Account. Usage events feed Vitally health score. Objects synced: Product Event, Account, Health Metric.'},
+     {tools:'Gong → n8n + Claude API → SFDC',method:'n8n workflow + Claude API + SFDC write',detail:'Gong call transcripts trigger n8n workflow. Claude API extracts structured MEDDPICC fields (Metrics, Economic Buyer, Decision Criteria, Decision Process, Paper Process, Identify Pain, Champion). Writes to dedicated SFDC Opportunity fields. Objects synced: Call Transcript → Opportunity (MEDDPICC).'},
+     {tools:'SFDC ⇔ DealHub CPQ ⇔ NetSuite',method:'DealHub native SFDC + n8n → NetSuite',detail:'SFDC Opportunity triggers quote in DealHub. Approved amount syncs back. On signing, webhook auto-creates NetSuite order. Objects synced: Opportunity, Quote, Sales Order.'},
+     {tools:'PandaDoc / CLM ⇔ SFDC + NetSuite',method:'PandaDoc SFDC package + n8n',detail:'Opp triggers contract creation. Signed status syncs back to SFDC. Executed contract triggers RevRec in NetSuite. Objects synced: Contract, Opportunity, Revenue Schedule.'},
+     {tools:'Pendo → Salesforce + Vitally',method:'Pendo native connectors',detail:'Feature adoption and DAU/MAU written to SFDC Account. Usage events feed Vitally health score. Objects synced: Product Event, Account, Health Metric.'},
    ],
-   deliverables:['Zero manual activity logging for reps','Quote-to-cash fully automated','Health score v1 (Pendo\u2192Vitally)','MEDDPICC auto-populated from Gong calls'],
+   deliverables:['Zero manual activity logging for reps','Quote-to-cash fully automated','Health score v1 (Pendo→Vitally)','MEDDPICC auto-populated from Gong calls'],
   },
-  {num:3,color:'#c084fc',weeks:'Weeks 9\u201312',title:'CS/Support 360\u00b0 + Collaboration Layer',
-   goal:'Complete the 360\u00b0 customer view on every SFDC Account. Wire CS health, support load, and collaboration activity without reps touching a field.',
+  {num:3,color:'#c084fc',weeks:'Weeks 9–12',title:'CS/Support 360° + Collaboration Layer',
+   goal:'Complete the 360° customer view on every SFDC Account. Wire CS health, support load, and collaboration activity without reps touching a field.',
    integrations:[
-     {tools:'Vitally \u21d4 Salesforce',method:'Vitally native SFDC integration',detail:'Health scores and renewal risk flags surface on SFDC Account. SFDC Opp data flows into Vitally for CSM context. Objects synced: Customer, Account, Opportunity.'},
-     {tools:'ZenDesk \u2192 Salesforce + Vitally',method:'ZenDesk SFDC + Vitally integrations',detail:'Ticket volume, CSAT, and escalations sync to SFDC Account. High-severity tickets auto-degrade Vitally health score. Objects synced: Ticket, Account, Health Metric.'},
-     {tools:'Google Workspace \u2192 Salesforce',method:'SFDC Inbox / Activity Capture',detail:'Email activity and calendar events auto-logged to SFDC only. Simplified from dual-log. Objects synced: Email, Calendar Event \u2192 Activity.'},
-     {tools:'Loopio \u2192 Salesforce',method:'Loopio SFDC package',detail:'RFP records linked to Opportunities. Win/loss tracked on RFP-influenced deals. Objects synced: RFP Record, Opportunity.'},
-     {tools:'LinkedIn SNav \u2192 Salesforce',method:'LinkedIn SNav SFDC widget',detail:'Read-only overlay on SFDC Contact and Account pages. Objects: Contact, Account (read-only overlay).'},
-     {tools:'Salesforce \u2192 Slack',method:'Salesforce for Slack app',detail:'Deal alerts, stage changes, renewal risk flags pushed to Slack. Receives only \u2014 zero write-back. Objects: Opportunity (notification payload).'},
+     {tools:'Vitally ⇔ Salesforce',method:'Vitally native SFDC integration',detail:'Health scores and renewal risk flags surface on SFDC Account. SFDC Opp data flows into Vitally for CSM context. Objects synced: Customer, Account, Opportunity.'},
+     {tools:'ZenDesk → Salesforce + Vitally',method:'ZenDesk SFDC + Vitally integrations',detail:'Ticket volume, CSAT, and escalations sync to SFDC Account. High-severity tickets auto-degrade Vitally health score. Objects synced: Ticket, Account, Health Metric.'},
+     {tools:'Google Workspace → Salesforce',method:'SFDC Inbox / Activity Capture',detail:'Email activity and calendar events auto-logged to SFDC only. Simplified from dual-log. Objects synced: Email, Calendar Event → Activity.'},
+     {tools:'Loopio → Salesforce',method:'Loopio SFDC package',detail:'RFP records linked to Opportunities. Win/loss tracked on RFP-influenced deals. Objects synced: RFP Record, Opportunity.'},
+     {tools:'LinkedIn SNav → Salesforce',method:'LinkedIn SNav SFDC widget',detail:'Read-only overlay on SFDC Contact and Account pages. Objects: Contact, Account (read-only overlay).'},
+     {tools:'Salesforce → Slack',method:'Salesforce for Slack app',detail:'Deal alerts, stage changes, renewal risk flags pushed to Slack. Receives only — zero write-back. Objects: Opportunity (notification payload).'},
    ],
-   deliverables:['360\u00b0 Account health in SFDC','Activity auto-capture fully operational','CS\u21d4Sales renewal feedback loop','RevOps weekly forecast cadence'],
+   deliverables:['360° Account health in SFDC','Activity auto-capture fully operational','CS⇔Sales renewal feedback loop','RevOps weekly forecast cadence'],
   },
-  {num:4,color:'#34d399',weeks:'Weeks 13\u201316+',title:'Warehouse Layer + PMI Playbook',
+  {num:4,color:'#34d399',weeks:'Weeks 13–16+',title:'Warehouse Layer + PMI Playbook',
    goal:'Activate Snowflake + dbt + Census as the analytics warehouse. Surface NetSuite ARR read-only in SFDC. Build the M&A integration playbook for acquired company migrations. Audit full stack ROI.',
    integrations:[
-     {tools:'Snowflake + dbt + Census',method:'ELT pipeline + reverse ETL',detail:'Snowflake warehouses SFDC + NetSuite data. dbt transforms raw tables into analytics models (pipeline velocity, cohort retention, forecast). Census reverse ETL pushes computed fields back to SFDC Account/Opportunity. Objects synced: all source objects \u2192 warehouse models \u2192 computed fields.'},
-     {tools:'NetSuite \u2192 SFDC (ARR display)',method:'Read-only sync via n8n',detail:'ARR, invoice status, contract value displayed on SFDC Account as read-only fields. Finance retains NetSuite ownership. Objects synced: Subscription, Invoice \u2192 Account.'},
+     {tools:'Snowflake + dbt + Census',method:'ELT pipeline + reverse ETL',detail:'Snowflake warehouses SFDC + NetSuite data. dbt transforms raw tables into analytics models (pipeline velocity, cohort retention, forecast). Census reverse ETL pushes computed fields back to SFDC Account/Opportunity. Objects synced: all source objects → warehouse models → computed fields.'},
+     {tools:'NetSuite → SFDC (ARR display)',method:'Read-only sync via n8n',detail:'ARR, invoice status, contract value displayed on SFDC Account as read-only fields. Finance retains NetSuite ownership. Objects synced: Subscription, Invoice → Account.'},
      {tools:'PMI Playbook',method:'Process design + documentation',detail:'Repeatable playbook for migrating acquired CRM instances. Covers data audit, dedup, field mapping, HubSpot re-engagement, NetSuite entity consolidation.'},
      {tools:'Global Architecture Review',method:'Audit + schema design',detail:'Multi-currency and multi-entity review. GDPR/CCPA audit across HubSpot, ZenDesk, Pendo. Consent management for international expansion.'},
    ],
@@ -163,11 +163,11 @@ const PHASES = [
 
 const DASH_HERO = [
   { label: 'ARR',            value: '$15.2M', delta: '+18%', up: true,  sub: 'vs. $12.9M LY' },
-  { label: 'Pipeline',       value: '$8.4M',  delta: '+12%', up: true,  sub: 'weighted \u00b7 Q2 FY26' },
+  { label: 'Pipeline',       value: '$8.4M',  delta: '+12%', up: true,  sub: 'weighted · Q2 FY26' },
   { label: 'Win Rate',       value: '31%',    delta: '+3pp', up: true,  sub: 'vs. 28% trailing 4Q' },
   { label: 'NRR',            value: '112%',   delta: '-2pp', up: false, sub: 'target: 115%' },
   { label: 'Avg Deal Cycle', value: '68d',    delta: '-5d',  up: true,  sub: 'vs. 73d LQ' },
-  { label: 'CSAT',           value: '4.3',    delta: '+0.2', up: true,  sub: 'ZenDesk \u00b7 30d rolling' },
+  { label: 'CSAT',           value: '4.3',    delta: '+0.2', up: true,  sub: 'ZenDesk · 30d rolling' },
 ];
 
 const PIPELINE_BY_STAGE = [
@@ -197,9 +197,9 @@ const FUNNEL_DATA = [
 ];
 
 const HEALTH_DISTRIBUTION = [
-  { band: 'Healthy (80\u2013100)', count: 52, color: '#34d399' },
-  { band: 'Monitor (60\u201379)',  count: 38, color: '#f59e0b' },
-  { band: 'At Risk (40\u201359)', count: 22, color: '#f97316' },
+  { band: 'Healthy (80–100)', count: 52, color: '#34d399' },
+  { band: 'Monitor (60–79)',  count: 38, color: '#f59e0b' },
+  { band: 'At Risk (40–59)', count: 22, color: '#f97316' },
   { band: 'Critical (<40)',       count: 8,  color: '#ef4444' },
 ];
 
@@ -273,7 +273,7 @@ function edgePt(n: Node, other: Node) {
   return { x: n.x + dx * Math.min(sx, sy), y: n.y + dy * Math.min(sx, sy) };
 }
 
-/* \u2500\u2500 Tab button \u2500\u2500 */
+/* ── Tab button ── */
 function TabBtn({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
@@ -297,7 +297,7 @@ function TabBtn({ active, onClick, children }: { active: boolean; onClick: () =>
   );
 }
 
-/* \u2500\u2500 Phase filter button \u2500\u2500 */
+/* ── Phase filter button ── */
 function PhaseBtn({ active, color, onClick, children }: { active: boolean; color: string; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
@@ -320,7 +320,7 @@ function PhaseBtn({ active, color, onClick, children }: { active: boolean; color
   );
 }
 
-/* \u2500\u2500 Sub-tab button (dashboard) \u2500\u2500 */
+/* ── Sub-tab button (dashboard) ── */
 function SubTabBtn({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
@@ -343,7 +343,7 @@ function SubTabBtn({ active, onClick, children }: { active: boolean; onClick: ()
   );
 }
 
-/* \u2500\u2500 Chart panel wrapper \u2500\u2500 */
+/* ── Chart panel wrapper ── */
 function ChartPanel({ title, span, children }: { title: string; span?: boolean; children: React.ReactNode }) {
   return (
     <div className={`not-italic ${span ? 'lg:col-span-2' : ''}`} style={{ background: '#18181b', border: '1px solid #313135', borderRadius: 8, padding: '16px 20px' }}>
@@ -367,7 +367,7 @@ export default function GTMArchitecture() {
   return (
     <div className="not-italic" style={{ color: '#afafb6' }}>
 
-      {/* \u2500\u2500 Page header \u2500\u2500 */}
+      {/* ── Page header ── */}
       <section className="py-12 md:py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
           <p className="text-xs tracking-wide text-gray-400 mb-4 not-italic" style={{ letterSpacing: '0.1em' }}>
@@ -382,7 +382,7 @@ export default function GTMArchitecture() {
         </div>
       </section>
 
-      {/* \u2500\u2500 Tab nav \u2500\u2500 */}
+      {/* ── Tab nav ── */}
       <div className="border-t border-b" style={{ borderColor: '#313135' }}>
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 py-4">
           <div className="flex gap-3 flex-wrap">
@@ -393,14 +393,14 @@ export default function GTMArchitecture() {
         </div>
       </div>
 
-      {/* \u2500\u2500 MAP TAB \u2500\u2500 */}
+      {/* ── MAP TAB ── */}
       {tab === 'map' && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
             {/* Phase filter */}
             <div className="flex gap-3 mb-6 items-center flex-wrap">
               <span className="text-xs not-italic" style={{ color: '#494950', letterSpacing: '0.12em' }}>PHASE</span>
-              {([[0, 'All', '#95959d'], [1, 'Ph 1', '#f59e0b'], [2, 'Ph 1\u20132', '#60a5fa'], [3, 'Ph 1\u20133', '#c084fc'], [4, 'All 4', '#34d399']] as const).map(([v, l, c]) => (
+              {([[0, 'All', '#95959d'], [1, 'Ph 1', '#f59e0b'], [2, 'Ph 1–2', '#60a5fa'], [3, 'Ph 1–3', '#c084fc'], [4, 'All 4', '#34d399']] as const).map(([v, l, c]) => (
                 <PhaseBtn key={v} active={pf === Number(v)} color={c} onClick={() => setPf(Number(v))}>{l}</PhaseBtn>
               ))}
               <span className="text-xs not-italic" style={{ color: '#494950', marginLeft: 8 }}>Hover a node to inspect</span>
@@ -422,24 +422,12 @@ export default function GTMArchitecture() {
                 <rect width={SVG_W} height={SVG_H} fill="#111113" />
                 <rect width={SVG_W} height={SVG_H} fill="url(#grid)" />
 
-                {/* n8n middleware bus */}
-                <rect x={150} y={220} width={590} height={58} rx={4} fill="#1de2c405" stroke="#1de2c4" strokeWidth={0.7} strokeDasharray="10 5" />
-                <text x={445} y={240} textAnchor="middle" fill="#1de2c4" fontSize={7.5} fontFamily="inherit" letterSpacing="0.18em" opacity={0.55}>n8n \u2014 SOLE MIDDLEWARE + CONFLICT RESOLUTION ENGINE</text>
-                <text x={445} y={254} textAnchor="middle" fill="#1de2c4" fontSize={6.5} fontFamily="inherit" opacity={0.25}>FIELD OWNERSHIP RULES \u00b7 DEDUP \u00b7 CIRCULAR DETECTION \u00b7 UPDATE LOCK \u00b7 AUDIT LOG</text>
-                <text x={445} y={267} textAnchor="middle" fill="#1de2c4" fontSize={6} fontFamily="inherit" opacity={0.16}>PDL enrichment + Gong\u2192Claude MEDDPICC + all cross-system CRM/ERP sync</text>
-
-                {/* Enrich loop */}
-                <rect x={14} y={130} width={170} height={52} rx={3} fill="#1de2c403" stroke="#1de2c4" strokeWidth={0.5} strokeDasharray="4 4" opacity={0.65} />
-                <text x={99} y={147} textAnchor="middle" fill="#1de2c4" fontSize={6.5} fontFamily="inherit" opacity={0.5} letterSpacing="0.1em">ENRICH LOOPS (n8n + PDL)</text>
-                <text x={99} y={159} textAnchor="middle" fill="#1de2c4" fontSize={6} fontFamily="inherit" opacity={0.28}>inbound: contact \u2192 PDL \u2192 HubSpot</text>
-                <text x={99} y={171} textAnchor="middle" fill="#1de2c4" fontSize={5.5} fontFamily="inherit" opacity={0.2}>outbound: PDL \u2192 SFDC \u00b7 pay-per-match</text>
-
                 {/* Zone labels */}
-                <text x={490} y={22} textAnchor="middle" fill="#f59e0b" fontSize={8} fontFamily="inherit" opacity={0.3} letterSpacing="0.18em">{'\u25c6'}  GOLDEN TRIANGLE  {'\u25c6'}</text>
+                <text x={490} y={22} textAnchor="middle" fill="#f59e0b" fontSize={8} fontFamily="inherit" opacity={0.3} letterSpacing="0.18em">{'◆'}  GOLDEN TRIANGLE  {'◆'}</text>
                 <text x={330} y={40} textAnchor="middle" fill="#06b6d4" fontSize={7.5} fontFamily="inherit" opacity={0.35} letterSpacing="0.1em">TOP OF FUNNEL + ENRICHMENT</text>
                 <text x={78} y={210} textAnchor="middle" fill="#34d399" fontSize={7} fontFamily="inherit" opacity={0.35}>SELLER TOOLS</text>
                 <text x={940} y={215} textAnchor="middle" fill="#60a5fa" fontSize={7} fontFamily="inherit" opacity={0.35}>Q-to-C</text>
-                <text x={490} y={572} textAnchor="middle" fill="#c084fc" fontSize={7.5} fontFamily="inherit" opacity={0.35} letterSpacing="0.1em">CS \u00b7 SUPPORT \u00b7 COLLAB</text>
+                <text x={490} y={572} textAnchor="middle" fill="#c084fc" fontSize={7.5} fontFamily="inherit" opacity={0.35} letterSpacing="0.1em">CS · SUPPORT · COLLAB</text>
 
                 {/* Edges */}
                 {ve.map(edge => {
@@ -468,7 +456,7 @@ export default function GTMArchitecture() {
                       <rect x={node.x - w / 2} y={node.y - NH / 2} width={w} height={NH} rx={4} fill={isHov ? cat.stroke + '22' : cat.bg} stroke={cat.stroke} strokeWidth={isHov ? 1.8 : 1} />
                       <text x={node.x} y={node.y - 8} textAnchor="middle" fill={cat.text} fontSize={10.5} fontWeight="700" fontFamily="inherit" letterSpacing="0.03em">{node.name}</text>
                       <text x={node.x} y={node.y + 9} textAnchor="middle" fill={cat.text} opacity={0.45} fontSize={6.5} fontFamily="inherit">
-                        {node.sub.length > 42 ? node.sub.slice(0, 42) + '\u2026' : node.sub}
+                        {node.sub.length > 42 ? node.sub.slice(0, 42) + '…' : node.sub}
                       </text>
                     </g>
                   );
@@ -490,11 +478,11 @@ export default function GTMArchitecture() {
                       <text x={ttX + 8} y={ttY + 15} fill="#494950" fontSize={7.5} fontFamily="inherit" letterSpacing="0.1em">{conn.length} CONNECTION{conn.length > 1 ? 'S' : ''}</text>
                       {conn.map((e, i) => {
                         const other = getNode(e.from === hov ? e.to : e.from);
-                        const arrow = e.sync === 'bi' ? '\u21c4' : e.from === hov ? '\u2192' : '\u2190';
+                        const arrow = e.sync === 'bi' ? '⇄' : e.from === hov ? '→' : '←';
                         return (
                           <g key={e.id}>
                             <text x={ttX + 8} y={ttY + 27 + i * lH} fill={PC[e.phase]} fontSize={10} fontWeight="700" fontFamily="inherit">{arrow} {other?.name}</text>
-                            <text x={ttX + 8} y={ttY + 39 + i * lH} fill="#494950" fontSize={7} fontFamily="inherit">{SL[e.sync]} \u00b7 Ph.{e.phase}</text>
+                            <text x={ttX + 8} y={ttY + 39 + i * lH} fill="#494950" fontSize={7} fontFamily="inherit">{SL[e.sync]} · Ph.{e.phase}</text>
                             <text x={ttX + 8} y={ttY + 49 + i * lH} fill="#62626a" fontSize={6.5} fontFamily="inherit">{e.objs}</text>
                           </g>
                         );
@@ -515,7 +503,7 @@ export default function GTMArchitecture() {
                 </div>
               ))}
               <div style={{ width: 1, height: 12, background: '#313135' }} />
-              {([['bi', '\u21c4 Bi'], ['uni', '\u2192 Uni'], ['append', '+ Append'], ['read', '\u25e6 Read']] as const).map(([t, l]) => (
+              {([['bi', '⇄ Bi'], ['uni', '→ Uni'], ['append', '+ Append'], ['read', '◦ Read']] as const).map(([t, l]) => (
                 <div key={t} className="flex items-center gap-1.5">
                   <svg width="14" height="4"><line x1="0" y1="2" x2="14" y2="2" stroke="#494950" strokeWidth="1.5" strokeDasharray={SD[t]} /></svg>
                   <span>{l}</span>
@@ -533,7 +521,7 @@ export default function GTMArchitecture() {
         </section>
       )}
 
-      {/* \u2500\u2500 OWNERSHIP TAB \u2500\u2500 */}
+      {/* ── OWNERSHIP TAB ── */}
       {tab === 'own' && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
@@ -552,7 +540,7 @@ export default function GTMArchitecture() {
                   >
                     <div style={{ width: 3, height: 16, background: sec.color, borderRadius: 2 }} />
                     <span className="font-bold not-italic" style={{ color: sec.color, fontSize: 15 }}>{sec.cat}</span>
-                    <span className="ml-auto text-xs" style={{ color: '#494950' }}>{openSec === si ? '\u25b2' : '\u25bc'}</span>
+                    <span className="ml-auto text-xs" style={{ color: '#494950' }}>{openSec === si ? '▲' : '▼'}</span>
                   </button>
 
                   {(openSec === si || openSec === null) && (
@@ -575,7 +563,7 @@ export default function GTMArchitecture() {
                           <div className="not-italic" style={{ padding: '10px 12px', fontSize: 12, color: '#62626a', borderRight: '1px solid #313135', lineHeight: 1.65 }}>{row.readers}</div>
                           <div className="not-italic" style={{ padding: '10px 12px', fontSize: 12, borderRight: '1px solid #313135' }}>
                             <span style={{ color: row.sync === 'bi' ? '#f59e0b' : row.sync === 'append' ? '#34d399' : row.sync === 'read' ? '#494950' : row.sync === 'none' ? '#313135' : '#60a5fa' }}>
-                              {SL[row.sync] || row.sync || '\u2014'}
+                              {SL[row.sync] || row.sync || '—'}
                             </span>
                           </div>
                           <div className="not-italic" style={{ padding: '10px 12px', fontSize: 12, color: '#62626a', lineHeight: 1.7 }}>{row.rule}</div>
@@ -590,7 +578,7 @@ export default function GTMArchitecture() {
         </section>
       )}
 
-      {/* \u2500\u2500 CONCURRENCY TAB \u2500\u2500 */}
+      {/* ── CONCURRENCY TAB ── */}
       {tab === 'conc' && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12" style={{ maxWidth: 860 }}>
@@ -617,14 +605,14 @@ export default function GTMArchitecture() {
             <div className="mt-8 not-italic" style={{ border: '1px solid #313135', borderRadius: 6, padding: '16px 20px', background: '#18181b' }}>
               <p className="text-xs font-bold mb-3 not-italic" style={{ color: '#494950', letterSpacing: '0.1em' }}>WHY ONE MIDDLEWARE (n8n)</p>
               <p className="not-italic" style={{ fontSize: 14, color: '#62626a', lineHeight: 1.85 }}>
-                <span style={{ color: '#1de2c4' }}>n8n</span> handles everything: (1) PDL inbound + outbound enrichment (new contact \u2192 PDL lookup \u2192 upsert back), (2) Gong \u2192 Claude API \u2192 SFDC MEDDPICC write (call transcript \u2192 Claude extracts structured fields \u2192 writes to Opp), and (3) all cross-system CRM/ERP sync with field ownership enforcement, update locking, and conflict resolution. One middleware means one audit log, one set of error handling, one place to debug. No split failure modes between two different platforms.
+                <span style={{ color: '#1de2c4' }}>n8n</span> handles everything: (1) PDL inbound + outbound enrichment (new contact → PDL lookup → upsert back), (2) Gong → Claude API → SFDC MEDDPICC write (call transcript → Claude extracts structured fields → writes to Opp), and (3) all cross-system CRM/ERP sync with field ownership enforcement, update locking, and conflict resolution. One middleware means one audit log, one set of error handling, one place to debug. No split failure modes between two different platforms.
               </p>
             </div>
           </div>
         </section>
       )}
 
-      {/* \u2500\u2500 PLAN TAB \u2500\u2500 */}
+      {/* ── PLAN TAB ── */}
       {tab === 'plan' && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12" style={{ maxWidth: 960 }}>
@@ -699,7 +687,7 @@ export default function GTMArchitecture() {
         </section>
       )}
 
-      {/* \u2500\u2500 DASHBOARD TAB \u2500\u2500 */}
+      {/* ── DASHBOARD TAB ── */}
       {tab === 'dash' && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
@@ -715,7 +703,7 @@ export default function GTMArchitecture() {
                   <p className="not-italic" style={{ fontSize: 10, color: '#62626a', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>{kpi.label}</p>
                   <p className="font-bold text-white not-italic" style={{ fontSize: 26, lineHeight: 1, marginBottom: 4 }}>{kpi.value}</p>
                   <p className="not-italic" style={{ fontSize: 11, marginBottom: 2 }}>
-                    <span style={{ color: kpi.up ? '#34d399' : '#ef4444' }}>{kpi.up ? '\u25b2' : '\u25bc'} {kpi.delta}</span>
+                    <span style={{ color: kpi.up ? '#34d399' : '#ef4444' }}>{kpi.up ? '▲' : '▼'} {kpi.delta}</span>
                   </p>
                   <p className="not-italic" style={{ fontSize: 10, color: '#494950' }}>{kpi.sub}</p>
                 </div>
@@ -729,7 +717,7 @@ export default function GTMArchitecture() {
               ))}
             </div>
 
-            {/* \u2500\u2500 SALES \u2500\u2500 */}
+            {/* ── SALES ── */}
             {dashSub === 'sales' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <ChartPanel title="Pipeline by Stage" span>
@@ -775,7 +763,7 @@ export default function GTMArchitecture() {
               </div>
             )}
 
-            {/* \u2500\u2500 ACCOUNTS \u2500\u2500 */}
+            {/* ── ACCOUNTS ── */}
             {dashSub === 'accounts' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <ChartPanel title="Health Score Distribution (120 Accounts)">
@@ -822,7 +810,7 @@ export default function GTMArchitecture() {
               </div>
             )}
 
-            {/* \u2500\u2500 CS \u2500\u2500 */}
+            {/* ── CS ── */}
             {dashSub === 'cs' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <ChartPanel title="Support Volume & CSAT (ZenDesk)">
@@ -890,7 +878,7 @@ export default function GTMArchitecture() {
 
             {/* Footer */}
             <p className="mt-6 text-xs not-italic" style={{ color: '#494950' }}>
-              SAMPLE DATA \u2014 Sources: Salesforce, HubSpot, Vitally, Pendo, ZenDesk, NetSuite, Snowflake
+              SAMPLE DATA — Sources: Salesforce, HubSpot, Vitally, Pendo, ZenDesk, NetSuite, Snowflake
             </p>
           </div>
         </section>
