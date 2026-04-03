@@ -6,6 +6,9 @@ date: 2026-04-03T00:00:00.000Z
 category: playbook
 featured: false
 draft: false
+speakable:
+  - "article h2:nth-of-type(1) + p"
+  - "article h2:nth-of-type(3) + p"
 ---
 
 A fractional CMO embeds in your company and runs marketing. A GTM consultant diagnoses your go-to-market system, delivers a strategy, and leaves. Most Series A–C founders conflate the two, hire the wrong one, and end up six months behind. Here's how to tell which one you actually need.

@@ -6,6 +6,10 @@ date: 2026-04-07T00:00:00.000Z
 category: playbook
 featured: true
 draft: false
+speakable:
+  - "article h2:nth-of-type(1) + p"
+  - "article h2:nth-of-type(2) + p"
+  - "article h2:nth-of-type(5) + p"
 ---
 
 Answer engine optimization is the practice of structuring your company's knowledge and authority so that AI systems — ChatGPT, Perplexity, Gemini, Claude — surface your brand when buyers ask questions you should own. For B2B SaaS, this is now the primary battleground for discovery. The game has shifted, and most GTM teams haven't caught up.

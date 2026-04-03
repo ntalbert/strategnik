@@ -11,6 +11,7 @@ const posts = defineCollection({
     draft: z.boolean().default(false),
     image: z.string().optional(),
     video: z.string().optional(),
+    speakable: z.array(z.string()).optional(),
   }),
 });
 

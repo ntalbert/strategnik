@@ -11,6 +11,7 @@ interface Props {
     featured?: boolean;
     image?: string;
     video?: string;
+    speakable?: string[];
   };
 }
 
@@ -35,6 +36,20 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
 ---
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description} image={ogImage}>
+  {frontmatter.speakable && frontmatter.speakable.length > 0 && (
+    <Fragment slot="head">
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": frontmatter.title,
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": frontmatter.speakable
+        },
+        "url": `https://strategnik.com${Astro.url.pathname}`
+      })} />
+    </Fragment>
+  )}
   <article class="section">
     <div class="container-narrow">
       <!-- Back link -->

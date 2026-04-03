@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "The Gravity Audit™ — AI Visibility & GTM Diagnostic for B2B SaaS";
+const description = "A structured assessment of your AI visibility, content authority, and organic pull. Walk away with a written diagnosis and 30-day action plan.";
+
+const faqData = [
+  {
+    question: "How long does a Gravity Audit™ take?",
+    answer: "Two to three weeks from kickoff to delivered report. The first week is data collection and AI visibility testing. The second week is analysis and report writing. If you need a third week for a walkthrough session with your team, we build that in. This isn't a quick scan — it's a diagnostic that produces actionable findings."
+  },
+  {
+    question: "What do I need to provide for the audit?",
+    answer: "Access to your Google Search Console, a list of 10–15 queries your buyers use to find solutions like yours, and 30 minutes for a kickoff call. That's it. I handle the AI visibility testing, content analysis, and competitive benchmarking independently. You don't need to prepare a deck or pull reports."
+  },
+  {
+    question: "Is this just an SEO audit with a different name?",
+    answer: "No. A traditional SEO audit looks at technical health, backlinks, and keyword rankings. The Gravity Audit™ starts with AI citation — whether ChatGPT, Perplexity, and Google AI Overviews mention your company when buyers ask relevant questions. SEO is one input. Entity authority, content structure for AEO, and schema markup are equally weighted. Most SEO audits miss the AI layer entirely."
+  },
+  {
+    question: "What does a Gravity Audit™ cost?",
+    answer: "The Gravity Audit™ is a fixed-fee diagnostic engagement. Pricing depends on the scope — a single-product company with one ICP is less complex than a multi-product platform serving three buyer personas. Contact me for a scoped estimate. I'll give you a number on the first call, not after a multi-week sales process."
+  },
+  {
+    question: "What happens after the audit?",
+    answer: "You get a written report with findings, a prioritized gap list, and a 30-day action plan. Some companies execute the plan internally. Some hire me to execute it as a fractional CMO or GTM architecture engagement. Either way, the audit stands on its own — it's not a loss leader designed to force a larger engagement."
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Gravity Audit™",
+      "provider": {
+        "@type": "Organization",
+        "name": "Strategnik",
+        "url": "https://www.strategnik.com"
+      },
+      "description": "A structured diagnostic of AI visibility, content authority, and organic pull for B2B SaaS companies. Includes written report, gap analysis, and 30-day action plan.",
+      "serviceType": "GTM Diagnostic",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Series A–C B2B SaaS companies"
+      }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.strategnik.com" },
+        { "@type": "ListItem", "position": 2, "name": "Gravity Audit™", "item": "https://www.strategnik.com/gravity-audit" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+      }))
+    })} />
+  </Fragment>
+
+  <section class="py-16 md:py-24 bg-black">
+    <div class="container-narrow">
+      <h1 class="text-display-xl font-display text-white font-extrabold mb-8" data-animate>{title}</h1>
+
+      <p class="text-body-lg text-gray-300 max-w-prose mb-16">
+        The Gravity Audit™ is a structured diagnostic that answers one question: when your ideal buyer asks an AI engine about the problem you solve, does your company show up? Most B2B SaaS companies are invisible to ChatGPT, Perplexity, and Google AI Overviews — and they don't know it until a competitor appears instead.
+      </p>
+
+      <div class="space-y-16">
+
+        <!-- What it covers -->
+        <div>
+          <h2 class="text-heading text-white font-bold mb-6">What Does the Gravity Audit™ Cover?</h2>
+          <p class="text-body text-gray-400 max-w-prose mb-6">
+            The audit assesses three forces from the Physics of Growth™ framework — each one a layer of your company's ability to generate organic pull:
+          </p>
+          <div class="space-y-6">
+            <div class="border-l-2 border-blue-bright pl-6">
+              <h3 class="text-body-lg text-white font-bold mb-2">AI Visibility</h3>
+              <p class="text-body text-gray-400">Does your company appear in ChatGPT, Perplexity, Google AI Overviews, and Claude when buyers ask questions you should be answering? I test 15–20 buyer queries across all major AI engines and document exactly where you appear, where you don't, and who appears instead. This is the baseline most companies have never measured.</p>
+            </div>
+            <div class="border-l-2 border-blue-bright pl-6">
+              <h3 class="text-body-lg text-white font-bold mb-2">Content Authority</h3>
+              <p class="text-body text-gray-400">Is your existing content structured for AI citation? I audit your content for answer-first formatting, entity signals, schema markup, FAQ structure, topical density, and internal linking architecture. Most B2B content is written for humans who already know about you — not for AI engines deciding whether to recommend you.</p>
+            </div>
+            <div class="border-l-2 border-blue-bright pl-6">
+              <h3 class="text-body-lg text-white font-bold mb-2">Organic Pull</h3>
+              <p class="text-body text-gray-400">Is your GTM motion generating inbound signal, or are you purely dependent on outbound? I analyze your search visibility, referral patterns, and content performance to measure whether your brand has gravity — the organic pull that compounds over time — or whether every lead requires direct effort to generate.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Who it's for -->
+        <div>
+          <h2 class="text-heading text-white font-bold mb-6">Who Is the Gravity Audit™ For?</h2>
+          <p class="text-body text-gray-400 max-w-prose mb-4">
+            The audit is designed for Series A–C B2B SaaS companies in one of three situations:
+          </p>
+          <ul class="space-y-3 text-body text-gray-400 max-w-prose">
+            <li>→ <strong class="text-white">You're investing in content but can't attribute pipeline to it.</strong> Content exists, traffic might even be growing, but you can't connect it to revenue. The audit diagnoses whether the problem is the content itself, the structure, or the distribution.</li>
+            <li>→ <strong class="text-white">You've noticed competitors appearing in AI search results and you're not.</strong> This is the trigger for most companies. Someone searches their own category in ChatGPT and a competitor gets cited. The audit tells you why and what to fix.</li>
+            <li>→ <strong class="text-white">You're about to invest in a content or demand gen overhaul and want to build it right.</strong> The audit provides the architectural blueprint before you spend. Better to diagnose first than to rebuild later.</li>
+          </ul>
+        </div>
+
+        <!-- What you get -->
+        <div>
+          <h2 class="text-heading text-white font-bold mb-6">What You Get After a Gravity Audit™</h2>
+          <p class="text-body text-gray-400 max-w-prose mb-4">
+            The deliverable is a written report with three sections:
+          </p>
+          <div class="space-y-4">
+            <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+              <h3 class="text-body-lg text-white font-bold mb-2">1. Diagnostic Findings</h3>
+              <p class="text-body text-gray-400">AI visibility test results across all major engines. Content authority scores. Organic pull assessment. Competitive benchmarking — who appears where you should. No jargon, no filler. Findings you can share with your board.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+              <h3 class="text-body-lg text-white font-bold mb-2">2. Priority Gap List</h3>
+              <p class="text-body text-gray-400">Ranked list of what's missing or broken, ordered by impact. Schema gaps. Content structure issues. Entity signal deficiencies. Topic coverage holes. Each gap includes what it costs you (in visibility and pipeline) and what fixing it requires.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+              <h3 class="text-body-lg text-white font-bold mb-2">3. 30-Day Action Plan</h3>
+              <p class="text-body text-gray-400">Specific, sequenced actions to close the highest-priority gaps in the first 30 days. Not a strategy document — a task list with owners, timelines, and expected outcomes. Designed to be executable by your team or by Strategnik in a follow-on engagement.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How to start -->
+        <div>
+          <h2 class="text-heading text-white font-bold mb-6">How to Get Started</h2>
+          <p class="text-body text-gray-400 max-w-prose mb-4">
+            The process is simple:
+          </p>
+          <ol class="space-y-3 text-body text-gray-400 max-w-prose list-decimal list-inside">
+            <li><strong class="text-white">Book a 30-minute discovery call.</strong> You tell me what you're seeing (or not seeing) in your GTM results. I tell you whether a Gravity Audit™ is the right diagnostic or if something else would serve you better.</li>
+            <li><strong class="text-white">Kickoff and data collection.</strong> You grant Search Console access and share your target query list. I run AI visibility tests and begin the content audit.</li>
+            <li><strong class="text-white">Report delivery.</strong> Two to three weeks later, you get the written report with findings, gaps, and your 30-day action plan. We do a walkthrough call to discuss priorities.</li>
+          </ol>
+        </div>
+
+        <!-- Related reading -->
+        <div>
+          <h2 class="text-heading text-white font-bold mb-6">Related Reading</h2>
+          <ul class="space-y-3 text-body">
+            <li><a href="/thinking/gtm-architect-guide-answer-engine-optimization" class="text-blue-bright hover:text-white transition-colors">The GTM Architect's Guide to Answer Engine Optimization for B2B SaaS</a></li>
+            <li><a href="/thinking/why-b2b-content-doesnt-show-up-in-chatgpt" class="text-blue-bright hover:text-white transition-colors">Why Your B2B Content Doesn't Show Up in ChatGPT</a></li>
+            <li><a href="/gtm-strategy-consultant" class="text-blue-bright hover:text-white transition-colors">B2B GTM Strategy Consultant for Growth-Stage SaaS Companies</a></li>
+          </ul>
+        </div>
+
+        <!-- FAQ -->
+        <div>
+          <h2 class="text-heading text-white font-bold mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-8">
+            {faqData.map(faq => (
+              <div>
+                <h3 class="text-body-lg text-white font-bold mb-3">{faq.question}</h3>
+                <p class="text-body text-gray-400 max-w-prose">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="py-12 text-center border-t border-gray-800">
+          <h2 class="text-display text-white font-bold mb-6">Book a Discovery Call</h2>
+          <p class="text-body-lg text-gray-400 max-w-prose mx-auto mb-8">
+            30 minutes. I'll tell you whether a Gravity Audit™ is the right move for your company — or if something else would serve you better. No pitch, no pressure.
+          </p>
+          <a href="https://calendar.app.google" class="inline-block px-8 py-4 bg-blue-bright text-white font-bold rounded-lg hover:bg-blue-600 transition-colors">
+            Book a call →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
