@@ -58,11 +58,11 @@ Four things move the number:
 
 **Scope of responsibility.** Owning strategy alone costs less than owning strategy plus demand gen execution plus content plus sales enablement. Every additional surface area your fractional CMO covers adds hours and complexity.
 
-**Company stage.** A Series A company with no marketing team, no positioning, and no pipeline infrastructure needs more foundational work. That's harder and more consequential than optimizing an existing machine at Series C. Some fractional CMOs charge more for earlier-stage work because the decisions carry more weight and there's less margin for error.
+**Company stage.** A Series A company with no marketing team, no positioning, and no pipeline infrastructure needs foundational work. That's harder than optimizing an existing machine at Series C. Some fractional CMOs charge more for earlier-stage work because the decisions carry more weight.
 
 **Execution inclusion.** If your fractional CMO is also writing your emails, managing your paid campaigns, and building your HubSpot workflows, that's execution labor on top of strategic leadership. Expect to pay for it — or hire a marketing manager alongside them to handle implementation.
 
-Industry matters too. A [GTM strategy consultant](/gtm-strategy-consultant) with deep vertical expertise in your space — say, infrastructure software or fintech — will often command a premium over a generalist. That premium is usually worth paying. Generic marketing advice is cheap. Advice that accounts for your buyer's specific decision process is not.
+Industry matters too. A [GTM strategy consultant](/gtm-strategy-consultant) with deep vertical expertise in your space will command a premium over a generalist. That premium is usually worth paying. Generic marketing advice is cheap. Advice that accounts for your buyer's specific decision process is not.
 
 ## Is a Fractional CMO Worth It for a Series A Company?
 
@@ -91,4 +91,4 @@ Six to eighteen months is the sweet spot. Shorter than six months and you're pay
 A consultant advises. A fractional CMO leads. The practical difference is accountability: a fractional CMO owns outcomes, manages people, and is embedded in your operating rhythm. A consultant delivers recommendations and moves on. Pricing reflects this — consultants charge less because they carry less responsibility.
 
 **Should I hire a fractional CMO or a full-time head of demand gen?**
-This depends on where your gaps are. If you have a clear strategy and need someone to execute it at scale, a head of demand gen might be the better hire. If you're not sure what your strategy should be — or you know it needs to change — you need the strategic layer first. A fractional CMO can define the strategy, then help you hire the right demand gen leader to execute it. Getting this sequence wrong is one of the most common and expensive mistakes Series A–B companies make.
+If you have a clear strategy and need someone to execute at scale, a head of demand gen might be the better hire. If you're not sure what your strategy should be, you need the strategic layer first. A fractional CMO can define the strategy, then help you hire the right demand gen leader to run it. Getting this sequence wrong is one of the most expensive mistakes Series A–B companies make.
