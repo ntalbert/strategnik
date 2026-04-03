@@ -50,13 +50,13 @@ AEO isn't one tactic. It's a system with five interlocking components. Miss one 
 
 AI models don't rank pages. They rank entities — companies, people, concepts. Your company needs to be a recognized entity in the AI's knowledge graph, associated with the right topics and categories.
 
-This means consistent naming, clear descriptions across platforms, authoritative third-party references (analyst reports, press coverage, industry publications), and structured data that tells AI systems exactly what your company is and does. If an AI can't confidently say what your company does and why it's relevant, you won't appear in answers.
+This means consistent naming, clear descriptions across platforms, authoritative third-party references, and structured data that tells AI systems exactly what your company is and does. If an AI can't confidently describe your company, you won't appear in answers.
 
 ### 2. Content Structure
 
 Answer engines extract information from content. If your content is structured for humans skimming headlines, it may not be structured for AI extraction. Every key claim needs to be stated in clear, self-contained language. Definitions should be explicit. Lists should be formatted as lists. Comparisons should be tabular.
 
-This doesn't mean writing for robots. It means writing with the precision that both humans and machines reward. The best AEO content reads well and extracts well.
+The best AEO content reads well and extracts well. Precision serves both audiences.
 
 ### 3. Schema Markup
 
@@ -68,13 +68,13 @@ Most B2B SaaS sites have minimal schema implementation. The companies that inves
 
 AI models are trained on — and retrieve from — the broader web. Your company's presence in third-party sources matters enormously. Guest posts on industry publications. Mentions in analyst reports. Appearances in comparison pages and roundups. Community contributions. Podcast transcripts.
 
-Every external citation is a signal to AI systems that your entity is authoritative on a topic. This is the B2B equivalent of link-building, but the value chain is different. You're not building links for PageRank. You're building citations for AI retrieval.
+Every external citation signals entity authority. This is the B2B equivalent of link-building, but the value chain is different. You're not building links for PageRank. You're building citations for AI retrieval.
 
 ### 5. Topical Density
 
 AI systems favor sources that demonstrate comprehensive expertise on a topic. A single blog post about Kubernetes security won't make you the answer. Twenty interconnected pieces covering Kubernetes security from multiple angles — architecture, compliance, tooling, case studies, comparisons — creates topical density that AI models recognize.
 
-This is why content strategy and [GTM architecture](/gtm-strategy-consultant) are inseparable in the AEO era. You can't optimize for answer engines post-hoc. The content architecture has to be designed for topical dominance from the start.
+This is why [GTM architecture](/gtm-strategy-consultant) and content strategy are inseparable in the AEO era. You can't optimize for answer engines post-hoc. The architecture has to be designed for topical dominance from the start.
 
 ## How Does the Physics of Growth™ Framework Map to AI Discoverability?
 

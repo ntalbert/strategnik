@@ -46,9 +46,9 @@ At a minimum, a competent fractional CMO engagement should include:
 - **Executive alignment** — attending leadership meetings, translating marketing performance for your CEO and board, and pushing back when the plan needs defending.
 - **Measurement framework** — defining what good looks like at your stage and building the reporting cadence to track it.
 
-What varies is whether execution is included. Some fractional CMOs will write copy, manage campaigns, or build workflows. Others operate purely at the strategic layer. Neither is wrong — it depends on whether you have a team to execute or whether the fractional CMO is the entire marketing function.
+What varies is whether execution is included. Some fractional CMOs will write copy, manage campaigns, or build workflows. Others operate purely at the strategic layer. Neither is wrong — it depends on whether you have a team to execute.
 
-Be clear about this before you sign anything. The single biggest source of friction in fractional engagements is mismatched expectations about who does the work.
+Be clear about this before you sign anything. The biggest source of friction in fractional engagements is mismatched expectations about who does the work.
 
 ## What Drives Fractional CMO Pricing Up or Down?
 
