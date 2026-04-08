@@ -375,12 +375,12 @@ function ActTwo() {
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   const components = [
-    { label: "Brand + Voice", icon: "🎙", color: COLORS.purple, zone: COLORS.purpleZone },
-    { label: "ICP + Buyer", icon: "🎯", color: COLORS.blue, zone: COLORS.blueZone },
-    { label: "Competitive\nFraming", icon: "⚔", color: COLORS.amber, zone: COLORS.amberZone },
-    { label: "Content\nArchitecture", icon: "🏗", color: COLORS.mint, zone: COLORS.mintZone },
-    { label: "Machine\nReadability", icon: "🤖", color: COLORS.mint, zone: COLORS.mintZone },
-    { label: "Measurement\nTargets", icon: "📊", color: COLORS.blue, zone: COLORS.blueZone },
+    { label: "Brand + Voice", icon: "/icons/brand_voice.png", color: COLORS.purple, zone: COLORS.purpleZone },
+    { label: "ICP + Buyer", icon: "/icons/icp_buyer.png", color: COLORS.blue, zone: COLORS.blueZone },
+    { label: "Competitive\nFraming", icon: "/icons/competitive.png", color: COLORS.amber, zone: COLORS.amberZone },
+    { label: "Content\nArchitecture", icon: "/icons/content_arch.png", color: COLORS.mint, zone: COLORS.mintZone },
+    { label: "Machine\nReadability", icon: "/icons/machine_read.png", color: COLORS.mint, zone: COLORS.mintZone },
+    { label: "Measurement\nTargets", icon: "/icons/measurement.png", color: COLORS.blue, zone: COLORS.blueZone },
   ];
 
   // Arrange in 2 rows of 3
@@ -477,14 +477,14 @@ function ActTwo() {
                   fill={comp.zone}
                   strokeWidth={2}
                 />
-                <text
-                  x={pos.x + 95}
-                  y={pos.y + 35}
-                  textAnchor="middle"
-                  fontSize={22}
-                >
-                  {comp.icon}
-                </text>
+                <image
+                  href={comp.icon}
+                  x={pos.x + 75}
+                  y={pos.y + 8}
+                  width={40}
+                  height={40}
+                  opacity={0.85}
+                />
                 {comp.label.split("\n").map((line, li) => (
                   <text
                     key={li}
@@ -713,8 +713,8 @@ function ActThree() {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: 1.5 }}
                   >
-                    <circle cx={510} cy={tier.y + 30} r={12} fill="white" stroke={COLORS.blue} strokeWidth={1.5} />
-                    <text x={510} y={tier.y + 34} textAnchor="middle" fontSize={12}>👤</text>
+                    <circle cx={510} cy={tier.y + 30} r={14} fill="white" stroke={COLORS.blue} strokeWidth={1.5} />
+                    <image href="/icons/human_gate.png" x={498} y={tier.y + 16} width={24} height={24} opacity={0.8} />
                   </motion.g>
                 )}
                 {/* Leadership node for tier 3 */}
@@ -724,8 +724,8 @@ function ActThree() {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: 1.6 }}
                   >
-                    <circle cx={510} cy={tier.y + 30} r={12} fill="white" stroke={COLORS.purple} strokeWidth={1.5} />
-                    <text x={510} y={tier.y + 34} textAnchor="middle" fontSize={12}>👔</text>
+                    <circle cx={510} cy={tier.y + 30} r={14} fill="white" stroke={COLORS.purple} strokeWidth={1.5} />
+                    <image href="/icons/leadership.png" x={498} y={tier.y + 16} width={24} height={24} opacity={0.8} />
                   </motion.g>
                 )}
               </motion.g>
