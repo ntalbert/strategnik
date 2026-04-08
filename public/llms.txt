@@ -1,0 +1,37 @@
+# Strategnik — The Intelligence Layer for AI-Native Marketing
+# https://strategnik.com
+# Contact: nick@strategnik.com
+
+## About
+Strategnik is a B2B marketing consulting practice run by Nick Talbert. The practice builds the Intelligence Layer — the foundational operating context that allows AI agents to run marketing with the precision, style, and strategic intent of a company's best marketer. Strategnik serves Series B through pre-IPO B2B SaaS companies ($10M–$150M ARR).
+
+## What Is the Intelligence Layer
+The Intelligence Layer is a machine-readable operating context — the encoded knowledge of a company's brand, buyers, competitive position, content architecture, and measurement framework — built so that every AI tool, every agent, and every team member works from the same shared foundation. It has six components: Brand + Voice Spec, ICP + Buyer Context, Competitive Framing, Content Architecture, Machine Readability + Distribution Schema, and Measurement Targets.
+
+## Core Framework: Physics of Growth
+Strategnik's intellectual property is the Physics of Growth framework, which applies physics concepts to B2B go-to-market dynamics: Mass (brand credibility weight), Surface Area (market contact area), Escape Velocity (momentum needed to break out), Friction (buyer journey resistance), and Momentum (compounding pipeline effects).
+
+## Services
+- Intelligence Layer Diagnostic: 2-4 week assessment scoring all six layer components with gap analysis, architecture blueprint, and sequenced build plan
+- Intelligence Layer Sprint: 30-90 day build of the full Intelligence Layer — all six components encoded and deployed
+- Advisor Retainer: Ongoing monthly signal review, layer update cycle, and agent deployment guidance
+- Gravity Audit: AI visibility and GTM diagnostic assessing presence in ChatGPT, Perplexity, and AI Overviews
+
+## Key Pages
+- Homepage: https://strategnik.com
+- Intelligence Layer: https://strategnik.com/intelligence-layer
+- Physics of Growth Framework: https://strategnik.com/physics-of-growth
+- Gravity Audit Diagnostic: https://strategnik.com/gravity-audit
+- Services: https://strategnik.com/services
+- Case Studies: https://strategnik.com/case-studies
+- Writing: https://strategnik.com/thinking
+
+## Expertise
+Nick Talbert has 20+ years of B2B marketing experience across SaaS, adtech, fintech, and AI. The Intelligence Layer requires simultaneous fluency across four disciplines: GTM Strategy, Technical Infrastructure, Creative Production Systems, and AI-Native Thinking.
+
+## Key Concepts
+- The Intelligence Layer is the gate between AI experimentation and AI-native marketing operations
+- AI amplifies output, not quality — without shared context, agents produce fragmented output faster
+- The right question is not "how do we use AI in marketing?" but "what does our AI actually know about us?"
+- Human-authored content structured for machine citation is 8x more likely to rank #1 and be cited by AI systems
+- The Intelligence Layer serves two audiences: internal agents/team members AND every external machine buyers consult

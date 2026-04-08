@@ -1,0 +1,424 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "The Intelligence Layer — What AI Agents Actually Need to Run Your Marketing";
+const description = "The Intelligence Layer is the machine-readable operating context that makes AI-native marketing possible. Six components. One shared foundation. Built for Series B through pre-IPO B2B SaaS companies.";
+
+const faqData = [
+  {
+    question: "What is the Intelligence Layer?",
+    answer: "The Intelligence Layer is a machine-readable operating context — the encoded knowledge of your brand, your buyers, your competitive position, your content architecture, and your measurement framework — built so that every AI tool, every agent, and every team member works from the same shared foundation. It is not a document, a prompt template, or a one-time brand exercise. It is a living operating system that updates as the market moves."
+  },
+  {
+    question: "How is this different from hiring a fractional CMO?",
+    answer: "A fractional CMO provides leadership and strategy. When they leave, the strategy leaves with them. The Intelligence Layer is infrastructure — it persists after the engagement ends. Your team and your agents operate from it indefinitely. Building it requires simultaneous fluency in GTM strategy, technical infrastructure, creative production systems, and AI-native thinking — four disciplines that almost never coexist in a single hire."
+  },
+  {
+    question: "How long does it take to build the Intelligence Layer?",
+    answer: "The diagnostic takes 2-4 weeks. The full build sprint takes 30-90 days depending on company complexity. This is not a digital transformation initiative or an enterprise software deployment. It is a focused build that encodes the brand knowledge, market intelligence, and measurement framework that already exist in your organization — scattered across people's heads, old decks, and CRM fields — into a machine-readable operating context."
+  },
+  {
+    question: "What does the Intelligence Layer cost?",
+    answer: "The diagnostic ranges from $2,500-$25,000 depending on scope (external audit vs. deep internal audit). The full build sprint ranges from $25,000-$75,000. The ongoing advisor retainer is $5,000-$15,000 per month. A full transformation engagement runs $75,000-$150,000+. For comparison: a single CMO hire costs $350K+ fully loaded per year. The Intelligence Layer sprint costs less than one quarter of that salary and produces infrastructure that persists."
+  },
+  {
+    question: "Can we build this internally?",
+    answer: "Your team can run the system once it is built. Building the Intelligence Layer requires understanding how AI models ingest context, how agents learn from data structures, and how to encode brand and competitive intelligence in formats agents can actually use. That is not marketing ops — it is a different discipline. Strategnik builds it, trains your team, and hands it off. They operate it."
+  },
+  {
+    question: "We already have a CMO and marketing team. Is this a replacement?",
+    answer: "No. The Intelligence Layer is not here to replace your CMO or your team. It gives them a new set of operating instructions for a world where agents are part of the team. The CMO stays. The team stays. What changes is the infrastructure they operate from. The CMO steers the layer. The layer steers everything else."
+  },
+  {
+    question: "What happens after the build?",
+    answer: "The layer is delivered with full training for your internal team. Some companies operate it independently from day one. Others engage in an ongoing advisor retainer — a monthly signal review that asks what ranked, what converted, what messaging missed, and what shifted in the competitive landscape. The layer updates. New context pushes to all connected agents and tools. The layer does not go stale because the retainer is the update cycle."
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "The Intelligence Layer",
+      "provider": {
+        "@type": "Organization",
+        "name": "Strategnik",
+        "url": "https://www.strategnik.com"
+      },
+      "description": "The Intelligence Layer is the machine-readable operating context that makes AI-native marketing possible. Six components — brand spec, ICP context, competitive framing, content architecture, machine readability schema, and measurement targets — encoded so every AI tool and team member works from the same foundation.",
+      "serviceType": "AI Marketing Infrastructure",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Series B through pre-IPO B2B SaaS companies"
+      }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.strategnik.com" },
+        { "@type": "ListItem", "position": 2, "name": "The Intelligence Layer", "item": "https://www.strategnik.com/intelligence-layer" }
+      ]
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+      }))
+    })} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24 bg-black">
+    <div class="container-narrow">
+      <p class="section-label">The Intelligence Layer</p>
+      <h1 class="text-display-xl font-display text-white font-extrabold mb-8" data-animate>
+        What AI Agents Actually Need to Run Your Marketing
+      </h1>
+      <p class="text-body-lg text-gray-300 max-w-prose mb-8">
+        Most companies gave their team AI access and called it a strategy. What they actually built is a faster typing pool. The Intelligence Layer is the foundational operating context that makes AI-native marketing real — the encoded knowledge of your brand, your buyers, and your market, structured so every agent and every team member works from the same shared foundation.
+      </p>
+      <p class="text-body-lg text-white font-bold max-w-prose">
+        Your AI is still a chatbot. Here's what an operating system looks like.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-6">The Problem Nobody Is Solving</h2>
+      <p class="text-body text-gray-400 max-w-prose mb-6">
+        In a typical 20-person marketing org, strategy enters at the top and degrades at every handoff. The content team interprets the brief one way. Demand gen interprets it differently. Web does its own thing. Events uses whatever deck was built last quarter. The buyer encounters five different companies. Brand dilutes. Pipeline slows.
+      </p>
+      <p class="text-body text-gray-400 max-w-prose mb-6">
+        Now add AI to that system. AI amplifies output, not quality. More content produced faster from a fragmented system means more fragmented content at higher velocity. Every agent prompt starts from zero — no brand memory, no ICP knowledge, no competitive framing. A chatbot trained on fragmented context produces fragmented output — faster.
+      </p>
+      <p class="text-body text-white max-w-prose font-bold">
+        The question isn't "how do we use AI in marketing?" It's "what does our AI actually know about us — and is that enough to act on?"
+      </p>
+    </div>
+  </section>
+
+  <!-- The Six Components -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-display text-white font-bold mb-4">Six Components. One Source of Truth.</h2>
+      <p class="text-body text-gray-400 max-w-prose mb-12">
+        The Intelligence Layer serves two audiences. The first is your internal agents and team — giving them context to produce on-brand, on-strategy output. The second is every external machine your buyer consults — ChatGPT, Perplexity, AI Overviews. The layer makes your company legible to both.
+      </p>
+
+      <div class="space-y-8">
+        <!-- Component 1 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <div class="flex items-start gap-6">
+            <span class="text-display text-teal-400 shrink-0 font-bold">01</span>
+            <div>
+              <h3 class="text-body-lg text-white font-bold mb-3">Brand + Voice Spec</h3>
+              <p class="text-body text-gray-400">Tone, editorial standards, banned language, writing style rules — encoded so every agent produces on-brand work without requiring human review of every output. Not a style guide PDF. A machine-readable operating spec agents reference autonomously. Your brand becomes infrastructure, not a document someone forgets to check.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Component 2 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <div class="flex items-start gap-6">
+            <span class="text-display text-teal-400 shrink-0 font-bold">02</span>
+            <div>
+              <h3 class="text-body-lg text-white font-bold mb-3">ICP + Buyer Context</h3>
+              <p class="text-body text-gray-400">Ideal customer profiles, buying committee maps, pain hierarchy, objection framing, persona-level messaging — so agents know who they're talking to, why it matters, and what the alternatives look like. The strategic intelligence that turns generic outreach into precision targeting.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Component 3 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <div class="flex items-start gap-6">
+            <span class="text-display text-teal-400 shrink-0 font-bold">03</span>
+            <div>
+              <h3 class="text-body-lg text-white font-bold mb-3">Competitive Framing</h3>
+              <p class="text-body text-gray-400">Positioning against alternatives, displacement narratives, win/loss context, differentiated value claims — so every piece of content reinforces the market stance. Not static. Updated as the competitive landscape shifts. When the framing changes in the layer, it changes everywhere.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Component 4 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <div class="flex items-start gap-6">
+            <span class="text-display text-teal-400 shrink-0 font-bold">04</span>
+            <div>
+              <h3 class="text-body-lg text-white font-bold mb-3">Content Architecture</h3>
+              <p class="text-body text-gray-400">Topic cluster design with semantic entity relationships. Content atomization frameworks. Template structures per content type that embed schema, heading hierarchy, and entity definitions at creation. Internal linking architecture that signals topical authority. Question-answer pair libraries mapped to buying stage — the atomic units that AI Overviews, Perplexity, and ChatGPT cite.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Component 5 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <div class="flex items-start gap-6">
+            <span class="text-display text-teal-400 shrink-0 font-bold">05</span>
+            <div>
+              <h3 class="text-body-lg text-white font-bold mb-3">Machine Readability + Distribution Schema</h3>
+              <p class="text-body text-gray-400">JSON-LD structured data per page type. Entity definitions in formats machines parse. AI crawler accessibility via llms.txt and robots.txt policy. Multi-surface optimization for Google Search, AI Overviews, Perplexity, ChatGPT, and Gemini. Citation architecture — the signals that make LLMs treat your content as citable rather than paraphrasable. The difference between being found and being cited is structure.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Component 6 -->
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <div class="flex items-start gap-6">
+            <span class="text-display text-teal-400 shrink-0 font-bold">06</span>
+            <div>
+              <h3 class="text-body-lg text-white font-bold mb-3">Measurement Targets</h3>
+              <p class="text-body text-gray-400">Revenue influence metrics, conversion benchmarks, time-to-personalization goals, decision accuracy signals — so the system knows what success looks like and feedback loops can steer toward it. Not dashboards that report what happened. Feedback loops that steer what happens next. The agent fleet learns. The system adapts. Marketing becomes a precision instrument.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Changes -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-8">What Changes When the Layer Is Running</h2>
+      <div class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-gray-900/50 rounded-lg p-6">
+            <p class="text-small text-gray-500 mb-2">Without the layer</p>
+            <p class="text-body text-gray-400">"Write me a blog post about X"</p>
+          </div>
+          <div class="bg-gray-900 border border-teal-400/20 rounded-lg p-6">
+            <p class="text-small text-teal-400 mb-2">With the layer</p>
+            <p class="text-body text-white">Agent generates from keyword brief, brand spec, and ICP — autonomously. Ships with schema and entity markup from day one.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-gray-900/50 rounded-lg p-6">
+            <p class="text-small text-gray-500 mb-2">Without the layer</p>
+            <p class="text-body text-gray-400">Competitive response takes 2-4 weeks</p>
+          </div>
+          <div class="bg-gray-900 border border-teal-400/20 rounded-lg p-6">
+            <p class="text-small text-teal-400 mb-2">With the layer</p>
+            <p class="text-body text-white">CMO updates framing in one place. Changes propagate to website, ads, email, agent prompts. Live by end of day.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-gray-900/50 rounded-lg p-6">
+            <p class="text-small text-gray-500 mb-2">Without the layer</p>
+            <p class="text-body text-gray-400">Team of 20 produces 8-12 pieces/month</p>
+          </div>
+          <div class="bg-gray-900 border border-teal-400/20 rounded-lg p-6">
+            <p class="text-small text-teal-400 mb-2">With the layer</p>
+            <p class="text-body text-white">Team of 5 produces 20-40 pieces/month. Campaign launch: 3-5 days instead of 3-4 weeks.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-gray-900/50 rounded-lg p-6">
+            <p class="text-small text-gray-500 mb-2">Without the layer</p>
+            <p class="text-body text-gray-400">Invisible to ChatGPT, Perplexity, AI Overviews</p>
+          </div>
+          <div class="bg-gray-900 border border-teal-400/20 rounded-lg p-6">
+            <p class="text-small text-teal-400 mb-2">With the layer</p>
+            <p class="text-body text-white">Every page structured for AI citation from creation. llms.txt published. Entity definitions declared. Passage-level citability built in.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-gray-900/50 rounded-lg p-6">
+            <p class="text-small text-gray-500 mb-2">Without the layer</p>
+            <p class="text-body text-gray-400">Hiring to scale output</p>
+          </div>
+          <div class="bg-gray-900 border border-teal-400/20 rounded-lg p-6">
+            <p class="text-small text-teal-400 mb-2">With the layer</p>
+            <p class="text-body text-white">Architecture that scales without headcount. ROI within 60-90 days of deployment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maturity Model -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-4">The Five Stages of AI Marketing Maturity</h2>
+      <p class="text-body text-gray-400 max-w-prose mb-12">
+        You cannot reach stage 3 or beyond without stage 2. The layer is the gate.
+      </p>
+
+      <div class="space-y-6">
+        <div class="border-l-2 border-gray-700 pl-6 opacity-70">
+          <p class="text-small text-gray-500 mb-1">Stage 1</p>
+          <h3 class="text-body-lg text-white font-bold mb-2">Fragmented Humans</h3>
+          <p class="text-body text-gray-400">All humans, all silos. Strategy briefed to 5+ teams. Handoffs dilute everything. Adding AI makes it worse.</p>
+        </div>
+
+        <div class="border-l-2 border-teal-400 pl-6 bg-gray-900/30 rounded-r-lg py-4 pr-4">
+          <p class="text-small text-teal-400 mb-1">Stage 2 — The Sprint</p>
+          <h3 class="text-body-lg text-white font-bold mb-2">Intelligence Layer Built</h3>
+          <p class="text-body text-gray-400">All six components encoded. Shared operating context installed. AI tools can now be wired in. 30-90 day engagement.</p>
+        </div>
+
+        <div class="border-l-2 border-purple-400 pl-6">
+          <p class="text-small text-purple-400 mb-1">Stages 3-4 — The Retainer</p>
+          <h3 class="text-body-lg text-white font-bold mb-2">Humans + AI + Agents</h3>
+          <p class="text-body text-gray-400">Teams prompt from shared context. Agents run content, SEO, nurture autonomously. Precision at scale. The feedback loop compounds.</p>
+        </div>
+
+        <div class="border-l-2 border-gray-700 pl-6 opacity-60">
+          <p class="text-small text-gray-500 mb-1">Stage 5 — The Horizon</p>
+          <h3 class="text-body-lg text-white font-bold mb-2">Proactive Agents</h3>
+          <p class="text-body text-gray-400">Agents detect signals and deploy autonomously. Humans govern strategy. Marketing as infrastructure. Internal team owns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Now -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-6">The Window Is Narrower Than It Appears</h2>
+      <div class="space-y-4 text-body text-gray-400 max-w-prose">
+        <p>Gartner projects 60% of brands will use agentic AI for one-to-one interactions by 2028, replacing channel-based marketing. BCG expects agentic AI to handle over 20% of marketing's workload within two to three years. Accenture has deployed 14 AI agents across their 600-person marketing team — campaign steps reduced from 135 to 85.</p>
+        <p>Vercel replaced 9 of 10 inbound SDRs with a single AI agent in six weeks. Customer support hiring is down 65% in two years. AI-native B2B companies are running eight-figure businesses with 3 human employees and 20+ AI agents, spending 23% of revenue on inference costs rather than headcount.</p>
+        <p>But McKinsey's data reveals the gap: while 50% of CMOs rank generative AI as a top-three investment, it ranked 17th of 20 in actual execution priorities. <strong class="text-white">62% of companies are experimenting with AI agents. Only 23% are scaling them. The 39-point gap is where the Intelligence Layer operates.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Engagement -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-4">Two Ways In. One Destination.</h2>
+      <p class="text-body text-gray-400 max-w-prose mb-12">
+        Both paths lead to the same three deliverables: a gap analysis, an architecture blueprint, and a sequenced build plan.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+          <p class="text-small text-teal-400 mb-2">Light entry</p>
+          <h3 class="text-body-lg text-white font-bold mb-4">External Audit</h3>
+          <p class="text-body text-gray-400 mb-4">1-2 weeks. No internal access required.</p>
+          <ul class="space-y-2 text-small text-gray-400">
+            <li>→ Digital presence audit</li>
+            <li>→ AI citation footprint assessment</li>
+            <li>→ Competitive landscape scan</li>
+            <li>→ Content coherence review</li>
+            <li>→ Schema and AI crawler accessibility audit</li>
+          </ul>
+        </div>
+
+        <div class="bg-gray-900 border border-teal-400/30 rounded-lg p-8">
+          <p class="text-small text-teal-400 mb-2">Deep entry</p>
+          <h3 class="text-body-lg text-white font-bold mb-4">Internal Audit</h3>
+          <p class="text-body text-gray-400 mb-4">2-4 weeks. With internal access.</p>
+          <ul class="space-y-2 text-small text-gray-400">
+            <li>→ Everything in the external audit</li>
+            <li>→ CRM structure and signal mapping</li>
+            <li>→ Content systems and workflow review</li>
+            <li>→ Team workflow and AI usage analysis</li>
+            <li>→ Full six-component gap analysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="text-body-lg text-white font-bold mb-6">Three Deliverables. Regardless of Which Audit.</h3>
+      <div class="space-y-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <h4 class="text-body text-white font-bold mb-2">01: Gap Analysis</h4>
+          <p class="text-body text-gray-400">Which of the six layer components exist today, which are missing, and which are present but broken. Includes AI discoverability scorecard showing where you are and are not visible to the machines your buyers consult.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <h4 class="text-body text-white font-bold mb-2">02: Architecture Blueprint</h4>
+          <p class="text-body text-gray-400">What the Intelligence Layer looks like for your company, your market, your stage, and your team. Not a generic framework — a blueprint built to specific context.</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+          <h4 class="text-body text-white font-bold mb-2">03: Build Plan</h4>
+          <p class="text-body text-gray-400">Sequenced by what to fix first, what to build next, and where agents create the most leverage. Actionable whether you engage further or hand it to your internal team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why This Requires an Outside Build -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-6">Four Disciplines That Rarely Coexist</h2>
+      <p class="text-body text-gray-400 max-w-prose mb-8">
+        Building the Intelligence Layer requires simultaneous fluency across four areas that almost never exist in one person or one agency:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border-l-2 border-teal-400 pl-6">
+          <h3 class="text-body text-white font-bold mb-2">GTM Strategy</h3>
+          <p class="text-small text-gray-400">ICP definition, positioning architecture, pipeline mechanics, competitive framing, buying committee mapping.</p>
+        </div>
+        <div class="border-l-2 border-teal-400 pl-6">
+          <h3 class="text-body text-white font-bold mb-2">Technical Infrastructure</h3>
+          <p class="text-small text-gray-400">Data architecture, CRM design, platform orchestration, API integrations, signal mapping.</p>
+        </div>
+        <div class="border-l-2 border-teal-400 pl-6">
+          <h3 class="text-body text-white font-bold mb-2">Creative Production Systems</h3>
+          <p class="text-small text-gray-400">Brand voice encoding, editorial standards, content frameworks, style specifications.</p>
+        </div>
+        <div class="border-l-2 border-teal-400 pl-6">
+          <h3 class="text-body text-white font-bold mb-2">AI-Native Thinking</h3>
+          <p class="text-small text-gray-400">How models ingest context, how agents learn from structured data, how to build systems they can reliably operate within.</p>
+        </div>
+      </div>
+      <p class="text-body text-gray-400 max-w-prose mt-8">
+        The last CMO candidate who was equally fluent across all four doesn't exist in the hiring market. That's the moat.
+      </p>
+    </div>
+  </section>
+
+  <!-- Related Reading -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-6">Related Reading</h2>
+      <ul class="space-y-3 text-body">
+        <li><a href="/thinking/your-ai-is-still-a-chatbot" class="text-blue-bright hover:text-white transition-colors">Your AI Is Still a Chatbot. Here's What an Operating System Looks Like.</a></li>
+        <li><a href="/thinking/six-components-of-an-intelligence-layer" class="text-blue-bright hover:text-white transition-colors">The Six Components of an Intelligence Layer</a></li>
+        <li><a href="/thinking/from-chatbot-to-agent-fleet" class="text-blue-bright hover:text-white transition-colors">From Chatbot to Agent Fleet: The Five Stages of AI Marketing Maturity</a></li>
+        <li><a href="/thinking/why-b2b-content-doesnt-show-up-in-chatgpt" class="text-blue-bright hover:text-white transition-colors">Why Your B2B Content Doesn't Show Up in ChatGPT</a></li>
+        <li><a href="/gravity-audit" class="text-blue-bright hover:text-white transition-colors">The Gravity Audit — AI Visibility & GTM Diagnostic</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <h2 class="text-heading text-white font-bold mb-8">Frequently Asked Questions</h2>
+      <div class="space-y-8">
+        {faqData.map(faq => (
+          <div>
+            <h3 class="text-body-lg text-white font-bold mb-3">{faq.question}</h3>
+            <p class="text-body text-gray-400 max-w-prose">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow text-center">
+      <h2 class="text-display text-white font-bold mb-6">Before You Hire, Build, or Buy</h2>
+      <p class="text-body-lg text-gray-400 max-w-prose mx-auto mb-4">
+        Find out what's missing. The diagnostic maps your marketing function across all six layers and delivers the gap analysis, the architecture blueprint, and the build plan.
+      </p>
+      <p class="text-body text-gray-400 max-w-prose mx-auto mb-8">
+        Two weeks. One deliverable. The foundation for everything that comes next.
+      </p>
+      <a href="mailto:nick@strategnik.com" class="inline-block px-8 py-4 bg-blue-bright text-white font-bold rounded-lg hover:bg-blue-600 transition-colors">
+        Start the conversation →
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
