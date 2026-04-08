@@ -1,8 +1,8 @@
 ---
-import IntelligenceLayerAnimation from "../components/IntelligenceLayerAnimation";
+import IntelligenceLayerHero from "../components/IntelligenceLayerHero";
 
-const title = "The Intelligence Layer — Animated Explainer";
-const description = "From fragmented marketing to a unified, signal-responsive operating system. See the full Intelligence Layer story in three acts.";
+const title = "The Intelligence Layer — Strategnik";
+const description = "From fragmented marketing to a unified, signal-responsive operating system. See the full Intelligence Layer story.";
 ---
 
 <html lang="en">
@@ -13,9 +13,13 @@ const description = "From fragmented marketing to a unified, signal-responsive o
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #0a0f1a; overflow: hidden; }
+    </style>
   </head>
   <body>
-    <IntelligenceLayerAnimation client:load />
+    <IntelligenceLayerHero client:load />
   </body>
 </html>
