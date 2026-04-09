@@ -6,6 +6,7 @@ date: 2026-04-08T00:00:00.000Z
 category: playbook
 featured: false
 draft: false
+image: /images/posts/six-components-intelligence-layer.png
 speakable:
   - "article h2:nth-of-type(1) + p"
   - "article h2:nth-of-type(2) + p"
