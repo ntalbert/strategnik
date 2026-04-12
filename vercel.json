@@ -38,12 +38,6 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.strategnik.com" }],
-      "destination": "https://strategnik.com/:path*",
-      "permanent": true
-    },
-    {
       "source": "/thinking/field-unification",
       "destination": "/thinking/ai-collapsing-gtm-walls",
       "permanent": true
