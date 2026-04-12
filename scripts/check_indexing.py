@@ -500,11 +500,12 @@ def main():
 
     # Load env
     env = load_env(ENV_PATH)
-    client_id = env.get("GOOGLE_CLIENT_ID")
-    client_secret = env.get("GOOGLE_CLIENT_SECRET")
+    # Prefer GSC-specific creds, fall back to general Google OAuth creds
+    client_id = env.get("GSC_CLIENT_ID") or env.get("GOOGLE_CLIENT_ID")
+    client_secret = env.get("GSC_CLIENT_SECRET") or env.get("GOOGLE_CLIENT_SECRET")
 
     if not client_id or not client_secret:
-        print(f"ERROR: GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET must be set in {ENV_PATH}")
+        print(f"ERROR: GSC_CLIENT_ID/GSC_CLIENT_SECRET (or GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET) must be set in {ENV_PATH}")
         sys.exit(1)
 
     print("Authenticating with Google...")
