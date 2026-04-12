@@ -99,7 +99,7 @@ def get_credentials(client_id: str, client_secret: str) -> Credentials:
             }
         }
         flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
-        creds = flow.run_local_server(port=8085, open_browser=True)
+        creds = flow.run_local_server(port=8097, open_browser=True)
         TOKEN_PATH.write_text(creds.to_json())
         print(f"Token cached to {TOKEN_PATH}")
 
