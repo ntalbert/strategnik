@@ -48,7 +48,7 @@ This isn't a metaphor. It's an operating model shift. It looks like:
 
 **Lifecycle orchestration, not funnel management.** The motion extends past acquisition into activation, expansion, and renewal. Marketing doesn't "hand off" and walk away. The orchestrator owns the customer's entire relationship with the company's value proposition — from first touch through renewal and expansion.
 
-This is the physics of marketing concept of **momentum** applied at the systems level. Momentum compounds. Campaigns dissipate. I've written about [how friction compounds](/thinking/friction-problem/) in buyer journeys — and campaigns are friction machines, generating heat and then losing it. Rivers build channels that deepen over time.
+This is the physics of marketing concept of **[momentum](/physics-of-growth/momentum)** applied at the systems level. Momentum compounds. Campaigns dissipate. I've written about [how friction compounds](/thinking/friction-problem/) in buyer journeys — and campaigns are friction machines, generating heat and then losing it. Rivers build channels that deepen over time.
 
 ## The Controversial Part: Should Sales Report to This Person?
 

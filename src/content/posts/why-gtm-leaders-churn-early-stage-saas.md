@@ -14,7 +14,7 @@ If you've been in B2B SaaS long enough, that story isn't surprising. It's Tuesda
 
 I've spent twenty years on the growth side of the fence—including roles at companies later acquired by Amazon and AOL—and for a long time, I accepted those explanations. Then I started paying attention to what was happening on the other side of the fence. The sales leaders were churning even faster. The VP of Sales would cycle out, the next one would inherit the same pipeline challenges, and within a year, the pattern would repeat. Same conversations, same frustrations, same outcome. Two different functions, same curve.
 
-That's when the individual explanations stopped making sense to me. These weren't just talent problems or fit problems. The pattern was structural. And it looked a lot like a physics problem.
+That's when the individual explanations stopped making sense to me. These weren't just talent problems or fit problems. The pattern was structural. And it looked a lot like a physics problem — the kind that becomes clearer [through a physics lens](/physics-of-growth).
 
 If you look at it that way—as a problem of mass, velocity, and measurable distance—something useful happens. You stop blaming the pilot and start reading the instrument panel. You stop swapping out the head of growth and the head of sales as if they were interchangeable parts, and start asking whether the system itself can support the outcomes you're expecting. Most importantly, you open a path to something that's been in chronically short supply between GTM leaders and the rest of the management team: trust.
 

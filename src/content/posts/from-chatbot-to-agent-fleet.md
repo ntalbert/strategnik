@@ -15,7 +15,7 @@ speakable:
 
 The question I hear most from CEOs isn't "Should we use AI in marketing?" That argument is over. The question is: "My team has AI tools and nothing feels different. What are we doing wrong?"
 
-The answer, almost every time, is that they skipped a stage. They went from fragmented human teams directly to AI prompting — without building the operating context that makes AI useful. It's the equivalent of hiring 15 interns, giving them no onboarding, no brand knowledge, no understanding of the customer, and expecting them to run your go-to-market. Speed without context is just faster confusion.
+The answer, almost every time, is that they skipped a stage. They went from fragmented human teams directly to AI prompting — without building the operating context — [what context engineering actually means](/thinking/context-engineering-vs-intelligence-layer) — that makes AI useful. It's the equivalent of hiring 15 interns, giving them no onboarding, no brand knowledge, no understanding of the customer, and expecting them to run your go-to-market. Speed without context is just faster confusion.
 
 There are five stages of AI marketing maturity. Most companies are stuck at stage one. The gate between stage one and everything after is the [Intelligence Layer](/thinking/six-components-of-an-intelligence-layer). Here's what each stage looks like, what becomes possible at each one, and how the transition actually works.
 
