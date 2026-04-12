@@ -88,18 +88,74 @@ def get_credentials(client_id: str, client_secret: str) -> Credentials:
             creds = None
 
     if not creds or not creds.valid:
-        # Build client config for installed app flow
-        client_config = {
-            "installed": {
-                "client_id": client_id,
-                "client_secret": client_secret,
-                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                "token_uri": "https://oauth2.googleapis.com/token",
-                "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob", "http://localhost"],
-            }
-        }
-        flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
-        creds = flow.run_local_server(port=8097, open_browser=True)
+        # Manual OAuth flow — works with both Desktop and Web app client types
+        import webbrowser
+        from urllib.parse import urlencode, urlparse, parse_qs
+
+        redirect_uri = "http://localhost:8097"
+        auth_params = urlencode({
+            "client_id": client_id,
+            "redirect_uri": redirect_uri,
+            "response_type": "code",
+            "scope": " ".join(SCOPES),
+            "access_type": "offline",
+            "prompt": "consent",
+        })
+        auth_url = f"https://accounts.google.com/o/oauth2/auth?{auth_params}"
+
+        print(f"\nOpening browser for authorization...")
+        print(f"If it doesn't open, visit:\n{auth_url}\n")
+        webbrowser.open(auth_url)
+
+        # Start a tiny local server to catch the redirect
+        import http.server
+        import socketserver
+
+        auth_code = None
+
+        class CallbackHandler(http.server.BaseHTTPRequestHandler):
+            def do_GET(self):
+                nonlocal auth_code
+                query = parse_qs(urlparse(self.path).query)
+                auth_code = query.get("code", [None])[0]
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html")
+                self.end_headers()
+                self.wfile.write(b"<h2>Authorization successful. You can close this tab.</h2>")
+
+            def log_message(self, format, *args):
+                pass  # Suppress server logs
+
+        with socketserver.TCPServer(("localhost", 8097), CallbackHandler) as httpd:
+            httpd.socket.settimeout(120)
+            httpd.handle_request()
+
+        if not auth_code:
+            print("ERROR: No authorization code received.")
+            sys.exit(1)
+
+        # Exchange code for tokens
+        token_resp = requests.post("https://oauth2.googleapis.com/token", data={
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "code": auth_code,
+            "grant_type": "authorization_code",
+            "redirect_uri": redirect_uri,
+        })
+        token_data = token_resp.json()
+
+        if "error" in token_data:
+            print(f"ERROR: Token exchange failed: {token_data}")
+            sys.exit(1)
+
+        creds = Credentials(
+            token=token_data["access_token"],
+            refresh_token=token_data.get("refresh_token"),
+            token_uri="https://oauth2.googleapis.com/token",
+            client_id=client_id,
+            client_secret=client_secret,
+            scopes=SCOPES,
+        )
         TOKEN_PATH.write_text(creds.to_json())
         print(f"Token cached to {TOKEN_PATH}")
 
