@@ -1,6 +1,6 @@
 ---
 title: "Why Your Best Growth Programs Look Like They're Failing"
-description: "The investments that compound are the ones you're most tempted to kill."
+description: "The investments that compound are the ones you're most tempted to kill. Why momentum-building programs look like failures early — and how to protect them from the quarterly axe."
 date: 2025-02-03T00:00:00.000Z
 category: physics
 featured: true

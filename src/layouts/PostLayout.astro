@@ -10,6 +10,7 @@ interface Props {
     category: string;
     featured?: boolean;
     image?: string;
+    image_alt?: string;
     video?: string;
     speakable?: string[];
   };
@@ -33,23 +34,47 @@ const formattedDate = frontmatter.date.toLocaleDateString('en-US', {
 // Build absolute image URL for OG tags
 const siteUrl = Astro.site?.origin || 'https://strategnik.com';
 const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined;
+const imageAlt = frontmatter.image_alt || `${frontmatter.title} — Strategnik`;
+const canonicalUrl = `https://strategnik.com${Astro.url.pathname}`;
+const isoDate = frontmatter.date.toISOString();
 ---
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description} image={ogImage}>
-  {frontmatter.speakable && frontmatter.speakable.length > 0 && (
-    <Fragment slot="head">
-      <script type="application/ld+json" set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": frontmatter.title,
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": frontmatter.title,
+      "description": frontmatter.description,
+      "datePublished": isoDate,
+      "dateModified": isoDate,
+      "url": canonicalUrl,
+      ...(ogImage && { "image": ogImage }),
+      "author": {
+        "@type": "Person",
+        "name": "Nick Talbert",
+        "url": "https://www.linkedin.com/in/nick-talbert/",
+        "jobTitle": "GTM Strategist & Founder",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Strategnik",
+          "url": "https://strategnik.com"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Strategnik",
+        "url": "https://strategnik.com"
+      },
+      "articleSection": categoryLabels[frontmatter.category] || frontmatter.category,
+      ...(frontmatter.speakable && frontmatter.speakable.length > 0 && {
         "speakable": {
           "@type": "SpeakableSpecification",
           "cssSelector": frontmatter.speakable
-        },
-        "url": `https://strategnik.com${Astro.url.pathname}`
-      })} />
-    </Fragment>
-  )}
+        }
+      })
+    })} />
+  </Fragment>
   <article class="section">
     <div class="container-narrow">
       <!-- Back link -->
@@ -78,7 +103,8 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
       <!-- Header Image/Video -->
       {frontmatter.image && (
         <div id="hero-media" class="hero-media-container mb-12 -mx-4 md:-mx-8 lg:-mx-16">
-          <div class="hero-background" style={`background-image: url('${frontmatter.image}')`}></div>
+          <img class="hero-background-img" src={frontmatter.image} alt={imageAlt} loading="eager" />
+          <div class="hero-background" style={`background-image: url('${frontmatter.image}')`} aria-hidden="true"></div>
           {frontmatter.video && (
             <div class="hero-video-container">
               <video id="hero-video" class="hero-video" muted playsinline loop>
@@ -307,6 +333,14 @@ const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined
     max-height: 500px;
     overflow: hidden;
     border-radius: 0.5rem;
+  }
+
+  .hero-background-img {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
   }
 
   .hero-background {
