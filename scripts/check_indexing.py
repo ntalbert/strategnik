@@ -410,7 +410,7 @@ def generate_report(
         lines.append(f"|-----|---------|----------------|--------|-------------|")
         for r in sorted(not_indexed, key=lambda x: x["url"]):
             lines.append(
-                f"| {r['url']} | {r['verdict']} | {r['coverageState']} | {r['robotsTxtState']} | {r['pageFetchState']} |"
+                f"| {r['url']} | {r.get('verdict', '?')} | {r.get('coverageState', '?')} | {r.get('robotsTxtState', 'N/A')} | {r.get('pageFetchState', 'N/A')} |"
             )
     else:
         lines.append("All checked pages are indexed.")
