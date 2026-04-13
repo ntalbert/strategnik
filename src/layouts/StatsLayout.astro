@@ -949,8 +949,9 @@ const currentUrl = Astro.url.href;
           commentaryElements.push(sibling);
         } else if (sibling.tagName === 'P') {
           const strong = sibling.querySelector(':scope > strong:first-child');
-          if (strong && sibling.childNodes.length === 1 && sibling.children.length === 1) {
-            // This paragraph is entirely bold text = a stat
+          const text = (sibling as HTMLElement).textContent || '';
+          if (strong && (text.includes('Source:') || text.match(/^\*?\*?[\d$]/))) {
+            // Paragraph starts with bold and contains a source citation = a stat
             statParagraphs.push(sibling);
           }
         }
@@ -973,12 +974,12 @@ const currentUrl = Astro.url.href;
 
         statParagraphs.forEach((p) => {
           const html = (p as HTMLElement).innerHTML;
-          // The entire paragraph is wrapped in <strong>...</strong>
-          // Extract the inner HTML of the strong tag
-          const strongMatch = html.match(/<strong>([\s\S]*?)<\/strong>/);
+          // Extract the bold stat text and everything after it
+          const strongMatch = html.match(/<strong>([\s\S]*?)<\/strong>([\s\S]*)/);
           if (!strongMatch) return;
 
-          const fullText = strongMatch[1];
+          // Combine bold text + trailing context into one string
+          const fullText = strongMatch[1] + (strongMatch[2] || '');
 
           // Extract the big number — look for a leading stat like "73%", "60%", "$463 billion", "14.2%", "8x", "2.5x", etc.
           const numberMatch = fullText.match(/^([\$]?[\d,.]+(?:\.\d+)?(?:%|x|(?:\s+(?:billion|million|trillion|thousand)))?)/i);
