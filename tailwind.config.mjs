@@ -94,7 +94,7 @@ export default {
         'blue-bright': '#0051ff',         // ink-black-500
       },
       fontFamily: {
-        'sans': ['Soehne Breit', 'system-ui', 'sans-serif'],
+        'sans': ['Roboto', 'system-ui', 'sans-serif'],
         'mono': ['Sohne Mono', 'JetBrains Mono', 'monospace'],
         'display': ['Soehne Breit', 'system-ui', 'sans-serif'],
       },

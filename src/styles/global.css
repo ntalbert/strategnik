@@ -43,7 +43,7 @@
   }
 
   body {
-    @apply text-black font-sans italic;
+    @apply text-black font-sans not-italic;
   }
 
   ::selection {
@@ -60,9 +60,9 @@
     @apply outline-2 outline-offset-2 outline-accent rounded;
   }
 
-  /* Headings - Bold, white for dark theme */
+  /* Headings - Soehne Breit (display font), Bold, white for dark theme */
   h1, h2, h3, h4 {
-    @apply text-white font-bold not-italic;
+    @apply text-white font-display font-bold not-italic;
   }
 
   h1 {
