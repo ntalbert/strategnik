@@ -12,6 +12,7 @@ const posts = defineCollection({
     image: z.string().optional(),
     video: z.string().optional(),
     speakable: z.array(z.string()).optional(),
+    layout: z.enum(['default', 'stats']).default('default'),
   }),
 });
 

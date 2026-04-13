@@ -6,6 +6,7 @@ date: 2026-02-07T00:00:00.000Z
 category: field-notes
 featured: true
 draft: false
+layout: stats
 image: /images/posts/aeo-statistics-b2b-saas-2026.png
 speakable:
   - "article h2:nth-of-type(1) + p"
