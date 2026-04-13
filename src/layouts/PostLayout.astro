@@ -75,6 +75,9 @@ const isoDate = frontmatter.date.toISOString();
       })
     })} />
   </Fragment>
+  <!-- Reading progress bar -->
+  <div id="reading-progress" class="reading-progress-bar"></div>
+
   <article class="section">
     <div class="container-narrow">
       <!-- Back link -->
@@ -87,7 +90,7 @@ const isoDate = frontmatter.date.toISOString();
       </a>
 
       <!-- Header -->
-      <header class="mb-12">
+      <header class="mb-16">
         <div class="flex items-center gap-4 mb-6">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-800 text-gray-300 border border-gray-700">
             {categoryLabels[frontmatter.category] || frontmatter.category}
@@ -95,9 +98,11 @@ const isoDate = frontmatter.date.toISOString();
           <time class="text-sm text-gray-500" datetime={frontmatter.date.toISOString()}>
             {formattedDate}
           </time>
+          <span class="text-sm text-gray-600">·</span>
+          <span id="reading-time" class="text-sm text-gray-500"></span>
         </div>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">{frontmatter.title}</h1>
-        <p class="text-xl text-gray-400 max-w-prose">{frontmatter.description}</p>
+        <p class="text-xl md:text-2xl text-gray-400 max-w-prose leading-relaxed">{frontmatter.description}</p>
       </header>
 
       <!-- Header Image/Video -->
@@ -199,9 +204,21 @@ const isoDate = frontmatter.date.toISOString();
     color: #fff;
   }
 
+  /* Reading progress bar */
+  .reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #1de2c4, #4ae8d0);
+    z-index: 9999;
+    transition: width 50ms linear;
+  }
+
   .prose h2 {
-    margin-top: 3rem;
-    margin-bottom: 1.25rem;
+    margin-top: 4.5rem;
+    margin-bottom: 1.5rem;
     font-size: 1.875rem;
     font-weight: 700;
     color: #fff;
@@ -210,8 +227,8 @@ const isoDate = frontmatter.date.toISOString();
   }
 
   .prose h3 {
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
     font-size: 1.35rem;
     font-weight: 700;
     color: #fff;
@@ -220,25 +237,44 @@ const isoDate = frontmatter.date.toISOString();
   }
 
   .prose p {
-    margin-bottom: 1.5rem;
-    line-height: 1.75;
+    margin-bottom: 1.75rem;
+    line-height: 1.85;
+    font-size: 1.0625rem;
+  }
+
+  /* Lead paragraph — first paragraph gets special treatment */
+  .prose > p:first-of-type {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e5e7eb;
   }
 
   .prose ul,
   .prose ol {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
     padding-left: 1.5rem;
   }
 
   .prose li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
+    line-height: 1.75;
   }
 
+  /* Pull quote styling — blockquotes become visual anchors */
   .prose blockquote {
-    border-left: 4px solid #374151;
-    padding-left: 1.5rem;
+    border-left: 4px solid #1de2c4;
+    padding: 1.25rem 1.5rem;
+    margin: 2.5rem 0;
+    background: rgba(29, 226, 196, 0.04);
+    border-radius: 0 0.5rem 0.5rem 0;
     font-style: italic;
-    color: #9ca3af;
+    color: #d1d5db;
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .prose blockquote p {
+    margin-bottom: 0;
   }
 
   .prose code {
@@ -262,13 +298,30 @@ const isoDate = frontmatter.date.toISOString();
   }
 
   .prose img {
-    border-radius: 0.5rem;
-    margin: 2rem 0;
+    border-radius: 0.75rem;
+    margin: 3rem 0;
+    border: 1px solid #1f2937;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   }
 
   .prose hr {
-    border-color: #374151;
-    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #374151, transparent);
+    margin: 4rem 0;
+  }
+
+  /* Callout box — for stat-heavy paragraphs wrapped in bold */
+  .prose > p > strong:only-child {
+    display: block;
+    padding: 1.25rem 1.5rem;
+    background: #18181b;
+    border-left: 3px solid #f59e0b;
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: #e5e7eb;
+    font-weight: 600;
+    line-height: 1.7;
+    margin: 0.5rem 0;
   }
 
   /* Table Styling */
@@ -377,7 +430,7 @@ const isoDate = frontmatter.date.toISOString();
 </style>
 
 <script>
-  // Hero video transition effect (same as case studies)
+  // Hero video transition effect
   const heroMedia = document.getElementById('hero-media');
   const heroVideo = document.getElementById('hero-video') as HTMLVideoElement;
 
@@ -387,10 +440,34 @@ const isoDate = frontmatter.date.toISOString();
       heroVideo.play().catch(() => {});
     }, 1000);
 
-    // Loop the video
     heroVideo.addEventListener('ended', () => {
       heroVideo.currentTime = 0;
       heroVideo.play().catch(() => {});
     });
+  }
+
+  // Reading time estimate
+  const proseEl = document.querySelector('.prose');
+  const readingTimeEl = document.getElementById('reading-time');
+  if (proseEl && readingTimeEl) {
+    const text = proseEl.textContent || '';
+    const words = text.trim().split(/\s+/).length;
+    const minutes = Math.max(1, Math.ceil(words / 250));
+    readingTimeEl.textContent = `${minutes} min read`;
+  }
+
+  // Reading progress bar
+  const progressBar = document.getElementById('reading-progress');
+  if (progressBar) {
+    const article = document.querySelector('article');
+    if (article) {
+      window.addEventListener('scroll', () => {
+        const rect = article.getBoundingClientRect();
+        const total = article.scrollHeight - window.innerHeight;
+        const scrolled = -rect.top;
+        const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+        progressBar.style.width = `${pct}%`;
+      }, { passive: true });
+    }
   }
 </script>
