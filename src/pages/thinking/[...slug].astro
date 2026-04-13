@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
+import StatsLayout from '../../layouts/StatsLayout.astro';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('posts', ({ data }) => {
@@ -29,8 +30,15 @@ export async function getStaticPaths() {
 
 const { post, relatedPosts } = Astro.props;
 const { Content } = await post.render();
+const isStats = post.data.layout === 'stats';
 ---
 
-<PostLayout frontmatter={post.data} relatedPosts={relatedPosts}>
-  <Content />
-</PostLayout>
+{isStats ? (
+  <StatsLayout frontmatter={post.data} relatedPosts={relatedPosts}>
+    <Content />
+  </StatsLayout>
+) : (
+  <PostLayout frontmatter={post.data} relatedPosts={relatedPosts}>
+    <Content />
+  </PostLayout>
+)}

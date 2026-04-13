@@ -1,0 +1,1146 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+
+interface RelatedPost {
+  slug: string;
+  title: string;
+  image?: string;
+  category: string;
+}
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    date: Date;
+    category: string;
+    featured?: boolean;
+    image?: string;
+    image_alt?: string;
+    video?: string;
+    speakable?: string[];
+  };
+  relatedPosts?: RelatedPost[];
+}
+
+const { frontmatter, relatedPosts = [] } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  'field-notes': 'Field Notes',
+  'case-study': 'Case Study',
+  'playbook': 'Playbook',
+  'physics': 'Physics of Growth',
+};
+
+const allCategories = Object.entries(categoryLabels);
+
+const formattedDate = frontmatter.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const siteUrl = Astro.site?.origin || 'https://strategnik.com';
+const ogImage = frontmatter.image ? `${siteUrl}${frontmatter.image}` : undefined;
+const imageAlt = frontmatter.image_alt || `${frontmatter.title} — Strategnik`;
+const canonicalUrl = `https://strategnik.com${Astro.url.pathname}`;
+const isoDate = frontmatter.date.toISOString();
+const currentUrl = Astro.url.href;
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description} image={ogImage}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": frontmatter.title,
+      "description": frontmatter.description,
+      "datePublished": isoDate,
+      "dateModified": isoDate,
+      "url": canonicalUrl,
+      ...(ogImage && { "image": ogImage }),
+      "author": {
+        "@type": "Person",
+        "name": "Nick Talbert",
+        "url": "https://www.linkedin.com/in/nick-talbert/",
+        "jobTitle": "GTM Strategist & Founder",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Strategnik",
+          "url": "https://strategnik.com"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Strategnik",
+        "url": "https://strategnik.com"
+      },
+      "articleSection": categoryLabels[frontmatter.category] || frontmatter.category,
+      ...(frontmatter.speakable && frontmatter.speakable.length > 0 && {
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": frontmatter.speakable
+        }
+      })
+    })} />
+  </Fragment>
+
+  <div class="stats-page">
+    <!-- Reading progress bar -->
+    <div class="progress-bar">
+      <div id="progress-bar-fill" class="progress-bar-fill"></div>
+    </div>
+
+    <div class="stats-layout">
+
+      <!-- Icon Sidebar (left) -->
+      <aside class="icon-sidebar">
+        <div class="icon-sidebar-sticky">
+          <a href="/thinking" class="icon-btn" title="Back to Thinking">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </a>
+          <button class="icon-btn" id="bookmark-btn" title="Bookmark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <article class="stats-main">
+        <a href="/thinking" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Thinking
+        </a>
+
+        <!-- Author bar -->
+        <div class="author-bar">
+          <span class="author-name">Nick Talbert</span>
+          <span class="dot">&middot;</span>
+          <span class="meta-item">{formattedDate}</span>
+          <span class="dot">&middot;</span>
+          <span id="reading-time" class="meta-item"></span>
+          <div class="share-icons">
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="share-icon"
+              title="Share on LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}&url=${encodeURIComponent(currentUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="share-icon"
+              title="Share on X"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <button class="share-icon" id="copy-link-btn" title="Copy link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <h1 class="article-title">{frontmatter.title}</h1>
+
+        <!-- Hero Image -->
+        {frontmatter.image && (
+          <div id="hero-media" class="hero-media-container">
+            <img class="hero-background-img" src={frontmatter.image} alt={imageAlt} loading="eager" />
+            <div class="hero-background" style={`background-image: url('${frontmatter.image}')`} aria-hidden="true"></div>
+          </div>
+        )}
+
+        <!-- Sticky Section TOC -->
+        <nav class="section-toc" id="section-toc" aria-label="Section navigation">
+          <div class="section-toc-inner" id="section-toc-inner">
+            <!-- Populated by JS -->
+          </div>
+        </nav>
+
+        <!-- Stats article body -->
+        <div class="prose prose-invert prose-lg max-w-none stats-body" id="stats-body">
+          <slot />
+        </div>
+
+        <!-- Author Bio -->
+        <div class="article-author-bio">
+          <p>
+            Nick Talbert builds growth infrastructure for technical products. 20+ years in B2B SaaS, adtech, and enterprise technology.
+            <a href="https://www.linkedin.com/in/nick-talbert/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+            <a href="mailto:nick@strategnik.com">nick@strategnik.com</a>
+          </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="article-footer">
+          <div class="article-footer-inner">
+            <a href="/thinking" class="back-link-footer">
+              <span class="back-arrow">&larr;</span>
+              More Thinking & Work Samples
+            </a>
+            <div class="footer-share">
+              <span class="footer-share-label">Share:</span>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}&url=${encodeURIComponent(currentUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-share-icon"
+                aria-label="Share on Twitter"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-share-icon"
+                aria-label="Share on LinkedIn"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </article>
+
+      <!-- Right Sidebar -->
+      <aside class="article-sidebar">
+        <div class="sidebar-sticky">
+
+          <!-- Author Card -->
+          <div class="author-card">
+            <div class="author-card-avatar">NT</div>
+            <h4>Nick Talbert</h4>
+            <div class="author-title">GTM Strategist & Founder, Strategnik</div>
+            <p class="author-bio">20+ years building and scaling B2B go-to-market machines. Writing about the physics of growth, AI-native GTM, and the systems that create unfair advantage.</p>
+            <a href="https://www.linkedin.com/in/nick-talbert/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              Follow on LinkedIn
+            </a>
+          </div>
+
+          <!-- Related Posts -->
+          {relatedPosts.length > 0 && (
+            <div class="sidebar-section">
+              <div class="sidebar-section-title">Related</div>
+              {relatedPosts.map((rp) => (
+                <a href={`/thinking/${rp.slug}`} class="related-item">
+                  <div class="related-thumb" style={rp.image ? `background-image: url('${rp.image}'); background-size: cover; background-position: center;` : `background: linear-gradient(135deg, #1a2332, #1e3a4f);`}></div>
+                  <h5>{rp.title}</h5>
+                </a>
+              ))}
+            </div>
+          )}
+
+          <!-- Topics -->
+          <div class="sidebar-section">
+            <div class="sidebar-section-title">Topics</div>
+            <div class="topics-list">
+              {allCategories.map(([slug, label]) => (
+                <span class="topic-pill">{label}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="sidebar-section">
+            <a href="/gravity-audit" class="cta-button">
+              Get a Gravity Audit
+              <small>Free GTM diagnostic &mdash; 30 minutes</small>
+            </a>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Newsletter CTA -->
+  <NewsletterForm
+    variant="default"
+    heading="Enjoyed this post?"
+    description="Get new articles delivered to your inbox. No spam, just thinking about B2B SaaS growth."
+  />
+</BaseLayout>
+
+<style is:global>
+  /* ========== COLOR TOKENS ========== */
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --elevated: #21262d;
+    --border: #30363d;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --heading: #ffffff;
+    --accent: #1de2c4;
+    --amber: #f59e0b;
+    --blue: #60a5fa;
+  }
+
+  /* ========== STATS PAGE WRAPPER ========== */
+  .stats-page {
+    position: relative;
+    background: var(--bg);
+  }
+
+  /* ========== PROGRESS BAR ========== */
+  .progress-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--surface);
+    z-index: 100;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), #60a5fa);
+    border-radius: 0 2px 2px 0;
+    transition: width 0.1s;
+  }
+
+  /* ========== THREE-COLUMN LAYOUT ========== */
+  .stats-layout {
+    display: grid;
+    grid-template-columns: 48px 1fr 340px;
+    gap: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ========== ICON SIDEBAR (LEFT) ========== */
+  .stats-page .icon-sidebar {
+    padding-top: 40px;
+  }
+  .stats-page .icon-sidebar-sticky {
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .stats-page .icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .stats-page .icon-btn:hover {
+    color: var(--heading);
+    background: var(--surface);
+    border-color: var(--border);
+  }
+  .stats-page .icon-btn svg { width: 18px; height: 18px; }
+
+  /* ========== MAIN CONTENT AREA ========== */
+  .stats-main {
+    padding: 40px 56px 120px 32px;
+    max-width: 760px;
+  }
+
+  /* Back link */
+  .stats-page .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
+    text-decoration: none;
+  }
+  .stats-page .back-link:hover { opacity: 0.8; }
+  .stats-page .back-link svg { width: 14px; height: 14px; }
+
+  /* Author bar */
+  .stats-page .author-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    font-size: 0.8125rem;
+  }
+  .stats-page .author-bar .author-name { color: var(--heading); font-weight: 600; }
+  .stats-page .author-bar .dot { color: var(--border); }
+  .stats-page .author-bar .meta-item { color: var(--text-secondary); }
+
+  .stats-page .share-icons { display: flex; gap: 8px; margin-left: auto; }
+  .stats-page .share-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .stats-page .share-icon:hover { color: var(--heading); border-color: var(--accent); }
+  .stats-page .share-icon svg { width: 14px; height: 14px; }
+
+  /* Article title */
+  .stats-page .article-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--heading);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  /* ========== HERO MEDIA ========== */
+  .stats-page .hero-media-container {
+    position: relative;
+    aspect-ratio: 16/9;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+  .stats-page .hero-background-img {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+  .stats-page .hero-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  /* ========== STICKY SECTION TOC ========== */
+  .section-toc {
+    position: sticky;
+    top: 3px;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    padding: 12px 0;
+  }
+  .section-toc-inner {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 2px;
+  }
+  .section-toc-inner::-webkit-scrollbar { display: none; }
+  .section-toc-pill {
+    flex-shrink: 0;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .section-toc-pill:hover {
+    color: var(--heading);
+    border-color: var(--accent);
+  }
+  .section-toc-pill.active {
+    background: rgba(29, 226, 196, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ========== STATS BODY — PROSE BASE ========== */
+  .stats-body.prose {
+    --tw-prose-body: #c9d1d9;
+    --tw-prose-headings: #fff;
+    --tw-prose-links: #1de2c4;
+    --tw-prose-bold: #fff;
+    --tw-prose-code: #fff;
+    --tw-prose-quotes: #d4dce6;
+    --tw-prose-quote-borders: #1de2c4;
+    --tw-prose-hr: #30363d;
+  }
+
+  .stats-body.prose a {
+    color: #1de2c4;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .stats-body.prose a:hover { color: #fff; }
+
+  .stats-body.prose p {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: #c9d1d9;
+    margin-bottom: 24px;
+  }
+
+  /* Lead paragraph — intro text before the first H2 */
+  .stats-body.prose > p:first-of-type {
+    font-size: 1.1875rem;
+    line-height: 1.7;
+    color: #d4dce6;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .stats-body.prose hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 48px 0;
+  }
+
+  .stats-body.prose ul,
+  .stats-body.prose ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+
+  .stats-body.prose li {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .stats-body.prose li::marker { color: var(--accent); }
+
+  .stats-body.prose code {
+    background: #1f2937;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+
+  .stats-body.prose img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 36px 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
+  }
+
+  /* ========== SECTION HEADERS WITH COUNT BADGES ========== */
+  .stats-body.prose h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 56px;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    padding-bottom: 0;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .stats-body.prose h2 .stat-count-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 12px;
+    border-radius: 100px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    background: rgba(29, 226, 196, 0.1);
+    border: 1px solid rgba(29, 226, 196, 0.25);
+    color: var(--accent);
+    letter-spacing: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .stats-body.prose h3 {
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #374151;
+  }
+
+  /* ========== STAT CARDS (bold paragraphs) ========== */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stat-card:hover {
+    border-color: rgba(29, 226, 196, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .stat-card .stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-card .stat-context {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .stat-card .stat-context a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .stat-card .stat-context a:hover { color: #fff; }
+
+  .stat-card .stat-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stat-card .stat-source-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  .stat-card .stat-source-date {
+    font-size: 0.6875rem;
+    color: var(--text-secondary);
+  }
+
+  /* ========== "WHAT THIS MEANS" COMMENTARY BLOCKS ========== */
+  .stats-body .commentary-block {
+    padding-left: 20px;
+    border-left: 3px solid var(--accent);
+    margin: 24px 0 32px;
+  }
+  .stats-body .commentary-block p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .stats-body .commentary-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ========== AUTHOR BIO (bottom of article) ========== */
+  .stats-page .article-author-bio {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .stats-page .article-author-bio p {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+  .stats-page .article-author-bio a {
+    color: var(--accent);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+  .stats-page .article-author-bio a:hover { color: var(--heading); }
+
+  /* ========== ARTICLE FOOTER ========== */
+  .stats-page .article-footer {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .stats-page .article-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .stats-page .back-link-footer {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .stats-page .back-link-footer:hover { color: var(--heading); }
+  .stats-page .back-arrow {
+    margin-right: 8px;
+    transition: transform 0.2s;
+  }
+  .stats-page .back-link-footer:hover .back-arrow { transform: translateX(-3px); }
+
+  .stats-page .footer-share {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .stats-page .footer-share-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+  .stats-page .footer-share-icon {
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+  .stats-page .footer-share-icon:hover { color: var(--heading); }
+  .stats-page .footer-share-icon svg { width: 20px; height: 20px; }
+
+  /* ========== RIGHT SIDEBAR ========== */
+  .stats-page .article-sidebar {
+    padding: 40px 0 120px 32px;
+    border-left: 1px solid var(--border);
+  }
+  .stats-page .sidebar-sticky {
+    position: sticky;
+    top: 24px;
+  }
+
+  /* Author card */
+  .stats-page .author-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .stats-page .author-card-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--bg);
+    margin-bottom: 16px;
+  }
+  .stats-page .author-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 4px;
+  }
+  .stats-page .author-card .author-title {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .stats-page .author-card .author-bio {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .stats-page .author-card .linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .stats-page .author-card .linkedin-link:hover { text-decoration: underline; }
+
+  /* Sidebar sections */
+  .stats-page .sidebar-section { margin-bottom: 32px; }
+  .stats-page .sidebar-section-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Related posts */
+  .stats-page .related-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .stats-page .related-item:hover { opacity: 0.8; }
+  .stats-page .related-item:last-child { border-bottom: none; }
+  .stats-page .related-thumb {
+    width: 64px;
+    height: 44px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #1a2332, #1e3a4f);
+  }
+  .stats-page .related-item h5 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--heading);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Topics pills */
+  .stats-page .topics-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stats-page .topic-pill {
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .stats-page .topic-pill:hover { color: var(--heading); border-color: var(--accent); }
+
+  /* CTA button */
+  .stats-page .cta-button {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), #17c5ab);
+    color: var(--bg);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    letter-spacing: -0.01em;
+    margin-top: 8px;
+    text-decoration: none;
+  }
+  .stats-page .cta-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(29, 226, 196, 0.25);
+  }
+  .stats-page .cta-button small {
+    display: block;
+    font-weight: 500;
+    opacity: 0.75;
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    .stats-layout {
+      grid-template-columns: 1fr;
+      padding: 0 24px;
+    }
+    .stats-page .icon-sidebar { display: none; }
+    .stats-page .article-sidebar {
+      border-left: none;
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .stats-main {
+      padding: 40px 0 40px;
+      max-width: 100%;
+    }
+    .section-toc {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .stats-page .article-title { font-size: 1.75rem; }
+    .stats-page .share-icons { margin-left: 0; margin-top: 8px; flex-basis: 100%; }
+    .stats-page .article-footer-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .stat-card .stat-number { font-size: 2.25rem; }
+  }
+</style>
+
+<script>
+  // ========== STAT CARD TRANSFORMATION ==========
+  // Transforms bold paragraphs in the stats body into visual stat cards in a grid layout.
+  // Also transforms "What This Means" H3 sections into commentary blocks.
+
+  const statsBody = document.getElementById('stats-body');
+  if (statsBody) {
+    const h2s = statsBody.querySelectorAll('h2');
+
+    h2s.forEach((h2) => {
+      // Collect stat paragraphs (bold-only <p><strong>...</strong></p>) between this H2 and the next section break
+      let sibling = h2.nextElementSibling;
+      const statParagraphs: Element[] = [];
+      const commentaryElements: Element[] = [];
+      let inCommentary = false;
+
+      while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'HR') {
+        if (sibling.tagName === 'H3') {
+          inCommentary = true;
+          // Skip the H3 itself — we don't need to render "What This Means for GTM Leaders" as a heading
+          sibling = sibling.nextElementSibling;
+          continue;
+        }
+
+        if (inCommentary) {
+          commentaryElements.push(sibling);
+        } else if (sibling.tagName === 'P') {
+          const strong = sibling.querySelector(':scope > strong:first-child');
+          if (strong && sibling.childNodes.length === 1 && sibling.children.length === 1) {
+            // This paragraph is entirely bold text = a stat
+            statParagraphs.push(sibling);
+          }
+        }
+
+        sibling = sibling.nextElementSibling;
+      }
+
+      // Add count badge to H2
+      if (statParagraphs.length > 0) {
+        const badge = document.createElement('span');
+        badge.className = 'stat-count-badge';
+        badge.textContent = `${statParagraphs.length} stats`;
+        h2.appendChild(badge);
+      }
+
+      // Build stat grid
+      if (statParagraphs.length > 0) {
+        const grid = document.createElement('div');
+        grid.className = 'stat-grid';
+
+        statParagraphs.forEach((p) => {
+          const html = (p as HTMLElement).innerHTML;
+          // The entire paragraph is wrapped in <strong>...</strong>
+          // Extract the inner HTML of the strong tag
+          const strongMatch = html.match(/<strong>([\s\S]*?)<\/strong>/);
+          if (!strongMatch) return;
+
+          const fullText = strongMatch[1];
+
+          // Extract the big number — look for a leading stat like "73%", "60%", "$463 billion", "14.2%", "8x", "2.5x", etc.
+          const numberMatch = fullText.match(/^([\$]?[\d,.]+(?:\.\d+)?(?:%|x|(?:\s+(?:billion|million|trillion|thousand)))?)/i);
+
+          let bigNumber = '';
+          let contextHtml = fullText;
+
+          if (numberMatch) {
+            bigNumber = numberMatch[1].trim();
+            contextHtml = fullText.slice(numberMatch[0].length).trim();
+            // Remove leading "of", "the", etc. that start with lowercase after the number
+          }
+
+          // Extract source — look for (Source: ...) at the end
+          const sourceMatch = contextHtml.match(/\s*\(Source:\s*([\s\S]*?)\)\s*$/);
+          let sourceName = '';
+          let sourceDate = '';
+          if (sourceMatch) {
+            contextHtml = contextHtml.slice(0, sourceMatch.index).trim();
+            const sourceText = sourceMatch[1].trim();
+            // Try to extract date at end like ", 2026" or ", March 2026"
+            const dateMatch = sourceText.match(/,?\s*((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+)?\d{4}(?:\s*[-–]\s*\d{4})?\s*$/i);
+            if (dateMatch) {
+              sourceDate = dateMatch[0].replace(/^,?\s*/, '').trim();
+              sourceName = sourceText.slice(0, dateMatch.index).trim();
+              // Clean trailing comma or slash
+              sourceName = sourceName.replace(/[,\/\s]+$/, '').trim();
+            } else {
+              sourceName = sourceText;
+            }
+          }
+
+          const card = document.createElement('div');
+          card.className = 'stat-card';
+
+          let cardHtml = '';
+          if (bigNumber) {
+            cardHtml += `<div class="stat-number">${bigNumber}</div>`;
+          }
+          cardHtml += `<div class="stat-context">${contextHtml}</div>`;
+          if (sourceName || sourceDate) {
+            cardHtml += '<div class="stat-source">';
+            if (sourceName) {
+              // Strip any remaining HTML link tags for the pill, keep text
+              const plainSource = sourceName.replace(/<[^>]+>/g, '');
+              cardHtml += `<span class="stat-source-pill">${plainSource}</span>`;
+            }
+            if (sourceDate) {
+              cardHtml += `<span class="stat-source-date">${sourceDate}</span>`;
+            }
+            cardHtml += '</div>';
+          }
+
+          card.innerHTML = cardHtml;
+          grid.appendChild(card);
+
+          // Remove original paragraph from DOM
+          p.remove();
+        });
+
+        // Insert grid after the H2
+        h2.insertAdjacentElement('afterend', grid);
+      }
+
+      // Wrap commentary in a block
+      if (commentaryElements.length > 0) {
+        const block = document.createElement('div');
+        block.className = 'commentary-block';
+        // Insert before the first commentary element
+        commentaryElements[0].parentNode?.insertBefore(block, commentaryElements[0]);
+        commentaryElements.forEach((el) => block.appendChild(el));
+      }
+    });
+  }
+
+  // ========== SECTION TOC ==========
+  const tocContainer = document.getElementById('section-toc-inner');
+  const tocNav = document.getElementById('section-toc');
+  if (tocContainer && statsBody) {
+    const headings = statsBody.querySelectorAll('h2');
+    const tocItems: { el: Element; pill: HTMLElement }[] = [];
+
+    headings.forEach((h2, i) => {
+      // Assign an ID for anchor links
+      const id = h2.id || `section-${i}`;
+      h2.id = id;
+
+      const pill = document.createElement('a');
+      pill.className = 'section-toc-pill';
+      pill.href = `#${id}`;
+      // Get text content without the badge
+      const badge = h2.querySelector('.stat-count-badge');
+      const textOnly = h2.textContent?.replace(badge?.textContent || '', '').trim() || '';
+      // Shorten long section names
+      const shortName = textOnly.length > 35 ? textOnly.slice(0, 32) + '...' : textOnly;
+      pill.textContent = shortName;
+
+      pill.addEventListener('click', (e) => {
+        e.preventDefault();
+        h2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      tocContainer.appendChild(pill);
+      tocItems.push({ el: h2, pill });
+    });
+
+    // Highlight active section on scroll
+    if (tocItems.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const match = tocItems.find((item) => item.el === entry.target);
+              if (match) {
+                tocItems.forEach((item) => item.pill.classList.remove('active'));
+                match.pill.classList.add('active');
+                // Scroll pill into view
+                match.pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              }
+            }
+          });
+        },
+        { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+      );
+
+      tocItems.forEach((item) => observer.observe(item.el));
+    }
+  }
+
+  // ========== READING TIME ==========
+  const proseEl = document.querySelector('.stats-body');
+  const readingTimeEl = document.getElementById('reading-time');
+  if (proseEl && readingTimeEl) {
+    const text = proseEl.textContent || '';
+    const words = text.trim().split(/\s+/).length;
+    const minutes = Math.max(1, Math.ceil(words / 250));
+    readingTimeEl.textContent = `${minutes} min read`;
+  }
+
+  // ========== READING PROGRESS BAR ==========
+  const progressFill = document.getElementById('progress-bar-fill');
+  if (progressFill) {
+    const statsPage = document.querySelector('.stats-page');
+    if (statsPage) {
+      window.addEventListener('scroll', () => {
+        const rect = statsPage.getBoundingClientRect();
+        const total = statsPage.scrollHeight - window.innerHeight;
+        const scrolled = -rect.top;
+        const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+        progressFill.style.width = `${pct}%`;
+      }, { passive: true });
+    }
+  }
+
+  // ========== COPY LINK ==========
+  const copyBtn = document.getElementById('copy-link-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        copyBtn.title = 'Copied!';
+        setTimeout(() => { copyBtn.title = 'Copy link'; }, 2000);
+      });
+    });
+  }
+</script>
