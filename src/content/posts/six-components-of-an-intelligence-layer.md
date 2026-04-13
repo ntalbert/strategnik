@@ -35,6 +35,8 @@ The Intelligence Layer must do both. Without the first, your team produces fragm
 
 **What most companies have instead:** A brand guidelines PDF from 2023 that nobody references. A Slack channel where the content lead corrects tone. An unwritten set of preferences that exist only in one editor's head.
 
+![Hub-and-spoke diagram showing how a buyer signal flows through ICP context layers — persona match, pain hierarchy, competitor context — to produce personalized outreach instead of generic messages](/images/posts/il-icp-buyer-context-hub.png)
+
 ## 2. ICP + Buyer Context
 
 **What it is:** Ideal customer profiles, buying committee maps, pain hierarchy by persona, objection framing, segment-specific messaging — so agents know who they're talking to, why it matters, and what the alternatives look like.
@@ -54,6 +56,8 @@ The Intelligence Layer must do both. Without the first, your team produces fragm
 **What missing looks like:** Your blog says one thing about the competition. Your sales deck says another. Your SDR's cold email says a third. The prospect, who has talked to all three competitors this week, can't figure out why you're different because you can't figure it out either.
 
 **Why most companies skip this:** Competitive framing is uncomfortable. It requires taking a position. Most brand guidelines stop at "we don't mention competitors by name." That's not a strategy — it's avoidance. Agents need to know who you're fighting and why you win. If that context doesn't exist in the layer, the agent defaults to generic differentiation. Generic differentiation is no differentiation.
+
+![Hierarchical tree diagram showing content architecture — pillar assets branching into topic clusters, then atomizing into FAQ schema, how-to blocks, and citable answer passages connected by semantic relationship lines](/images/posts/il-content-architecture-tree.png)
 
 ## 4. Content Architecture
 

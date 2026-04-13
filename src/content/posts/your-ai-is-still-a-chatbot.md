@@ -21,6 +21,8 @@ I've watched this pattern at a dozen companies over the past year. The CEO reads
 
 The reason is structural. And it maps to the same physics that governs every other GTM problem.
 
+![Cascading waterfall diagram showing how marketing strategy degrades through organizational handoffs — from CMO strategy through content, demand gen, web, and events teams — until the buyer encounters five different companies](/images/posts/ai-chatbot-control-degradation.png)
+
 ## The Control Degradation Problem
 
 In a typical 20-person marketing org, strategy enters at the top and degrades at every handoff on the way to the market. The CMO defines positioning, ICP, and messaging. The content team interprets the brief one way. Demand gen interprets it differently. Web does its own thing. Events uses whatever deck was built last quarter. Marketing ops is tracking metrics that don't match the goals.
@@ -60,6 +62,8 @@ But the layer serves two audiences. The obvious one is your internal agents and 
 When the layer exists, the entire marketing function changes character. Content isn't "write me a blog post about X." It's an agent generating from a keyword brief, brand spec, and ICP context — autonomously. Demand gen isn't "draft this email sequence." It's signals triggering nurture flows without manual prompting. ABM isn't "personalize this one-pager for Acme." It's account variants deployed at scale, on signal, in real time. And every page ships with structured data, entity definitions, and passage-level answer blocks that make it citable by AI from day one.
 
 The difference is not better prompting. It is a shared context that every tool operates from.
+
+![Diverging paths diagram showing compounding advantage over time — companies that build the Intelligence Layer early curve exponentially upward while those still prompting from scratch flatline](/images/posts/ai-chatbot-compounding-advantage.png)
 
 ## The Physics of Why This Matters Now
 

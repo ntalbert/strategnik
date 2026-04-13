@@ -34,6 +34,8 @@ For SaaS companies, this distinction is existential. Your buyers are asking Chat
 
 AEO isn't a channel. It's the new minimum bar for brand visibility.
 
+![Diagnostic checklist diagram showing five reasons B2B companies are invisible to AI — no entity identity, keyword-shaped content, no structured data, zero citation surface, and scattered brand signals](/images/posts/aeo-five-reasons-invisible.png)
+
 ## The 5 Reasons Your Company Isn't Getting Cited by AI
 
 I've audited dozens of B2B websites over the past year. The same five problems show up almost every time.
@@ -49,6 +51,8 @@ I've audited dozens of B2B websites over the past year. The same five problems s
 **5. Brand signals are scattered.** Your company description on LinkedIn says one thing, your About page says another, your G2 profile says a third, and your founder's Twitter bio says something else entirely. AI systems triangulate entity identity across sources. If the signals conflict, the system downgrades your authority or ignores you altogether.
 
 These aren't content strategy problems. They're [GTM architecture problems](/gtm-strategy-consultant). And they require a GTM-level response.
+
+![Layered stack diagram showing the AI visibility architecture — entity authority at the foundation, then content structure, schema markup, citable assets, and consolidated signals building toward AI citation](/images/posts/aeo-visibility-stack.png)
 
 ## How Do You Make Your B2B Brand the Answer in ChatGPT?
 

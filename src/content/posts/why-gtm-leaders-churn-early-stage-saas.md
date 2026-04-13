@@ -57,6 +57,8 @@ What I find harder to explain with a talent argument is the consistency across f
   <a href="/survey" style="display: inline-block; background: #5eead4; color: #0f172a; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none;">Take the 3-Minute Survey →</a>
 </div>
 
+![Force diagram showing three physics vectors acting on an early-stage GTM system — low mass, narrow surface area, and unknown distance to repeatable revenue — producing erratic trajectories compared to mature companies](/images/posts/gtm-churn-physics-forces.png)
+
 ## It's Not a Talent Problem. It's a Physics Problem.
 
 Consider what a Seed or Series A company actually looks like from a GTM perspective. Almost nobody knows who you are. You have minimal market presence—no installed base, few case studies, negligible word of mouth. You have very few levers to pull: maybe one or two channels on the growth side, a handful of active deals on the sales side. And the big question—how far away is self-sustaining, repeatable revenue?—is genuinely unanswerable.
@@ -68,6 +70,8 @@ The problem isn't that these people lack skill. It's that the system is too ligh
 Meanwhile, the surface-area problem compounds things. With only one or two channels producing anything, GTM leaders have almost no levers to pull. Less surface area means less control. At a Series C company, if one channel underperforms, you shift investment to three others while you diagnose the problem. At Series A, if your primary channel stalls, you're grounded. There's nowhere to redirect. On the sales side, it's the same dynamic—without inbound momentum, case studies, or market credibility, every deal is a custom effort built from scratch in a market that doesn't know you exist. There's no leverage in the system.
 
 And here's the variable everyone misses: at early stages, nobody knows how far away repeatable revenue actually is. Not the CEO, not the board, not the growth leader, not the head of sales. You can't calculate the distance when you don't have enough data to build the model. You can't pace the effort when you can't see how far you need to go. All you can know is whether you're headed in the right direction and building momentum. That uncertainty isn't a failure of leadership. It's a feature of the system at that stage.
+
+![Circular loop diagram showing the replacement trap — hire leader, inherit same system, stall at same point, blame leader, replace leader, repeat — with the pipeline problem unchanged each cycle](/images/posts/gtm-churn-replacement-trap.png)
 
 ## The Replacement Trap
 
