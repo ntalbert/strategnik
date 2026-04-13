@@ -39,6 +39,8 @@ The damage from collapsed signal quality is specific and cascading.
 
 **ICP definition blurs.** When your free tier attracts everyone, your usage data can't tell you who your real customer is. Product decisions get made based on the aggregate behavior of a user base that's 80% non-buyers. Features get prioritized for use cases that will never monetize. The product drifts toward generality instead of deepening the value for the customers who actually pay.
 
+![Process friction versus signal friction — not all friction is created equal in B2B PLG](/images/posts/plg-friction-signal-architecture.png)
+
 ## Friction as Signal Architecture
 
 The [friction piece](/thinking/friction-problem) I wrote covers the compound cost of unnecessary friction in the buyer journey: how it trains the market that you're hard to work with, how it destroys [momentum](/physics-of-growth/momentum) you've spent months building. Everything in that piece is true, and for sales-led motions, friction reduction is almost always the highest-leverage investment.
@@ -48,6 +50,8 @@ But in B2B PLG, friction serves a second function that has nothing to do with th
 This is not the same as "make it hard to use your product." It's closer to "make it easy to use your product for the right reasons, and slightly less easy for the wrong ones."
 
 The distinction matters because the PLG orthodoxy treats all friction as equivalent. A twelve-field form and a requirement to use a work email are both "friction." But they're doing completely different things. The form is collecting data for your lead-scoring model. The work email requirement is filtering out the 40% of signups who were never going to buy. One is process friction imposed on the buyer. The other is signal friction that benefits everyone, including the user, because the product experience improves when the user base is composed of people who actually need the product.
+
+![Four strategic friction points in B2B PLG: signup, integration boundary, free-to-paid wall, and team expansion](/images/posts/plg-deliberate-friction-points.png)
 
 ## Where Deliberate Friction Works
 

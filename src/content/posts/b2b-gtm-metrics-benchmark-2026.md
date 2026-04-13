@@ -22,6 +22,8 @@ Use this report to pressure-test your assumptions, not to copy someone else's. A
 
 ---
 
+![B2B SaaS funnel conversion rates by stage — from visitor to close, with median and top-quartile benchmarks](/images/posts/gtm-funnel-conversion-rates.png)
+
 ## Funnel Conversion Rates by Stage
 
 This is the chain that connects marketing activity to closed revenue. Every conversion point is a place where [friction compounds](/thinking/friction-problem) — and a 5-point improvement at the MQL-to-SQL stage can lift revenue by up to 18% ([Causal Funnel, 2026](https://www.causalfunnel.com/blog/b2b-saas-funnel-conversion-benchmarks-2026-data-insights/)).
@@ -100,6 +102,8 @@ If you're planning for $3M in new ARR this year with a 120-day cycle, your effec
 **So what:** Take your current sales cycle, add 20% for optimism bias, and back-calculate your real pipeline deadline. If that deadline has already passed for this year's number, you need to adjust the target or get honest with the board. The [calculator](/calculator) automates this math.
 
 ---
+
+![Customer acquisition cost by channel — referrals at $150 to outbound at $1,980, showing why channel mix determines unit economics](/images/posts/gtm-cac-by-channel.png)
 
 ## Customer Acquisition Cost (CAC) by Channel
 

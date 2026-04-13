@@ -47,6 +47,8 @@ Your buyers are already researching solutions through AI. The question isn't whe
 
 ---
 
+![Zero-click search: the traffic model is breaking — 60% of searches end without a click, and AI Overviews are accelerating the shift](/images/posts/aeo-zero-click-search.png)
+
 ## Zero-Click Search: The Traffic Model Is Breaking
 
 The foundation of a decade of B2B content marketing — write it, rank it, get clicks — is collapsing under zero-click dynamics.
@@ -74,6 +76,8 @@ The foundation of a decade of B2B content marketing — write it, rank it, get c
 If your content strategy is still optimized for "rank and click," you're optimizing for a diminishing return. Ranking #1 used to mean traffic. Now it often means Google extracted your answer, displayed it in an AI Overview, and the user moved on without ever seeing your site. The new game is being cited inside the answer — not just ranking near it. This is the structural shift that makes [AEO a GTM-level priority, not an SEO project](/thinking/gtm-architect-guide-answer-engine-optimization).
 
 ---
+
+![LLM citation patterns: what actually gets cited — brand authority, structured data, and original research win while press releases and keyword stuffing are invisible](/images/posts/aeo-llm-citation-patterns.png)
 
 ## LLM Citation Patterns: What Actually Gets Cited
 
