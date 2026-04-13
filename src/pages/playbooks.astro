@@ -1,0 +1,608 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Intelligence Layer Playbooks — 25 Proven GTM Plays";
+const description = "25 proven plays for pipeline, visibility, competitive positioning, ABM, and scoring — each powered by the Intelligence Layer. Filterable catalog of GTM strategies for Series B through pre-IPO B2B SaaS.";
+
+interface Play {
+  id: number;
+  name: string;
+  description: string;
+  component: string;
+  category: string;
+}
+
+const plays: Play[] = [
+  // PIPELINE GAP
+  { id: 1, name: "Signal-to-Pipeline Accelerator", description: "Uses ICP + Buyer Context to route intent signals directly into qualified pipeline, bypassing MQL theater.", component: "ICP + Buyer Context", category: "pipeline-gap" },
+  { id: 2, name: "Dark Funnel Illumination", description: "Maps anonymous buying behavior to content engagement patterns, making invisible pipeline visible.", component: "Content Architecture + Measurement Targets", category: "pipeline-gap" },
+  { id: 3, name: "Expansion Revenue Engine", description: "Identifies cross-sell and upsell triggers from product usage and engagement data against ICP profiles.", component: "ICP + Buyer Context", category: "pipeline-gap" },
+  { id: 4, name: "Inbound-to-Outbound Bridge", description: "Converts inbound engagement signals into targeted outbound sequences with competitive context.", component: "Competitive Framing", category: "pipeline-gap" },
+  { id: 5, name: "Pipeline Decay Prevention", description: "Monitors deal velocity and engagement drop-off, triggering re-engagement before opportunities go dark.", component: "Measurement Targets", category: "pipeline-gap" },
+  { id: 6, name: "Stage-Gate Conversion Optimizer", description: "Maps content to each buying stage, ensuring the right asset reaches the right stakeholder at the right moment.", component: "Content Architecture", category: "pipeline-gap" },
+  // AEO VISIBILITY
+  { id: 7, name: "AI Search Citation Builder", description: "Structures content for LLM citation with entity-rich prose, definitive statements, and proper schema markup.", component: "Machine Readability", category: "aeo-visibility" },
+  { id: 8, name: "Entity Authority Engine", description: "Builds consistent brand entity definitions across all touchpoints so AI systems recognize and cite your brand.", component: "Brand + Voice", category: "aeo-visibility" },
+  { id: 9, name: "Zero-Click Defense Strategy", description: "Restructures content to capture value even when searchers never click through, optimizing for featured snippets and AI Overviews.", component: "Content Architecture", category: "aeo-visibility" },
+  { id: 10, name: "LLM Training Data Optimization", description: "Ensures your most important content is structured, accessible, and authoritative enough to influence LLM training data.", component: "Machine Readability", category: "aeo-visibility" },
+  { id: 11, name: "AI Overview Capture Play", description: "Engineers content specifically formatted to be extracted by Google's AI Overviews for target queries.", component: "Content Architecture + Machine Readability", category: "aeo-visibility" },
+  // COMPETITIVE
+  { id: 12, name: "Displacement Narrative Builder", description: "Creates structured competitive narratives that position your solution as the natural successor to incumbent tools.", component: "Competitive Framing", category: "competitive" },
+  { id: 13, name: "Competitive Win/Loss Intelligence Loop", description: "Feeds sales conversation intelligence back into marketing messaging, creating a self-improving competitive engine.", component: "Competitive Framing + Measurement Targets", category: "competitive" },
+  { id: 14, name: "Category Creation Campaign", description: "Defines and owns a new market category using consistent language across all channels and AI surfaces.", component: "Brand + Voice", category: "competitive" },
+  { id: 15, name: "Battlecard Automation System", description: "Generates and updates competitive battlecards automatically from market signals and conversation intelligence.", component: "Competitive Framing", category: "competitive" },
+  { id: 16, name: "Switching Cost Amplifier", description: "Maps competitor lock-in points and builds targeted content addressing each switching barrier.", component: "ICP + Buyer Context", category: "competitive" },
+  // ABM
+  { id: 17, name: "Target Account Intelligence Layer", description: "Builds rich, multi-dimensional profiles of target accounts combining firmographic, technographic, and intent data.", component: "ICP + Buyer Context", category: "abm" },
+  { id: 18, name: "Multi-Thread Engagement Orchestrator", description: "Coordinates personalized content delivery across multiple stakeholders within a single account.", component: "Content Architecture", category: "abm" },
+  { id: 19, name: "Account Penetration Scoring", description: "Measures depth and breadth of engagement across buying committee members to prioritize sales effort.", component: "Measurement Targets", category: "abm" },
+  { id: 20, name: "Executive Sponsor Mapping", description: "Identifies and profiles economic buyers and champions within target accounts for personalized outreach.", component: "ICP + Buyer Context", category: "abm" },
+  { id: 21, name: "ABM Content Personalization Engine", description: "Dynamically assembles content packages tailored to each account's industry, stage, and pain points.", component: "Content Architecture + Brand + Voice", category: "abm" },
+  // SCORING
+  { id: 22, name: "Intent-to-Action Scoring Model", description: "Converts raw intent signals into actionable scores that predict buying readiness with measurable accuracy.", component: "Measurement Targets", category: "scoring" },
+  { id: 23, name: "Lead-to-Revenue Attribution Framework", description: "Connects marketing touchpoints to closed revenue with multi-touch attribution across the full funnel.", component: "Measurement Targets", category: "scoring" },
+  { id: 24, name: "Engagement Velocity Scoring", description: "Measures the speed of engagement acceleration to identify accounts approaching buying decisions.", component: "ICP + Buyer Context + Measurement Targets", category: "scoring" },
+  { id: 25, name: "Propensity-to-Buy Model Architecture", description: "Designs the scoring infrastructure that predicts which accounts are most likely to convert based on behavioral and firmographic signals.", component: "Measurement Targets", category: "scoring" },
+];
+
+const categories = [
+  { slug: "all", label: "All" },
+  { slug: "pipeline-gap", label: "Pipeline Gap" },
+  { slug: "aeo-visibility", label: "AEO Visibility" },
+  { slug: "competitive", label: "Competitive" },
+  { slug: "abm", label: "ABM" },
+  { slug: "scoring", label: "Scoring" },
+];
+
+function getBadgeClass(category: string): string {
+  switch (category) {
+    case 'pipeline-gap': return 'badge-pipeline';
+    case 'aeo-visibility': return 'badge-aeo';
+    case 'competitive': return 'badge-competitive';
+    case 'abm': return 'badge-abm';
+    case 'scoring': return 'badge-scoring';
+    default: return '';
+  }
+}
+
+function getCategoryLabel(category: string): string {
+  switch (category) {
+    case 'pipeline-gap': return 'Pipeline Gap';
+    case 'aeo-visibility': return 'AEO Visibility';
+    case 'competitive': return 'Competitive';
+    case 'abm': return 'ABM';
+    case 'scoring': return 'Scoring';
+    default: return category;
+  }
+}
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Intelligence Layer Playbooks",
+      "description": description,
+      "url": "https://strategnik.com/playbooks",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Strategnik",
+        "url": "https://strategnik.com"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Intelligence Layer",
+        "description": "The foundational operating context that makes AI-native marketing possible."
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Strategnik",
+        "url": "https://strategnik.com"
+      },
+      "numberOfItems": 25,
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 25,
+        "itemListElement": plays.map((play, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": play.name,
+          "description": play.description
+        }))
+      }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://strategnik.com" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligence Layer", "item": "https://strategnik.com/intelligence-layer" },
+        { "@type": "ListItem", "position": 3, "name": "Playbooks", "item": "https://strategnik.com/playbooks" }
+      ]
+    })} />
+  </Fragment>
+
+  <div class="playbooks-page">
+    <!-- Hero -->
+    <header class="playbooks-hero">
+      <p class="section-label">Intelligence Layer</p>
+      <h1 class="playbooks-title" data-animate>Intelligence Layer Playbooks</h1>
+      <p class="playbooks-subtitle" data-animate>
+        25 proven plays for pipeline, visibility, competitive positioning, ABM, and scoring — each powered by the <a href="/intelligence-layer" class="hero-link">Intelligence Layer</a>.
+      </p>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" data-animate>
+      <div class="filter-bar-inner">
+        {categories.map((cat) => (
+          <button
+            class={`filter-pill ${cat.slug === 'all' ? 'active' : ''}`}
+            data-filter={cat.slug}
+            type="button"
+          >
+            {cat.label}
+            {cat.slug !== 'all' && (
+              <span class={`pill-count pill-count-${cat.slug}`}>
+                {plays.filter(p => p.category === cat.slug).length}
+              </span>
+            )}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Card Grid -->
+    <div class="playbooks-grid-wrap">
+      <div class="playbooks-grid">
+        {plays.map((play) => (
+          <div class="play-card" data-category={play.category}>
+            <div class="play-card-header">
+              <span class={`play-badge ${getBadgeClass(play.category)}`}>
+                {getCategoryLabel(play.category)}
+              </span>
+              <span class="play-number">#{String(play.id).padStart(2, '0')}</span>
+            </div>
+            <h3 class="play-title">{play.name}</h3>
+            <p class="play-description">{play.description}</p>
+            <div class="play-component">
+              <span class="play-component-label">IL Component</span>
+              <span class="play-component-value">{play.component}</span>
+            </div>
+            <button class="play-expand" type="button" aria-expanded="false">
+              Learn more <span class="expand-arrow">&rarr;</span>
+            </button>
+            <div class="play-detail" hidden>
+              <p>This play is powered by the <strong>{play.component}</strong> component of the Intelligence Layer. The Intelligence Layer encodes this knowledge so agents and teams can execute it consistently — without starting from scratch each time.</p>
+              <a href="/intelligence-layer" class="play-detail-link">See how the Intelligence Layer works &rarr;</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="empty-state" hidden>
+      <p>No plays match the selected filter.</p>
+    </div>
+
+    <!-- CTA -->
+    <section class="playbooks-cta">
+      <div class="playbooks-cta-inner">
+        <h2 class="playbooks-cta-title" data-animate>Start with a Gravity Audit</h2>
+        <p class="playbooks-cta-text" data-animate>
+          Find out which of these 25 plays matter most for your business. The Gravity Audit maps your AI visibility, content authority, and pipeline gaps — then tells you where to start.
+        </p>
+        <a href="/gravity-audit" class="playbooks-cta-btn" data-animate>
+          Get the Gravity Audit &rarr;
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  // Filter logic
+  const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const cards = document.querySelectorAll<HTMLElement>('.play-card');
+  const emptyState = document.getElementById('empty-state');
+
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      // Update active pill
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const filter = pill.dataset.filter;
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Toggle empty state
+      if (emptyState) {
+        emptyState.hidden = visibleCount > 0;
+      }
+    });
+  });
+
+  // Expand / collapse detail
+  document.querySelectorAll<HTMLButtonElement>('.play-expand').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.play-card');
+      const detail = card?.querySelector('.play-detail') as HTMLElement | null;
+      if (!detail) return;
+
+      const isOpen = !detail.hidden;
+      detail.hidden = isOpen;
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.querySelector('.expand-arrow')!.innerHTML = isOpen ? '&rarr;' : '&darr;';
+    });
+  });
+</script>
+
+<style>
+  /* ========== TOKENS ========== */
+  :root {
+    --pb-bg: #0d1117;
+    --pb-surface: #161b22;
+    --pb-elevated: #21262d;
+    --pb-border: #30363d;
+    --pb-text: #c9d1d9;
+    --pb-text-muted: #8b949e;
+    --pb-heading: #ffffff;
+    --pb-accent: #1de2c4;
+
+    --pb-amber: #f59e0b;
+    --pb-blue: #60a5fa;
+    --pb-purple: #c084fc;
+    --pb-turquoise: #1de2c4;
+    --pb-coral: #ef4444;
+  }
+
+  /* ========== PAGE ========== */
+  .playbooks-page {
+    background: var(--pb-bg);
+    min-height: 100vh;
+  }
+
+  /* ========== HERO ========== */
+  .playbooks-hero {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 48px 40px 40px;
+  }
+  .playbooks-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--pb-heading);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .playbooks-subtitle {
+    color: var(--pb-text-muted);
+    font-size: 1.125rem;
+    max-width: 680px;
+    line-height: 1.65;
+  }
+  .hero-link {
+    color: var(--pb-blue);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .hero-link:hover {
+    color: var(--pb-heading);
+  }
+
+  /* ========== FILTER BAR ========== */
+  .filter-bar {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .filter-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--pb-surface);
+    border: 1px solid var(--pb-border);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+  }
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--pb-text-muted);
+    background: transparent;
+    border: 1px solid var(--pb-border);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filter-pill:hover {
+    color: var(--pb-heading);
+    border-color: var(--pb-text-muted);
+  }
+  .filter-pill.active {
+    color: var(--pb-heading);
+    background: var(--pb-elevated);
+    border-color: var(--pb-accent);
+  }
+
+  .pill-count {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 100px;
+    background: var(--pb-elevated);
+  }
+  .pill-count-pipeline-gap { color: var(--pb-amber); }
+  .pill-count-aeo-visibility { color: var(--pb-blue); }
+  .pill-count-competitive { color: var(--pb-purple); }
+  .pill-count-abm { color: var(--pb-turquoise); }
+  .pill-count-scoring { color: var(--pb-coral); }
+
+  /* ========== GRID ========== */
+  .playbooks-grid-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .playbooks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* ========== PLAY CARD ========== */
+  .play-card {
+    background: var(--pb-surface);
+    border: 1px solid var(--pb-border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .play-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--pb-text-muted);
+  }
+
+  .play-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .play-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--pb-text-muted);
+    opacity: 0.5;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ========== BADGES ========== */
+  .play-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .badge-pipeline {
+    color: var(--pb-amber);
+    border: 1px solid var(--pb-amber);
+    background: rgba(245, 158, 11, 0.1);
+  }
+  .badge-aeo {
+    color: var(--pb-blue);
+    border: 1px solid var(--pb-blue);
+    background: rgba(96, 165, 250, 0.1);
+  }
+  .badge-competitive {
+    color: var(--pb-purple);
+    border: 1px solid var(--pb-purple);
+    background: rgba(192, 132, 252, 0.1);
+  }
+  .badge-abm {
+    color: var(--pb-turquoise);
+    border: 1px solid var(--pb-turquoise);
+    background: rgba(29, 226, 196, 0.1);
+  }
+  .badge-scoring {
+    color: var(--pb-coral);
+    border: 1px solid var(--pb-coral);
+    background: rgba(239, 68, 68, 0.1);
+  }
+
+  /* ========== CARD CONTENT ========== */
+  .play-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--pb-heading);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .play-description {
+    font-size: 0.875rem;
+    color: var(--pb-text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+
+  .play-component {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 14px;
+    border-top: 1px solid var(--pb-border);
+    margin-bottom: 12px;
+  }
+  .play-component-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pb-text-muted);
+    opacity: 0.6;
+  }
+  .play-component-value {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--pb-accent);
+  }
+
+  /* ========== EXPAND ========== */
+  .play-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--pb-blue);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.15s;
+    align-self: flex-start;
+  }
+  .play-expand:hover {
+    color: var(--pb-heading);
+  }
+  .expand-arrow {
+    transition: transform 0.2s;
+  }
+
+  .play-detail {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--pb-border);
+  }
+  .play-detail p {
+    font-size: 0.8125rem;
+    color: var(--pb-text);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .play-detail strong {
+    color: var(--pb-accent);
+    font-weight: 600;
+  }
+  .play-detail-link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--pb-blue);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .play-detail-link:hover {
+    color: var(--pb-heading);
+  }
+
+  /* ========== EMPTY STATE ========== */
+  .empty-state {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .empty-state p {
+    color: var(--pb-text-muted);
+    font-size: 1rem;
+  }
+
+  /* ========== CTA ========== */
+  .playbooks-cta {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 40px 100px;
+  }
+  .playbooks-cta-inner {
+    text-align: center;
+    border-top: 1px solid var(--pb-border);
+    padding-top: 64px;
+  }
+  .playbooks-cta-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--pb-heading);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .playbooks-cta-text {
+    font-size: 1.0625rem;
+    color: var(--pb-text-muted);
+    line-height: 1.65;
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .playbooks-cta-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--pb-blue);
+    color: var(--pb-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .playbooks-cta-btn:hover {
+    background: #4f8fda;
+    transform: translateY(-1px);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    .playbooks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .playbooks-hero,
+    .filter-bar,
+    .playbooks-grid-wrap,
+    .playbooks-cta {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .playbooks-title {
+      font-size: 1.75rem;
+    }
+    .playbooks-grid {
+      grid-template-columns: 1fr;
+    }
+    .filter-bar-inner {
+      padding: 12px 14px;
+      gap: 8px;
+    }
+    .filter-pill {
+      padding: 6px 14px;
+      font-size: 0.75rem;
+    }
+  }
+</style>
