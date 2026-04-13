@@ -13,7 +13,7 @@ speakable:
 
 *The CMO title is vanishing from org charts. But the mandate it represents — orchestrating how a company creates and captures value — has never been more critical. The leaders who see this aren't hiding. They're rewriting the job.*
 
-Forrester says B2B CMO representation has dropped from 48% to 42%. Spencer Stuart says average tenure has ticked up to 4.3 years. Gartner says budgets are flat at 7.7% of revenue while the scope keeps expanding. McKinsey says 70% of CEOs judge marketing on revenue growth, but only 35% of CMOs even track it as a primary metric.
+[Forrester](https://www.forrester.com/blogs/category/chief-marketing-officer/) says B2B CMO representation has dropped from 48% to 42%. [Spencer Stuart](https://www.spencerstuart.com/research-and-insight/cmo-tenure-study-2023) says average tenure has ticked up to 4.3 years. [Gartner](https://www.gartner.com/en/marketing/research/annual-cmo-spend-survey) says budgets are flat at 7.7% of revenue while the scope keeps expanding. [McKinsey](https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights) says 70% of CEOs judge marketing on revenue growth, but only 35% of CMOs even track it as a primary metric.
 
 Read those four data points together and a picture forms. It's not a picture of a role dying. It's a picture of a role that has outgrown its container.
 
@@ -61,7 +61,7 @@ This is the physics of marketing concept of **[momentum](/physics-of-growth/mome
 
 I can already hear the objections. Let me steelman them first.
 
-The case against is real. Ben Horowitz and Ali Ghodsi at a16z have made the point clearly: if sales reports to marketing, "typically you have no revenue." Sales requires a specific psychological resilience — managing quotas, overcoming daily rejection, complex deal negotiation — that traditional marketers often lack the background to coach effectively. There is a cultural friction between the two disciplines that is genuine, not imagined.
+The case against is real. Ben Horowitz and Ali Ghodsi at [a16z](https://a16z.com/) have made the point clearly: if sales reports to marketing, "typically you have no revenue." Sales requires a specific psychological resilience — managing quotas, overcoming daily rejection, complex deal negotiation — that traditional marketers often lack the background to coach effectively. There is a cultural friction between the two disciplines that is genuine, not imagined.
 
 I respect those arguments. And yet.
 
@@ -87,7 +87,7 @@ This is where it gets concrete. The Chief Marketing Orchestrator is responsible 
 
 ![Human-machine team design — the orchestrator directs AI agents handling data, personalization, and outreach while humans own relationships and strategy](/images/posts/cmo-human-machine-teams.png)
 
-McKinsey estimates that agentic AI will drive over 60% of the increased value from AI in marketing and sales. The orchestrator doesn't just manage headcount — they design hybrid teams where AI agents handle signal processing, content personalization, and outreach orchestration while humans handle relationship building, strategic selling, and creative judgment.
+[McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai) estimates that agentic AI will drive over 60% of the increased value from AI in marketing and sales. The orchestrator doesn't just manage headcount — they design hybrid teams where AI agents handle signal processing, content personalization, and outreach orchestration while humans handle relationship building, strategic selling, and creative judgment.
 
 **Cross-functional alignment through shared truth.** Snowflake's GTM engine — which powered a $100B IPO — was built on one principle: product, engineering, marketing, and sales all operate off "one shared truth." No MQLs. No vanity metrics. Qualified meetings and new logos. Period. The orchestrator defines and enforces this shared measurement system.
 
@@ -97,7 +97,7 @@ McKinsey estimates that agentic AI will drive over 60% of the increased value fr
 
 Let's be honest about what this shift requires.
 
-It requires CEOs who actively endorse it. A McKinsey survey found that C-suite misalignment is rampant — executive teams have ballooned in size, fragmenting responsibilities across digital, product, and sales. The CMO who wants to become the Chief Marketing Orchestrator needs explicit CEO backing, not just an expanded title.
+It requires CEOs who actively endorse it. A [McKinsey](https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights) survey found that C-suite misalignment is rampant — executive teams have ballooned in size, fragmenting responsibilities across digital, product, and sales. The CMO who wants to become the Chief Marketing Orchestrator needs explicit CEO backing, not just an expanded title.
 
 It requires a deep alliance with the CFO. The gaming industry CFO who told McKinsey, "I don't want to hear about brand awareness if that's not what we agreed upon" — that's the bar. The orchestrator earns credibility by presenting marketing as a mathematically sound investment engine, not a cost center.
 
@@ -107,7 +107,7 @@ And it requires leaders who are willing to be uncomfortable. Smart leaders aren'
 
 ## The Acceleration Is Here
 
-Forrester's framework is blunt: unless the CMO transitions from brand-builder to "generator of customer outcomes," the role gets replaced by Chief Growth Officers and CROs. Gartner's data shows budgets staying flat while expectations expand. Spencer Stuart shows that the leaders who successfully make this transition increasingly end up as CEOs — 10% of departing Fortune 500 CMOs now take that path.
+[Forrester](https://www.forrester.com/blogs/category/chief-marketing-officer/)'s framework is blunt: unless the CMO transitions from brand-builder to "generator of customer outcomes," the role gets replaced by Chief Growth Officers and CROs. [Gartner](https://www.gartner.com/en/marketing/research/annual-cmo-spend-survey)'s data shows budgets staying flat while expectations expand. [Spencer Stuart](https://www.spencerstuart.com/research-and-insight/cmo-tenure-study-2023) shows that the leaders who successfully make this transition increasingly end up as CEOs — 10% of departing Fortune 500 CMOs now take that path.
 
 The organizations getting this right — Snowflake, HubSpot, Gong — aren't treating this as a title change. They're redesigning how commercial teams work. They're embedding AI into the orchestration layer, not bolting it onto legacy processes. They're measuring marketing by revenue outcomes, not activity metrics. And they're building the kind of continuous, compounding GTM motions that make quarterly campaign launches look like flickering lightbulbs next to a power grid.
 

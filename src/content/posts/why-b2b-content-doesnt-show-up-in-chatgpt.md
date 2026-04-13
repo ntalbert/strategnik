@@ -16,11 +16,11 @@ Most B2B companies have spent a decade optimizing for Google and have nothing to
 
 ## Why Do AI Engines Ignore Most B2B Content?
 
-Google trained us to think about search as a ranking problem. Write the page, target the keyword, build the backlinks, climb the SERP. That model is dying. According to SparkToro's research, 69% of Google searches now end in zero clicks. The answer appears at the top and the user moves on.
+Google trained us to think about search as a ranking problem. Write the page, target the keyword, build the backlinks, climb the SERP. That model is dying. According to [SparkToro](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/)'s research, 69% of Google searches now end in zero clicks. The answer appears at the top and the user moves on.
 
 ChatGPT has over 900 million weekly active users. It doesn't rank pages. It synthesizes answers from sources it trusts, cites entities it recognizes, and ignores everything else. There is no page two in ChatGPT. There's cited or invisible.
 
-Gartner projects that traditional organic search traffic will decline by 25% as AI-powered search captures research behavior. That's not a distant threat. That's now.
+[Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026) projects that traditional organic search traffic will decline by 25% as AI-powered search captures research behavior. That's not a distant threat. That's now.
 
 The shift is from a system that rewards content quantity to one that rewards entity authority. Most B2B marketing organizations are still playing the old game.
 

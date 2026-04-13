@@ -41,7 +41,7 @@ The numbers are stark and moving fast.
 
 **ChatGPT has surpassed 900 million weekly active users.** That's not a niche behavior. That's a primary research channel. When a VP of Engineering asks, "What are the top Kubernetes management platforms?" they're increasingly asking an AI, not opening a browser tab.
 
-**Gartner projects a 25% decline in traditional organic search traffic by 2026.** That's not a distant forecast anymore — it's the environment we're operating in right now. The decline isn't theoretical. It's measurable in the traffic dashboards of every B2B company I work with.
+**[Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026) projects a 25% decline in traditional organic search traffic by 2026.** That's not a distant forecast anymore — it's the environment we're operating in right now. The decline isn't theoretical. It's measurable in the traffic dashboards of every B2B company I work with.
 
 Buyers who used to start with Google now start with an AI assistant. The entire top-of-funnel discovery layer is being rebuilt around answer engines, and most [B2B content strategies aren't designed for it](/thinking/why-b2b-content-doesnt-show-up-in-chatgpt).
 

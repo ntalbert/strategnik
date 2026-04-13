@@ -56,7 +56,7 @@ If you have a functioning marketing team — even a small one — but the strate
 
 If you don't have a marketing leader and the CEO is making every marketing decision by default, you need a fractional CMO. Not because the CEO lacks marketing judgment (though sometimes that's true), but because marketing leadership is a full-time cognitive load. Every hour the CEO spends debating email subject lines or reviewing landing pages is an hour not spent on product, fundraising, or closing enterprise deals.
 
-According to Pavilion's 2025 B2B CMO Compensation Report, the median time-to-hire for a full-time VP of Marketing or CMO at Series A companies is 5.7 months. That's nearly half a year with no one steering the function. A fractional CMO can be operating within two weeks while you run your search — or, in many cases, instead of running that search at all until you hit Series C.
+According to [Pavilion](https://www.joinpavilion.com/research)'s 2025 B2B CMO Compensation Report, the median time-to-hire for a full-time VP of Marketing or CMO at Series A companies is 5.7 months. That's nearly half a year with no one steering the function. A fractional CMO can be operating within two weeks while you run your search — or, in many cases, instead of running that search at all until you hit Series C.
 
 There's a third scenario that's less obvious: you have a marketing leader, but they're junior. They can execute but can't set strategy. In that case, a fractional CMO who mentors while operating — building the playbook and developing the person who'll eventually own it — is often the highest-leverage move.
 

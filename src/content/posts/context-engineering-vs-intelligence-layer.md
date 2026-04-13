@@ -27,7 +27,7 @@ Applied to marketing, context engineering means encoding your brand knowledge, b
 
 This is not prompt engineering. Prompt engineering is writing better individual instructions. Context engineering is building the persistent knowledge base that makes every prompt better by default. The distinction matters: prompt engineering is a skill. Context engineering is infrastructure.
 
-McKinsey's 2026 research reinforces this. They found that the challenges of deploying agentic AI are experiential rather than technical — meaning the models are capable, but organizations haven't built the context those models need to operate. The bottleneck isn't the AI. It's the context surrounding the AI.
+[McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai)'s 2026 research reinforces this. They found that the challenges of deploying agentic AI are experiential rather than technical — meaning the models are capable, but organizations haven't built the context those models need to operate. The bottleneck isn't the AI. It's the context surrounding the AI.
 
 ## Why the Discipline Alone Isn't Enough
 

@@ -51,21 +51,21 @@ Your buyers are already researching solutions through AI. The question isn't whe
 
 The foundation of a decade of B2B content marketing — write it, rank it, get clicks — is collapsing under zero-click dynamics.
 
-**60% of Google searches in 2026 end with zero clicks.** The user gets what they need from the search results page itself and never visits a website. (Source: SparkToro / Datos Group, 2026)
+**60% of Google searches in 2026 end with zero clicks.** The user gets what they need from the search results page itself and never visits a website. (Source: [SparkToro](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/) / Datos Group, 2026)
 
-**AI Overviews now trigger on 48% of all tracked search queries**, a 58% increase year-over-year. (Source: BrightEdge 12-month analysis, February 2025-2026)
+**AI Overviews now trigger on 48% of all tracked search queries**, a 58% increase year-over-year. (Source: [BrightEdge](https://www.brightedge.com/resources/research-reports) 12-month analysis, February 2025-2026)
 
 **Searches triggering AI Overviews show an 83% zero-click rate**, compared to 60% for traditional queries without AI Overviews. (Source: Click-Vision / Deep Marketing, 2026)
 
-**AI Overviews correlate with a 58% lower average click-through rate** for the top-ranking page, as of December 2025 — up from 40% earlier in the year. (Source: Ahrefs, December 2025)
+**AI Overviews correlate with a 58% lower average click-through rate** for the top-ranking page, as of December 2025 — up from 40% earlier in the year. (Source: [Ahrefs](https://ahrefs.com/blog/google-ai-overviews-study/), December 2025)
 
-**Google search impressions are up 49% year-over-year, but CTRs are down 30%.** More people are searching. Fewer are clicking. (Source: BrightEdge, 2026)
+**Google search impressions are up 49% year-over-year, but CTRs are down 30%.** More people are searching. Fewer are clicking. (Source: [BrightEdge](https://www.brightedge.com/resources/research-reports), 2026)
 
 **The average CTR for a #1 ranking dropped from 0.73 to 0.26** between March 2024 and March 2025 — a 64% reduction in clicks for the top organic position. (Source: JackLimeBear / AEO State Report, 2026)
 
-**Mobile searches end without clicks 77.2% of the time**, versus 46.5% on desktop. Your mobile visitors aren't visiting. (Source: SparkToro, 2025)
+**Mobile searches end without clicks 77.2% of the time**, versus 46.5% on desktop. Your mobile visitors aren't visiting. (Source: [SparkToro](https://sparktoro.com/blog/2024-zero-click-search-study-for-every-1000-us-google-searches-only-374-clicks-go-to-the-open-web-in-the-eu-its-360/), 2025)
 
-**B2B tech AI Overview trigger rates grew from 36% to 70%** in a single year. Healthcare and education are approaching 90%. (Source: BrightEdge, 2026)
+**B2B tech AI Overview trigger rates grew from 36% to 70%** in a single year. Healthcare and education are approaching 90%. (Source: [BrightEdge](https://www.brightedge.com/resources/research-reports), 2026)
 
 **Zero-click percentage grew from 56% to 69%** after the AI Overview rollout — a 13-point jump between May 2024 and May 2025. (Source: InnerSpark Creative, 2025)
 
@@ -119,11 +119,11 @@ The quality bar for AI visibility is rising. The data paints a clear picture of 
 
 **AI-only content acquires 61% fewer editorial backlinks** than human-written articles on comparable topics. Backlinks remain a top-three ranking signal. (Source: Digital Applied, 2026)
 
-**Pages with schema markup are 36% more likely to appear in AI-generated summaries.** Structured data is the API layer between your content and AI retrieval. (Source: BrightEdge, 2025)
+**Pages with schema markup are 36% more likely to appear in AI-generated summaries.** Structured data is the API layer between your content and AI retrieval. (Source: [BrightEdge](https://www.brightedge.com/resources/research-reports), 2025)
 
 **Pages with clean structure paired with schema markup earn 2.8x higher AI citation rates** than poorly structured pages. (Source: Vefogix, 2026)
 
-**Sites implementing structured data and FAQ blocks saw a 44% increase in AI search citations.** (Source: BrightEdge, 2025)
+**Sites implementing structured data and FAQ blocks saw a 44% increase in AI search citations.** (Source: [BrightEdge](https://www.brightedge.com/resources/research-reports), 2025)
 
 **Google, Microsoft, and ChatGPT all publicly confirmed in 2025 that they use schema markup** for their generative AI features. This is no longer debatable. (Source: Search Engine Land, March 2025)
 
@@ -145,7 +145,7 @@ Here's where the data gets interesting for revenue-focused leaders. AI search tr
 
 **Conversion rates vary by AI platform.** Claude users convert at 16.8%, ChatGPT at 14.2%, and Perplexity at 12.4%. (Source: Exposure Ninja, 2026)
 
-**Brands cited inside AI Overviews earn 35% more organic clicks and 91% more paid clicks** than brands on the same queries that aren't cited. Getting inside the answer amplifies everything else. (Source: BrightEdge, 2025)
+**Brands cited inside AI Overviews earn 35% more organic clicks and 91% more paid clicks** than brands on the same queries that aren't cited. Getting inside the answer amplifies everything else. (Source: [BrightEdge](https://www.brightedge.com/resources/research-reports), 2025)
 
 **ChatGPT accounts for 87.4% of all AI referral traffic** across industries. It's not just the largest AI platform — it's the dominant traffic source. (Source: JackLimeBear, 2026)
 
@@ -159,21 +159,21 @@ AI search traffic is higher-intent, higher-converting, and earlier in the buying
 
 The gap between recognizing AEO and actually doing it is the biggest strategic risk in B2B right now.
 
-**97% of surveyed digital leaders reported a positive impact from AEO/GEO in 2025.** (Source: Conductor, State of AEO/GEO Report, 2026)
+**97% of surveyed digital leaders reported a positive impact from AEO/GEO in 2025.** (Source: [Conductor](https://www.conductor.com/research/state-of-aeo-geo-report/), State of AEO/GEO Report, 2026)
 
-**94% plan to increase their AEO/GEO investments in 2026.** (Source: Conductor, 2026)
+**94% plan to increase their AEO/GEO investments in 2026.** (Source: [Conductor](https://www.conductor.com/research/state-of-aeo-geo-report/), 2026)
 
-**But only 20% of organizations have begun implementing AEO**, despite 70% believing it will significantly impact their digital strategy within 1-3 years. That's a 50-point gap between belief and action. (Source: Conductor, 2026)
+**But only 20% of organizations have begun implementing AEO**, despite 70% believing it will significantly impact their digital strategy within 1-3 years. That's a 50-point gap between belief and action. (Source: [Conductor](https://www.conductor.com/research/state-of-aeo-geo-report/), 2026)
 
-**Experts recommend allocating 20-30% of SEO budget to AEO/GEO initiatives**, scaling as AI referral traffic grows. (Source: Conductor, 2026)
+**Experts recommend allocating 20-30% of SEO budget to AEO/GEO initiatives**, scaling as AI referral traffic grows. (Source: [Conductor](https://www.conductor.com/research/state-of-aeo-geo-report/), 2026)
 
 **71% of CMOs plan to invest over $10 million annually in generative AI** over the next three years — up from 57% the previous year. (Source: WhiteHat SEO / Industry Report, 2026)
 
-**But McKinsey found that while 50% of CMOs rank generative AI as a top-three investment, it ranked 17th of 20 in actual execution priorities.** Everyone says it matters. Almost nobody is doing it. (Source: McKinsey, 2025)
+**But [McKinsey](https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-state-of-ai-in-early-2024-gen-ai-adoption-spikes-and-starts-to-generate-value) found that while 50% of CMOs rank generative AI as a top-three investment, it ranked 17th of 20 in actual execution priorities.** Everyone says it matters. Almost nobody is doing it. (Source: McKinsey, 2025)
 
-**62% of organizations are experimenting with AI agents. Only 23% are scaling them.** The 39-point gap is exactly where infrastructure — what I call the [Intelligence Layer](/intelligence-layer) — determines who breaks through. (Source: McKinsey, 2025)
+**62% of organizations are experimenting with AI agents. Only 23% are scaling them.** The 39-point gap is exactly where infrastructure — what I call the [Intelligence Layer](/intelligence-layer) — determines who breaks through. (Source: [McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai), 2025)
 
-**Only 29% of marketers actively track content's contribution to revenue.** If you can't measure it, you can't optimize it — and most B2B teams are flying blind on AI visibility. (Source: HubSpot State of Marketing, 2026)
+**Only 29% of marketers actively track content's contribution to revenue.** If you can't measure it, you can't optimize it — and most B2B teams are flying blind on AI visibility. (Source: [HubSpot](https://www.hubspot.com/state-of-marketing) State of Marketing, 2026)
 
 ### What This Means for GTM Leaders
 
@@ -185,15 +185,15 @@ The window is open. Most of your competitors know AEO matters but haven't done a
 
 The shift isn't just about visibility. AI is restructuring how marketing teams operate — and the data on that transformation is stark.
 
-**Gartner projects 60% of brands will use agentic AI for one-to-one interactions by 2028.** (Source: Gartner, 2025)
+**[Gartner](https://www.gartner.com/en/marketing/research/annual-cmo-spend-survey) projects 60% of brands will use agentic AI for one-to-one interactions by 2028.** (Source: Gartner, 2025)
 
-**BCG expects agentic AI to handle over 20% of marketing's workload within two to three years.** (Source: BCG, 2025)
+**[BCG](https://www.bcg.com/publications/2024/how-cmos-are-shaping-strategy-with-genai) expects agentic AI to handle over 20% of marketing's workload within two to three years.** (Source: BCG, 2025)
 
-**AI agents accelerate business processes by 30-50% and reduce low-value work time by 25-40%**, translating to 5-10% incremental top-line growth and 15-20% cost efficiencies. (Source: BCG, 2025)
+**AI agents accelerate business processes by 30-50% and reduce low-value work time by 25-40%**, translating to 5-10% incremental top-line growth and 15-20% cost efficiencies. (Source: [BCG](https://www.bcg.com/publications/2024/how-cmos-are-shaping-strategy-with-genai), 2025)
 
-**AI could drive $463 billion in marketing productivity**, with agentic AI powering over 60% of the increased value from marketing and sales deployments. (Source: McKinsey, 2025)
+**AI could drive $463 billion in marketing productivity**, with agentic AI powering over 60% of the increased value from marketing and sales deployments. (Source: [McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai), 2025)
 
-**Accenture deployed 14 AI agents across their 600-person marketing team**, reducing campaign steps from 135 to 85 with 25-55% speed-to-market improvement. (Source: Accenture, 2025)
+**[Accenture](https://www.accenture.com/us-en/insights/artificial-intelligence-summary-index) deployed 14 AI agents across their 600-person marketing team**, reducing campaign steps from 135 to 85 with 25-55% speed-to-market improvement. (Source: Accenture, 2025)
 
 **Vercel replaced 9 of 10 inbound SDRs with a single AI agent in six weeks.** (Source: reported by multiple industry sources, 2025)
 
@@ -211,9 +211,9 @@ The companies moving fastest aren't just using AI for content. They're restructu
 
 The most-cited prediction in the AEO space deserves its own checkpoint.
 
-**Gartner predicted in February 2024 that traditional search engine volume would drop 25% by 2026** due to AI chatbots and virtual agents. (Source: Gartner Newsroom, February 2024)
+**[Gartner](https://www.gartner.com/en/newsroom/press-releases/2024-02-19-gartner-predicts-search-engine-volume-will-drop-25-percent-by-2026) predicted in February 2024 that traditional search engine volume would drop 25% by 2026** due to AI chatbots and virtual agents. (Source: Gartner Newsroom, February 2024)
 
-**An earlier Gartner prediction was even more aggressive: organic search traffic would decrease by 50% or more** as consumers embrace generative AI-powered search. (Source: Gartner, 2023)
+**An earlier [Gartner](https://www.gartner.com/en/marketing/research/annual-cmo-spend-survey) prediction was even more aggressive: organic search traffic would decrease by 50% or more** as consumers embrace generative AI-powered search. (Source: Gartner, 2023)
 
 **79% of respondents in Gartner's survey expected to use AI-enhanced search within a year.** (Source: Gartner consumer survey, August 2023)
 
@@ -229,15 +229,15 @@ The decline isn't as clean as "25% less traffic." It's more nuanced: impressions
 
 Beyond the platform stats, the underlying buyer behavior has fundamentally changed.
 
-**61% of the B2B buying journey completes before the buyer contacts a vendor** — a figure that increases when AI tools provide synthesized comparisons. (Source: Forrester, 2025)
+**61% of the B2B buying journey completes before the buyer contacts a vendor** — a figure that increases when AI tools provide synthesized comparisons. (Source: [Forrester](https://www.forrester.com/research/b2b-buying/), 2025)
 
 **35% of consumers use AI tools at the discovery and initial ideas stage of research**, compared to 13.6% using traditional search at the same stage. AI is now the first touch, not the supplement. (Source: Similarweb AI Brand Visibility Report, 2026)
 
-**B2B content marketing generates an average 3:1 ROI**, and when executed with strong SEO integration, returns exceed 5:1. But that ROI depends on the content being visible — and increasingly, visible means AI-visible. (Source: HubSpot / industry studies, 2026)
+**B2B content marketing generates an average 3:1 ROI**, and when executed with strong SEO integration, returns exceed 5:1. But that ROI depends on the content being visible — and increasingly, visible means AI-visible. (Source: [HubSpot](https://www.hubspot.com/state-of-marketing) / industry studies, 2026)
 
-**97% of content marketers say their program is successful** to some degree, up from 73% in 2025. But only 41% actively measure ROI. The confidence-measurement gap suggests many teams don't know what's actually working. (Source: HubSpot State of Marketing, 2026)
+**97% of content marketers say their program is successful** to some degree, up from 73% in 2025. But only 41% actively measure ROI. The confidence-measurement gap suggests many teams don't know what's actually working. (Source: [HubSpot](https://www.hubspot.com/state-of-marketing) State of Marketing, 2026)
 
-**61% of B2B marketers are increasing overall content spend**, with top investment going to AI-powered tools (45%), events (33%), and owned media (32%). (Source: HubSpot, 2026)
+**61% of B2B marketers are increasing overall content spend**, with top investment going to AI-powered tools (45%), events (33%), and owned media (32%). (Source: [HubSpot](https://www.hubspot.com/state-of-marketing), 2026)
 
 ### What This Means for GTM Leaders
 
