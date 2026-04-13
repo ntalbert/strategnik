@@ -29,6 +29,8 @@ Friction trains the market.
 
 Every complicated form, every unnecessary meeting, every three-day response time teaches potential customers something about your company. Not just "this is hard to buy." Something deeper: "this is what they think my time is worth." Buyers encode that signal and share it. They mention it on peer calls. They warn colleagues. They write it in Slack channels you'll never see. And unlike the positive word-of-mouth you're trying to generate through content and brand investment, negative word-of-mouth requires zero prompting. People volunteer warnings.
 
+![Friction as an energy loss cascade — demand generated at the top dissipating through each funnel stage](/images/posts/friction-energy-loss-cascade.png)
+
 ## Where the Energy Goes
 
 The math on friction is worse than it looks at first glance, and I wrote separately about [why the funnel math kills most deals](/thinking/funnel-math-kills-the-deal) before they ever reach a close.
@@ -38,6 +40,8 @@ Consider a five-stage buying process where each stage converts at 80%. That's no
 Every buyer who bounced told someone. Every buyer who fought through the process and closed has a story about it, and that story doesn't feature your product's strengths. The friction creates a reputation that never appears in your attribution reports, your NPS scores, or your pipeline reviews. It just shows up as a slightly lower conversion rate next quarter, and the quarter after that, compounding quietly against you while you're focused on generating more demand at the top.
 
 This is why friction and [momentum](/physics-of-growth/momentum) are opposing forces. You can spend years building mass through brand investment and content authority. You can build the kind of accumulated market presence that makes every campaign more efficient and every dollar work harder. And then you can dissipate all of it with a buying process that punishes the very people your brand attracted.
+
+![Three types of friction — cognitive, process, and trust — each requiring different fixes](/images/posts/friction-three-types-taxonomy.png)
 
 ## The Three Types Nobody Separates
 

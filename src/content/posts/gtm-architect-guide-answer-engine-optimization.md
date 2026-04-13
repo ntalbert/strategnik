@@ -47,6 +47,8 @@ Buyers who used to start with Google now start with an AI assistant. The entire 
 
 SEO isn't dead. But SEO alone is no longer sufficient. The companies that win discovery in 2026 are architecturally present in both search engines and answer engines.
 
+![The five components of AEO — entity authority, content structure, schema markup, external citations, and topical density](/images/posts/aeo-five-components-pillars.png)
+
 ## The 5 Components of AEO for B2B GTM Systems
 
 AEO isn't one tactic. It's a system with five interlocking components. Miss one and the others underperform.
@@ -80,6 +82,8 @@ Every external citation signals entity authority. This is the B2B equivalent of 
 AI systems favor sources that demonstrate comprehensive expertise on a topic. A single blog post about Kubernetes security won't make you the answer. Twenty interconnected pieces covering Kubernetes security from multiple angles — architecture, compliance, tooling, case studies, comparisons — creates topical density that AI models recognize.
 
 This is why [GTM architecture](/gtm-strategy-consultant) and content strategy are inseparable in the AEO era. You can't optimize for answer engines post-hoc. The architecture has to be designed for topical dominance from the start.
+
+![CAC comparison — how AEO reduces customer acquisition cost versus traditional channels](/images/posts/cac-comparison-diagram.png)
 
 ## How Does the Physics of Growth™ Framework Map to AI Discoverability?
 

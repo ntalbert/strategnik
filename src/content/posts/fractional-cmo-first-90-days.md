@@ -16,6 +16,8 @@ In the first 90 days, a fractional CMO at a Series A company should deliver four
 
 I've done this enough times to know what works and what doesn't. The pattern is remarkably consistent across B2B SaaS companies in the $2M–$15M ARR range, and the mistakes are even more consistent. Here's how I run it.
 
+![The diagnostic phase — days 1 through 30 focused on listening, auditing, and mapping the GTM system](/images/posts/fractional-cmo-90days-diagnostic-phase.png.png)
+
 ## What Should a Fractional CMO Deliver in Days 1–30?
 
 The first month is a listening and diagnosing month. You are not here to execute yet. You are here to understand why the current system produces the results it produces.
@@ -67,6 +69,8 @@ Do not build a 47-slide strategy deck. The diagnostic should be 5–8 pages. The
 Do not optimize what shouldn't exist. Some campaigns, channels, and processes should be killed, not improved. A good [GTM strategy consultant](/gtm-strategy-consultant) knows the difference between optimization and elimination.
 
 Do not treat this like an advisory engagement. A fractional CMO should have their hands on the keyboard. They should be in the CRM, in the analytics, in the content calendar. If they're only showing up for weekly calls and sending you frameworks, you don't have a fractional CMO — you have a coach.
+
+![The 90-day timeline mapped to Physics of Growth forces — friction, momentum, and gravity across three phases](/images/posts/fractional-cmo-90days-physics-timeline.png.png)
 
 ## How the Physics of Growth™ Framework Guides the 90-Day Plan
 

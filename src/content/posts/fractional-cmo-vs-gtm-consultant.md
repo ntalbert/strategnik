@@ -30,6 +30,8 @@ The engagement is scoped: diagnose the problem, build the strategy, deliver the 
 
 The value is clarity and speed. They tell you what's broken, why, and what to do about it. Execution is on you.
 
+![Where a fractional CMO and GTM consultant diverge — ownership, accountability, and duration](/images/posts/fractional-cmo-vs-consultant-divergence.png.png)
+
 ## The 3 Key Differences Between a Fractional CMO and a GTM Consultant
 
 The confusion between these roles is real, and it costs companies time. Here's where they actually diverge:
@@ -59,6 +61,8 @@ If you don't have a marketing leader and the CEO is making every marketing decis
 According to [Pavilion](https://www.joinpavilion.com/research)'s 2025 B2B CMO Compensation Report, the median time-to-hire for a full-time VP of Marketing or CMO at Series A companies is 5.7 months. That's nearly half a year with no one steering the function. A fractional CMO can be operating within two weeks while you run your search — or, in many cases, instead of running that search at all until you hit Series C.
 
 There's a third scenario that's less obvious: you have a marketing leader, but they're junior. They can execute but can't set strategy. In that case, a fractional CMO who mentors while operating — building the playbook and developing the person who'll eventually own it — is often the highest-leverage move.
+
+![The GTM architect model — consultant-level diagnosis with operator-level accountability](/images/posts/fractional-cmo-vs-consultant-architect-model.png.png)
 
 ## When You Need Both: The GTM Architect Model
 

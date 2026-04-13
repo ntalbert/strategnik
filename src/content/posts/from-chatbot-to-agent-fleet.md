@@ -31,6 +31,8 @@ There are five stages of AI marketing maturity. Most companies are stuck at stag
 
 **The signal you're here:** Your team is using AI tools but the output still requires heavy human editing. Your brand voice sounds different in every channel. Your CRM data wouldn't survive a trust audit. The CEO can't tell whether the AI investment is producing results because there's no measurement framework connected to revenue.
 
+![Intelligence Layer architecture — six encoded components forming the shared operating context for AI agents](/images/posts/agent-fleet-intelligence-layer-architecture.png)
+
 ## Stage 2: Intelligence Layer Built
 
 **Who does the work:** The Intelligence Layer is installed. All [six components](/thinking/six-components-of-an-intelligence-layer) — brand spec, ICP maps, competitive framing, content architecture, machine readability and distribution schema, and measurement targets — are encoded in machine-readable format.
@@ -42,6 +44,8 @@ There are five stages of AI marketing maturity. Most companies are stuck at stag
 **The physics:** This is where friction drops dramatically. A shared operating context eliminates the handoff degradation that was eating every piece of strategy before it reached the market. The car's parking brake comes off. Now when you add engine power, the vehicle actually moves.
 
 **The signal you're ready:** Your CEO is asking "what does AI-native marketing actually look like?" Your CMO knows something needs to change but can't articulate the architecture. You're about to make a marketing hire and wondering whether the money would be better spent on infrastructure.
+
+![Scale economics lever — how a small team with the Intelligence Layer outproduces a large team without it](/images/posts/agent-fleet-scale-economics-lever.png)
 
 ## Stages 3–4: Humans + AI + Agents
 

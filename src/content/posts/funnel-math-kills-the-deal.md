@@ -44,6 +44,8 @@ The problem with gut math is that it has no error bars. You can't see where you'
 
 ---
 
+![Reverse waterfall — working backward from revenue target through each conversion stage to required volume](/images/posts/funnel-math-reverse-waterfall.png)
+
 ## What Does the B2B Funnel Velocity Calculator Actually Do?
 
 The [B2B Funnel Velocity Calculator](https://www.strategnik.com/calculator) forces all the assumptions into the open.
@@ -57,6 +59,8 @@ The calculator also surfaces unit economics: cost per lead, cost per SQL, cost p
 The last piece is what I call the Trigger Model. Given your sales cycle and your planning horizon, when do activities in Q1 actually show up as closed revenue? If your sales cycle is 90 days and you want deals closed by December 31, your pipeline generation window closes in early October. Every campaign you launch after that is working for next year's number, not this year's. Most revenue plans ignore this entirely — they assume a uniform pipeline contribution across all 12 months and then wonder why Q4 falls short.
 
 ---
+
+![The dual-direction gap — demand-backward targets versus capacity-forward reality](/images/posts/funnel-math-dual-direction-gap.png)
 
 ## How Does the Physics of Growth™ Framework Explain Pipeline Failure?
 

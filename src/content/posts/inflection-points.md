@@ -25,6 +25,8 @@ This is one of six forces in the [Physics of Marketing](/thinking/physics-of-mar
 
 The recognition problem is real. Inflection points don't announce themselves. They leave clues: conversion rates stabilize above target, CAC payback period hits acceptable range, win rates against specific competitors improve, sales cycle duration decreases, the inbound-to-outbound ratio shifts. The key word is *consistent*. One good quarter isn't an inflection point. Three quarters of improving metrics on steady investment might be. The companies that identify inflection points early are the ones tracking leading indicators (conversion trends, win rate trajectories, organic-to-paid ratio over time) rather than lagging ones (total pipeline, revenue, bookings).
 
+![Two failure modes — premature scaling burns cash while scaling too late cedes market position](/images/posts/inflection-two-failure-modes.png)
+
 ## The Two Failure Modes
 
 Most companies get the timing wrong. The failure modes are symmetric but not equally common, and understanding both is the only way to calibrate the decision.
@@ -36,6 +38,8 @@ This happens because external pressure, from investors, boards, and compensation
 **Scaling too late** is less common but potentially more damaging. It happens when leadership is traumatized from previous premature scaling and overcompensates with conservatism. Or when finance maintains tight spend limits past the point where the data supports expansion. Or when the team mistakes efficiency at small scale for readiness to stay at small scale, confusing discipline with stasis.
 
 Missing the window matters because markets consolidate. Category positions harden. Buyers make decisions about who the default vendor is, and increasingly, AI systems encode those decisions into recommendations that become self-reinforcing. A company that reaches [escape velocity](/physics-of-growth) while you're running a careful pilot is a company you may never catch. The cost of moving too late doesn't show up as a line item. It shows up as a market position you never occupy.
+
+![Three-layer readiness model — foundation, efficiency, and scalability must all be present before scaling](/images/posts/inflection-three-layer-readiness.png)
 
 ## Reading the System
 

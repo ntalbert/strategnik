@@ -55,6 +55,8 @@ Surface area also interacts with mass in a compounding way. Each new surface cre
 
 ---
 
+![The momentum compounding curve — flat early, then steep as mass and velocity combine](/images/posts/physics-momentum-compounding-curve.png.png)
+
 ## Momentum: The Force That Compounds
 
 In physics, momentum is mass times velocity. An object with momentum tends to keep moving. The heavier and faster it is, the more force required to stop it.
@@ -72,6 +74,8 @@ This is why [growth programs that look like they're failing are often the ones m
 The [Ehrenberg-Bass Institute](https://growthscience.info/when-brands-stop-advertising/) data is unambiguous: brands that stop investing see 16% sales decline in year one, 25% by year two, 36% by year three. Recovery takes longer than the hiatus. The only thing more expensive than building momentum is building it twice.
 
 ---
+
+![A falling tree illustrating how momentum, once lost, requires far more energy to rebuild](/images/posts/momentum-tree-fall.png)
 
 ## Friction: The Force That Eats Your Pipeline
 

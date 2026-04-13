@@ -19,6 +19,8 @@ They're right. Context engineering is the most important emerging discipline in 
 
 Nobody has packaged context engineering into a built, operational system that a marketing team can actually run from. The vocabulary exists. The service doesn't. That's where the Intelligence Layer comes in.
 
+![The dual audience split — internal AI tools and external answer engines both need structured context](/images/posts/context-dual-audience-split.png.png)
+
 ## What Context Engineering Actually Means
 
 Context engineering is the discipline of designing the structured information that AI models need to produce useful output. In software engineering, this concept has been developing for years — how you structure the context window, what information you include, how you format it for the model to reason about.
@@ -40,6 +42,8 @@ Context engineering is like saying "we need better architecture" without produci
 The market is already splitting along this line. On one side, analysts and educators are writing about context engineering as a concept — describing the landscape, naming the need, publishing frameworks. On the other side, the companies that are actually pulling ahead are building the specific infrastructure their context engineering demands.
 
 The Intelligence Layer is that infrastructure.
+
+![Intelligence Layer architecture — six components forming the operational system context engineering calls for](/images/posts/context-intelligence-layer-architecture.png.png)
 
 ## The Intelligence Layer: Context Engineering, Implemented
 

@@ -28,6 +28,8 @@ There are three common pricing models:
 
 The variation within these ranges is real and meaningful. A fractional CMO charging $5,000/month is probably working 8–10 hours per week on a narrow scope. Someone at $15,000/month is functioning closer to a half-time executive — attending leadership meetings, managing agencies, owning the plan and the cadence.
 
+![Fractional CMO vs. full-time CMO cost comparison — retainer versus fully loaded executive compensation](/images/posts/fractional-cmo-cost-comparison-towers.png.png)
+
 ## Fractional CMO vs. Full-Time CMO: The Cost Comparison
 
 Here's where the math gets interesting.
@@ -53,6 +55,8 @@ At a minimum, a competent fractional CMO engagement should include:
 What varies is whether execution is included. Some fractional CMOs will write copy, manage campaigns, or build workflows. Others operate purely at the strategic layer. Neither is wrong — it depends on whether you have a team to execute.
 
 Be clear about this before you sign anything. The biggest source of friction in fractional engagements is mismatched expectations about who does the work.
+
+![The four levers that drive fractional CMO pricing — hours, scope, stage, and execution inclusion](/images/posts/fractional-cmo-pricing-levers.png.png)
 
 ## What Drives Fractional CMO Pricing Up or Down?
 
