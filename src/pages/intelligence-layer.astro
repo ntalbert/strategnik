@@ -1,6 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LayerTransformation from '../components/LayerTransformation';
+import ComponentTabs from '../components/ComponentTabs';
+import MaturityTimeline from '../components/MaturityTimeline';
+import StatsCounter from '../components/StatsCounter';
+import DisciplineGrid from '../components/DisciplineGrid';
+import FaqAccordion from '../components/FaqAccordion';
+import SectionReveal from '../components/SectionReveal';
+import FloatingCta from '../components/FloatingCta';
 
 const title = "The Intelligence Layer — What AI Agents Actually Need to Run Your Marketing";
 const description = "The Intelligence Layer is the machine-readable operating context that makes AI-native marketing possible. Six components. One shared foundation. Built for Series B through pre-IPO B2B SaaS companies.";
@@ -8,91 +15,32 @@ const description = "The Intelligence Layer is the machine-readable operating co
 const faqData = [
   {
     question: "What is the Intelligence Layer?",
-    answer: "The Intelligence Layer is a machine-readable operating context — the encoded knowledge of your brand, your buyers, your competitive position, your content architecture, and your measurement framework — built so that every AI tool, every agent, and every team member works from the same shared foundation. It is not a document, a prompt template, or a one-time brand exercise. It is a living operating system that updates as the market moves."
+    answer: "The Intelligence Layer is a machine-readable operating context — the encoded knowledge of your brand, your buyers, your competitive position, your content architecture, and your measurement framework — built so that every AI tool, every agent, and every team member works from the same shared foundation."
   },
   {
     question: "How is this different from hiring a fractional CMO?",
-    answer: "A fractional CMO provides leadership and strategy. When they leave, the strategy leaves with them. The Intelligence Layer is infrastructure — it persists after the engagement ends. Your team and your agents operate from it indefinitely. Building it requires simultaneous fluency in GTM strategy, technical infrastructure, creative production systems, and AI-native thinking — four disciplines that almost never coexist in a single hire."
+    answer: "A fractional CMO provides leadership and strategy. When they leave, the strategy leaves with them. The Intelligence Layer is infrastructure — it persists after the engagement ends."
   },
   {
     question: "How long does it take to build the Intelligence Layer?",
-    answer: "The diagnostic takes 2-4 weeks. The full build sprint takes 30-90 days depending on company complexity. This is not a digital transformation initiative or an enterprise software deployment. It is a focused build that encodes the brand knowledge, market intelligence, and measurement framework that already exist in your organization — scattered across people's heads, old decks, and CRM fields — into a machine-readable operating context."
+    answer: "The diagnostic takes 2-4 weeks. The full build sprint takes 30-90 days depending on company complexity."
   },
   {
     question: "What does the Intelligence Layer cost?",
-    answer: "The diagnostic ranges from $2,500-$25,000 depending on scope (external audit vs. deep internal audit). The full build sprint ranges from $25,000-$75,000. The ongoing advisor retainer is $5,000-$15,000 per month. A full transformation engagement runs $75,000-$150,000+. For comparison: a single CMO hire costs $350K+ fully loaded per year. The Intelligence Layer sprint costs less than one quarter of that salary and produces infrastructure that persists."
+    answer: "The diagnostic ranges from $2,500-$25,000. The full build sprint ranges from $25,000-$75,000. The ongoing advisor retainer is $5,000-$15,000 per month."
   },
   {
     question: "Can we build this internally?",
-    answer: "Your team can run the system once it is built. Building the Intelligence Layer requires understanding how AI models ingest context, how agents learn from data structures, and how to encode brand and competitive intelligence in formats agents can actually use. That is not marketing ops — it is a different discipline. Strategnik builds it, trains your team, and hands it off. They operate it."
+    answer: "Your team can run the system once it is built. Building it requires understanding how AI models ingest context, how agents learn from data structures, and how to encode brand and competitive intelligence in formats agents can actually use."
   },
   {
     question: "We already have a CMO and marketing team. Is this a replacement?",
-    answer: "No. The Intelligence Layer is not here to replace your CMO or your team. It gives them a new set of operating instructions for a world where agents are part of the team. The CMO stays. The team stays. What changes is the infrastructure they operate from. The CMO steers the layer. The layer steers everything else."
+    answer: "No. The Intelligence Layer gives your existing team a new set of operating instructions for a world where agents are part of the team. The CMO steers the layer. The layer steers everything else."
   },
   {
     question: "What happens after the build?",
-    answer: "The layer is delivered with full training for your internal team. Some companies operate it independently from day one. Others engage in an ongoing advisor retainer — a monthly signal review that asks what ranked, what converted, what messaging missed, and what shifted in the competitive landscape. The layer updates. New context pushes to all connected agents and tools. The layer does not go stale because the retainer is the update cycle."
+    answer: "The layer is delivered with full training for your internal team. Others engage in an ongoing advisor retainer — a monthly signal review. The layer does not go stale because the retainer is the update cycle."
   }
-];
-
-const components = [
-  {
-    id: "brand",
-    num: "01",
-    label: "Brand + Voice",
-    color: "#1de2c4",
-    title: "Brand + Voice Spec",
-    desc: "Tone, editorial standards, banned language, writing style rules — encoded so every agent produces on-brand work without requiring human review of every output. Not a style guide PDF. A machine-readable operating spec agents reference autonomously. Your brand becomes infrastructure, not a document someone forgets to check."
-  },
-  {
-    id: "icp",
-    num: "02",
-    label: "ICP + Buyers",
-    color: "#60a5fa",
-    title: "ICP + Buyer Context",
-    desc: "Ideal customer profiles, buying committee maps, pain hierarchy, objection framing, persona-level messaging — so agents know who they're talking to, why it matters, and what the alternatives look like. The strategic intelligence that turns generic outreach into precision targeting."
-  },
-  {
-    id: "competitive",
-    num: "03",
-    label: "Competitive",
-    color: "#c084fc",
-    title: "Competitive Framing",
-    desc: "Positioning against alternatives, displacement narratives, win/loss context, differentiated value claims — so every piece of content reinforces the market stance. Not static. Updated as the competitive landscape shifts. When the framing changes in the layer, it changes everywhere."
-  },
-  {
-    id: "content",
-    num: "04",
-    label: "Content",
-    color: "#f59e0b",
-    title: "Content Architecture",
-    desc: "Topic cluster design with semantic entity relationships. Content atomization frameworks. Template structures per content type that embed schema, heading hierarchy, and entity definitions at creation. Internal linking architecture that signals topical authority. Question-answer pair libraries mapped to buying stage — the atomic units that AI Overviews, Perplexity, and ChatGPT cite."
-  },
-  {
-    id: "machine",
-    num: "05",
-    label: "Machine",
-    color: "#06b6d4",
-    title: "Machine Readability + Distribution Schema",
-    desc: "JSON-LD structured data per page type. Entity definitions in formats machines parse. AI crawler accessibility via llms.txt and robots.txt policy. Multi-surface optimization for Google Search, AI Overviews, Perplexity, ChatGPT, and Gemini. Citation architecture — the signals that make LLMs treat your content as citable rather than paraphrasable. The difference between being found and being cited is structure."
-  },
-  {
-    id: "measurement",
-    num: "06",
-    label: "Measurement",
-    color: "#ef4444",
-    title: "Measurement Targets",
-    desc: "Revenue influence metrics, conversion benchmarks, time-to-personalization goals, decision accuracy signals — so the system knows what success looks like and feedback loops can steer toward it. Not dashboards that report what happened. Feedback loops that steer what happens next. The agent fleet learns. The system adapts. Marketing becomes a precision instrument."
-  }
-];
-
-const beforeAfterData = [
-  { without: '"Write me a blog post about X"', withLayer: 'Agent generates from keyword brief, brand spec, and ICP — autonomously. Ships with schema and entity markup from day one.' },
-  { without: 'Competitive response takes 2-4 weeks', withLayer: 'CMO updates framing in one place. Changes propagate to website, ads, email, agent prompts. Live by end of day.' },
-  { without: 'Team of 20 produces 8-12 pieces/month', withLayer: 'Team of 5 produces 20-40 pieces/month. Campaign launch: 3-5 days instead of 3-4 weeks.' },
-  { without: 'Invisible to ChatGPT, Perplexity, AI Overviews', withLayer: 'Every page structured for AI citation from creation. llms.txt published. Entity definitions declared. Passage-level citability built in.' },
-  { without: 'Hiring to scale output', withLayer: 'Architecture that scales without headcount. ROI within 60-90 days of deployment.' },
 ];
 ---
 
@@ -107,7 +55,7 @@ const beforeAfterData = [
         "name": "Strategnik",
         "url": "https://strategnik.com"
       },
-      "description": "The Intelligence Layer is the machine-readable operating context that makes AI-native marketing possible. Six components — brand spec, ICP context, competitive framing, content architecture, machine readability schema, and measurement targets — encoded so every AI tool and team member works from the same foundation.",
+      "description": "The Intelligence Layer is the machine-readable operating context that makes AI-native marketing possible. Six components — brand spec, ICP context, competitive framing, content architecture, machine readability schema, and measurement targets.",
       "serviceType": "AI Marketing Infrastructure",
       "areaServed": "Worldwide",
       "audience": {
@@ -135,427 +83,199 @@ const beforeAfterData = [
   </Fragment>
 
   <!-- ============================================ -->
-  <!-- HERO — Full-bleed background image w/ overlay -->
+  <!-- HERO — 60/40 Asymmetric Split -->
   <!-- ============================================ -->
   <section class="il-hero">
-    <div class="il-hero__bg">
-      <img src="/images/posts/il-before-after-transformation.png" alt="Before and after the Intelligence Layer — fragmented teams with disconnected strategy versus a unified system where every team and agent works from shared context" />
+    <div class="il-hero__grid container-content">
+      <!-- Left 60% -->
+      <SectionReveal client:visible direction="left" className="il-hero__text">
+        <p class="il-hero__label">The Intelligence Layer</p>
+        <h1 class="il-hero__headline font-display">
+          What AI Agents Actually Need to Run Your Marketing
+        </h1>
+        <p class="il-hero__body">
+          Most companies gave their team AI access and called it a strategy. What they actually built is a faster typing pool. The Intelligence Layer is the foundational operating context that makes AI-native marketing real — the encoded knowledge of your brand, your buyers, and your market, structured so every agent and every team member works from the same shared foundation.
+        </p>
+        <a href="/gravity-audit" class="il-hero__cta">
+          Get Your Gravity Audit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </SectionReveal>
+
+      <!-- Right 40% -->
+      <SectionReveal client:visible direction="right" delay={0.2} className="il-hero__animation">
+        <LayerTransformation client:visible />
+      </SectionReveal>
     </div>
-    <div class="il-hero__overlay"></div>
-    <div class="il-hero__content container-narrow">
-      <p class="il-hero__label">The Intelligence Layer</p>
-      <h1 class="il-hero__headline font-display">
-        What AI Agents Actually Need to Run Your Marketing
-      </h1>
-      <p class="il-hero__body">
-        Most companies gave their team AI access and called it a strategy. What they actually built is a faster typing pool. The Intelligence Layer is the foundational operating context that makes AI-native marketing real — the encoded knowledge of your brand, your buyers, and your market, structured so every agent and every team member works from the same shared foundation.
-      </p>
-      <p class="il-hero__kicker">
-        Your AI is still a chatbot. Here's what an operating system looks like.
-      </p>
+
+    <!-- Scroll indicator -->
+    <div class="il-hero__scroll-indicator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="il-hero__chevron"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- WHAT CHANGES — Animation (moved up from below) -->
+  <!-- SIX COMPONENTS — Tabbed, Full-Width -->
   <!-- ============================================ -->
-  <section class="il-section il-section--comparison il-animate">
+  <section class="il-section il-section--components">
     <div class="container-content">
-      <h2 class="il-display-headline il-display-headline--xl font-display">What Changes When the Layer Is Running</h2>
-      <p class="il-section__body" style="max-width: 65ch; margin-bottom: 48px;">
-        Same prompt. Same AI. Completely different output. Watch what happens when context replaces guessing.
-      </p>
-      <LayerTransformation client:visible />
+      <div class="il-components__honeycomb-wrap">
+        <img
+          src="/images/posts/il-six-components-honeycomb.png"
+          alt="Six components of the Intelligence Layer arranged in a honeycomb architecture"
+          class="il-components__honeycomb-img"
+        />
+      </div>
+
+      <SectionReveal client:visible>
+        <h2 class="il-section__headline font-display">Six Components. One Source of Truth.</h2>
+        <p class="il-section__subtitle">
+          The Intelligence Layer serves two audiences. Your internal agents and team — and every external machine your buyer consults. The layer makes your company legible to both.
+        </p>
+      </SectionReveal>
+
+      <ComponentTabs client:visible />
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- THE PROBLEM -->
+  <!-- MATURITY MODEL — Full-Bleed Dark -->
   <!-- ============================================ -->
-  <section class="il-section il-section--problem il-animate">
-    <div class="container-narrow">
-      <div class="il-problem__accent-bar"></div>
-      <h2 class="il-section__headline font-display">The Problem Nobody Is Solving</h2>
-      <p class="il-section__body">
-        In a typical 20-person marketing org, strategy enters at the top and degrades at every handoff. The content team interprets the brief one way. Demand gen interprets it differently. Web does its own thing. Events uses whatever deck was built last quarter. The buyer encounters five different companies. Brand dilutes. Pipeline slows.
-      </p>
-      <p class="il-section__body">
-        Now add AI to that system. AI amplifies output, not quality. More content produced faster from a fragmented system means more fragmented content at higher velocity. Every agent prompt starts from zero — no brand memory, no ICP knowledge, no competitive framing. A chatbot trained on fragmented context produces fragmented output — faster.
-      </p>
-      <p class="il-section__body il-section__body--bold">
-        The question isn't "how do we use AI in marketing?" It's "what does our AI actually know about us — and is that enough to act on?"
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- SIX COMPONENTS — Tabbed Interface -->
-  <!-- ============================================ -->
-  <section class="il-section il-section--components il-animate">
-    <div class="il-components__honeycomb-wrap container-content">
-      <img src="/images/posts/il-six-components-honeycomb.png" alt="Six components of the Intelligence Layer arranged in a honeycomb architecture" class="il-components__honeycomb-img" />
-    </div>
+  <section class="il-section il-section--maturity">
     <div class="container-content">
-      <h2 class="il-display-headline font-display">Six Components. One Source of Truth.</h2>
-      <p class="il-section__body" style="max-width: 65ch;">
-        The Intelligence Layer serves two audiences. The first is your internal agents and team — giving them context to produce on-brand, on-strategy output. The second is every external machine your buyer consults — ChatGPT, Perplexity, AI Overviews. The layer makes your company legible to both.
-      </p>
+      <SectionReveal client:visible>
+        <h2 class="il-section__headline font-display">The Five Stages of AI Marketing Maturity</h2>
+        <p class="il-section__subtitle">
+          You cannot reach stage 3 or beyond without stage 2. The layer is the gate.
+        </p>
+      </SectionReveal>
 
-      <!-- Tab Bar -->
-      <div class="il-tabs" role="tablist" aria-label="Intelligence Layer Components">
-        {components.map((comp, i) => (
-          <button
-            class={`il-tab ${i === 0 ? 'il-tab--active' : ''}`}
-            role="tab"
-            aria-selected={i === 0 ? 'true' : 'false'}
-            aria-controls={`panel-${comp.id}`}
-            id={`tab-${comp.id}`}
-            data-tab={comp.id}
-            data-color={comp.color}
-            style={i === 0 ? `--tab-color: ${comp.color}` : ''}
-          >
-            <span class="il-tab__num">{comp.num}</span>
-            <span class="il-tab__label">{comp.label}</span>
-          </button>
-        ))}
-      </div>
+      <img
+        src="/images/posts/il-maturity-staircase.png"
+        alt="Five stages of AI marketing maturity — from fragmented humans at stage 1, through Intelligence Layer built at stage 2, to humans plus AI, humans plus agents, and fully proactive agents at stage 5."
+        class="il-maturity__img"
+      />
 
-      <!-- Tab Panels -->
-      <div class="il-panels">
-        {components.map((comp, i) => (
-          <div
-            class={`il-panel ${i === 0 ? 'il-panel--active' : ''}`}
-            role="tabpanel"
-            id={`panel-${comp.id}`}
-            aria-labelledby={`tab-${comp.id}`}
-            data-panel={comp.id}
-            style={`--panel-color: ${comp.color}`}
-          >
-            <div class="il-panel__inner">
-              <span class="il-panel__num" style={`color: ${comp.color}`}>{comp.num}</span>
-              <h3 class="il-panel__title">{comp.title}</h3>
-              <p class="il-panel__desc">{comp.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <MaturityTimeline client:visible />
     </div>
   </section>
 
-  <!-- (moved to after hero) -->
-
   <!-- ============================================ -->
-  <!-- MATURITY MODEL — Staircase + Timeline -->
+  <!-- WHY NOW — Stats Section -->
   <!-- ============================================ -->
-  <section class="il-section il-section--maturity il-animate">
+  <section class="il-section il-section--stats">
     <div class="container-content">
-      <h2 class="il-section__headline font-display">The Five Stages of AI Marketing Maturity</h2>
-      <p class="il-section__body" style="max-width: 65ch;">
-        You cannot reach stage 3 or beyond without stage 2. The layer is the gate.
-      </p>
-      <img src="/images/posts/il-maturity-staircase.png" alt="Five stages of AI marketing maturity — from fragmented humans at stage 1, through Intelligence Layer built at stage 2, to humans plus AI, humans plus agents, and fully proactive agents at stage 5." class="il-maturity__img" />
+      <SectionReveal client:visible>
+        <h2 class="il-section__headline font-display">The Window Is Narrower Than It Appears</h2>
+        <p class="il-section__subtitle">
+          The gap between experimenting and scaling is where the Intelligence Layer operates.
+        </p>
+      </SectionReveal>
 
-      <!-- Horizontal Step Timeline -->
-      <div class="il-timeline">
-        <div class="il-timeline__track"></div>
-
-        <div class="il-timeline__step il-timeline__step--muted">
-          <div class="il-timeline__dot" style="background: #494950;"></div>
-          <div class="il-timeline__content">
-            <span class="il-timeline__stage" style="color: #7a7a85;">Stage 1</span>
-            <h3 class="il-timeline__title">Fragmented Humans</h3>
-            <p class="il-timeline__desc">All humans, all silos. Strategy briefed to 5+ teams. Handoffs dilute everything. Adding AI makes it worse.</p>
-          </div>
-        </div>
-
-        <div class="il-timeline__step il-timeline__step--active">
-          <div class="il-timeline__dot il-timeline__dot--pulse" style="background: #1de2c4;"></div>
-          <div class="il-timeline__badge">THE UNLOCK</div>
-          <div class="il-timeline__content">
-            <span class="il-timeline__stage" style="color: #1de2c4;">Stage 2 — The Sprint</span>
-            <h3 class="il-timeline__title">Intelligence Layer Built</h3>
-            <p class="il-timeline__desc">All six components encoded. Shared operating context installed. AI tools can now be wired in. 30-90 day engagement.</p>
-          </div>
-        </div>
-
-        <div class="il-timeline__step">
-          <div class="il-timeline__dot" style="background: #c084fc;"></div>
-          <div class="il-timeline__content">
-            <span class="il-timeline__stage" style="color: #c084fc;">Stages 3-4 — The Retainer</span>
-            <h3 class="il-timeline__title">Humans + AI + Agents</h3>
-            <p class="il-timeline__desc">Teams prompt from shared context. Agents run content, SEO, nurture autonomously. Precision at scale. The feedback loop compounds.</p>
-          </div>
-        </div>
-
-        <div class="il-timeline__step il-timeline__step--muted">
-          <div class="il-timeline__dot" style="background: #494950;"></div>
-          <div class="il-timeline__content">
-            <span class="il-timeline__stage" style="color: #7a7a85;">Stage 5 — The Horizon</span>
-            <h3 class="il-timeline__title">Proactive Agents</h3>
-            <p class="il-timeline__desc">Agents detect signals and deploy autonomously. Humans govern strategy. Marketing as infrastructure. Internal team owns.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- WHY NOW — Accent Bar Divider -->
-  <!-- ============================================ -->
-  <div class="il-divider--gradient"></div>
-  <section class="il-section il-section--whynow il-animate">
-    <div class="container-narrow">
-      <h2 class="il-section__headline font-display">The Window Is Narrower Than It Appears</h2>
-      <div class="il-whynow__body">
-        <p>Gartner projects 60% of brands will use agentic AI for one-to-one interactions by 2028, replacing channel-based marketing. BCG expects agentic AI to handle over 20% of marketing's workload within two to three years. Accenture has deployed 14 AI agents across their 600-person marketing team — campaign steps reduced from 135 to 85.</p>
-        <p>Vercel replaced 9 of 10 inbound SDRs with a single AI agent in six weeks. Customer support hiring is down 65% in two years. AI-native B2B companies are running eight-figure businesses with 3 human employees and 20+ AI agents, spending 23% of revenue on inference costs rather than headcount.</p>
-        <p>But McKinsey's data reveals the gap: while 50% of CMOs rank generative AI as a top-three investment, it ranked 17th of 20 in actual execution priorities.</p>
-      </div>
-      <p class="il-whynow__stat">
-        62% experimenting. Only 23% scaling. The 39-point gap is where the Intelligence Layer operates.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- THE ENGAGEMENT — Two Ways In -->
-  <!-- ============================================ -->
-  <section class="il-section il-section--engagement il-animate">
-    <div class="container-content">
-      <h2 class="il-section__headline font-display">Two Ways In. One Destination.</h2>
-      <p class="il-section__body" style="max-width: 65ch;">
-        Both paths lead to the same three deliverables: a gap analysis, an architecture blueprint, and a sequenced build plan.
-      </p>
-
-      <div class="il-audits">
-        <div class="il-audit il-audit--external">
-          <span class="il-audit__badge">Light entry</span>
-          <h3 class="il-audit__title">External Audit</h3>
-          <p class="il-audit__timeline">1-2 weeks. No internal access required.</p>
-          <ul class="il-audit__list">
-            <li>Digital presence audit</li>
-            <li>AI citation footprint assessment</li>
-            <li>Competitive landscape scan</li>
-            <li>Content coherence review</li>
-            <li>Schema and AI crawler accessibility audit</li>
-          </ul>
-        </div>
-
-        <div class="il-audit il-audit--internal">
-          <span class="il-audit__badge il-audit__badge--accent">Deep entry</span>
-          <h3 class="il-audit__title">Internal Audit</h3>
-          <p class="il-audit__timeline">2-4 weeks. With internal access.</p>
-          <ul class="il-audit__list">
-            <li>Everything in the external audit</li>
-            <li>CRM structure and signal mapping</li>
-            <li>Content systems and workflow review</li>
-            <li>Team workflow and AI usage analysis</li>
-            <li>Full six-component gap analysis</li>
-          </ul>
-        </div>
-      </div>
-
-      <h3 class="il-deliverables__headline font-display">Three Deliverables. Regardless of Which Audit.</h3>
-      <div class="il-deliverables">
-        <div class="il-deliverable">
-          <span class="il-deliverable__num">01</span>
-          <h4 class="il-deliverable__title">Gap Analysis</h4>
-          <p class="il-deliverable__desc">Which of the six layer components exist today, which are missing, and which are present but broken. Includes AI discoverability scorecard showing where you are and are not visible to the machines your buyers consult.</p>
-        </div>
-        <div class="il-deliverable">
-          <span class="il-deliverable__num">02</span>
-          <h4 class="il-deliverable__title">Architecture Blueprint</h4>
-          <p class="il-deliverable__desc">What the Intelligence Layer looks like for your company, your market, your stage, and your team. Not a generic framework — a blueprint built to specific context.</p>
-        </div>
-        <div class="il-deliverable">
-          <span class="il-deliverable__num">03</span>
-          <h4 class="il-deliverable__title">Build Plan</h4>
-          <p class="il-deliverable__desc">Sequenced by what to fix first, what to build next, and where agents create the most leverage. Actionable whether you engage further or hand it to your internal team.</p>
-        </div>
-      </div>
+      <StatsCounter client:visible />
     </div>
   </section>
 
   <!-- ============================================ -->
   <!-- FOUR DISCIPLINES — 2x2 Grid -->
   <!-- ============================================ -->
-  <div class="il-divider--accent"></div>
-  <section class="il-section il-section--disciplines il-animate">
+  <section class="il-section il-section--disciplines">
     <div class="container-content">
-      <h2 class="il-section__headline font-display">Four Disciplines That Rarely Coexist</h2>
-      <p class="il-section__body" style="max-width: 65ch;">
-        Building the Intelligence Layer requires simultaneous fluency across four areas that almost never exist in one person or one agency:
-      </p>
+      <SectionReveal client:visible>
+        <h2 class="il-section__headline font-display">Four Disciplines That Rarely Coexist</h2>
+        <p class="il-section__subtitle">
+          Building the Intelligence Layer requires simultaneous fluency across four areas that almost never exist in one person or one agency.
+        </p>
+      </SectionReveal>
 
-      <div class="il-disciplines-grid">
-        <div class="il-discipline" style="--disc-color: #1de2c4;">
-          <div class="il-discipline__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          </div>
-          <h3 class="il-discipline__title">GTM Strategy</h3>
-          <p class="il-discipline__desc">ICP definition, positioning architecture, pipeline mechanics, competitive framing, buying committee mapping.</p>
-        </div>
+      <DisciplineGrid client:visible />
 
-        <div class="il-discipline" style="--disc-color: #60a5fa;">
-          <div class="il-discipline__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-          </div>
-          <h3 class="il-discipline__title">Technical Infrastructure</h3>
-          <p class="il-discipline__desc">Data architecture, CRM design, platform orchestration, API integrations, signal mapping.</p>
-        </div>
-
-        <div class="il-discipline" style="--disc-color: #f59e0b;">
-          <div class="il-discipline__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <h3 class="il-discipline__title">Creative Production Systems</h3>
-          <p class="il-discipline__desc">Brand voice encoding, editorial standards, content frameworks, style specifications.</p>
-        </div>
-
-        <div class="il-discipline" style="--disc-color: #c084fc;">
-          <div class="il-discipline__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M20.66 7A10 10 0 0 0 14 2v5.34z"/></svg>
-          </div>
-          <h3 class="il-discipline__title">AI-Native Thinking</h3>
-          <p class="il-discipline__desc">How models ingest context, how agents learn from structured data, how to build systems they can reliably operate within.</p>
-        </div>
-      </div>
-
-      <p class="il-disciplines__closer">
-        The last CMO candidate who was equally fluent across all four doesn't exist in the hiring market. That's the moat.
-      </p>
+      <SectionReveal client:visible delay={0.4}>
+        <p class="il-disciplines__closer">
+          The last CMO candidate who was equally fluent across all four doesn't exist in the hiring market. That's the moat.
+        </p>
+      </SectionReveal>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- RELATED READING -->
+  <!-- FAQ — Accordion, Narrow Column -->
   <!-- ============================================ -->
-  <section class="il-section il-section--reading il-animate">
+  <section class="il-section il-section--faq">
     <div class="container-narrow">
-      <h2 class="il-section__headline font-display">Related Reading</h2>
-      <ul class="il-reading-list">
-        <li><a href="/thinking/your-ai-is-still-a-chatbot">Your AI Is Still a Chatbot. Here's What an Operating System Looks Like.</a></li>
-        <li><a href="/thinking/six-components-of-an-intelligence-layer">The Six Components of an Intelligence Layer</a></li>
-        <li><a href="/thinking/from-chatbot-to-agent-fleet">From Chatbot to Agent Fleet: The Five Stages of AI Marketing Maturity</a></li>
-        <li><a href="/thinking/why-b2b-content-doesnt-show-up-in-chatgpt">Why Your B2B Content Doesn't Show Up in ChatGPT</a></li>
-        <li><a href="/gravity-audit">The Gravity Audit — AI Visibility & GTM Diagnostic</a></li>
-        <li><a href="/playbooks">See the 25 Intelligence Layer plays</a></li>
-        <li><a href="/pricing">See pricing</a></li>
-      </ul>
+      <SectionReveal client:visible>
+        <h2 class="il-section__headline font-display">Frequently Asked Questions</h2>
+      </SectionReveal>
+
+      <FaqAccordion client:visible />
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- FAQ — Accordion -->
+  <!-- FINAL CTA — Full-Bleed -->
   <!-- ============================================ -->
-  <div class="il-divider--gradient"></div>
-  <section class="il-section il-section--faq il-animate">
-    <div class="container-narrow">
-      <h2 class="il-section__headline font-display">Frequently Asked Questions</h2>
-      <div class="il-faq-list">
-        {faqData.map((faq, i) => (
-          <div class="il-faq" data-faq>
-            <button class="il-faq__trigger" aria-expanded="false" aria-controls={`faq-answer-${i}`}>
-              <span class="il-faq__question">{faq.question}</span>
-              <svg class="il-faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="il-faq__answer" id={`faq-answer-${i}`} role="region">
-              <p>{faq.answer}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- FINAL CTA -->
-  <!-- ============================================ -->
-  <section class="il-section il-section--cta il-animate" id="il-footer-cta">
-    <div class="container-narrow">
-      <div class="il-cta-block">
-        <h2 class="il-cta-block__headline font-display">Before You Hire, Build, or Buy</h2>
-        <p class="il-cta-block__body">
+  <section class="il-section il-section--cta" id="il-footer-cta">
+    <div class="container-content" style="text-align: center;">
+      <SectionReveal client:visible>
+        <h2 class="il-cta__headline font-display">Before You Hire, Build, or Buy</h2>
+        <p class="il-cta__body">
           Find out what's missing. The diagnostic maps your marketing function across all six layers and delivers the gap analysis, the architecture blueprint, and the build plan.
         </p>
-        <p class="il-cta-block__sub">
+        <p class="il-cta__sub">
           Two weeks. One deliverable. The foundation for everything that comes next.
         </p>
-        <a href="mailto:nick@strategnik.com" class="il-cta-block__btn">
-          Start the conversation
+        <a href="/gravity-audit" class="il-cta__btn">
+          Get Your Gravity Audit
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-      </div>
+      </SectionReveal>
     </div>
   </section>
 
   <!-- ============================================ -->
   <!-- STICKY FLOATING CTA -->
   <!-- ============================================ -->
-  <a href="/gravity-audit" class="il-sticky-cta" id="il-sticky-cta" aria-label="Get Your Gravity Audit">
-    Get Your Gravity Audit
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-  </a>
+  <FloatingCta client:visible />
 
 </BaseLayout>
 
 <style>
   /* ========================================
-     INTELLIGENCE LAYER — Page-Scoped Styles
+     INTELLIGENCE LAYER — Swiss Modernism 2.0
+     12-column grid, asymmetric layouts
      ======================================== */
 
-  /* ---------- CSS Variables ---------- */
   :root {
-    --il-navy: #0d1117;
-    --il-navy-light: #161b22;
-    --il-navy-mid: #1c2128;
+    --il-bg-1: #0d1117;
+    --il-bg-2: #161b22;
+    --il-bg-3: #0a0f1a;
     --il-turquoise: #1de2c4;
     --il-turquoise-dim: rgba(29, 226, 196, 0.15);
-    --il-turquoise-glow: rgba(29, 226, 196, 0.4);
   }
 
-  /* ---------- Hero ---------- */
+  /* ---------- HERO ---------- */
   .il-hero {
-    position: relative;
-    min-height: 85vh;
+    min-height: 90vh;
     display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    background: var(--il-navy);
-  }
-
-  .il-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .il-hero__bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    opacity: 0.35;
-  }
-
-  .il-hero__overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
-      to bottom,
-      rgba(13, 17, 23, 0.3) 0%,
-      rgba(13, 17, 23, 0.6) 40%,
-      rgba(13, 17, 23, 0.95) 80%,
-      var(--il-navy) 100%
-    );
-  }
-
-  .il-hero__content {
+    flex-direction: column;
+    justify-content: center;
+    background: var(--il-bg-1);
     position: relative;
-    z-index: 2;
-    padding-top: 8rem;
-    padding-bottom: 5rem;
+    padding: 8rem 0 4rem;
+  }
+
+  .il-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .il-hero__grid {
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+    }
   }
 
   .il-hero__label {
@@ -564,109 +284,96 @@ const beforeAfterData = [
     text-transform: uppercase;
     color: var(--il-turquoise);
     margin-bottom: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .il-hero__headline {
-    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-size: clamp(2.25rem, 5vw, 4rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
     color: #fff;
     font-weight: 700;
-    margin-bottom: 2rem;
-    max-width: 18ch;
+    margin-bottom: 1.75rem;
+    max-width: 16ch;
   }
 
   .il-hero__body {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     line-height: 1.75;
     color: #afafb6;
-    max-width: 60ch;
-    margin-bottom: 1.5rem;
+    max-width: 55ch;
+    margin-bottom: 2.5rem;
   }
 
-  .il-hero__kicker {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    color: #fff;
+  .il-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 2rem;
+    background: var(--il-turquoise);
+    color: var(--il-bg-1);
     font-weight: 700;
-    max-width: 60ch;
+    font-size: 0.9375rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.15s ease;
   }
 
-  /* ---------- Sections ---------- */
+  .il-hero__cta:hover {
+    background: #4ae8d0;
+    color: var(--il-bg-1);
+    transform: translateY(-1px);
+  }
+
+  .il-hero__animation {
+    max-width: 100%;
+  }
+
+  /* Scroll indicator */
+  .il-hero__scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .il-hero__chevron {
+    width: 24px;
+    height: 24px;
+    color: #494950;
+    animation: il-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes il-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ---------- SECTIONS (base) ---------- */
   .il-section {
     padding: 5rem 0;
-    background: var(--il-navy);
   }
 
   .il-section__headline {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     color: #fff;
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  .il-display-headline {
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
 
-  .il-display-headline--xl {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+  .il-section__subtitle {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #95959d;
+    max-width: 60ch;
     margin-bottom: 3rem;
   }
 
-  .il-section__body {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #95959d;
-    max-width: 65ch;
-    margin-bottom: 1.5rem;
-  }
-
-  .il-section__body--bold {
-    color: #fff;
-    font-weight: 700;
-  }
-
-  /* ---------- Section Dividers ---------- */
-  .il-divider--gradient {
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--il-turquoise), transparent);
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .il-divider--accent {
-    height: 4px;
-    background: var(--il-turquoise);
-    max-width: 120px;
-    margin: 0 auto;
-    border-radius: 2px;
-  }
-
-  /* ---------- Problem Section ---------- */
-  .il-section--problem {
-    padding-top: 0;
-  }
-
-  .il-problem__accent-bar {
-    width: 60px;
-    height: 3px;
-    background: #ef4444;
-    margin-bottom: 2rem;
-    border-radius: 2px;
-  }
-
-  /* ---------- Components / Tabs ---------- */
+  /* ---------- COMPONENTS SECTION ---------- */
   .il-section--components {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    background: linear-gradient(180deg, var(--il-navy) 0%, var(--il-navy-light) 100%);
+    padding: 6rem 0;
+    background: var(--il-bg-3);
   }
 
   .il-components__honeycomb-wrap {
@@ -676,184 +383,16 @@ const beforeAfterData = [
 
   .il-components__honeycomb-img {
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     border-radius: 12px;
     display: block;
   }
 
-  .il-tabs {
-    display: flex;
-    gap: 0;
-    margin: 2.5rem 0 0;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    border-bottom: 1px solid #2b363b;
-  }
-
-  .il-tabs::-webkit-scrollbar { display: none; }
-
-  .il-tab {
-    flex: 1;
-    min-width: 140px;
-    padding: 1rem 1.25rem;
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid transparent;
-    color: #7a7a85;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.875rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.25s ease;
-    white-space: nowrap;
-  }
-
-  .il-tab:hover {
-    color: #afafb6;
-    background: rgba(255,255,255, 0.02);
-  }
-
-  .il-tab--active {
-    color: #fff;
-    border-bottom-color: var(--tab-color, var(--il-turquoise));
-  }
-
-  .il-tab__num {
-    font-weight: 700;
-    font-family: 'Soehne Breit', system-ui, sans-serif;
-  }
-
-  .il-tab--active .il-tab__num {
-    color: var(--tab-color, var(--il-turquoise));
-  }
-
-  .il-tab__label {
-    font-weight: 500;
-  }
-
-  .il-panels {
-    margin-top: 0;
-  }
-
-  .il-panel {
-    display: none;
-    animation: il-fadePanel 0.3s ease;
-  }
-
-  .il-panel--active {
-    display: block;
-  }
-
-  @keyframes il-fadePanel {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .il-panel__inner {
-    padding: 2.5rem;
-    border-left: 4px solid var(--panel-color, var(--il-turquoise));
-    background: rgba(255,255,255, 0.02);
-    border-radius: 0 8px 8px 0;
-  }
-
-  .il-panel__num {
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: 'Soehne Breit', system-ui, sans-serif;
-    line-height: 1;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .il-panel__title {
-    font-size: 1.25rem;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .il-panel__desc {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #afafb6;
-    max-width: 60ch;
-  }
-
-  /* ---------- Before/After Comparison ---------- */
-  .il-section--comparison {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    background: var(--il-navy-light);
-  }
-
-  .il-comparison {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 0;
-    margin-top: 2rem;
-  }
-
-  .il-comparison__col {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-
-  .il-comparison__header {
-    padding: 1.25rem 2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #494950;
-    font-family: 'Soehne Breit', system-ui, sans-serif;
-  }
-
-  .il-comparison__header--with {
-    color: var(--il-turquoise);
-  }
-
-  .il-comparison__divider {
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--il-turquoise-dim), transparent);
-  }
-
-  .il-comparison__item {
-    padding: 1.25rem 2rem;
-  }
-
-  .il-comparison__item--without {
-    background: rgba(0,0,0, 0.3);
-    border-radius: 0;
-  }
-
-  .il-comparison__item--without p {
-    color: #62626a;
-    font-size: 1rem;
-    line-height: 1.6;
-    text-decoration: line-through;
-    text-decoration-color: rgba(98, 98, 106, 0.4);
-  }
-
-  .il-comparison__item--with {
-    background: rgba(29, 226, 196, 0.04);
-  }
-
-  .il-comparison__item--with p {
-    color: #fff;
-    font-size: 1rem;
-    line-height: 1.6;
-    font-weight: 500;
-  }
-
-  /* ---------- Maturity / Timeline ---------- */
+  /* ---------- MATURITY SECTION ---------- */
   .il-section--maturity {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding: 6rem 0;
+    background: var(--il-bg-2);
   }
 
   .il-maturity__img {
@@ -862,408 +401,38 @@ const beforeAfterData = [
     margin: 2rem 0 3rem;
   }
 
-  .il-timeline {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    position: relative;
-    margin-top: 2rem;
+  /* ---------- STATS SECTION ---------- */
+  .il-section--stats {
+    padding: 6rem 0;
+    background: var(--il-bg-1);
   }
 
-  .il-timeline__track {
-    position: absolute;
-    top: 12px;
-    left: 5%;
-    right: 5%;
-    height: 2px;
-    background: linear-gradient(to right, #494950, var(--il-turquoise), #c084fc, #494950);
-    z-index: 0;
-  }
-
-  .il-timeline__step {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-
-  .il-timeline__step--muted {
-    opacity: 0.5;
-  }
-
-  .il-timeline__dot {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    border: 3px solid var(--il-navy);
-    position: relative;
-  }
-
-  .il-timeline__dot--pulse {
-    box-shadow: 0 0 0 4px rgba(29, 226, 196, 0.25);
-    animation: il-pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes il-pulse {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(29, 226, 196, 0.25); }
-    50% { box-shadow: 0 0 0 8px rgba(29, 226, 196, 0.1); }
-  }
-
-  .il-timeline__badge {
-    display: inline-block;
-    font-size: 0.625rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--il-navy);
-    background: var(--il-turquoise);
-    padding: 0.2rem 0.6rem;
-    border-radius: 3px;
-    margin-bottom: 0.75rem;
-  }
-
-  .il-timeline__stage {
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.35rem;
-  }
-
-  .il-timeline__title {
-    font-size: 1rem;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .il-timeline__desc {
-    font-size: 0.875rem;
-    line-height: 1.6;
-    color: #7a7a85;
-  }
-
-  .il-timeline__step--active .il-timeline__desc {
-    color: #afafb6;
-  }
-
-  /* ---------- Why Now ---------- */
-  .il-section--whynow {
-    background: var(--il-navy);
-  }
-
-  .il-whynow__body {
-    max-width: 65ch;
-  }
-
-  .il-whynow__body p {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #95959d;
-    margin-bottom: 1.5rem;
-  }
-
-  .il-whynow__stat {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--il-turquoise);
-    font-weight: 700;
-    line-height: 1.35;
-    max-width: 50ch;
-    margin-top: 2rem;
-    font-family: 'Soehne Breit', system-ui, sans-serif;
-  }
-
-  /* ---------- Engagement / Audits ---------- */
-  .il-section--engagement {
-    background: var(--il-navy-light);
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  .il-audits {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: 2.5rem 0 4rem;
-  }
-
-  .il-audit {
-    padding: 2.5rem;
-    border-radius: 12px;
-    background: var(--il-navy);
-    border: 1px solid #2b363b;
-    transition: border-color 0.3s ease;
-  }
-
-  .il-audit:hover {
-    border-color: #415158;
-  }
-
-  .il-audit--internal {
-    border-color: rgba(29, 226, 196, 0.25);
-  }
-
-  .il-audit--internal:hover {
-    border-color: rgba(29, 226, 196, 0.5);
-  }
-
-  .il-audit__badge {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #7a7a85;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
-  .il-audit__badge--accent {
-    color: var(--il-turquoise);
-  }
-
-  .il-audit__title {
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .il-audit__timeline {
-    font-size: 0.875rem;
-    color: #95959d;
-    margin-bottom: 1.5rem;
-  }
-
-  .il-audit__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .il-audit__list li {
-    padding: 0.5rem 0;
-    font-size: 0.875rem;
-    color: #95959d;
-    border-top: 1px solid rgba(255,255,255,0.04);
-    padding-left: 1.25rem;
-    position: relative;
-  }
-
-  .il-audit__list li::before {
-    content: '\2192';
-    position: absolute;
-    left: 0;
-    color: #494950;
-  }
-
-  .il-deliverables__headline {
-    font-size: 1.25rem;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 2rem;
-  }
-
-  .il-deliverables {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .il-deliverable {
-    padding: 2rem;
-    background: var(--il-navy);
-    border-radius: 8px;
-    border: 1px solid #2b363b;
-  }
-
-  .il-deliverable__num {
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: 'Soehne Breit', system-ui, sans-serif;
-    color: var(--il-turquoise);
-    line-height: 1;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
-  .il-deliverable__title {
-    font-size: 1.125rem;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .il-deliverable__desc {
-    font-size: 0.875rem;
-    line-height: 1.65;
-    color: #95959d;
-  }
-
-  /* ---------- Four Disciplines Grid ---------- */
+  /* ---------- DISCIPLINES SECTION ---------- */
   .il-section--disciplines {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-
-  .il-disciplines-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin: 2.5rem 0 2.5rem;
-  }
-
-  .il-discipline {
-    padding: 2.5rem;
-    border-radius: 12px;
-    background: var(--il-navy-light);
-    border: 1px solid #2b363b;
-    transition: border-color 0.3s ease, transform 0.3s ease;
-  }
-
-  .il-discipline:hover {
-    border-color: var(--disc-color);
-    transform: translateY(-2px);
-  }
-
-  .il-discipline__icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 1.25rem;
-    color: var(--disc-color);
-  }
-
-  .il-discipline__icon svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .il-discipline__title {
-    font-size: 1.125rem;
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .il-discipline__desc {
-    font-size: 0.875rem;
-    line-height: 1.65;
-    color: #95959d;
+    padding: 6rem 0;
+    background: var(--il-bg-3);
   }
 
   .il-disciplines__closer {
     font-size: 1rem;
     color: #95959d;
-    max-width: 65ch;
+    max-width: 60ch;
+    margin-top: 2.5rem;
   }
 
-  /* ---------- Related Reading ---------- */
-  .il-section--reading {
-    background: var(--il-navy-light);
-  }
-
-  .il-reading-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .il-reading-list li {
-    border-bottom: 1px solid rgba(255,255,255, 0.05);
-  }
-
-  .il-reading-list li a {
-    display: block;
-    padding: 1rem 0;
-    font-size: 1rem;
-    color: var(--il-turquoise);
-    text-decoration: none;
-    transition: color 0.2s ease, padding-left 0.2s ease;
-  }
-
-  .il-reading-list li a:hover {
-    color: #fff;
-    padding-left: 0.5rem;
-  }
-
-  /* ---------- FAQ Accordion ---------- */
+  /* ---------- FAQ SECTION ---------- */
   .il-section--faq {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding: 5rem 0;
+    background: var(--il-bg-2);
   }
 
-  .il-faq-list {
-    max-width: 65ch;
-  }
-
-  .il-faq {
-    border-bottom: 1px solid #2b363b;
-  }
-
-  .il-faq__trigger {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1.5rem 0;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    gap: 1rem;
-  }
-
-  .il-faq__question {
-    font-size: 1.125rem;
-    color: #fff;
-    font-weight: 700;
-    line-height: 1.4;
-  }
-
-  .il-faq__chevron {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    color: #7a7a85;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .il-faq--open .il-faq__chevron {
-    transform: rotate(180deg);
-    color: var(--il-turquoise);
-  }
-
-  .il-faq__answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    padding: 0;
-  }
-
-  .il-faq--open .il-faq__answer {
-    padding-bottom: 1.5rem;
-  }
-
-  .il-faq__answer p {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: #95959d;
-  }
-
-  /* ---------- Final CTA ---------- */
+  /* ---------- FINAL CTA ---------- */
   .il-section--cta {
-    padding-top: 6rem;
-    padding-bottom: 8rem;
-    background: linear-gradient(180deg, var(--il-navy) 0%, #0a0e14 100%);
+    padding: 8rem 0;
+    background: linear-gradient(180deg, var(--il-bg-1) 0%, #080c12 100%);
   }
 
-  .il-cta-block {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .il-cta-block__headline {
+  .il-cta__headline {
     font-size: clamp(2rem, 4vw, 3rem);
     color: #fff;
     font-weight: 700;
@@ -1271,26 +440,27 @@ const beforeAfterData = [
     letter-spacing: -0.02em;
   }
 
-  .il-cta-block__body {
+  .il-cta__body {
     font-size: 1.125rem;
     line-height: 1.75;
     color: #95959d;
-    margin-bottom: 1rem;
+    max-width: 50ch;
+    margin: 0 auto 1rem;
   }
 
-  .il-cta-block__sub {
+  .il-cta__sub {
     font-size: 1rem;
     color: #95959d;
     margin-bottom: 2.5rem;
   }
 
-  .il-cta-block__btn {
+  .il-cta__btn {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 2.5rem;
     background: var(--il-turquoise);
-    color: var(--il-navy);
+    color: var(--il-bg-1);
     font-weight: 700;
     font-size: 1rem;
     border-radius: 8px;
@@ -1298,127 +468,24 @@ const beforeAfterData = [
     transition: background 0.2s ease, transform 0.15s ease;
   }
 
-  .il-cta-block__btn:hover {
+  .il-cta__btn:hover {
     background: #4ae8d0;
-    color: var(--il-navy);
+    color: var(--il-bg-1);
     transform: translateY(-1px);
   }
 
-  /* ---------- Sticky Floating CTA ---------- */
-  .il-sticky-cta {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 100;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
-    background: var(--il-turquoise);
-    color: var(--il-navy);
-    font-weight: 700;
-    font-size: 0.875rem;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 8px 32px rgba(29, 226, 196, 0.3), 0 2px 8px rgba(0,0,0,0.4);
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease, background 0.2s ease;
-  }
-
-  .il-sticky-cta--visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  .il-sticky-cta:hover {
-    background: #4ae8d0;
-    color: var(--il-navy);
-    box-shadow: 0 12px 40px rgba(29, 226, 196, 0.4), 0 4px 12px rgba(0,0,0,0.5);
-  }
-
-  /* ---------- Scroll Animations ---------- */
-  .il-animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .il-animate--visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ---------- Reduced Motion ---------- */
+  /* ---------- REDUCED MOTION ---------- */
   @media (prefers-reduced-motion: reduce) {
-    .il-animate {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-
-    .il-panel {
+    .il-hero__chevron {
       animation: none;
-    }
-
-    .il-sticky-cta {
-      transition: opacity 0.01s;
-    }
-
-    .il-faq__answer {
-      transition: none;
-    }
-
-    .il-faq__chevron {
-      transition: none;
-    }
-
-    .il-timeline__dot--pulse {
-      animation: none;
-    }
-
-    .il-discipline {
-      transition: none;
     }
   }
 
-  /* ---------- Responsive: Tablet ---------- */
-  @media (max-width: 1024px) {
-    .il-timeline {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    .il-timeline__track {
-      display: none;
-    }
-
-    .il-audits {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .il-deliverables {
-      grid-template-columns: 1fr;
-    }
-
-    .il-tab {
-      min-width: 120px;
-      padding: 0.875rem 1rem;
-      font-size: 0.8rem;
-    }
-  }
-
-  /* ---------- Responsive: Mobile ---------- */
+  /* ---------- RESPONSIVE: Mobile ---------- */
   @media (max-width: 768px) {
     .il-hero {
-      min-height: 70vh;
-    }
-
-    .il-hero__content {
-      padding-top: 6rem;
-      padding-bottom: 3rem;
+      min-height: auto;
+      padding: 6rem 0 3rem;
     }
 
     .il-section {
@@ -1426,196 +493,14 @@ const beforeAfterData = [
     }
 
     .il-section--components,
-    .il-section--comparison,
     .il-section--maturity,
-    .il-section--engagement {
+    .il-section--stats,
+    .il-section--disciplines {
       padding: 4rem 0;
     }
 
-    .il-comparison {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .il-comparison__divider {
-      width: 100%;
-      height: 1px;
-      margin: 1.5rem 0;
-    }
-
-    .il-timeline {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .il-timeline__step {
-      text-align: left;
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .il-timeline__dot {
-      margin: 0.25rem 0 0 0;
-    }
-
-    .il-timeline__badge {
-      grid-column: 2;
-      justify-self: start;
-      margin-bottom: 0.25rem;
-    }
-
-    .il-timeline__step--active {
-      grid-template-rows: auto auto auto;
-    }
-
-    .il-timeline__step--active .il-timeline__dot {
-      grid-row: 1 / 3;
-    }
-
-    .il-timeline__content {
-      grid-column: 2;
-    }
-
-    .il-audits {
-      grid-template-columns: 1fr;
-    }
-
-    .il-disciplines-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .il-tabs {
-      gap: 0;
-    }
-
-    .il-tab {
-      min-width: 0;
-      padding: 0.75rem 0.75rem;
-      font-size: 0.75rem;
-    }
-
-    .il-tab__label {
-      display: none;
-    }
-
-    .il-panel__inner {
-      padding: 1.5rem;
-    }
-
-    .il-sticky-cta {
-      bottom: 1rem;
-      right: 1rem;
-      font-size: 0.8rem;
-      padding: 0.75rem 1.25rem;
+    .il-section--cta {
+      padding: 5rem 0;
     }
   }
 </style>
-
-<script>
-  // ===== Tab Switching =====
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.il-tab');
-    const panels = document.querySelectorAll('.il-panel');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.getAttribute('data-tab');
-        const color = tab.getAttribute('data-color');
-
-        // Deactivate all
-        tabs.forEach(t => {
-          t.classList.remove('il-tab--active');
-          t.setAttribute('aria-selected', 'false');
-          t.style.removeProperty('--tab-color');
-        });
-        panels.forEach(p => p.classList.remove('il-panel--active'));
-
-        // Activate selected
-        tab.classList.add('il-tab--active');
-        tab.setAttribute('aria-selected', 'true');
-        tab.style.setProperty('--tab-color', color);
-
-        const panel = document.querySelector(`[data-panel="${target}"]`);
-        if (panel) {
-          panel.classList.add('il-panel--active');
-          // Re-trigger animation
-          panel.style.animation = 'none';
-          panel.offsetHeight; // force reflow
-          panel.style.animation = '';
-        }
-      });
-    });
-
-    // ===== FAQ Accordion =====
-    const faqItems = document.querySelectorAll('[data-faq]');
-
-    faqItems.forEach(item => {
-      const trigger = item.querySelector('.il-faq__trigger');
-      const answer = item.querySelector('.il-faq__answer');
-
-      trigger.addEventListener('click', () => {
-        const isOpen = item.classList.contains('il-faq--open');
-
-        // Close all
-        faqItems.forEach(f => {
-          f.classList.remove('il-faq--open');
-          const ans = f.querySelector('.il-faq__answer');
-          ans.style.maxHeight = null;
-          f.querySelector('.il-faq__trigger').setAttribute('aria-expanded', 'false');
-        });
-
-        // Open clicked (if it was closed)
-        if (!isOpen) {
-          item.classList.add('il-faq--open');
-          answer.style.maxHeight = answer.scrollHeight + 24 + 'px';
-          trigger.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // ===== Scroll-triggered Animations =====
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!prefersReduced) {
-      const animateEls = document.querySelectorAll('.il-animate');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('il-animate--visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      animateEls.forEach(el => observer.observe(el));
-    } else {
-      // Make everything visible immediately
-      document.querySelectorAll('.il-animate').forEach(el => {
-        el.classList.add('il-animate--visible');
-      });
-    }
-
-    // ===== Sticky Floating CTA =====
-    const stickyCta = document.getElementById('il-sticky-cta');
-    const footerCta = document.getElementById('il-footer-cta');
-
-    if (stickyCta && footerCta) {
-      const handleScroll = () => {
-        const scrollY = window.scrollY;
-        const footerRect = footerCta.getBoundingClientRect();
-        const footerVisible = footerRect.top < window.innerHeight && footerRect.bottom > 0;
-
-        if (scrollY > 500 && !footerVisible) {
-          stickyCta.classList.add('il-sticky-cta--visible');
-        } else {
-          stickyCta.classList.remove('il-sticky-cta--visible');
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll(); // Initial check
-    }
-  });
-</script>
