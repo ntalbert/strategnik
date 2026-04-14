@@ -1,176 +1,872 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionReveal from '../components/SectionReveal';
+import EngagementJourney from '../components/EngagementJourney';
+
+const title = "Services — Intelligence Layer Build, Diagnostic, and Advisory";
+const description = "Strategnik builds the Intelligence Layer — the foundational operating context that makes AI-native marketing possible. Diagnostic, sprint build, and ongoing advisory for Series B through pre-IPO B2B SaaS.";
 ---
 
-<BaseLayout
-  title="Services — Intelligence Layer Build, Diagnostic, and Advisory"
-  description="Strategnik builds the Intelligence Layer — the foundational operating context that makes AI-native marketing possible. Diagnostic, sprint build, and ongoing advisory for Series B through pre-IPO B2B SaaS."
->
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://strategnik.com" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://strategnik.com/services" }
+      ]
+    })} />
+  </Fragment>
 
-  <!-- Hero -->
-  <section class="section">
-    <div class="container-narrow">
-      <p class="section-label">Services</p>
-      <h1 class="text-display-lg mb-8 text-balance" data-animate-hero>
-        Build the machine. Not the team.
-      </h1>
-      <p class="text-body-lg text-gray-400" data-animate-hero-sub>
-        I build the <a href="/intelligence-layer" class="text-blue-bright hover:text-white transition-colors">Intelligence Layer</a> — the foundational operating context that allows AI agents to run your marketing with the precision, style, and strategic intent of your best marketer. Not a chatbot. Not a consultant. The infrastructure that makes AI-native marketing actually work.
-      </p>
+  <!-- ============================================ -->
+  <!-- HERO — 60/40 Asymmetric Split               -->
+  <!-- ============================================ -->
+  <section class="sv-hero">
+    <div class="sv-hero__grid container-content">
+      <!-- Left 60% -->
+      <SectionReveal client:visible direction="left" className="sv-hero__text">
+        <p class="sv-hero__label">Services</p>
+        <h1 class="sv-hero__headline font-display">
+          Build the machine.<br />Not the team.
+        </h1>
+        <p class="sv-hero__body">
+          I build the <a href="/intelligence-layer" class="sv-link--turquoise">Intelligence Layer</a> — the foundational operating context that allows AI agents to run your marketing with the precision, style, and strategic intent of your best marketer. Not a chatbot. Not a consultant. The infrastructure that makes AI-native marketing actually work.
+        </p>
+        <div class="sv-hero__ctas">
+          <a href="/pricing" class="sv-btn sv-btn--primary">
+            See Pricing
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="/gravity-audit" class="sv-btn sv-btn--ghost">
+            Get Your Gravity Audit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </SectionReveal>
+
+      <!-- Right 40% -->
+      <SectionReveal client:visible direction="right" delay={0.2} className="sv-hero__journey">
+        <EngagementJourney client:visible />
+      </SectionReveal>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="sv-hero__scroll-indicator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sv-hero__chevron"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </section>
 
-  <!-- Who This Is For -->
-  <section class="section-sm border-t border-gray-800">
-    <div class="container-narrow">
-      <h2 class="text-heading mb-6" data-animate>Is this you?</h2>
-      <div class="prose-minimal">
-        <p data-animate data-animate-delay="0.1">
-          You're a CEO, founder, or CRO at a Series B through pre-IPO B2B SaaS company. Your team has AI tools but nothing feels different. Output went up, pipeline didn't move. You're asking: Should I hire a Head of Marketing or build an AI-native system? How many marketers do I actually need? What does marketing look like in 18 months?
-        </p>
-        <p data-animate data-animate-delay="0.15">
-          You can picture the problem. You cannot picture the solution. The Intelligence Layer makes the solution visible.
-        </p>
-      </div>
+  <!-- ============================================ -->
+  <!-- IS THIS YOU? — Full-width callout            -->
+  <!-- ============================================ -->
+  <section class="sv-section sv-section--callout">
+    <div class="container-content">
+      <SectionReveal client:visible>
+        <div class="sv-callout">
+          <h2 class="sv-callout__headline font-display">Is this you?</h2>
+          <ul class="sv-callout__list">
+            <li class="sv-callout__item">
+              <svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>You're a CEO, founder, or CRO at a Series B through pre-IPO B2B SaaS company</span>
+            </li>
+            <li class="sv-callout__item">
+              <svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Your team has AI tools but nothing feels different — output went up, pipeline didn't move</span>
+            </li>
+            <li class="sv-callout__item">
+              <svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>You're asking: Should I hire a Head of Marketing or build an AI-native system?</span>
+            </li>
+            <li class="sv-callout__item">
+              <svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>How many marketers do I actually need? What does marketing look like in 18 months?</span>
+            </li>
+            <li class="sv-callout__item">
+              <svg class="sv-check" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>You can picture the problem — you cannot picture the solution</span>
+            </li>
+          </ul>
+          <p class="sv-callout__closer">
+            The Intelligence Layer makes the solution visible.
+          </p>
+        </div>
+      </SectionReveal>
     </div>
   </section>
 
-  <!-- Engagement Ladder -->
-  <section class="section border-t border-gray-800">
-    <div class="container-narrow">
-      <p class="section-label">How I Work</p>
-      <h2 class="text-display mb-12" data-animate>The Engagement Ladder</h2>
+  <!-- ============================================ -->
+  <!-- ENGAGEMENT LADDER — 3 Cards                  -->
+  <!-- ============================================ -->
+  <section class="sv-section sv-section--ladder">
+    <div class="container-content">
+      <SectionReveal client:visible>
+        <p class="sv-section__label">How I Work</p>
+        <h2 class="sv-section__headline font-display">The Engagement Ladder</h2>
+      </SectionReveal>
 
-      <div class="space-y-16" data-animate-stagger="0.15">
+      <div class="sv-ladder__grid">
         <!-- Diagnostic -->
-        <div>
-          <p class="text-small text-teal-400 mb-2">Entry Point</p>
-          <h3 class="text-heading mb-4">Intelligence Layer Diagnostic</h3>
-          <p class="text-body text-gray-400 mb-6">
-            A 2-4 week assessment that maps your marketing function across all six components of the Intelligence Layer. Walk away with a gap analysis, an architecture blueprint, and a sequenced build plan — whether you engage further or hand it to your internal team.
-          </p>
-          <ul class="space-y-2 text-small text-gray-400">
-            <li>→ Six-component gap analysis (what exists, what's missing, what's broken)</li>
-            <li>→ AI discoverability scorecard across ChatGPT, Perplexity, AI Overviews</li>
-            <li>→ Execution tax quantification (hours, cost per output, signal-to-response latency)</li>
-            <li>→ Architecture blueprint specific to your company, market, and stage</li>
-            <li>→ Sequenced build plan with clear priorities</li>
-          </ul>
-          <a href="/pricing" class="inline-block mt-4 text-blue-bright hover:text-white transition-colors text-small font-bold">See full pricing →</a>
-        </div>
+        <SectionReveal client:visible delay={0.1} className="sv-card sv-card--turquoise">
+          <div class="sv-card__inner">
+            <span class="sv-card__tag sv-card__tag--turquoise">Entry Point</span>
+            <h3 class="sv-card__title">Intelligence Layer Diagnostic</h3>
+            <p class="sv-card__desc">
+              A 2-4 week assessment that maps your marketing function across all six components of the Intelligence Layer. Walk away with a gap analysis, an architecture blueprint, and a sequenced build plan — whether you engage further or hand it to your internal team.
+            </p>
+            <ul class="sv-card__bullets">
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Six-component gap analysis (what exists, what's missing, what's broken)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI discoverability scorecard across ChatGPT, Perplexity, AI Overviews</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Execution tax quantification (hours, cost per output, signal-to-response latency)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Architecture blueprint specific to your company, market, and stage</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sequenced build plan with clear priorities</li>
+            </ul>
+            <a href="/pricing" class="sv-card__link">See pricing <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </SectionReveal>
 
-        <!-- Sprint Build -->
-        <div>
-          <p class="text-small text-teal-400 mb-2">The Build</p>
-          <h3 class="text-heading mb-4">Intelligence Layer Sprint</h3>
-          <p class="text-body text-gray-400 mb-6">
-            A 30-90 day engagement that builds and deploys the full Intelligence Layer — all six components encoded, documented, and connected to your marketing stack. Training for your internal team on how to maintain, update, and extend the layer.
-          </p>
-          <ul class="space-y-2 text-small text-gray-400">
-            <li>→ Brand + voice spec (machine-readable, not a PDF)</li>
-            <li>→ ICP + buyer context (personas, pain hierarchy, objection framing)</li>
-            <li>→ Competitive framing (displacement narratives, differentiation)</li>
-            <li>→ Content architecture (topic clusters, atomization frameworks, templates)</li>
-            <li>→ Machine readability + distribution schema (JSON-LD, llms.txt, entity definitions)</li>
-            <li>→ Measurement targets (revenue influence, feedback loops)</li>
-            <li>→ Team training and handoff</li>
-          </ul>
-          <a href="/pricing" class="inline-block mt-4 text-blue-bright hover:text-white transition-colors text-small font-bold">See full pricing →</a>
-        </div>
+        <!-- Sprint Build (elevated) -->
+        <SectionReveal client:visible delay={0.2} className="sv-card sv-card--blue sv-card--elevated">
+          <div class="sv-card__inner">
+            <span class="sv-card__tag sv-card__tag--blue">The Build</span>
+            <h3 class="sv-card__title">Intelligence Layer Sprint</h3>
+            <p class="sv-card__desc">
+              A 30-90 day engagement that builds and deploys the full Intelligence Layer — all six components encoded, documented, and connected to your marketing stack. Training for your internal team on how to maintain, update, and extend the layer.
+            </p>
+            <ul class="sv-card__bullets">
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Brand + voice spec (machine-readable, not a PDF)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ICP + buyer context (personas, pain hierarchy, objection framing)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Competitive framing (displacement narratives, differentiation)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Content architecture (topic clusters, atomization frameworks, templates)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Machine readability + distribution schema (JSON-LD, llms.txt, entity definitions)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Measurement targets (revenue influence, feedback loops)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Team training and handoff</li>
+            </ul>
+            <a href="/pricing" class="sv-card__link">See pricing <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </SectionReveal>
 
         <!-- Advisor Retainer -->
-        <div>
-          <p class="text-small text-teal-400 mb-2">Ongoing</p>
-          <h3 class="text-heading mb-4">Advisor Retainer</h3>
-          <p class="text-body text-gray-400 mb-6">
-            Monthly signal review plus layer update cycle plus agent deployment guidance. The layer doesn't go stale because the retainer is the update cycle. Covers both Stage 3 (humans + AI assist) and Stage 4 (humans + agents running routines).
-          </p>
-          <ul class="space-y-2 text-small text-gray-400">
-            <li>→ Monthly signal review (what ranked, converted, missed, shifted)</li>
-            <li>→ Layer update and version control</li>
-            <li>→ Agent deployment guidance as new use cases emerge</li>
-            <li>→ Competitive framing refresh</li>
-            <li>→ Measurement framework calibration</li>
-            <li>→ Marketing org evolution advisory</li>
-          </ul>
-          <a href="/pricing" class="inline-block mt-4 text-blue-bright hover:text-white transition-colors text-small font-bold">See full pricing →</a>
-        </div>
+        <SectionReveal client:visible delay={0.3} className="sv-card sv-card--purple">
+          <div class="sv-card__inner">
+            <span class="sv-card__tag sv-card__tag--purple">Ongoing</span>
+            <h3 class="sv-card__title">Advisor Retainer</h3>
+            <p class="sv-card__desc">
+              Monthly signal review plus layer update cycle plus agent deployment guidance. The layer doesn't go stale because the retainer is the update cycle. Covers both Stage 3 (humans + AI assist) and Stage 4 (humans + agents running routines).
+            </p>
+            <ul class="sv-card__bullets">
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly signal review (what ranked, converted, missed, shifted)</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Layer update and version control</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Agent deployment guidance as new use cases emerge</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Competitive framing refresh</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Measurement framework calibration</li>
+              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Marketing org evolution advisory</li>
+            </ul>
+            <a href="/pricing" class="sv-card__link">See pricing <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </SectionReveal>
       </div>
 
-      <p class="text-body text-gray-400 mt-12">
-        See all 25 Intelligence Layer plays in action → <a href="/playbooks" class="text-blue-bright hover:text-white transition-colors font-bold">/playbooks</a>
-      </p>
+      <SectionReveal client:visible delay={0.4}>
+        <p class="sv-ladder__footer">
+          See all 25 Intelligence Layer plays in action &rarr; <a href="/playbooks" class="sv-link--turquoise">/playbooks</a>
+        </p>
+      </SectionReveal>
     </div>
   </section>
 
-  <!-- Also Available -->
-  <section class="section border-t border-gray-800">
-    <div class="container-narrow">
-      <h2 class="text-heading mb-8" data-animate>Also Available</h2>
-      <div class="space-y-8" data-animate-stagger="0.12">
-        <div>
-          <h3 class="text-subheading mb-2"><a href="/gravity-audit" class="text-blue-bright hover:text-white transition-colors">Gravity Audit™</a></h3>
-          <p class="text-body text-gray-400">
+  <!-- ============================================ -->
+  <!-- ALSO AVAILABLE — 2-Column Cards              -->
+  <!-- ============================================ -->
+  <section class="sv-section sv-section--also">
+    <div class="container-content">
+      <SectionReveal client:visible>
+        <h2 class="sv-section__headline font-display">Also Available</h2>
+      </SectionReveal>
+
+      <div class="sv-also__grid">
+        <SectionReveal client:visible delay={0.1} className="sv-also__card">
+          <div class="sv-also__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <h3 class="sv-also__title"><a href="/gravity-audit">Gravity Audit&trade;</a></h3>
+          <p class="sv-also__desc">
             A standalone AI visibility and GTM diagnostic. Tests 15-20 buyer queries across ChatGPT, Perplexity, and AI Overviews. Audits content authority and organic pull. Delivers findings, priority gap list, and 30-day action plan. Often serves as the entry point to the full Intelligence Layer engagement.
           </p>
-        </div>
-        <div>
-          <h3 class="text-subheading mb-2"><a href="/gtm-strategy-consultant" class="text-blue-bright hover:text-white transition-colors">GTM Strategy</a></h3>
-          <p class="text-body text-gray-400">
+          <a href="/gravity-audit" class="sv-card__link">Learn more <span aria-hidden="true">&rarr;</span></a>
+        </SectionReveal>
+
+        <SectionReveal client:visible delay={0.2} className="sv-also__card">
+          <div class="sv-also__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="sv-also__title"><a href="/gtm-strategy-consultant">GTM Strategy</a></h3>
+          <p class="sv-also__desc">
             Focused GTM engagements — positioning, ICP development, pipeline mechanics, competitive framing. For companies that need strategic clarity before building infrastructure.
           </p>
-        </div>
+          <a href="/gtm-strategy-consultant" class="sv-card__link">Learn more <span aria-hidden="true">&rarr;</span></a>
+        </SectionReveal>
       </div>
     </div>
   </section>
 
-  <!-- Process -->
-  <section class="section border-t border-gray-800">
-    <div class="container-narrow">
-      <h2 class="text-heading mb-12" data-animate>How It Starts</h2>
-      <div class="space-y-12" data-animate-stagger="0.12">
-        <div class="flex gap-8">
-          <span class="text-display text-gray-700 shrink-0">01</span>
-          <div>
-            <h3 class="text-subheading mb-2">Conversation</h3>
-            <p class="text-body text-gray-400">
+  <!-- ============================================ -->
+  <!-- HOW IT STARTS — Horizontal Process Timeline  -->
+  <!-- ============================================ -->
+  <section class="sv-section sv-section--process">
+    <div class="container-content">
+      <SectionReveal client:visible>
+        <h2 class="sv-section__headline font-display">How It Starts</h2>
+      </SectionReveal>
+
+      <div class="sv-timeline">
+        <!-- Connecting line -->
+        <div class="sv-timeline__line" aria-hidden="true"></div>
+
+        <SectionReveal client:visible delay={0.1} className="sv-timeline__step">
+          <div class="sv-timeline__dot" aria-hidden="true"></div>
+          <div class="sv-timeline__content">
+            <span class="sv-timeline__number">01</span>
+            <h3 class="sv-timeline__title">Conversation</h3>
+            <p class="sv-timeline__desc">
               30 minutes. You tell me what you're seeing — or not seeing — in your marketing results. I tell you whether the Intelligence Layer diagnostic is the right move or if something else would serve you better. No pitch, just conversation.
             </p>
           </div>
-        </div>
-        <div class="flex gap-8">
-          <span class="text-display text-gray-700 shrink-0">02</span>
-          <div>
-            <h3 class="text-subheading mb-2">Diagnostic</h3>
-            <p class="text-body text-gray-400">
+        </SectionReveal>
+
+        <SectionReveal client:visible delay={0.2} className="sv-timeline__step">
+          <div class="sv-timeline__dot" aria-hidden="true"></div>
+          <div class="sv-timeline__content">
+            <span class="sv-timeline__number">02</span>
+            <h3 class="sv-timeline__title">Diagnostic</h3>
+            <p class="sv-timeline__desc">
               2-4 weeks. I assess your marketing function across all six components of the Intelligence Layer. You get a gap analysis, architecture blueprint, and build plan.
             </p>
           </div>
-        </div>
-        <div class="flex gap-8">
-          <span class="text-display text-gray-700 shrink-0">03</span>
-          <div>
-            <h3 class="text-subheading mb-2">Build</h3>
-            <p class="text-body text-gray-400">
+        </SectionReveal>
+
+        <SectionReveal client:visible delay={0.3} className="sv-timeline__step">
+          <div class="sv-timeline__dot" aria-hidden="true"></div>
+          <div class="sv-timeline__content">
+            <span class="sv-timeline__number">03</span>
+            <h3 class="sv-timeline__title">Build</h3>
+            <p class="sv-timeline__desc">
               30-90 days. The Intelligence Layer gets built, deployed, and connected to your stack. Your team gets trained. The system compounds from day one.
             </p>
           </div>
-        </div>
+        </SectionReveal>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section border-t border-gray-800">
-    <div class="container-narrow">
-      <h2 class="text-display mb-6" data-animate>Before you hire, build, or buy</h2>
-      <p class="text-body-lg text-gray-400 mb-8 max-w-prose" data-animate data-animate-delay="0.1">
-        Know what you're actually missing. The diagnostic tells you where you stand across all six layers — and what to do about it.
-      </p>
-      <a href="mailto:nick@strategnik.com" class="text-blue-bright hover:text-white transition-colors" data-animate data-animate-delay="0.2">
-        Start the conversation →
-      </a>
+  <!-- ============================================ -->
+  <!-- FINAL CTA — Full-Bleed Gradient              -->
+  <!-- ============================================ -->
+  <section class="sv-section sv-section--cta">
+    <div class="container-content" style="text-align: center;">
+      <SectionReveal client:visible>
+        <h2 class="sv-cta__headline font-display">Before You Hire, Build, or Buy</h2>
+        <p class="sv-cta__body">
+          Know what you're actually missing. The diagnostic tells you where you stand across all six layers — and what to do about it.
+        </p>
+        <a href="mailto:nick@strategnik.com" class="sv-btn sv-btn--primary sv-btn--lg">
+          Start the conversation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </SectionReveal>
     </div>
   </section>
 
 </BaseLayout>
+
+<style>
+  /* ========================================
+     SERVICES PAGE — Swiss Modernism 2.0
+     Matches Intelligence Layer design system
+     ======================================== */
+
+  :root {
+    --sv-bg-1: #0d1117;
+    --sv-bg-2: #161b22;
+    --sv-bg-3: #0a0f1a;
+    --sv-turquoise: #1de2c4;
+    --sv-turquoise-dim: rgba(29, 226, 196, 0.15);
+    --sv-blue: #0051ff;
+    --sv-purple: #8b5cf6;
+  }
+
+  /* ---------- LINKS ---------- */
+  .sv-link--turquoise {
+    color: var(--sv-turquoise);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .sv-link--turquoise:hover {
+    color: #4ae8d0;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .sv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 2rem;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+  }
+
+  .sv-btn--primary {
+    background: var(--sv-turquoise);
+    color: var(--sv-bg-1);
+  }
+
+  .sv-btn--primary:hover {
+    background: #4ae8d0;
+    color: var(--sv-bg-1);
+    transform: translateY(-1px);
+  }
+
+  .sv-btn--ghost {
+    background: transparent;
+    color: var(--sv-turquoise);
+    border: 1px solid rgba(29, 226, 196, 0.3);
+  }
+
+  .sv-btn--ghost:hover {
+    border-color: var(--sv-turquoise);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .sv-btn--lg {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* ---------- HERO ---------- */
+  .sv-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--sv-bg-1);
+    position: relative;
+    padding: 8rem 0 4rem;
+  }
+
+  .sv-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .sv-hero__grid {
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+    }
+  }
+
+  .sv-hero__label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sv-turquoise);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .sv-hero__headline {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1.75rem;
+    max-width: 18ch;
+  }
+
+  .sv-hero__body {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #afafb6;
+    max-width: 55ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .sv-hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .sv-hero__journey {
+    max-width: 100%;
+  }
+
+  /* Scroll indicator */
+  .sv-hero__scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sv-hero__chevron {
+    width: 24px;
+    height: 24px;
+    color: #494950;
+    animation: sv-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes sv-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ---------- SECTIONS (base) ---------- */
+  .sv-section {
+    padding: 5rem 0;
+  }
+
+  .sv-section__label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sv-turquoise);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .sv-section__headline {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* ---------- IS THIS YOU — Callout ---------- */
+  .sv-section--callout {
+    padding: 5rem 0;
+    background: var(--sv-bg-3);
+  }
+
+  .sv-callout {
+    background: var(--sv-bg-2);
+    border-radius: 12px;
+    padding: 3rem 3.5rem;
+    border-left: 4px solid var(--sv-turquoise);
+    position: relative;
+  }
+
+  .sv-callout__headline {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .sv-callout__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sv-callout__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: #afafb6;
+  }
+
+  .sv-check {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .sv-callout__closer {
+    font-size: 1.0625rem;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 1.5rem;
+  }
+
+  /* ---------- ENGAGEMENT LADDER ---------- */
+  .sv-section--ladder {
+    padding: 6rem 0;
+    background: var(--sv-bg-3);
+  }
+
+  .sv-ladder__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .sv-ladder__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .sv-card {
+    background: var(--sv-bg-2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .sv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  }
+
+  .sv-card__inner {
+    padding: 2rem 1.75rem 2.25rem;
+    border-top: 3px solid transparent;
+  }
+
+  .sv-card--turquoise .sv-card__inner {
+    border-top-color: var(--sv-turquoise);
+  }
+
+  .sv-card--blue .sv-card__inner {
+    border-top-color: var(--sv-blue);
+  }
+
+  .sv-card--purple .sv-card__inner {
+    border-top-color: var(--sv-purple);
+  }
+
+  @media (min-width: 1024px) {
+    .sv-card--elevated {
+      transform: translateY(-8px);
+    }
+
+    .sv-card--elevated:hover {
+      transform: translateY(-12px);
+    }
+  }
+
+  .sv-card__tag {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .sv-card__tag--turquoise {
+    background: var(--sv-turquoise-dim);
+    color: var(--sv-turquoise);
+  }
+
+  .sv-card__tag--blue {
+    background: rgba(0, 81, 255, 0.15);
+    color: #5ea3d4;
+  }
+
+  .sv-card__tag--purple {
+    background: rgba(139, 92, 246, 0.15);
+    color: #a78bfa;
+  }
+
+  .sv-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .sv-card__desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #95959d;
+    margin-bottom: 1.25rem;
+  }
+
+  .sv-card__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sv-card__bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #afafb6;
+  }
+
+  .sv-check-sm {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .sv-card__link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--sv-turquoise);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .sv-card__link:hover {
+    color: #4ae8d0;
+  }
+
+  .sv-ladder__footer {
+    font-size: 1rem;
+    color: #95959d;
+    margin-top: 3rem;
+  }
+
+  /* ---------- ALSO AVAILABLE ---------- */
+  .sv-section--also {
+    padding: 5rem 0;
+    background: var(--sv-bg-1);
+  }
+
+  .sv-also__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .sv-also__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .sv-also__card {
+    background: var(--sv-bg-2);
+    border-radius: 12px;
+    padding: 2.25rem 2rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .sv-also__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  }
+
+  .sv-also__icon {
+    margin-bottom: 1.25rem;
+  }
+
+  .sv-also__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .sv-also__title a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .sv-also__title a:hover {
+    color: var(--sv-turquoise);
+  }
+
+  .sv-also__desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #95959d;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ---------- HOW IT STARTS — Horizontal Timeline ---------- */
+  .sv-section--process {
+    padding: 6rem 0;
+    background: var(--sv-bg-2);
+  }
+
+  .sv-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .sv-timeline {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .sv-timeline__line {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .sv-timeline__line {
+      display: block;
+      position: absolute;
+      top: 14px;
+      left: calc(16.66% + 6px);
+      right: calc(16.66% + 6px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--sv-turquoise), rgba(29, 226, 196, 0.2));
+      z-index: 0;
+    }
+  }
+
+  .sv-timeline__step {
+    position: relative;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .sv-timeline__step {
+      text-align: center;
+    }
+  }
+
+  .sv-timeline__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--sv-turquoise);
+    box-shadow: 0 0 0 4px var(--sv-turquoise-dim);
+    margin: 0 auto 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sv-timeline__content {
+    /* content below the dot */
+  }
+
+  .sv-timeline__number {
+    font-family: 'Sohne Mono', 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--sv-turquoise);
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .sv-timeline__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.625rem;
+    letter-spacing: -0.01em;
+  }
+
+  .sv-timeline__desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #95959d;
+    max-width: 32ch;
+    margin: 0 auto;
+  }
+
+  /* ---------- FINAL CTA ---------- */
+  .sv-section--cta {
+    padding: 8rem 0;
+    background: linear-gradient(180deg, var(--sv-bg-1) 0%, #080c12 100%);
+  }
+
+  .sv-cta__headline {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .sv-cta__body {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #95959d;
+    max-width: 50ch;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* ---------- REDUCED MOTION ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .sv-hero__chevron {
+      animation: none;
+    }
+
+    .sv-card:hover,
+    .sv-also__card:hover {
+      transform: none;
+    }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .sv-hero {
+      min-height: auto;
+      padding: 6rem 0 3rem;
+    }
+
+    .sv-section {
+      padding: 3.5rem 0;
+    }
+
+    .sv-section--ladder,
+    .sv-section--process {
+      padding: 4rem 0;
+    }
+
+    .sv-section--cta {
+      padding: 5rem 0;
+    }
+
+    .sv-callout {
+      padding: 2rem 1.5rem;
+    }
+
+    .sv-timeline__desc {
+      max-width: none;
+      text-align: left;
+    }
+
+    .sv-timeline__step {
+      text-align: left;
+    }
+
+    .sv-timeline__dot {
+      margin: 0 0 1rem;
+    }
+  }
+</style>
