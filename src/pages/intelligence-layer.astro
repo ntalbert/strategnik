@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LayerTransformation from '../components/LayerTransformation';
 
 const title = "The Intelligence Layer — What AI Agents Actually Need to Run Your Marketing";
 const description = "The Intelligence Layer is the machine-readable operating context that makes AI-native marketing possible. Six components. One shared foundation. Built for Series B through pre-IPO B2B SaaS companies.";
@@ -234,25 +235,10 @@ const beforeAfterData = [
   <section class="il-section il-section--comparison il-animate">
     <div class="container-content">
       <h2 class="il-display-headline il-display-headline--xl font-display">What Changes When the Layer Is Running</h2>
-    </div>
-    <div class="il-comparison container-content">
-      <div class="il-comparison__col il-comparison__col--without">
-        <div class="il-comparison__header">WITHOUT</div>
-        {beforeAfterData.map(row => (
-          <div class="il-comparison__item il-comparison__item--without">
-            <p>{row.without}</p>
-          </div>
-        ))}
-      </div>
-      <div class="il-comparison__divider"></div>
-      <div class="il-comparison__col il-comparison__col--with">
-        <div class="il-comparison__header il-comparison__header--with">WITH THE LAYER</div>
-        {beforeAfterData.map(row => (
-          <div class="il-comparison__item il-comparison__item--with">
-            <p>{row.withLayer}</p>
-          </div>
-        ))}
-      </div>
+      <p class="il-section__body" style="max-width: 65ch; margin-bottom: 48px;">
+        Same prompt. Same AI. Completely different output. Watch what happens when context replaces guessing.
+      </p>
+      <LayerTransformation client:visible />
     </div>
   </section>
 
