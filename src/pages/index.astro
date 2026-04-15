@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import BrandGravityHero from '../components/BrandGravityHero.astro';
+import SectionReveal from '../components/SectionReveal';
 import { getCollection } from 'astro:content';
 
 // Fetch posts from content collection
@@ -52,50 +53,73 @@ const allContent = [...posts, ...caseStudies]
 <BaseLayout title="Strategnik — GTM Architecture & the Intelligence Layer for AI-Native Marketing" description="GTM architecture and the Intelligence Layer for Series B through pre-IPO B2B SaaS. Positioning, pipeline, content systems, and AI-native marketing built on the Physics of Growth™ framework.">
   <!-- Brand Gravity Hero Section -->
   <BrandGravityHero overlayOpacity={0.25}>
-    <!-- Hero - First viewport -->
-    <section class="min-h-screen flex items-start justify-center pt-20 md:pt-28">
-      <div class="container-content text-center max-w-4xl mx-auto">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-10 text-white leading-[1.1] tracking-tight" data-animate-hero>
-          Build the engine.<br />Not the headcount.
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed" data-animate-hero-sub>
-          GTM architecture and the <a href="/intelligence-layer" class="text-white font-bold hover:text-blue-bright transition-colors">Intelligence Layer</a> for Series B through pre-IPO B2B SaaS. AI handles orchestration at machine speed. Your team focuses on strategy, judgment, and the work that actually requires a human brain.
-        </p>
-        <div class="flex flex-wrap justify-center gap-8" data-animate-hero-links>
-          <a href="/intelligence-layer" class="px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors">
-            The Intelligence Layer
-          </a>
-          <a href="mailto:nick@strategnik.com" class="px-8 py-3 border border-gray-600 text-white font-bold rounded-lg hover:border-white transition-colors">
-            Start a conversation
-          </a>
+    <!-- Hero - Asymmetric Split -->
+    <section class="min-h-screen flex items-center">
+      <div class="container-content">
+        <div class="hp-hero__grid">
+          <div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8" data-animate-hero>
+              Build the engine.<br />Not the headcount.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-xl leading-relaxed mb-10" data-animate-hero-sub>
+              GTM architecture and the <a href="/intelligence-layer" class="text-white font-bold hover:text-blue-bright transition-colors">Intelligence Layer</a> for Series B through pre-IPO B2B SaaS. AI handles orchestration at machine speed. Your team focuses on strategy, judgment, and the work that actually requires a human brain.
+            </p>
+            <div class="flex flex-wrap gap-4" data-animate-hero-links>
+              <a href="/intelligence-layer" class="hp-btn hp-btn--primary">
+                The Intelligence Layer
+              </a>
+              <a href="mailto:nick@strategnik.com" class="hp-btn hp-btn--ghost">
+                Start a conversation
+              </a>
+            </div>
+          </div>
+          <div class="hidden lg:flex flex-col justify-center items-end gap-6" data-animate-hero-sub>
+            <div class="hp-stat-card">
+              <span class="hp-stat-card__number">20+</span>
+              <span class="hp-stat-card__label">Years in B2B SaaS</span>
+            </div>
+            <div class="hp-stat-card">
+              <span class="hp-stat-card__number">3</span>
+              <span class="hp-stat-card__label">Companies Acquired</span>
+            </div>
+            <div class="hp-stat-card">
+              <span class="hp-stat-card__number">~100%</span>
+              <span class="hp-stat-card__label">Avg Pipeline Growth</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Spacer -->
-    <div class="h-[10vh]"></div>
-
-    <!-- Quick Proof -->
-    <section class="pb-20">
-      <div class="container-narrow text-center">
-        <p class="text-body-lg text-white font-bold mb-6">
-          20+ years in B2B SaaS — 3 companies acquired — ~100% avg pipeline growth
-        </p>
-        <p class="text-body text-gray-400 max-w-prose mx-auto">
-          Most recently VP of Marketing and Growth at BRIA AI, where I built signal-driven growth systems that drove 120% MAU lift.
-        </p>
+    <!-- Social Proof Strip (Mobile) -->
+    <section class="pb-16 lg:hidden">
+      <div class="container-content">
+        <div class="flex flex-wrap gap-8 justify-center" data-animate-stagger>
+          <div class="text-center">
+            <span class="block text-3xl font-black text-accent">20+</span>
+            <span class="text-xs text-gray-400 uppercase tracking-wider">Years B2B SaaS</span>
+          </div>
+          <div class="text-center">
+            <span class="block text-3xl font-black text-accent">3</span>
+            <span class="text-xs text-gray-400 uppercase tracking-wider">Acquisitions</span>
+          </div>
+          <div class="text-center">
+            <span class="block text-3xl font-black text-accent">~100%</span>
+            <span class="text-xs text-gray-400 uppercase tracking-wider">Pipeline Growth</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Featured Content Carousel -->
     <section class="pb-24">
       <div class="container-content">
-        <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold text-center">Latest</p>
+        <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold">Latest</p>
         <div class="relative">
           <!-- Left Arrow -->
           <button
             id="carousel-prev"
-            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-800 hover:border-gray-600 transition-all shadow-lg hidden md:flex"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-800 hover:border-gray-600 transition-all shadow-lg hidden md:flex"
             aria-label="Previous"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,9 +132,9 @@ const allContent = [...posts, ...caseStudies]
             {allContent.map((item) => (
               <a
                 href={item.url}
-                class="group flex-shrink-0 w-[320px] md:w-[380px] bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 hover:shadow-lg transition-all duration-300 snap-start"
+                class="group flex-shrink-0 w-[320px] md:w-[400px] hp-carousel__card snap-start"
               >
-                <div class="aspect-video bg-gray-800 relative overflow-hidden">
+                <div class="aspect-video bg-gray-800 relative overflow-hidden rounded-t-xl">
                   {item.image ? (
                     <img
                       src={item.image}
@@ -127,14 +151,15 @@ const allContent = [...posts, ...caseStudies]
                     </div>
                   )}
                   <div class="absolute top-3 left-3">
-                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-900/90 text-white backdrop-blur-sm">
+                    <span class={`hp-carousel__tag ${item.type === 'Case Study' ? 'hp-carousel__tag--blue' : ''}`}>
                       {item.type}
                     </span>
                   </div>
                 </div>
                 <div class="p-5">
-                  <h3 class="font-semibold text-white group-hover:text-blue-bright transition-colors mb-2 line-clamp-2">{item.title}</h3>
-                  <p class="text-sm text-gray-400 line-clamp-2">{item.description}</p>
+                  <h3 class="font-semibold text-lg text-white group-hover:text-accent transition-colors mb-2 line-clamp-2">{item.title}</h3>
+                  <p class="text-sm text-gray-400 line-clamp-2 mb-3">{item.description}</p>
+                  <span class="text-xs font-bold text-accent uppercase tracking-wider">Read</span>
                 </div>
               </a>
             ))}
@@ -143,7 +168,7 @@ const allContent = [...posts, ...caseStudies]
           <!-- Right Arrow -->
           <button
             id="carousel-next"
-            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-800 hover:border-gray-600 transition-all shadow-lg hidden md:flex"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-800 hover:border-gray-600 transition-all shadow-lg hidden md:flex"
             aria-label="Next"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -160,7 +185,7 @@ const allContent = [...posts, ...caseStudies]
       const nextBtn = document.getElementById('carousel-next');
 
       if (carousel && prevBtn && nextBtn) {
-        const cardWidth = 380 + 24; // card width + gap
+        const cardWidth = 400 + 24;
 
         prevBtn.addEventListener('click', () => {
           carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
@@ -170,7 +195,6 @@ const allContent = [...posts, ...caseStudies]
           carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
         });
 
-        // Update button visibility based on scroll position
         const updateButtons = () => {
           prevBtn.style.opacity = carousel.scrollLeft <= 0 ? '0.3' : '1';
           prevBtn.style.pointerEvents = carousel.scrollLeft <= 0 ? 'none' : 'auto';
@@ -185,122 +209,180 @@ const allContent = [...posts, ...caseStudies]
       }
     </script>
 
-    <!-- Framework Section -->
+    <!-- Framework Section — 3-Column Cards -->
     <section class="pb-12">
-      <div class="container-narrow">
+      <div class="container-content">
         <p class="text-caption text-white tracking-wide mb-4 font-bold">Framework</p>
         <h2 class="text-display-xl font-display italic text-white font-extrabold mb-6">
           The Physics of Growth
         </h2>
-        <p class="text-body-lg text-white font-bold max-w-prose">
+        <p class="text-body-lg text-white font-bold max-w-2xl">
           Growth isn't art or science — it's engineering. A framework built on physics principles to diagnose what's actually happening in your growth system.
         </p>
       </div>
     </section>
 
-    <!-- Concepts -->
     <section class="pb-20">
-      <div class="container-narrow">
-        <div class="space-y-16 md:space-y-20">
-          <div class="max-w-lg">
-            <p class="text-white text-small mb-2 font-bold">01</p>
-            <h3 class="text-display font-display italic text-white font-extrabold mb-4">Momentum</h3>
-            <p class="text-body-lg text-white font-bold">
-              Why some investments compound while others dissipate
-            </p>
+      <div class="container-content">
+        <div class="hp-framework__grid" data-animate-stagger>
+          <div class="hp-fw-card hp-fw-card--turquoise" data-animate>
+            <div class="hp-fw-card__inner">
+              <span class="hp-fw-card__number">01</span>
+              <h3 class="text-display font-display italic text-white font-extrabold mb-4">Momentum</h3>
+              <p class="text-body text-gray-300">
+                Why some investments compound while others dissipate. The difference between motion and progress.
+              </p>
+            </div>
           </div>
 
-          <div class="max-w-lg ml-auto text-right">
-            <p class="text-white text-small mb-2 font-bold">02</p>
-            <h3 class="text-display font-display italic text-white font-extrabold mb-4">Friction</h3>
-            <p class="text-body-lg text-white font-bold">
-              The hidden force destroying your conversion rates
-            </p>
+          <div class="hp-fw-card hp-fw-card--blue" data-animate>
+            <div class="hp-fw-card__inner">
+              <span class="hp-fw-card__number">02</span>
+              <h3 class="text-display font-display italic text-white font-extrabold mb-4">Friction</h3>
+              <p class="text-body text-gray-300">
+                The hidden force destroying your conversion rates. Every unnecessary step, unclear message, and misaligned handoff.
+              </p>
+            </div>
           </div>
 
-          <div class="max-w-lg">
-            <p class="text-white text-small mb-2 font-bold">03</p>
-            <h3 class="text-display font-display italic text-white font-extrabold mb-4">Gravity</h3>
-            <p class="text-body-lg text-white font-bold">
-              Market forces pulling prospects toward (or away from) you
-            </p>
+          <div class="hp-fw-card hp-fw-card--purple" data-animate>
+            <div class="hp-fw-card__inner">
+              <span class="hp-fw-card__number">03</span>
+              <h3 class="text-display font-display italic text-white font-extrabold mb-4">Gravity</h3>
+              <p class="text-body text-gray-300">
+                Market forces pulling prospects toward (or away from) you. The organic pull that replaces outbound chase.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="py-16 md:py-24 flex items-center justify-center">
-      <div class="text-center">
-        <a href="/physics-of-growth" class="text-heading font-display italic text-white font-extrabold hover:text-blue-bright transition-colors">
-          Explore the framework →
-        </a>
+        <div class="mt-10">
+          <a href="/physics-of-growth" class="text-heading font-display italic text-white font-extrabold hover:text-blue-bright transition-colors">
+            Explore the framework →
+          </a>
+        </div>
       </div>
     </section>
   </BrandGravityHero>
 
-  <!-- The Problem Section -->
+  <!-- The Problem Section — Asymmetric Split -->
   <section class="py-16 md:py-24 bg-black">
-    <div class="container-narrow">
-      <h2 class="text-display text-white font-bold mb-10" data-animate>Most companies gave their team AI and called it a strategy.</h2>
+    <div class="container-content">
+      <div class="hp-split__grid">
+        <SectionReveal client:visible direction="left">
+          <h2 class="text-display text-white font-bold">Most companies gave their team AI and called it a strategy.</h2>
+        </SectionReveal>
 
-      <p class="text-body-lg text-gray-400 max-w-prose mb-6">
-        Output went up. Pipeline didn't move. Five teams interpreting the same brief five different ways — now doing it faster. The buyer encounters five different companies. Brand dilutes. Cycles lengthen.
-      </p>
+        <SectionReveal client:visible direction="right" delay={0.15}>
+          <p class="text-body-lg text-gray-400 mb-6">
+            Output went up. Pipeline didn't move. Five teams interpreting the same brief five different ways — now doing it faster. The buyer encounters five different companies. Brand dilutes. Cycles lengthen.
+          </p>
 
-      <p class="text-body-lg text-white font-bold max-w-prose mb-10">
-        The question isn't how to use AI in marketing. It's what your AI actually knows about you — and whether that's enough to act on.
-      </p>
+          <p class="text-body-lg text-white font-bold mb-10">
+            The question isn't how to use AI in marketing. It's what your AI actually knows about you — and whether that's enough to act on.
+          </p>
 
-      <div class="flex flex-wrap gap-6">
-        <a href="/intelligence-layer" class="text-blue-bright hover:text-white transition-colors font-bold">
-          The Intelligence Layer →
-        </a>
-        <a href="/gravity-audit" class="text-blue-bright hover:text-white transition-colors font-bold">
-          Gravity Audit →
-        </a>
-        <a href="/services" class="text-blue-bright hover:text-white transition-colors font-bold">
-          All services →
-        </a>
-        <a href="/pricing" class="text-blue-bright hover:text-white transition-colors font-bold">
-          Pricing →
-        </a>
-        <a href="/playbooks" class="text-blue-bright hover:text-white transition-colors font-bold">
-          Playbook catalog →
+          <div class="flex flex-wrap gap-x-6 gap-y-3">
+            <a href="/intelligence-layer" class="text-accent hover:text-white transition-colors font-bold">
+              The Intelligence Layer →
+            </a>
+            <a href="/gravity-audit" class="text-accent hover:text-white transition-colors font-bold">
+              Gravity Audit →
+            </a>
+            <a href="/services" class="text-accent hover:text-white transition-colors font-bold">
+              All services →
+            </a>
+            <a href="/pricing" class="text-accent hover:text-white transition-colors font-bold">
+              Pricing →
+            </a>
+          </div>
+        </SectionReveal>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Work — Card Grid -->
+  <section class="py-16 md:py-24 bg-black border-t border-gray-800">
+    <div class="container-content">
+      <SectionReveal client:visible>
+        <p class="text-caption text-blue-bright tracking-wide mb-4 font-bold">Work</p>
+        <h2 class="text-display text-white font-bold mb-10">Selected Work</h2>
+      </SectionReveal>
+
+      <div class="hp-work__grid">
+        <SectionReveal client:visible delay={0.1} className="hp-work__card">
+          <span class="hp-work__tag">AI / Visual GenAI</span>
+          <h3 class="text-xl text-white font-bold mb-3">BRIA AI</h3>
+          <p class="text-body text-gray-400 mb-4">Built GTM ops from zero for visual AI platform serving EA, Disney, P&G. Signal-driven growth systems drove 120% MAU lift.</p>
+          <a href="/case-studies/developer-discovery" class="text-accent text-sm font-bold hover:text-white transition-colors">Read case study →</a>
+        </SectionReveal>
+
+        <SectionReveal client:visible delay={0.2} className="hp-work__card">
+          <span class="hp-work__tag hp-work__tag--blue">Enterprise / Telco</span>
+          <h3 class="text-xl text-white font-bold mb-3">Lumen Technologies</h3>
+          <p class="text-body text-gray-400 mb-4">26% improvement in data integrity, 30% lift in propensity scores. Data governance that made predictive models work.</p>
+          <a href="/case-studies/propensity-scoring" class="text-accent text-sm font-bold hover:text-white transition-colors">Read case study →</a>
+        </SectionReveal>
+
+        <SectionReveal client:visible delay={0.3} className="hp-work__card">
+          <span class="hp-work__tag hp-work__tag--purple">API Security</span>
+          <h3 class="text-xl text-white font-bold mb-3">Wallarm</h3>
+          <p class="text-body text-gray-400 mb-4">20% increase in growth-sourced pipeline, 18% conversion rate uplift. Full-funnel GTM optimization.</p>
+          <a href="/experience" class="text-accent text-sm font-bold hover:text-white transition-colors">View details →</a>
+        </SectionReveal>
+      </div>
+
+      <div class="mt-10">
+        <a href="/experience" class="text-accent hover:text-white transition-colors font-bold">
+          See all experience →
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <!-- FAQ Section — Sticky Header + Questions -->
   <section class="py-16 md:py-24 bg-black border-t border-gray-800">
-    <div class="container-narrow">
-      <h2 class="text-display text-white font-bold mb-12" data-animate>Frequently Asked Questions</h2>
+    <div class="container-content">
+      <div class="hp-faq__grid">
+        <SectionReveal client:visible direction="left" className="hp-faq__header">
+          <h2 class="text-display text-white font-bold">Frequently Asked Questions</h2>
+        </SectionReveal>
 
-      <div class="space-y-10">
-        <div>
-          <h3 class="text-body-lg text-white font-bold mb-3">What is the Intelligence Layer?</h3>
-          <p class="text-body text-gray-400 max-w-prose">The Intelligence Layer is a machine-readable operating context — brand spec, ICP hierarchy, competitive framing, content architecture, distribution schema, and measurement targets — encoded so every AI tool, agent, and team member works from the same shared foundation. It is not a document or a prompt template. It is a living system that updates as the market moves and compounds over time.</p>
-        </div>
+        <div class="hp-faq__questions">
+          <SectionReveal client:visible delay={0.1}>
+            <div class="hp-faq__item">
+              <h3 class="text-body-lg text-white font-bold mb-3">What is the Intelligence Layer?</h3>
+              <p class="text-body text-gray-400">The Intelligence Layer is a machine-readable operating context — brand spec, ICP hierarchy, competitive framing, content architecture, distribution schema, and measurement targets — encoded so every AI tool, agent, and team member works from the same shared foundation. It is not a document or a prompt template. It is a living system that updates as the market moves and compounds over time.</p>
+            </div>
+          </SectionReveal>
 
-        <div>
-          <h3 class="text-body-lg text-white font-bold mb-3">Does the Intelligence Layer replace marketing leadership?</h3>
-          <p class="text-body text-gray-400 max-w-prose">No. Leadership sets direction — the Intelligence Layer encodes that direction into a system the entire team and every AI tool operates from. Strategy stops living in one person's head and becomes shared operating context that persists, compounds, and updates as the market moves. The CMO still steers. The layer makes sure every output reflects what they decided.</p>
-        </div>
+          <SectionReveal client:visible delay={0.15}>
+            <div class="hp-faq__item">
+              <h3 class="text-body-lg text-white font-bold mb-3">Does the Intelligence Layer replace marketing leadership?</h3>
+              <p class="text-body text-gray-400">No. Leadership sets direction — the Intelligence Layer encodes that direction into a system the entire team and every AI tool operates from. Strategy stops living in one person's head and becomes shared operating context that persists, compounds, and updates as the market moves. The CMO still steers. The layer makes sure every output reflects what they decided.</p>
+            </div>
+          </SectionReveal>
 
-        <div>
-          <h3 class="text-body-lg text-white font-bold mb-3">How does the Physics of Growth™ framework work?</h3>
-          <p class="text-body text-gray-400 max-w-prose">Physics of Growth™ applies physics principles to B2B growth systems. Momentum — why some investments compound while others dissipate. Friction — the hidden forces destroying conversion rates and slowing pipeline. Gravity — the organic pull that attracts prospects versus requiring outbound to chase them. Every engagement starts by diagnosing which force is working against you, then building the systems to shift it.</p>
-        </div>
+          <SectionReveal client:visible delay={0.2}>
+            <div class="hp-faq__item">
+              <h3 class="text-body-lg text-white font-bold mb-3">How does the Physics of Growth™ framework work?</h3>
+              <p class="text-body text-gray-400">Physics of Growth™ applies physics principles to B2B growth systems. Momentum — why some investments compound while others dissipate. Friction — the hidden forces destroying conversion rates and slowing pipeline. Gravity — the organic pull that attracts prospects versus requiring outbound to chase them. Every engagement starts by diagnosing which force is working against you, then building the systems to shift it.</p>
+            </div>
+          </SectionReveal>
 
-        <div>
-          <h3 class="text-body-lg text-white font-bold mb-3">Who is this for?</h3>
-          <p class="text-body text-gray-400 max-w-prose">Series B through pre-IPO B2B SaaS companies — typically $10M to $150M ARR — where the CEO is asking whether to hire a marketing leader or build an AI-native system, or where the team has AI tools and nothing feels different. The Intelligence Layer diagnostic is also relevant for companies about to make a significant marketing hire and wondering whether the investment would be better spent on architecture.</p>
-        </div>
+          <SectionReveal client:visible delay={0.25}>
+            <div class="hp-faq__item">
+              <h3 class="text-body-lg text-white font-bold mb-3">Who is this for?</h3>
+              <p class="text-body text-gray-400">Series B through pre-IPO B2B SaaS companies — typically $10M to $150M ARR — where the CEO is asking whether to hire a marketing leader or build an AI-native system, or where the team has AI tools and nothing feels different. The Intelligence Layer diagnostic is also relevant for companies about to make a significant marketing hire and wondering whether the investment would be better spent on architecture.</p>
+            </div>
+          </SectionReveal>
 
-        <div>
-          <h3 class="text-body-lg text-white font-bold mb-3">What does an engagement cost?</h3>
-          <p class="text-body text-gray-400 max-w-prose">The diagnostic runs $2,500–$25,000 depending on scope. The full Intelligence Layer build sprint is $25,000–$75,000 over 30–90 days. An ongoing advisor retainer is $5,000–$15,000 per month. For context: a single CMO hire costs $350K+ fully loaded per year. The build sprint costs less than one quarter of that salary and produces a system that compounds.</p>
+          <SectionReveal client:visible delay={0.3}>
+            <div class="hp-faq__item">
+              <h3 class="text-body-lg text-white font-bold mb-3">What does an engagement cost?</h3>
+              <p class="text-body text-gray-400">The diagnostic runs $2,500–$25,000 depending on scope. The full Intelligence Layer build sprint is $25,000–$75,000 over 30–90 days. An ongoing advisor retainer is $5,000–$15,000 per month. For context: a single CMO hire costs $350K+ fully loaded per year. The build sprint costs less than one quarter of that salary and produces a system that compounds.</p>
+            </div>
+          </SectionReveal>
         </div>
       </div>
     </div>
@@ -355,49 +437,272 @@ const allContent = [...posts, ...caseStudies]
     })} />
   </Fragment>
 
-  <!-- Selected Work Section -->
+  <!-- Combined CTA + Newsletter — Asymmetric -->
   <section class="py-16 md:py-24 bg-black border-t border-gray-800">
-    <div class="container-narrow">
-      <p class="text-caption text-blue-bright tracking-wide mb-4 font-bold">Work</p>
-      <h2 class="text-display text-white font-bold mb-8" data-animate>Selected Work</h2>
+    <div class="container-content">
+      <div class="hp-split__grid">
+        <SectionReveal client:visible direction="left">
+          <h2 class="text-display text-white font-bold mb-6">Before you hire, build, or buy</h2>
+          <p class="text-body-lg text-gray-400 mb-8">
+            Know what you're actually missing. A 30-minute conversation — no pitch, no deck. What's happening in your growth system and how to think about it.
+          </p>
+          <a href="mailto:nick@strategnik.com" class="hp-btn hp-btn--primary">
+            Start a conversation
+          </a>
+        </SectionReveal>
 
-      <div class="space-y-8">
-        <div class="border-b border-gray-800 pb-8">
-          <h3 class="text-body-lg text-white font-bold mb-2">BRIA AI</h3>
-        <p class="text-body text-gray-400">Built GTM ops from zero for visual AI platform serving EA, Disney, P&G</p>        </div>
-
-        <div class="border-b border-gray-800 pb-8">
-          <h3 class="text-body-lg text-white font-bold mb-2">Lumen Technologies</h3>
-          <p class="text-body text-gray-400">26% improvement in data integrity, 30% lift in propensity scores</p>
-        </div>
-
-        <div class="border-b border-gray-800 pb-8">
-          <h3 class="text-body-lg text-white font-bold mb-2">Wallarm</h3>
-          <p class="text-body text-gray-400">20% increase in growth-sourced pipeline, 18% conversion rate uplift</p>
-        </div>
+        <SectionReveal client:visible direction="right" delay={0.2}>
+          <div class="hp-newsletter__card">
+            <p class="text-caption text-accent tracking-wide mb-3 font-bold">Newsletter</p>
+            <h3 class="text-xl text-white font-bold mb-3">Get the field notes</h3>
+            <p class="text-sm text-gray-400 mb-6">
+              Observations on B2B SaaS growth — frameworks, teardowns, and what's working.
+            </p>
+            <form action="https://formspree.io/f/xpqlbarl" method="POST" class="flex gap-3" id="hp-newsletter-form">
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@company.com"
+                class="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+              />
+              <button type="submit" class="px-5 py-3 bg-accent text-black font-bold rounded-lg text-sm hover:bg-accent-hover transition-colors whitespace-nowrap">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </SectionReveal>
       </div>
-
-      <div class="mt-10">
-        <a href="/experience" class="text-blue-bright hover:text-white transition-colors font-bold">
-          See all experience →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter -->
-  <NewsletterForm variant="default" />
-
-  <!-- Footer CTA -->
-  <section class="py-16 md:py-24 bg-black border-t border-gray-800">
-    <div class="container-narrow text-center">
-      <h2 class="text-display text-white font-bold mb-6" data-animate>Before you hire, build, or buy</h2>
-      <p class="text-body-lg text-gray-400 max-w-prose mx-auto mb-8">
-        Know what you're actually missing. A 30-minute conversation — no pitch, no deck. What's happening in your growth system and how to think about it.
-      </p>
-      <a href="/services" class="text-blue-bright hover:text-white transition-colors font-bold text-body-lg">
-        Start a conversation
-      </a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* ================================================
+     HOMEPAGE SCOPED STYLES (hp-* namespace)
+     Mirrors services page sv-* pattern
+     ================================================ */
+
+  /* Hero Grid */
+  .hp-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .hp-hero__grid {
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Stat Cards (Hero right side) */
+  .hp-stat-card {
+    background: rgba(22, 27, 34, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(49, 49, 53, 0.6);
+    border-radius: 12px;
+    padding: 1.25rem 1.75rem;
+    min-width: 200px;
+    text-align: right;
+  }
+  .hp-stat-card__number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1.1;
+  }
+  .hp-stat-card__label {
+    font-size: 0.75rem;
+    color: #afafb6;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.25rem;
+  }
+
+  /* Buttons */
+  .hp-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-size: 0.9375rem;
+  }
+  .hp-btn--primary {
+    background: white;
+    color: black;
+  }
+  .hp-btn--primary:hover {
+    background: #e5e5e5;
+  }
+  .hp-btn--ghost {
+    border: 1px solid #4b5563;
+    color: white;
+  }
+  .hp-btn--ghost:hover {
+    border-color: white;
+  }
+
+  /* Carousel Cards */
+  .hp-carousel__card {
+    background: rgba(22, 27, 34, 0.8);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid #313135;
+    border-left: 3px solid var(--accent);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+  }
+  .hp-carousel__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  }
+  .hp-carousel__tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    background: rgba(29, 226, 196, 0.15);
+    color: var(--accent);
+    backdrop-filter: blur(8px);
+  }
+  .hp-carousel__tag--blue {
+    background: rgba(0, 81, 255, 0.15);
+    color: #6b9fff;
+  }
+
+  /* Framework Cards */
+  .hp-framework__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .hp-framework__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .hp-fw-card {
+    background: rgba(22, 27, 34, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(49, 49, 53, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hp-fw-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  }
+  .hp-fw-card__inner {
+    padding: 2rem 1.75rem 2.25rem;
+    border-top: 3px solid transparent;
+    border-radius: 12px 12px 0 0;
+  }
+  .hp-fw-card--turquoise .hp-fw-card__inner { border-top-color: var(--accent); }
+  .hp-fw-card--blue .hp-fw-card__inner { border-top-color: #0051ff; }
+  .hp-fw-card--purple .hp-fw-card__inner { border-top-color: #8b5cf6; }
+  .hp-fw-card__number {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Asymmetric Split Grid (reused) */
+  .hp-split__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .hp-split__grid {
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Work Cards */
+  .hp-work__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hp-work__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .hp-work__card {
+    background: #161b22;
+    border-radius: 12px;
+    padding: 2rem 1.75rem;
+    border: 1px solid #313135;
+    border-left: 3px solid var(--accent);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hp-work__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  }
+  .hp-work__tag {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .hp-work__tag--blue { color: #6b9fff; }
+  .hp-work__tag--purple { color: #a78bfa; }
+
+  /* FAQ Layout */
+  .hp-faq__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media (min-width: 1024px) {
+    .hp-faq__grid {
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+  }
+  .hp-faq__header {
+    position: sticky;
+    top: 8rem;
+    align-self: start;
+  }
+  .hp-faq__questions {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .hp-faq__item {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #1f2937;
+  }
+  .hp-faq__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* Newsletter Card */
+  .hp-newsletter__card {
+    background: #161b22;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #313135;
+    border-left: 3px solid var(--accent);
+  }
+</style>
