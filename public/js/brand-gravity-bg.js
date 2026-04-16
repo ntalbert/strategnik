@@ -62,7 +62,7 @@
   let gasParticleData = [];
 
   // Offset: push orb/icons to right side of viewport
-  const GRAVITY_CENTER_X = 5;
+  const GRAVITY_CENTER_X = 8;
 
   // Interaction
   let isDragging = false;
