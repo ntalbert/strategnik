@@ -70,7 +70,7 @@ const allContent = [...posts, ...caseStudies]
                 </span>
               </span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-xl leading-relaxed mb-10" data-animate-hero-sub>
+            <p class="text-xl md:text-2xl text-gray-200 max-w-xl leading-relaxed mb-10 hp-section-pop" data-animate-hero-sub>
               Every growth system has physics — forces that compound or dissipate, friction that slows or accelerates, and gravitational pull that attracts or repels. What you're seeing is that system in motion. We build the context architecture that harnesses it.
             </p>
             <div class="flex flex-wrap gap-4 mb-12" data-animate-hero-links>
@@ -151,10 +151,10 @@ const allContent = [...posts, ...caseStudies]
     <section class="pt-20 md:pt-32 pb-16">
       <div class="container-content">
         <p class="text-caption text-white tracking-wide mb-4 font-bold">Framework</p>
-        <h2 class="text-display-xl font-display italic text-white font-extrabold mb-6">
+        <h2 class="text-display-xl font-display italic text-white font-extrabold mb-6 hp-section-pop">
           The Physics of Growth
         </h2>
-        <p class="text-body-lg text-gray-300 max-w-2xl">
+        <p class="text-body-lg text-gray-300 max-w-2xl hp-section-pop">
           The ecosystem you see pulling everything into orbit? That's not decoration — it's the principle. Every growth system operates under physics: forces that compound, friction that resists, and gravitational pull that either attracts your market or lets it drift away. We diagnose which forces are working against you, then build the systems to shift them.
         </p>
       </div>
@@ -531,6 +531,19 @@ const allContent = [...posts, ...caseStudies]
       grid-template-columns: 3fr 2fr;
       gap: 4rem;
     }
+  }
+
+  /* Hero text pop */
+  h1[data-animate-hero] {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 4px 40px rgba(0, 0, 0, 0.4);
+  }
+  h1[data-animate-hero] .hp-rotating-word--active {
+    text-shadow: 0 2px 30px rgba(29, 226, 196, 0.3), 0 4px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Section headings pop */
+  .hp-section-pop {
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
   }
 
   /* Rotating Words */
