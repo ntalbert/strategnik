@@ -64,7 +64,7 @@ const allContent = [...posts, ...caseStudies]
             <p class="text-xl md:text-2xl text-gray-300 max-w-xl leading-relaxed mb-10" data-animate-hero-sub>
               Every growth system has physics — forces that compound or dissipate, friction that slows or accelerates, and gravitational pull that attracts or repels. What you're seeing is that system in motion. We build the context architecture that harnesses it.
             </p>
-            <div class="flex flex-wrap gap-4" data-animate-hero-links>
+            <div class="flex flex-wrap gap-4 mb-12" data-animate-hero-links>
               <a href="/intelligence-layer" class="hp-btn hp-btn--primary">
                 The Intelligence Layer
               </a>
@@ -72,21 +72,23 @@ const allContent = [...posts, ...caseStudies]
                 Start a conversation
               </a>
             </div>
+            <div class="hidden md:flex gap-6" data-animate-hero-sub>
+              <div class="hp-stat-inline">
+                <span class="hp-stat-inline__number">20+</span>
+                <span class="hp-stat-inline__label">Years in B2B SaaS</span>
+              </div>
+              <div class="hp-stat-inline">
+                <span class="hp-stat-inline__number">3</span>
+                <span class="hp-stat-inline__label">Companies Acquired</span>
+              </div>
+              <div class="hp-stat-inline">
+                <span class="hp-stat-inline__number">~100%</span>
+                <span class="hp-stat-inline__label">Avg Pipeline Growth</span>
+              </div>
+            </div>
           </div>
-          <div class="hidden lg:flex flex-col justify-center items-end gap-6" data-animate-hero-sub>
-            <div class="hp-stat-card">
-              <span class="hp-stat-card__number">20+</span>
-              <span class="hp-stat-card__label">Years in B2B SaaS</span>
-            </div>
-            <div class="hp-stat-card">
-              <span class="hp-stat-card__number">3</span>
-              <span class="hp-stat-card__label">Companies Acquired</span>
-            </div>
-            <div class="hp-stat-card">
-              <span class="hp-stat-card__number">~100%</span>
-              <span class="hp-stat-card__label">Avg Pipeline Growth</span>
-            </div>
-          </div>
+          <!-- Right side: empty — let the animation breathe -->
+          <div class="hidden lg:block"></div>
         </div>
       </div>
     </section>
@@ -497,29 +499,24 @@ const allContent = [...posts, ...caseStudies]
     }
   }
 
-  /* Stat Cards (Hero right side) */
-  .hp-stat-card {
-    background: rgba(22, 27, 34, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(49, 49, 53, 0.6);
-    border-radius: 12px;
-    padding: 1.25rem 1.75rem;
-    min-width: 200px;
-    text-align: right;
+  /* Stat Cards (inline, below CTAs) */
+  .hp-stat-inline {
+    border-left: 2px solid rgba(29, 226, 196, 0.4);
+    padding-left: 1rem;
   }
-  .hp-stat-card__number {
+  .hp-stat-inline__number {
     display: block;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 900;
-    color: var(--accent);
+    color: white;
     line-height: 1.1;
   }
-  .hp-stat-card__label {
-    font-size: 0.75rem;
+  .hp-stat-inline__label {
+    font-size: 0.6875rem;
     color: #afafb6;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    margin-top: 0.25rem;
+    margin-top: 0.125rem;
   }
 
   /* Buttons */
