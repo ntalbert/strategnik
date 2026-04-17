@@ -13,37 +13,39 @@ speakable:
   - "article h2:nth-of-type(3) + p"
 ---
 
-The first time I saw a LangGraph diagram for a marketing agent, I counted twenty-three nodes. State machines, routing logic, fallback branches, a supervisor, three specialist sub-agents, a tool-calling layer, a retry loop, and a human-in-the-loop gate that never actually routed to a human. The team that built it was proud of it. They should have been. A year earlier, you needed that much scaffolding to get a model to reliably write an outbound email.
+The first time I saw a diagram for a marketing AI agent, I counted twenty-three boxes connected by arrows. Each box was a decision the engineers had made *for* the AI: go here if the customer says X, go there if the email bounces, check with a human before sending anything over $10K, and on and on. State machines, routing logic, fallback branches — the kind of detailed instruction manual you'd write for an unreliable intern.
 
-Six months later, the same team threw the whole thing out. Claude Code could do it in one prompt with four tools and no graph.
+The team that built it was proud of it. They should have been. A year earlier, you needed that much scaffolding to get an AI model to reliably write a single outbound email.
 
-That's not a story about LangGraph. It's a story about what happens when the thing inside the scaffolding gets smarter than the scaffolding assumed. And it's happening right now, at the frontier of AI, in a way that has direct implications for how B2B marketing teams should think about what they're building.
+Six months later, they threw the whole thing out. A newer, smarter model could do the same job with one instruction and four tools. No flowchart. No twenty-three boxes. Just: "Here's the goal, here are the tools you can use, go."
 
-Anthropic put the principle plainly: every component in a harness encodes an assumption about what the model can't do on its own, and those assumptions go stale as models improve. The guardrails you built for a dumb model hobble a smart one. Scaffolding accumulates. Then, eventually, it comes down.
+That's not a story about one team's tech stack. It's a story about what happens when the thing inside the scaffolding gets smarter than the scaffolding assumed it would be. And it's happening right now, across the entire AI industry, in a way that has direct implications for how B2B marketing teams should think about what they're building.
+
+Anthropic — the company behind Claude — put the principle plainly: every component in an AI system encodes an assumption about what the model can't do on its own. Those assumptions go stale as models improve. The guardrails you built for a dumb model hobble a smart one. Scaffolding accumulates. Then, eventually, it comes down.
 
 I think most B2B marketing teams are building the wrong thing right now, for the same reason.
 
 ## What the AI infrastructure crowd just figured out
 
-Here's what's happening one layer below the marketing stack, in the world of AI engineering.
+Here's what's happening one layer below the marketing stack, in the world of AI engineering. It matters for you because these patterns always migrate upward into the tools marketers buy.
 
-The frameworks — LangGraph, CrewAI, AutoGen, Semantic Kernel, the agent SDKs from OpenAI and AWS and Google — were necessary two years ago. Models couldn't hold multi-step plans. They couldn't recover from errors. They couldn't decide when to call a tool and when to think. So engineers built elaborate cages: orchestration graphs, state machines, routing logic, supervisor patterns. The cage made the dumb thing inside look smart.
+Two years ago, AI models were powerful but unreliable. They'd lose track of multi-step tasks. They'd make errors and not recover. They'd use a tool when they should have been thinking, or think when they should have been acting. So engineers built elaborate management systems around them — frameworks like LangGraph, CrewAI, AutoGen, and others. Think of these as detailed playbooks that told the AI exactly what to do at every step, because the AI couldn't be trusted to figure it out.
 
-Models got smarter. The cages started hobbling them.
+The frameworks worked. But they solved for a model that was dumb. When models got smarter — capable of holding plans, recovering from errors, knowing when to use which tool — the playbooks started getting in the way. The AI wanted to take a shortcut to the answer, but the framework forced it through twelve predetermined steps.
 
 ![Diagram showing 23 interconnected agent-graph nodes on the left collapsing into a single model with four tools on the right — from engineered complexity to elegant simplicity](/images/posts/scaffolding-complex-to-simple.png)
 
-The practitioners at the edge have noticed. They've collapsed the stack into a simpler pattern: a powerful model inside a powerful harness. Claude Code. Codex. A few tools. No graph. The assumption the cage was built around — *the model can't handle this on its own* — stopped being true.
+The best engineering teams have noticed. They've collapsed the stack into a simpler pattern: a powerful model with a few tools and clear goals. No flowchart. No predetermined steps. The assumption these frameworks were built around — *the model can't handle this on its own* — stopped being true.
 
 But there's a second problem, and this is the one marketing leaders need to pay attention to.
 
-Access to a computer isn't understanding. Give a smart agent a thousand documents and ask it a question, and it will search, guess, and confabulate. Multiply that across fifty agents with no shared model of the world, and you get something that's intelligent in isolation and incoherent in combination. Which is, not coincidentally, a reasonable description of what a lot of [AI-enabled marketing teams look like right now](/thinking/your-ai-is-still-a-chatbot).
+A smart model with access to your files is not a smart model that *understands your business*. Give it a thousand documents and ask a question, and it will search, guess, and fill in the gaps with plausible-sounding fiction. Multiply that across fifty AI tools in your stack, none of them sharing a common understanding of your market, and you get something that's intelligent in isolation and incoherent in combination. Which is, not coincidentally, a reasonable description of what a lot of [AI-enabled marketing teams look like right now](/thinking/your-ai-is-still-a-chatbot).
 
-The AI infrastructure crowd has a name for the fix: ontology. A structured, typed, linked model of the domain — what exists, what its properties are, how things relate. The agent doesn't search and hope. It queries a graph it can actually reason over.
+The AI engineering world has a name for the fix: ontology. In plain terms, it's a structured model of your domain — what things exist, what their properties are, and how they relate to each other. Instead of the AI searching through documents and hoping to find the answer, it queries a knowledge model it can actually reason over. Think of it as the difference between handing someone a filing cabinet and handing them an org chart with a glossary.
 
-Two symmetrical patterns. A powerful model inside a powerful harness, on one side. Powerful data inside a powerful ontology, on the other. Put them together and the agent stops generating and starts understanding.
+Two symmetrical patterns. A powerful model with clear goals and minimal scaffolding, on one side. Powerful, structured knowledge the model can actually use, on the other. Put them together and the AI stops generating plausible outputs and starts producing informed ones.
 
-That's the pattern at the frontier. Here's why it matters to you.
+That's the pattern emerging at the frontier of AI engineering. Here's why it matters for your GTM.
 
 ## The mass problem in AI-native GTM
 
@@ -53,7 +55,7 @@ Mass, in GTM terms, is the accumulated weight of what your company knows about i
 
 Most B2B marketing organizations carry this mass in the wrong places. It's in the head of the VP Marketing. It's in a deck that got used twice and then sat in a shared drive. It's in a Notion page nobody updates. It's in Slack threads that scrolled off the screen. It's in the muscle memory of three senior ICs who are about to leave.
 
-That was fine when humans did the work. Humans can infer. They can ask. They can read the room. Agents can't. Agents need the mass to be *structured* — typed, linked, queryable — or they produce exactly what the AI infrastructure people are warning about: fifty tools doing plausible-sounding work, none of them sharing a model of the world, all of them drifting in slightly different directions.
+That was fine when humans did the work. Humans can infer from incomplete context. They can ask a colleague. They can read the room. AI agents can't. They need the mass to be *structured* — organized with clear definitions, explicit relationships, and rules they can query — or they produce exactly what the AI infrastructure people are warning about: fifty tools doing plausible-sounding work, none of them sharing a model of the world, all of them drifting in slightly different directions.
 
 The result is the thing I hear from every marketing leader running AI pilots right now: *output went up, pipeline didn't move*. Five teams interpreting the same brief five different ways, now doing it faster.
 
@@ -65,11 +67,11 @@ Here's the part that changes how you should be investing.
 
 Everyone has access to the same frontier models. GPT, Claude, Gemini — they're rented, they're swappable, they get replaced every twelve months. That's commodity, and the cost of that commodity is dropping roughly 4x per year.
 
-Everyone can build a harness. Claude Code exists. Agent SDKs exist. The tooling gap between "sophisticated AI team" and "competent AI team" is closing fast. That's commodity too.
+Everyone can build the wiring around those models — the agent frameworks, the tool integrations, the automation layer. Claude Code exists. Agent SDKs exist. The tooling gap between "sophisticated AI team" and "competent AI team" is closing fast. That's commodity too.
 
 ![Three-layer stack showing Models (commodity, rented) and Harness (replaceable) floating above Ontology — the only layer with gravity, roots, and permanence](/images/posts/scaffolding-commodity-vs-owned.png)
 
-What isn't commodity — what cannot be bought, rented, or copied — is your domain model. Your ontology. The structured representation of how *your* company understands its market, its buyers, its competitors, its message, its metrics. That has to be built. It has to be maintained. And it only works for you.
+What isn't commodity — what cannot be bought, rented, or copied — is your domain model. Your ontology. The structured representation of how *your* company understands its market, its buyers, its competitors, its message, its metrics — organized so that any AI tool can query it and get a consistent, authoritative answer. That has to be built. It has to be maintained. And it only works for you.
 
 Every dollar your team spends on a new framework, a new agent builder, a new AI-native marketing point solution, is a dollar you could have spent building mass that compounds. The framework will be commodity in a year. The ontology will still be working for you in five.
 
@@ -77,25 +79,27 @@ Every dollar your team spends on a new framework, a new agent builder, a new AI-
 
 This is what I've been building with clients under the name [Intelligence Layer](/thinking/six-components-of-an-intelligence-layer). I didn't call it an ontology when I started — I called it a [machine-readable operating context](/thinking/context-engineering-vs-intelligence-layer). Same idea, different vocabulary.
 
-Six components. Brand spec. ICP hierarchy. Competitive framing. Content architecture. Distribution schema. Measurement targets. Each one captured in two forms: a human-readable narrative for the CMO and the board, and a structured, machine-readable specification for every AI tool in the stack.
+Six components. Brand spec. ICP hierarchy. Competitive framing. Content architecture. Distribution schema. Measurement targets. Each one captured in two forms: a human-readable narrative that the CMO presents to the board, and a structured, machine-readable specification that every AI tool in the stack can query and act on without asking a human to re-explain it.
 
 ![Dual-format architecture showing six Intelligence Layer components each forking into human-readable outputs for the CMO and machine-readable outputs for AI agents and CRM systems](/images/posts/scaffolding-intelligence-layer-dual.png)
 
-The ICP isn't a paragraph in a deck. It's a typed taxonomy with scoring logic, trigger events, and disqualification rules, exportable to the CRM, the enrichment stack, and the agent prompts. Every tool scores the same lead the same way.
+Here's what that looks like in practice.
 
-The competitive framing isn't a battlecard. It's a typed graph — competitor, claim, evidence, counter, proof point — that a sales agent can query, a content system can cite, and an [answer-engine optimization](/thinking/gtm-architect-guide-answer-engine-optimization) pipeline can structure into schema markup. When a new competitor emerges, you extend the graph. You don't rewrite thirty battlecards.
+The ICP isn't a paragraph in a deck that someone pastes into a prompt. It's a structured taxonomy: which companies qualify, which don't, what triggers a score change, what disqualifies. Exportable to the CRM, the enrichment stack, and the agent prompts in the same format. Every tool in your stack scores the same lead the same way because they're all reading from the same source.
 
-The measurement targets aren't a dashboard. They're metric definitions with formulas, source bindings, and alert logic, readable by humans and by agents. Every dashboard, every standup, every QBR runs on the same numbers with the same definitions.
+The competitive framing isn't a PDF battlecard. It's a structured knowledge base — competitor, claim, evidence, counter, proof point — organized so that a sales agent can query it for objection handling, a content system can cite it for comparison pages, and an [answer-engine optimization](/thinking/gtm-architect-guide-answer-engine-optimization) pipeline can structure it into schema markup for AI search. When a new competitor emerges, you extend the knowledge base. You don't rewrite thirty battlecards.
 
-This is mass, in a form agents can actually use. It's the thing that turns fifty agents from incoherent combination into coordinated system.
+The measurement targets aren't a dashboard someone built in Looker. They're metric definitions with formulas, data source bindings, and alert thresholds — readable by humans and by agents alike. Every dashboard, every standup, every QBR runs on the same numbers with the same definitions because the definitions live in one place.
+
+This is mass, in a form AI tools can actually use. It's the thing that turns fifty disconnected agents into a coordinated system — not by adding more scaffolding on top, but by giving them a shared foundation underneath.
 
 ## What you should do differently this quarter
 
 Two things.
 
-First, stop evaluating AI-native marketing tools as features. Evaluate them as load on your ontology. If a tool requires you to re-explain your ICP, your voice, your competitive positioning, your metrics — in its own schema, in its own way — it's adding scaffolding, not mass. The tools that will survive the next two years are the ones that consume a structured context you own and bring back structured output you can integrate. If the tool can't do that, it's a transient phase.
+First, stop evaluating AI-native marketing tools as features. Evaluate them as load on your knowledge model. If a tool requires you to re-explain your ICP, your voice, your competitive positioning, your metrics — in its own format, in its own way, from scratch — it's adding scaffolding, not mass. It's another box on a flowchart that will get thrown out in a year. The tools that will survive the next two years are the ones that consume a structured context you own and bring back structured output you can integrate. If the tool can't do that, it's a transient phase.
 
-Second, if you're the CMO or the founder deciding between hiring a marketing leader and investing in an AI-native system, the question isn't which one to pick. The question is whether either one is going to produce the ontology, or just consume it. A CMO hire who will write down how the company understands its market, its buyers, and its wins — in a form the rest of the stack can operate from — is worth the salary. A CMO hire who will keep all that in their head and leave in eighteen months is a scaffolding cost.
+Second, if you're the CMO or the founder deciding between hiring a marketing leader and investing in an AI-native system, the question isn't which one to pick. The question is whether either one is going to produce the ontology — the structured, queryable model of how your company wins — or just consume it. A CMO hire who will write down how the company understands its market, its buyers, and its wins, in a form the rest of the stack can operate from, is worth the salary. A CMO hire who will keep all that in their head and leave in eighteen months is a scaffolding cost.
 
 The frameworks are commodity. The models are rented. The only durable thing in AI-native GTM is the structured knowledge of how your company wins. Build that, and everything you bolt on top compounds. Skip it, and every tool you buy is load-bearing until the day it isn't.
 
