@@ -6,7 +6,7 @@ date: 2026-04-17T00:00:00.000Z
 category: field-notes
 featured: true
 draft: false
-image: /images/posts/scaffolding-always-comes-down.png
+image: /images/posts/why-ai-made-marketing-faster-not-better.png
 speakable:
   - "article h2:nth-of-type(1) + p"
   - "article h2:nth-of-type(2) + p"
