@@ -252,13 +252,26 @@ const currentUrl = Astro.url.href;
             </div>
           </div>
 
-          <!-- CTA -->
+          <!-- CTA (A/B test) -->
           <div class="sidebar-section">
-            <a href="/gravity-audit" class="cta-button">
-              Get a Gravity Audit
-              <small>Free GTM diagnostic &mdash; 30 minutes</small>
+            <a href="/gravity-audit" class="cta-button" data-cta="sidebar" onclick="window.gtag?.('event','cta_click',{cta_variant:localStorage.getItem('cta_variant')||'A',cta_location:'sidebar'})">
+              <span data-cta-headline>Get a Gravity Audit</span>
+              <small data-cta-subtitle>Free GTM diagnostic &mdash; 30 minutes</small>
             </a>
           </div>
+          <script>
+            (function(){
+              var s = localStorage.getItem('cta_variant');
+              if (!s) { s = Math.random() < 0.5 ? 'A' : 'B'; localStorage.setItem('cta_variant', s); }
+              if (s === 'B') {
+                var h = document.querySelector('[data-cta="sidebar"] [data-cta-headline]');
+                var sub = document.querySelector('[data-cta="sidebar"] [data-cta-subtitle]');
+                if (h) h.textContent = 'Map Your GTM Gravity';
+                if (sub) sub.innerHTML = 'Free 30-minute diagnostic';
+              }
+              window.gtag?.('event','cta_impression',{cta_variant:s,cta_location:'sidebar'});
+            })();
+          </script>
 
         </div>
       </aside>

@@ -1,21 +1,53 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
+
+const VARIANTS = {
+  A: { label: 'Get Your Gravity Audit', event: 'cta_gravity_audit' },
+  B: { label: 'Map Your GTM Gravity', event: 'cta_gravity_map' },
+} as const;
+
+type Variant = keyof typeof VARIANTS;
+
+function getVariant(): Variant {
+  if (typeof window === 'undefined') return 'A';
+  const stored = localStorage.getItem('cta_variant');
+  if (stored === 'A' || stored === 'B') return stored;
+  const picked: Variant = Math.random() < 0.5 ? 'A' : 'B';
+  localStorage.setItem('cta_variant', picked);
+  return picked;
+}
 
 export default function FloatingCta() {
   const [visible, setVisible] = useState(false);
+  const [variant, setVariant] = useState<Variant>('A');
+  const impressionFired = useRef(false);
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    setVariant(getVariant());
+  }, []);
+
+  useEffect(() => {
+    if (visible && !impressionFired.current) {
+      impressionFired.current = true;
+      window.gtag?.('event', 'cta_impression', {
+        cta_variant: variant,
+        cta_location: 'floating',
+      });
+    }
+  }, [visible, variant]);
+
+  useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
+      const scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
       const footerCta = document.getElementById('il-footer-cta');
 
       if (footerCta) {
         const rect = footerCta.getBoundingClientRect();
         const footerVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        setVisible(scrollY > 500 && !footerVisible);
+        setVisible(scrollPct > 0.25 && !footerVisible);
       } else {
-        setVisible(scrollY > 500);
+        setVisible(scrollPct > 0.25);
       }
     };
 
@@ -24,10 +56,19 @@ export default function FloatingCta() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleClick = () => {
+    window.gtag?.('event', 'cta_click', {
+      cta_variant: variant,
+      cta_location: 'floating',
+      cta_label: VARIANTS[variant].label,
+    });
+  };
+
   return (
     <motion.a
       href="/gravity-audit"
-      aria-label="Get Your Gravity Audit"
+      aria-label={VARIANTS[variant].label}
+      onClick={handleClick}
       initial={shouldReduceMotion ? { opacity: visible ? 1 : 0 } : { opacity: 0, y: 20 }}
       animate={
         visible
@@ -43,7 +84,7 @@ export default function FloatingCta() {
         pointerEvents: visible ? 'auto' : 'none',
       }}
     >
-      Get Your Gravity Audit
+      {VARIANTS[variant].label}
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -59,3 +100,6 @@ export default function FloatingCta() {
     </motion.a>
   );
 }
+
+export { getVariant, VARIANTS };
+export type { Variant };
