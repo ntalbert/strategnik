@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
+import WritingGrid from '../../components/WritingGrid.astro';
 import { getCollection } from 'astro:content';
 
 // ============================================
@@ -127,78 +128,7 @@ function formatDateShort(date: Date): string {
   description="Strategy, tactics, and field notes from the intersection of B2B marketing and AI."
 >
 
-  <div class="listing-page">
-    <!-- Header -->
-    <header class="listing-header">
-      <h1 class="listing-title">Growth Physics: Field Notes</h1>
-      <p class="listing-subtitle">Strategy, tactics, and field notes from the intersection of B2B marketing and AI.</p>
-    </header>
-
-    <!-- Hero Grid -->
-    <div class="hero-grid">
-      <!-- Main Featured -->
-      <div class="hero-main">
-        <a href={heroMain.url} class="card">
-          <div class="card-image">
-            {heroMain.image ? (
-              <img src={heroMain.image} alt={heroMain.title} class="card-img" />
-            ) : (
-              <div class="card-img-placeholder"></div>
-            )}
-            <span class={`card-badge ${getBadgeClass(heroMain.category)}`}>{getBadgeLabel(heroMain.category)}</span>
-            <div class="card-overlay">
-              <h3>{heroMain.title}</h3>
-              <div class="card-meta">{formatDate(heroMain.date)}</div>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Sidebar Stack -->
-      <div class="hero-sidebar">
-        {heroSidebar.map((post) => (
-          <a href={post.url} class="card">
-            <div class="card-image">
-              {post.image ? (
-                <img src={post.image} alt={post.title} class="card-img" />
-              ) : (
-                <div class="card-img-placeholder"></div>
-              )}
-              <span class={`card-badge ${getBadgeClass(post.category)}`}>{getBadgeLabel(post.category)}</span>
-              <div class="card-overlay">
-                <h3>{post.title}</h3>
-                <div class="card-meta">{formatDate(post.date)}</div>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-
-    <!-- Grid Section -->
-    <div class="grid-section">
-      <div class="grid-section-label">All Posts</div>
-      <div class="post-grid">
-        {allGridItems.map((item) => (
-          <a href={item.url} class="grid-card">
-            <div class="grid-card-image">
-              {item.image ? (
-                <img src={item.image} alt={item.title} class="grid-card-img" />
-              ) : (
-                <div class="grid-card-img-placeholder"></div>
-              )}
-            </div>
-            <div class="grid-card-body">
-              <span class={`card-badge-inline ${getBadgeClass(item.category)}`}>{getBadgeLabel(item.category)}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <div class="grid-meta">{formatDateShort(item.date)}</div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </div>
+  <WritingGrid posts={contentPosts} />
 
   <!-- Newsletter -->
   <NewsletterForm

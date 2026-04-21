@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionReveal from '../components/SectionReveal';
 import EngagementJourney from '../components/EngagementJourney';
+import ServicesTiers from '../components/ServicesTiers';
 
 const title = "Services — Intelligence Layer Build, Diagnostic, and Advisory";
 const description = "Strategnik builds the Intelligence Layer — the foundational operating context that makes AI-native marketing possible. Diagnostic, sprint build, and ongoing advisory for Series B through pre-IPO B2B SaaS.";
@@ -96,84 +97,9 @@ const description = "Strategnik builds the Intelligence Layer — the foundation
   </section>
 
   <!-- ============================================ -->
-  <!-- ENGAGEMENT LADDER — 3 Cards                  -->
+  <!-- ENGAGEMENT TIERS — ServicesTiers Component   -->
   <!-- ============================================ -->
-  <section class="sv-section sv-section--ladder">
-    <div class="container-content">
-      <SectionReveal client:visible>
-        <p class="sv-section__label">How I Work</p>
-        <h2 class="sv-section__headline font-display">The Engagement Ladder</h2>
-      </SectionReveal>
-
-      <div class="sv-ladder__grid">
-        <!-- Diagnostic -->
-        <SectionReveal client:visible delay={0.1} className="sv-card sv-card--turquoise">
-          <div class="sv-card__inner">
-            <span class="sv-card__tag sv-card__tag--turquoise">Entry Point</span>
-            <h3 class="sv-card__title">Intelligence Layer Diagnostic</h3>
-            <p class="sv-card__desc">
-              A 2-4 week assessment that maps your marketing function across all six components of the Intelligence Layer. Walk away with a gap analysis, an architecture blueprint, and a sequenced build plan — whether you engage further or hand it to your internal team.
-            </p>
-            <ul class="sv-card__bullets">
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Six-component gap analysis (what exists, what's missing, what's broken)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI discoverability scorecard across ChatGPT, Perplexity, AI Overviews</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Execution tax quantification (hours, cost per output, signal-to-response latency)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Architecture blueprint specific to your company, market, and stage</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sequenced build plan with clear priorities</li>
-            </ul>
-            <a href="/pricing" class="sv-card__link">See pricing <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </SectionReveal>
-
-        <!-- Sprint Build (elevated) -->
-        <SectionReveal client:visible delay={0.2} className="sv-card sv-card--blue sv-card--elevated">
-          <div class="sv-card__inner">
-            <span class="sv-card__tag sv-card__tag--blue">The Build</span>
-            <h3 class="sv-card__title">Intelligence Layer Sprint</h3>
-            <p class="sv-card__desc">
-              A 30-90 day engagement that builds and deploys the full Intelligence Layer — all six components encoded, documented, and connected to your marketing stack. Training for your internal team on how to maintain, update, and extend the layer.
-            </p>
-            <ul class="sv-card__bullets">
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Brand + voice spec (machine-readable, not a PDF)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ICP + buyer context (personas, pain hierarchy, objection framing)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Competitive framing (displacement narratives, differentiation)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Content architecture (topic clusters, atomization frameworks, templates)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Machine readability + distribution schema (JSON-LD, llms.txt, entity definitions)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Measurement targets (revenue influence, feedback loops)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Team training and handoff</li>
-            </ul>
-            <a href="/pricing" class="sv-card__link">See pricing <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </SectionReveal>
-
-        <!-- Advisor Retainer -->
-        <SectionReveal client:visible delay={0.3} className="sv-card sv-card--purple">
-          <div class="sv-card__inner">
-            <span class="sv-card__tag sv-card__tag--purple">Ongoing</span>
-            <h3 class="sv-card__title">Advisor Retainer</h3>
-            <p class="sv-card__desc">
-              Monthly signal review plus layer update cycle plus agent deployment guidance. The layer doesn't go stale because the retainer is the update cycle. Covers both Stage 3 (humans + AI assist) and Stage 4 (humans + agents running routines).
-            </p>
-            <ul class="sv-card__bullets">
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Monthly signal review (what ranked, converted, missed, shifted)</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Layer update and version control</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Agent deployment guidance as new use cases emerge</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Competitive framing refresh</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Measurement framework calibration</li>
-              <li><svg class="sv-check-sm" viewBox="0 0 24 24" fill="none" stroke="#1de2c4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Marketing org evolution advisory</li>
-            </ul>
-            <a href="/pricing" class="sv-card__link">See pricing <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </SectionReveal>
-      </div>
-
-      <SectionReveal client:visible delay={0.4}>
-        <p class="sv-ladder__footer">
-          See all 25 Intelligence Layer plays in action &rarr; <a href="/playbooks" class="sv-link--turquoise">/playbooks</a>
-        </p>
-      </SectionReveal>
-    </div>
-  </section>
+  <ServicesTiers client:visible />
 
   <!-- ============================================ -->
   <!-- ALSO AVAILABLE — 2-Column Cards              -->

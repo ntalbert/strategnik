@@ -263,3 +263,103 @@
     opacity: 1;
   }
 }
+/* ────────────────────────────────────────────────────────────────
+   bold-additions.css
+   Append to src/styles/global.css AFTER existing :root rules.
+   These are the utilities the Bold components depend on that the
+   existing Tailwind config may not already provide.
+   ──────────────────────────────────────────────────────────────── */
+
+/* Accent variable — confirm this matches the Turquoise 400 in your tailwind.config.mjs */
+:root {
+  --accent: #1de2c4;
+  --accent-hover: #4ae8d0;
+}
+
+/* Container used by every Bold component. If you already have .container-content
+   with a max-width + padding, keep yours and delete this block. */
+.container-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 768px) {
+  .container-content { padding: 0 36px; }
+}
+
+/* Typography utilities consumed by the Bold components.
+   If Tailwind already maps these to font-size tokens, drop this block. */
+.text-display-xl {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.text-display {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.text-heading {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.2;
+}
+.text-body-lg { font-size: 1.125rem; line-height: 1.6; }
+.text-body    { font-size: 1rem;     line-height: 1.65; }
+.text-caption { font-size: 0.75rem;  line-height: 1.4; }
+
+/* Button primitives — mirror the hp-btn pattern already in index.astro */
+.hp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+.hp-btn--primary {
+  background: var(--accent);
+  color: #0d1117;
+  border: none;
+}
+.hp-btn--primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+.hp-btn--ghost {
+  border: 1px solid #4b5563;
+  color: #fff;
+  background: transparent;
+}
+.hp-btn--ghost:hover { border-color: #fff; }
+
+/* Font-display class — maps to Söhne Breit. Confirm your @font-face + Tailwind config
+   already expose this. If not, add `fontFamily: { display: ["Soehne Breit", "serif"] }`
+   to tailwind.config.mjs and this rule becomes a Tailwind utility automatically. */
+.font-display {
+  font-family: 'Soehne Breit', Georgia, serif;
+}
+.font-mono {
+  font-family: 'Sohne Mono', 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Prose overrides for case-study and force-detail pages */
+.prose-invert h2 { color: #fff; }
+.prose-invert h3 { color: #fff; }
+.prose-invert p  { color: #d1d5db; }
+.prose-invert a  { color: var(--accent); }
+.prose-invert strong { color: #fff; }
+.prose-invert blockquote {
+  border-left: 3px solid var(--accent);
+  color: #e5e7eb;
+  font-style: italic;
+}
+
+/* Accent color for Tailwind text-accent / bg-accent where missing */
+.text-accent { color: var(--accent); }
+.bg-accent   { background-color: var(--accent); }
+.border-accent { border-color: var(--accent); }

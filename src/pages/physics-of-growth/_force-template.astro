@@ -1,0 +1,114 @@
+---
+/**
+ * physics-of-growth-force.astro — detail-page template for each force.
+ *
+ * Put this at src/pages/physics-of-growth/[slug].astro and drive from a
+ * `forces` content collection (or inline data file) so you get 6 pages
+ * for free: /physics-of-growth/momentum, /friction, /mass, etc.
+ *
+ * The 6 forces are already linked from ForceCardsBold — this is where
+ * those links land.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+interface Props {
+  name: string;
+  color: string;
+  physics: string;
+  gtm: string;
+  diagnostic: string;
+  hides: Array<{ title: string; description: string }>;
+  playMarkdown: string;  // rendered markdown for "The play" section
+}
+
+const { name, color, physics, gtm, diagnostic, hides, playMarkdown } = Astro.props as Props;
+
+// Default — override per force via the content collection
+const defaultHides = [
+  { title: 'Handoff friction', description: 'SDR → AE. Marketing → Sales. Sales → CS. Every handoff leaks 15–40% of intent signal.' },
+  { title: 'Brand friction', description: 'Three brand docs, five agents, ten writers. Every touchpoint reintroduces the buyer to a different company.' },
+  { title: 'Decision friction', description: "Demo → trial → procurement → legal. Each step resets the buying committee's momentum." },
+  { title: 'Measurement friction', description: "Dashboards that don't tie to pipeline. KPIs that track activity, not energy transfer." },
+];
+const hidesToRender = hides.length ? hides : defaultHides;
+---
+
+<BaseLayout title={`${name} — Physics of Growth — Strategnik`} description={gtm}>
+  <section class="py-20 md:py-28 bg-black">
+    <div class="container-content max-w-3xl">
+      {/* Breadcrumb */}
+      <nav class="flex gap-2 items-center mb-5 text-xs text-gray-500">
+        <a href="/physics-of-growth" class="text-gray-500 no-underline hover:text-gray-300">Physics of Growth</a>
+        <span>/</span>
+        <span style={`color:${color}`}>{name}</span>
+      </nav>
+
+      {/* Title */}
+      <div class="flex items-center gap-5 mb-6">
+        <div
+          class="w-14 h-14 rounded-full flex items-center justify-center border"
+          style={`background:${color}15; border-color:${color};`}
+        >
+          {/* Icon slot — could swap in a <ForceIcon /> React island if desired */}
+          <div class="w-5 h-5 rounded-full" style={`background:${color}`} />
+        </div>
+        <h1 class="text-display-xl font-display italic text-white font-extrabold m-0">{name}</h1>
+      </div>
+
+      {/* Pull quote */}
+      <blockquote
+        class="pl-6 py-2 mb-10 font-display italic text-gray-300 font-normal text-xl leading-relaxed border-l-[3px]"
+        style={`border-color:${color}`}
+      >
+        "{gtm}"
+      </blockquote>
+
+      {/* Two-card split — physics vs diagnostic */}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+        <div class="p-6 rounded-xl border border-[#2b363b]" style="background:#0f1419;">
+          <p class="text-caption text-white uppercase tracking-wider mb-2 font-bold">Physics</p>
+          <p class="text-body text-gray-200 m-0">{physics}</p>
+        </div>
+        <div class="p-6 rounded-xl border" style={`background:#0f1419; border-color:${color}40;`}>
+          <p class="text-caption uppercase tracking-wider mb-2 font-bold" style={`color:${color}`}>
+            Diagnostic question
+          </p>
+          <p class="font-display italic text-white font-extrabold text-base leading-snug m-0">
+            {diagnostic}
+          </p>
+        </div>
+      </div>
+
+      {/* Hides */}
+      <h2 class="text-2xl font-display italic text-white font-extrabold mb-5">
+        Where {name.toLowerCase()} hides
+      </h2>
+      <div class="flex flex-col gap-3.5 mb-12">
+        {hidesToRender.map((h) => (
+          <div
+            class="px-5 py-4 rounded-r-md border-l-[3px]"
+            style={`background:#0a0d11; border-color:${color};`}
+          >
+            <p class="font-display italic text-white font-extrabold text-base mb-1">{h.title}</p>
+            <p class="text-sm text-gray-400 m-0">{h.description}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* The play */}
+      <h2 class="text-2xl font-display italic text-white font-extrabold mb-5">The play</h2>
+      <div class="prose prose-invert max-w-none text-body-lg text-gray-200" set:html={playMarkdown} />
+
+      {/* Tail CTA */}
+      <div class="mt-14 p-7 rounded-xl border" style={`background:#0f1419; border-color:${color};`}>
+        <h3 class="text-xl font-display italic text-white font-extrabold mb-2">
+          Diagnose your own {name.toLowerCase()}.
+        </h3>
+        <p class="text-sm text-gray-400 mb-5">
+          The Gravity Audit identifies which of the six forces is dominant in your funnel. Same-day read-out.
+        </p>
+        <a href="/gravity-audit" class="hp-btn hp-btn--primary">Run the audit →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

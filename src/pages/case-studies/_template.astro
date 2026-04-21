@@ -1,0 +1,101 @@
+---
+/**
+ * case-study-template.astro — replaces current /case-studies/[slug].astro shell.
+ *
+ * This is the editorial shell — fetch the case from the content collection,
+ * pass frontmatter into it. Copy the `const { entry } = Astro.props` pattern
+ * from your existing /thinking/[slug].astro.
+ *
+ * Required frontmatter:
+ *   title, tagline, engagement (e.g. "Intelligence Layer Sprint · 60 days"),
+ *   metrics: [{label, value}], quote: {text, author},
+ *   diagnosis: {markdown},
+ *   buildSteps: [{n, title, description}],
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface Props {
+  title: string;
+  tagline: string;
+  engagement: string;
+  metrics: Array<{ label: string; value: string }>;
+  diagnosisHtml: string;       // already rendered markdown → html
+  buildSteps: Array<{ n: string; title: string; description: string }>;
+  quote: { text: string; author: string };
+}
+
+const {
+  title,
+  tagline,
+  engagement,
+  metrics,
+  diagnosisHtml,
+  buildSteps,
+  quote,
+} = Astro.props as Props;
+---
+
+<BaseLayout title={`${title} — Strategnik`} description={tagline}>
+  <section class="py-20 md:py-28 bg-black">
+    <div class="container-content max-w-3xl">
+      {/* Eyebrow */}
+      <div class="flex gap-2.5 items-center mb-4 flex-wrap">
+        <span class="text-[11px] text-accent uppercase tracking-wider font-bold">Case study</span>
+        <span class="text-gray-700">·</span>
+        <span class="text-sm text-gray-500">{engagement}</span>
+      </div>
+
+      <h1 class="text-display-xl font-display italic text-white font-extrabold mb-6 leading-[1.05]">
+        {title}
+      </h1>
+      <p class="text-body-lg text-gray-300 text-xl max-w-2xl">{tagline}</p>
+
+      {/* Metrics strip */}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5 my-14 py-7 border-t border-b border-[#2b363b]">
+        {metrics.map((m) => (
+          <div>
+            <p class="font-display italic text-accent font-extrabold text-4xl leading-none">{m.value}</p>
+            <p class="text-sm text-gray-400 mt-1.5">{m.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Diagnosis */}
+      <h2 class="text-2xl font-display italic text-white font-extrabold mb-4">The diagnosis</h2>
+      <div class="prose prose-invert max-w-none text-body-lg text-gray-200" set:html={diagnosisHtml} />
+
+      {/* Build steps */}
+      <h2 class="text-2xl font-display italic text-white font-extrabold mb-4 mt-12">The build</h2>
+      <div class="flex flex-col gap-0 mb-10">
+        {buildSteps.map((s) => (
+          <div class="grid grid-cols-[36px_1fr] gap-5 py-4 border-b border-[#18181b]">
+            <div class="font-mono text-accent text-sm font-bold">{s.n}</div>
+            <div>
+              <p class="font-display italic text-white font-extrabold text-base mb-1">{s.title}</p>
+              <p class="text-sm text-gray-400">{s.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Quote */}
+      <blockquote class="p-7 rounded-xl border border-accent/40 bg-[#0f1419] mb-10">
+        <p class="font-display italic text-gray-200 font-normal text-xl leading-relaxed m-0">
+          "{quote.text}"
+        </p>
+        <footer class="mt-3 text-gray-500 text-xs not-italic">— {quote.author}</footer>
+      </blockquote>
+
+      {/* Tail CTA */}
+      <div class="p-7 rounded-xl border border-accent text-center" style="background:#0a0d11;">
+        <h3 class="text-xl font-display italic text-white font-extrabold mb-2">
+          Run the same diagnosis on your funnel.
+        </h3>
+        <p class="text-sm text-gray-400 mb-5">Three questions. Same-day read-out.</p>
+        <a href="/gravity-audit" class="hp-btn hp-btn--primary">
+          Start the Gravity Audit →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

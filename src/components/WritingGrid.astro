@@ -1,0 +1,103 @@
+---
+/**
+ * WritingGrid.astro — editorial 3-column magazine layout for /thinking index.
+ *
+ * Replaces the list view in src/pages/thinking/index.astro.
+ * Receives posts from content collection via props.
+ *
+ * Usage in thinking/index.astro:
+ *   const posts = await getCollection('posts', ({ data }) => data.draft !== true);
+ *   ---
+ *   <WritingGrid posts={posts} />
+ *
+ * Each post needs: slug, data.title, data.date, data.kind ('Thesis' | 'Framework' | 'Playbook' | 'Field Notes'),
+ * data.readingMinutes, data.description (for featured only).
+ * Falls back gracefully if `kind` or `readingMinutes` are missing.
+ */
+
+interface Props {
+  posts: Array<{
+    slug: string;
+    data: {
+      title: string;
+      date: Date;
+      description?: string;
+      kind?: string;
+      readingMinutes?: number;
+    };
+  }>;
+}
+
+const { posts } = Astro.props;
+const sorted = [...posts].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const [featured, ...rest] = sorted;
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+const mins = (p: typeof featured) => p.data.readingMinutes ?? 5;
+---
+
+<section class="py-20 md:py-32 bg-black border-t border-gray-800">
+  <div class="container-content">
+    <div class="flex justify-between items-end mb-12 flex-wrap gap-4">
+      <div>
+        <p class="text-caption text-white tracking-wide mb-4 font-bold uppercase">
+          Writing · Field Notes
+        </p>
+        <h2 class="text-display font-display italic text-white font-extrabold">
+          The thesis, in public.
+        </h2>
+      </div>
+      <a href="/thinking/archive" class="text-accent hover:text-white transition-colors font-bold text-sm">
+        Full archive →
+      </a>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-[1.4fr_1fr_1fr]">
+      {/* Featured */}
+      {featured && (
+        <a
+          href={`/thinking/${featured.slug}`}
+          class="lg:row-span-2 no-underline block group"
+        >
+          <div
+            class="aspect-[4/3] rounded-xl mb-5 relative overflow-hidden"
+            style="background: linear-gradient(135deg, #000510, #001033 70%, #0f1419);"
+          >
+            <div
+              class="absolute inset-0"
+              style="background: radial-gradient(ellipse at 30% 40%, rgba(29,226,196,0.1), transparent 60%);"
+            />
+            <div class="absolute top-5 left-5 font-mono text-[10px] text-accent uppercase tracking-widest">
+              {featured.data.kind ?? 'Thesis'}
+            </div>
+          </div>
+          <p class="text-caption text-blue-bright mb-2 font-bold uppercase text-[10px]">
+            {fmtDate(featured.data.date)} · {mins(featured)} min
+          </p>
+          <h3 class="text-3xl font-display italic text-white font-extrabold mb-3 group-hover:text-accent transition-colors">
+            {featured.data.title}
+          </h3>
+          {featured.data.description && (
+            <p class="text-body text-gray-400">{featured.data.description}</p>
+          )}
+        </a>
+      )}
+
+      {/* Rest */}
+      {rest.slice(0, 4).map((p) => (
+        <a href={`/thinking/${p.slug}`} class="no-underline block group">
+          <p class="text-caption text-blue-bright mb-1.5 font-bold uppercase text-[10px]">
+            {fmtDate(p.data.date)} · {mins(p)} min
+          </p>
+          <h3 class="text-lg font-display italic text-white font-extrabold mb-2 leading-snug group-hover:text-accent transition-colors">
+            {p.data.title}
+          </h3>
+          <span class="inline-block border border-[#2b363b] text-gray-400 text-[10px] px-1.5 py-0.5 rounded">
+            {p.data.kind ?? 'Field Notes'}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import BrandGravityHero from '../components/BrandGravityHero.astro';
 import SectionReveal from '../components/SectionReveal';
+import HeroBold from '../components/HeroBold';
+import GravityAuditFlow from '../components/GravityAuditFlow';
+import ForceCardsBold from '../components/ForceCardsBold';
 import { getCollection } from 'astro:content';
 
 // Fetch posts from content collection
@@ -53,80 +56,14 @@ const allContent = [...posts, ...caseStudies]
 <BaseLayout title="Strategnik — GTM Architecture & the Intelligence Layer for AI-Native Marketing" description="GTM architecture and the Intelligence Layer for Series B through pre-IPO B2B SaaS. Positioning, pipeline, content systems, and AI-native marketing built on the Physics of Growth™ framework.">
   <!-- Brand Gravity Hero Section -->
   <BrandGravityHero overlayOpacity={0.25}>
-    <!-- Hero - Asymmetric Split -->
-    <section class="min-h-screen flex items-center">
-      <div class="container-content">
-        <div class="hp-hero__grid">
-          <div>
-            <h1 class="font-black text-white tracking-tight mb-8" data-animate-hero>
-              <span class="block text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-4 md:mb-6">Growth is physics.</span>
-              <span class="block text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-                <span class="hp-rotating-wrapper">
-                  <span class="hp-rotating-words" id="rotating-words">
-                    <span class="hp-rotating-word hp-rotating-word--active">Build for it.</span>
-                    <span class="hp-rotating-word">Harness it.</span>
-                    <span class="hp-rotating-word">Scale it.</span>
-                  </span>
-                </span>
-              </span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-200 max-w-xl leading-relaxed mb-4 hp-section-pop" data-animate-hero-sub>
-              Momentum, friction, gravity. Three forces running through every deal, every campaign, every quarter. Ignore them and you're building on sand. Map them and you have a growth system.
-            </p>
-            <p class="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed mb-10 hp-section-pop" data-animate-hero-sub>
-              We encode that map so AI executes against it, not around it.
-            </p>
-            <div class="flex flex-wrap gap-4 mb-12" data-animate-hero-links>
-              <a href="/intelligence-layer" class="hp-btn hp-btn--primary">
-                The Intelligence Layer
-              </a>
-              <a href="mailto:nick@strategnik.com" class="hp-btn hp-btn--ghost">
-                Start a conversation
-              </a>
-            </div>
-            <div class="hidden md:flex gap-6" data-animate-hero-sub>
-              <div class="hp-stat-inline">
-                <span class="hp-stat-inline__number">22+</span>
-                <span class="hp-stat-inline__label">Years in Digital B2B</span>
-              </div>
-              <div class="hp-stat-inline">
-                <span class="hp-stat-inline__number">3</span>
-                <span class="hp-stat-inline__label">Successful Acquisitions</span>
-              </div>
-              <div class="hp-stat-inline">
-                <span class="hp-stat-inline__number">87%</span>
-                <span class="hp-stat-inline__label">Avg Client Pipeline Growth</span>
-              </div>
-            </div>
-          </div>
-          <!-- Right side: empty — let the animation breathe -->
-          <div class="hidden lg:block"></div>
-        </div>
-      </div>
-    </section>
+    <!-- Hero - HeroBold replaces previous hero grid -->
+    <HeroBold client:load />
 
-    <!-- Social Proof Strip (Mobile) -->
-    <section class="pb-16 lg:hidden">
-      <div class="container-content">
-        <div class="flex flex-wrap gap-8 justify-center" data-animate-stagger>
-          <div class="text-center">
-            <span class="block text-3xl font-black text-accent">22+</span>
-            <span class="text-xs text-gray-400 uppercase tracking-wider">Years Digital B2B</span>
-          </div>
-          <div class="text-center">
-            <span class="block text-3xl font-black text-accent">3</span>
-            <span class="text-xs text-gray-400 uppercase tracking-wider">Acquisitions</span>
-          </div>
-          <div class="text-center">
-            <span class="block text-3xl font-black text-accent">87%</span>
-            <span class="text-xs text-gray-400 uppercase tracking-wider">Avg Client Pipeline Growth</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Inline Gravity Audit capture below hero -->
+    <GravityAuditFlow client:visible />
 
     <script>
-      // Rotating words animation
+      // Rotating words animation (kept for compatibility)
       (function() {
         const words = document.querySelectorAll('.hp-rotating-word');
         if (!words.length) return;
@@ -150,60 +87,8 @@ const allContent = [...posts, ...caseStudies]
       })();
     </script>
 
-    <!-- Framework Section — The Physics of Growth (immediately after hero) -->
-    <section class="pt-20 md:pt-32 pb-16">
-      <div class="container-content">
-        <p class="text-caption text-white tracking-wide mb-4 font-bold">Framework</p>
-        <h2 class="text-display-xl font-display italic text-white font-extrabold mb-6 hp-section-pop">
-          The Physics of Growth
-        </h2>
-        <p class="text-body-lg text-gray-300 max-w-2xl hp-section-pop">
-          The ecosystem you see pulling everything into orbit? That's not decoration — it's the principle. Every growth system operates under physics: forces that compound, friction that resists, and gravitational pull that either attracts your market or lets it drift away. We diagnose which forces are working against you, then build the systems to shift them.
-        </p>
-      </div>
-    </section>
-
-    <section class="pb-36">
-      <div class="container-content">
-        <div class="hp-framework__grid" data-animate-stagger>
-          <div class="hp-fw-card hp-fw-card--turquoise" data-animate>
-            <div class="hp-fw-card__inner">
-              <span class="hp-fw-card__number">01</span>
-              <h3 class="text-display font-display italic text-white font-extrabold mb-4">Momentum</h3>
-              <p class="text-body text-gray-300">
-                Why some investments compound while others dissipate. The difference between motion and progress.
-              </p>
-            </div>
-          </div>
-
-          <div class="hp-fw-card hp-fw-card--blue" data-animate>
-            <div class="hp-fw-card__inner">
-              <span class="hp-fw-card__number">02</span>
-              <h3 class="text-display font-display italic text-white font-extrabold mb-4">Friction</h3>
-              <p class="text-body text-gray-300">
-                The hidden force destroying your conversion rates. Every unnecessary step, unclear message, and misaligned handoff.
-              </p>
-            </div>
-          </div>
-
-          <div class="hp-fw-card hp-fw-card--purple" data-animate>
-            <div class="hp-fw-card__inner">
-              <span class="hp-fw-card__number">03</span>
-              <h3 class="text-display font-display italic text-white font-extrabold mb-4">Gravity</h3>
-              <p class="text-body text-gray-300">
-                What you see orbiting to the right. Market forces pulling prospects toward you — or letting them drift. The pull that replaces outbound chase.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-10">
-          <a href="/physics-of-growth" class="text-heading font-display italic text-white font-extrabold hover:text-blue-bright transition-colors">
-            Explore the framework →
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Physics of Growth — ForceCardsBold replaces previous framework cards -->
+    <ForceCardsBold client:visible />
 
     <!-- Featured Content Carousel -->
     <section class="pt-10 pb-32">

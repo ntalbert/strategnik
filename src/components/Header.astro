@@ -1,10 +1,23 @@
 ---
 const pathname = Astro.url.pathname;
 
+const frameworkLinks = [
+  { href: '/intelligence-layer', label: 'Intelligence Layer', desc: 'Six components of operating context' },
+  { href: '/physics-of-growth', label: 'Physics of Growth', desc: 'Six forces governing B2B growth' },
+  { href: '/playbooks', label: 'Playbooks', desc: 'Implementation guides' },
+];
+
 const navLinks = [
+  { href: '/work', label: 'Work' },
+  { href: '/thinking', label: 'Writing' },
+  { href: '/services', label: 'Services' },
+];
+
+const mobileLinks = [
   { href: '/intelligence-layer', label: 'Intelligence Layer' },
-  { href: '/physics-of-growth', label: 'Framework' },
+  { href: '/physics-of-growth', label: 'Physics of Growth' },
   { href: '/playbooks', label: 'Playbooks' },
+  { href: '/work', label: 'Work' },
   { href: '/thinking', label: 'Writing' },
   { href: '/services', label: 'Services' },
 ];
@@ -19,15 +32,44 @@ const navLinks = [
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center bg-black/60 backdrop-blur-md rounded-xl px-6 py-3 gap-8">
+      <div class="hidden md:flex items-center bg-black/60 backdrop-blur-md rounded-xl px-6 py-3 gap-1">
+        <!-- Framework dropdown -->
+        <div class="relative group">
+          <button
+            class="bg-transparent border-none font-display font-extrabold text-white hover:text-gray-300 transition-colors text-lg px-3.5 py-2 cursor-pointer flex items-center gap-1.5"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Framework
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="absolute top-full left-0 bg-[#0f0f14] border border-[#2b363b] rounded-lg p-2 min-w-[260px] mt-1 shadow-xl invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all pointer-events-none group-hover:pointer-events-auto">
+            {frameworkLinks.map((x) => (
+              <a
+                href={x.href}
+                class="block p-3 rounded no-underline hover:bg-[#1a1a22] transition-colors"
+              >
+                <div class="font-display italic text-white font-extrabold text-sm">{x.label}</div>
+                <div class="text-xs text-gray-400 mt-0.5">{x.desc}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class={`font-display font-extrabold text-white hover:text-gray-300 transition-colors text-lg`}
+            class="font-display font-extrabold text-white hover:text-gray-300 transition-colors text-lg px-3.5 py-2"
           >
             {link.label}
           </a>
         ))}
+
+        <a href="/gravity-audit" class="hp-btn hp-btn--primary text-[13px] px-4 py-2.5 ml-4">
+          Book a call &rarr;
+        </a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -49,7 +91,7 @@ const navLinks = [
   <div id="mobile-menu" class="hidden md:hidden mt-6">
     <div class="container-content">
       <div class="bg-black/60 backdrop-blur-md rounded-xl px-6 py-4 space-y-4">
-        {navLinks.map((link) => (
+        {mobileLinks.map((link) => (
           <a
             href={link.href}
             class="block py-2 text-lg font-display font-extrabold text-white hover:text-gray-300 transition-colors"
@@ -57,6 +99,9 @@ const navLinks = [
             {link.label}
           </a>
         ))}
+        <a href="/gravity-audit" class="block py-2 text-lg font-display font-extrabold text-accent hover:text-white transition-colors">
+          Book a call &rarr;
+        </a>
       </div>
     </div>
   </div>

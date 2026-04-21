@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LayerTransformation from '../components/LayerTransformation';
 import ComponentTabs from '../components/ComponentTabs';
+import IntelligenceLayerSpec from '../components/IntelligenceLayerSpec';
 import MaturityTimeline from '../components/MaturityTimeline';
 import StatsCounter from '../components/StatsCounter';
 import DisciplineGrid from '../components/DisciplineGrid';
@@ -115,7 +116,7 @@ const faqData = [
   </section>
 
   <!-- ============================================ -->
-  <!-- SIX COMPONENTS — Tabbed, Full-Width -->
+  <!-- SIX COMPONENTS — IntelligenceLayerSpec -->
   <!-- ============================================ -->
   <section class="il-section il-section--components">
     <div class="container-content">
@@ -127,14 +128,7 @@ const faqData = [
         />
       </div>
 
-      <SectionReveal client:visible>
-        <h2 class="il-section__headline font-display">Six Components. One Source of Truth.</h2>
-        <p class="il-section__subtitle">
-          The Intelligence Layer serves two audiences. Your internal agents and team — and every external machine your buyer consults. The layer makes your company legible to both.
-        </p>
-      </SectionReveal>
-
-      <ComponentTabs client:visible />
+      <IntelligenceLayerSpec client:visible />
     </div>
   </section>
 

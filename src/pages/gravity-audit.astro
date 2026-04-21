@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GravityAuditFlow from '../components/GravityAuditFlow';
 
 const title = "The Gravity Audit™ — AI Visibility & GTM Diagnostic for B2B SaaS";
 const description = "A structured assessment of your AI visibility, content authority, and organic pull. Walk away with a written diagnosis and 30-day action plan.";
@@ -145,18 +146,8 @@ const faqData = [
           </ul>
         </div>
 
-        <!-- How to start -->
-        <div>
-          <h2 class="text-heading text-white font-bold mb-6">How to Get Started</h2>
-          <p class="text-body text-gray-400 max-w-prose mb-4">
-            The process is simple:
-          </p>
-          <ol class="space-y-3 text-body text-gray-400 max-w-prose list-decimal list-inside">
-            <li><strong class="text-white">Book a 30-minute discovery call.</strong> You tell me what you're seeing (or not seeing) in your GTM results. I tell you whether a Gravity Audit™ is the right diagnostic or if something else would serve you better.</li>
-            <li><strong class="text-white">Kickoff and data collection.</strong> You grant Search Console access and share your target query list. I run AI visibility tests and begin the content audit.</li>
-            <li><strong class="text-white">Report delivery.</strong> Two to three weeks later, you get the written report with findings, gaps, and your 30-day action plan. We do a walkthrough call to discuss priorities.</li>
-          </ol>
-        </div>
+        <!-- Interactive Gravity Audit Flow -->
+        <GravityAuditFlow client:visible />
 
         <!-- Related reading -->
         <div>
