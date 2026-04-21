@@ -89,7 +89,7 @@ export default function DisciplineGrid() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+    <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
       {disciplines.map((disc, i) => (
         <motion.div
           key={disc.title}

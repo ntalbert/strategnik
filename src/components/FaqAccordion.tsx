@@ -62,7 +62,7 @@ export default function FaqAccordion() {
         >
           <button
             onClick={() => toggle(i)}
-            className="flex justify-between items-center w-full py-6 bg-transparent border-none cursor-pointer text-left gap-4"
+            className="flex justify-between items-center w-full py-6 min-h-[44px] bg-transparent border-none cursor-pointer text-left gap-4"
             aria-expanded={openIndex === i}
             aria-controls={`faq-content-${i}`}
           >

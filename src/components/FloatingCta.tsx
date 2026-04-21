@@ -76,7 +76,7 @@ export default function FloatingCta() {
           : { opacity: 0, y: shouldReduceMotion ? 0 : 20 }
       }
       transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.4, ease: 'easeOut' }}
-      className="fixed bottom-8 right-8 z-50 inline-flex items-center gap-2 px-6 py-3 font-bold text-sm rounded-full no-underline"
+      className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-50 inline-flex items-center gap-2 px-6 py-3 min-h-[44px] font-bold text-sm rounded-full no-underline"
       style={{
         background: '#1de2c4',
         color: '#0d1117',

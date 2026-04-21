@@ -94,12 +94,12 @@ const mobileLinks = [
         {mobileLinks.map((link) => (
           <a
             href={link.href}
-            class="block py-2 text-lg font-display font-extrabold text-white hover:text-gray-300 transition-colors"
+            class="block py-3 min-h-[44px] flex items-center text-lg font-display font-extrabold text-white hover:text-gray-300 transition-colors"
           >
             {link.label}
           </a>
         ))}
-        <a href="/gravity-audit" class="block py-2 text-lg font-display font-extrabold text-accent hover:text-white transition-colors">
+        <a href="/gravity-audit" class="block w-full text-center py-3 min-h-[44px] mt-2 text-lg font-display font-extrabold rounded-full bg-accent text-black hover:bg-accent-hover transition-colors">
           Book a call &rarr;
         </a>
       </div>

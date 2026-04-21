@@ -146,8 +146,34 @@ export default function ForceCardsBold() {
         </h2>
 
         <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] items-center mt-14">
-          {/* Orbital diagram */}
-          <div className="relative aspect-square max-w-[520px]">
+          {/* Mobile: vertical force selector */}
+          <div className="flex flex-col gap-2 lg:hidden">
+            {FORCES.map((fo, i) => {
+              const isActive = active === i;
+              return (
+                <button
+                  key={fo.name}
+                  onClick={() => setActive(i)}
+                  className="flex items-center gap-3 px-4 py-3 min-h-[44px] rounded-lg text-left bg-transparent border cursor-pointer transition-all"
+                  style={{
+                    borderColor: isActive ? fo.color : '#2b363b',
+                    background: isActive ? `${fo.color}12` : 'transparent',
+                  }}
+                >
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border"
+                    style={{ borderColor: fo.color, background: `${fo.color}18` }}
+                  >
+                    <span className="font-mono text-xs font-bold" style={{ color: fo.color }}>{i + 1}</span>
+                  </div>
+                  <span className="font-bold text-sm" style={{ color: isActive ? '#fff' : '#95959d' }}>{fo.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Desktop: Orbital diagram */}
+          <div className="relative aspect-square max-w-[520px] hidden lg:block">
             <svg viewBox="0 0 400 400" className="w-full h-full">
               <circle cx="200" cy="200" r="140" fill="none" stroke="#1a2328" strokeWidth="1" strokeDasharray="2 4" />
               <circle cx="200" cy="200" r="60" fill="#0f1419" stroke="#2b363b" />
@@ -214,7 +240,7 @@ export default function ForceCardsBold() {
             </svg>
           </div>
 
-          {/* Detail panel */}
+          {/* Detail panel (spans both mobile and desktop) */}
           <div key={active}>
             <div className="flex items-center gap-4 mb-5">
               <div
