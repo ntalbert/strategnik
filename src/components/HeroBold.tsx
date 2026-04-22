@@ -34,18 +34,17 @@ export default function HeroBold() {
               style={{ textShadow: '0 2px 20px rgba(0,0,0,0.6), 0 4px 40px rgba(0,0,0,0.4)' }}
             >
               <span className="block text-5xl md:text-6xl lg:text-7xl mb-2">
-                An AI chatbot isn't a strategy.
+                AI made everything faster.
               </span>
               <span className="block text-5xl md:text-6xl lg:text-7xl text-accent">
-                It learned nothing about your business.
+                Except growth.
               </span>
             </h1>
             <p className="text-xl text-gray-200 max-w-xl leading-relaxed mb-10">
-              A chatbot is a force with no direction. In the Physics of Growth, that's
-              wasted energy — motion without momentum. The missing piece is the Gravity
-              Field: the shared operating context that encodes your brand, your buyers,
-              and your competitive position so every tool pulls in the same direction.
-              Without it, AI just types faster. With it, AI compounds.
+              Your team has AI. Output went up. Revenue didn't. The problem isn't the
+              tools — it's that none of them know who you are, who you serve, or how
+              you win. We build the Gravity Field: one operating context that every tool
+              and every person works from. Then AI starts compounding instead of just typing.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-12">
               <a href="/gravity-audit" className="hp-btn hp-btn--primary">
