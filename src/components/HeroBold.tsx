@@ -33,26 +33,29 @@ export default function HeroBold() {
               className="font-black text-white tracking-tight mb-8 leading-[1.05]"
               style={{ textShadow: '0 2px 20px rgba(0,0,0,0.6), 0 4px 40px rgba(0,0,0,0.4)' }}
             >
-              <span className="block text-5xl md:text-6xl lg:text-7xl mb-2">
-                Every team has AI now.
+              <span className="block text-4xl md:text-5xl lg:text-6xl mb-2">
+                You handed out an AI chatbot and called it a strategy.
               </span>
-              <span className="block text-5xl md:text-6xl lg:text-7xl text-accent">
-                None of them have the same story.
+              <span className="block text-4xl md:text-5xl lg:text-6xl text-accent">
+                It learned nothing about your business.
               </span>
             </h1>
             <p className="text-xl text-gray-200 max-w-xl leading-relaxed mb-10">
-              AI doesn't fix fragmentation — it scales it. The Gravity Field gives every
-              tool, agent, and channel a shared center of gravity. Start there.
+              A chatbot is a force with no direction. In the Physics of Growth, that's
+              wasted energy — motion without momentum. The missing piece is the Gravity
+              Field: the shared operating context that encodes your brand, your buyers,
+              and your competitive position so every tool pulls in the same direction.
+              Without it, AI just types faster. With it, AI compounds.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-12">
               <a href="/gravity-audit" className="hp-btn hp-btn--primary">
                 Run the Gravity Audit →
               </a>
               <a
-                href="/physics-of-growth/gravity-field"
+                href="/physics-of-growth"
                 className="text-accent hover:text-white transition-colors font-bold text-sm"
               >
-                See the Gravity Field →
+                See the Physics of Growth →
               </a>
             </div>
             <div className="flex flex-wrap gap-8 text-sm text-gray-400">
