@@ -17,9 +17,9 @@ export default function HeroBold() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="flex items-start pt-8 pb-24">
+    <section className="pt-8 pb-24">
       <div className="container-content">
-        <div ref={ref} className="max-w-2xl text-left">
+        <div ref={ref} className="max-w-2xl">
           {/* Left — copy */}
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
