@@ -61,15 +61,17 @@ const mins = (p: typeof featured) => p.data.readingMinutes ?? 5;
           href={`/thinking/${featured.slug}`}
           class="lg:row-span-2 no-underline block group"
         >
-          <div
-            class="aspect-[4/3] rounded-xl mb-5 relative overflow-hidden"
-            style="background: linear-gradient(135deg, #000510, #001033 70%, #0f1419);"
-          >
-            <div
-              class="absolute inset-0"
-              style="background: radial-gradient(ellipse at 30% 40%, rgba(29,226,196,0.1), transparent 60%);"
-            />
-            <div class="absolute top-5 left-5 font-mono text-[10px] text-accent uppercase tracking-widest">
+          <div class="aspect-[4/3] rounded-xl mb-5 relative overflow-hidden bg-[#161b22]">
+            {featured.data.image ? (
+              <img
+                src={featured.data.image}
+                alt={featured.data.title}
+                class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+              />
+            ) : (
+              <div class="absolute inset-0 bg-gradient-to-br from-[#000510] via-[#001033] to-[#0f1419]" />
+            )}
+            <div class="absolute top-5 left-5 font-mono text-[10px] text-accent uppercase tracking-widest bg-black/60 px-2 py-1 rounded">
               {featured.data.kind ?? 'Thesis'}
             </div>
           </div>
@@ -88,6 +90,16 @@ const mins = (p: typeof featured) => p.data.readingMinutes ?? 5;
       {/* Rest (top 4 in hero grid) */}
       {rest.slice(0, 4).map((p) => (
         <a href={`/thinking/${p.slug}`} class="no-underline block group">
+          {p.data.image && (
+            <div class="aspect-[16/9] rounded-lg mb-3 overflow-hidden bg-[#161b22]">
+              <img
+                src={p.data.image}
+                alt={p.data.title}
+                class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+          )}
           <p class="text-caption text-blue-bright mb-1.5 font-bold uppercase text-[10px]">
             {fmtDate(p.data.date)} · {mins(p)} min
           </p>
