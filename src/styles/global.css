@@ -270,10 +270,12 @@
     min-height: 44px;
   }
 
-  .hp-btn {
+  .hp-btn,
+  a[class*="bg-blue-bright"][class*="font-bold"] {
     width: 100%;
     justify-content: center;
     text-align: center;
+    display: block;
   }
 }
 
