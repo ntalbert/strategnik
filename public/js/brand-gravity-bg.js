@@ -51,7 +51,7 @@
   let icons = [];
   let currentPhase = 0;
   let cameraAngle = { x: 0.4, y: 0 };
-  const cameraDistance = 14;
+  let cameraDistance = window.innerWidth < 768 ? 18 : 14;
   let labelContainer;
   let gravityWellMesh, gravityWellGeometry;
   const GRID_SIZE = 80;
@@ -62,7 +62,8 @@
   let gasParticleData = [];
 
   // Offset: push orb/icons to right side of viewport
-  const GRAVITY_CENTER_X = 8;
+  // Responsive: center on mobile, offset on desktop
+  let GRAVITY_CENTER_X = window.innerWidth < 768 ? 0 : 8;
 
   // Interaction
   let isDragging = false;
@@ -263,12 +264,15 @@
   // EVENT LISTENERS
   // ============================================
   function setupEventListeners() {
-    // Resize
+    // Resize — recalculate responsive values
     window.addEventListener('resize', () => {
       if (container) {
+        GRAVITY_CENTER_X = window.innerWidth < 768 ? 0 : 8;
+        cameraDistance = window.innerWidth < 768 ? 18 : 14;
         camera.aspect = container.offsetWidth / container.offsetHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(container.offsetWidth, container.offsetHeight);
+        updateCameraPosition();
       }
     });
 
