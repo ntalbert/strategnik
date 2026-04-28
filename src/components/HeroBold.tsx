@@ -43,12 +43,11 @@ export default function HeroBold() {
             <p className="text-xl text-gray-200 max-w-xl leading-relaxed mb-10">
               Your team has AI. Output went up. Revenue didn't. The problem isn't the
               tools — it's that none of them know who you are, who you serve, or how
-              you win. We build the Gravity Field: one operating context that every tool
-              and every person works from. Then AI starts compounding instead of just typing.
+              you win.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-12">
               <a href="/gravity-audit" className="hp-btn hp-btn--primary">
-                Run the Gravity Audit →
+                Run Your Ecosystem Audit →
               </a>
               <a
                 href="/physics-of-growth"
@@ -56,17 +55,6 @@ export default function HeroBold() {
               >
                 See the Physics of Growth →
               </a>
-            </div>
-            <div className="flex flex-wrap gap-8 text-sm text-gray-400">
-              <span>
-                <strong className="text-white">20+ yrs</strong> B2B GTM
-              </span>
-              <span>
-                <strong className="text-white">$10M–$150M ARR</strong> served
-              </span>
-              <span>
-                <strong className="text-white">30–90 day</strong> builds
-              </span>
             </div>
           </motion.div>
         </div>
