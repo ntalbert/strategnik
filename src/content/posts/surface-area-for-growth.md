@@ -41,13 +41,13 @@ Surface area isn't monolithic. It exists in four distinct layers, and most compa
 
 ![The four layers of surface area — content, distribution, community, product — each extending market contact through different mechanisms](/images/posts/surface-area-four-layers.png)
 
-## Surface Area and the Gravity Field
+## Surface Area and the Context Field
 
-Here's where most people confuse two related concepts. Your [gravity field](/physics-of-growth/gravity-field) determines how you show up at each touchpoint — your positioning, your authority, the weight your brand carries when someone encounters it. Surface area determines where you show up. How many touchpoints exist. How many contexts contain your brand.
+Here's where most people confuse two related concepts. Your [context field](/physics-of-growth/context-field) determines how you show up at each touchpoint — your positioning, your authority, the weight your brand carries when someone encounters it. Surface area determines where you show up. How many touchpoints exist. How many contexts contain your brand.
 
-You need both, and the sequence matters. If you expand surface area before you have a gravity field worth projecting, you're amplifying nothing. Every new channel broadcasts the same empty message to a wider audience. But if you build mass and a strong gravitational pull, then refuse to expand surface area, you're the best-kept secret in your market. Deeply credible to the twelve people who found you; invisible to the four thousand who should be buying from you.
+You need both, and the sequence matters. If you expand surface area before you have a context field worth projecting, you're amplifying nothing. Every new channel broadcasts the same empty message to a wider audience. But if you build mass and a strong gravitational pull, then refuse to expand surface area, you're the best-kept secret in your market. Deeply credible to the twelve people who found you; invisible to the four thousand who should be buying from you.
 
-The play is: build enough mass to be substantive at each touchpoint, then systematically expand surface area into every context where your ICP transacts, learns, and decides. Let the gravity field do the work at each point of contact.
+The play is: build enough mass to be substantive at each touchpoint, then systematically expand surface area into every context where your ICP transacts, learns, and decides. Let the context field do the work at each point of contact.
 
 ## The Trap: Surface Area Without Mass
 

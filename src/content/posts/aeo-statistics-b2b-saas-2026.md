@@ -16,7 +16,7 @@ speakable:
 
 The argument for Answer Engine Optimization is over. The data won. If you're a B2B SaaS leader still treating AI search as an emerging trend to "keep an eye on," these numbers should end that posture. This is not a forecast piece. It's a reference page — 60+ statistics on how AI systems are reshaping B2B discovery, what content gets cited, and where the gaps are widest.
 
-I built this as the page I wished existed when I started running [Gravity Audits](/gravity-audit) for B2B clients. Every stat is sourced. The commentary is mine — because data without interpretation is just a spreadsheet.
+I built this as the page I wished existed when I started running [Digital Context Audits](/digital-context-audit) for B2B clients. Every stat is sourced. The commentary is mine — because data without interpretation is just a spreadsheet.
 
 Bookmark this. Send it to your CEO. Use it to justify the budget.
 
@@ -108,7 +108,7 @@ Not all content is created equal in the eyes of AI systems. The data on what get
 
 ### What This Means for GTM Leaders
 
-The citation data reveals a clear pattern: AI systems cite entities they recognize, content that's structured for extraction, and sources with original data. Press releases, keyword-stuffed blog posts, and gated PDFs are invisible. Named frameworks, proprietary research, and structured answer blocks are citation magnets. This is the Gravity model in action — the more mass you build through genuine authority, the stronger your pull in AI systems. I break down the five reasons B2B companies get ignored in [why your content doesn't show up in ChatGPT](/thinking/why-b2b-content-doesnt-show-up-in-chatgpt).
+The citation data reveals a clear pattern: AI systems cite entities they recognize, content that's structured for extraction, and sources with original data. Press releases, keyword-stuffed blog posts, and gated PDFs are invisible. Named frameworks, proprietary research, and structured answer blocks are citation magnets. This is the Context Field model in action — the more mass you build through genuine authority, the stronger your pull in AI systems. I break down the five reasons B2B companies get ignored in [why your content doesn't show up in ChatGPT](/thinking/why-b2b-content-doesnt-show-up-in-chatgpt).
 
 ---
 
@@ -136,7 +136,7 @@ The quality bar for AI visibility is rising. The data paints a clear picture of 
 
 ### What This Means for GTM Leaders
 
-The content strategy that wins in 2026 is human-led, AI-assisted, and structurally engineered for machine extraction. That means schema markup on every page, answer-first content structure, self-contained passage blocks, and original data that machines can cite. This is the Machine Readability component of the [Gravity Field](/physics-of-growth/gravity-field) — and most B2B companies haven't built it. The technical detail on what the Gravity Field contains is in [the six components breakdown](/thinking/six-components-of-an-intelligence-layer).
+The content strategy that wins in 2026 is human-led, AI-assisted, and structurally engineered for machine extraction. That means schema markup on every page, answer-first content structure, self-contained passage blocks, and original data that machines can cite. This is the Machine Readability component of the [Context Field](/physics-of-growth/context-field) — and most B2B companies haven't built it. The technical detail on what the Context Field contains is in [the six components breakdown](/thinking/six-components-of-an-intelligence-layer).
 
 ---
 
@@ -176,7 +176,7 @@ The gap between recognizing AEO and actually doing it is the biggest strategic r
 
 **But [McKinsey](https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-state-of-ai-in-early-2024-gen-ai-adoption-spikes-and-starts-to-generate-value) found that while 50% of CMOs rank generative AI as a top-three investment, it ranked 17th of 20 in actual execution priorities.** Everyone says it matters. Almost nobody is doing it. (Source: McKinsey, 2025)
 
-**62% of organizations are experimenting with AI agents. Only 23% are scaling them.** The 39-point gap is exactly where infrastructure — what I call the [Gravity Field](/physics-of-growth/gravity-field) — determines who breaks through. (Source: [McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai), 2025)
+**62% of organizations are experimenting with AI agents. Only 23% are scaling them.** The 39-point gap is exactly where infrastructure — what I call the [Context Layer](/physics-of-growth/context-field) — determines who breaks through. (Source: [McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-state-of-ai), 2025)
 
 **Only 29% of marketers actively track content's contribution to revenue.** If you can't measure it, you can't optimize it — and most B2B teams are flying blind on AI visibility. (Source: [HubSpot](https://www.hubspot.com/state-of-marketing) State of Marketing, 2026)
 
@@ -208,7 +208,7 @@ The shift isn't just about visibility. AI is restructuring how marketing teams o
 
 ### What This Means for GTM Leaders
 
-The companies moving fastest aren't just using AI for content. They're restructuring their entire operating model around it. But agents without shared context produce fragmented output at higher velocity — which is worse than doing nothing. The Gravity Field is what makes the difference between a chatbot and an operating system. I wrote about this distinction in [your AI is still a chatbot](/thinking/your-ai-is-still-a-chatbot).
+The companies moving fastest aren't just using AI for content. They're restructuring their entire operating model around it. But agents without shared context produce fragmented output at higher velocity — which is worse than doing nothing. The Context Layer is what makes the difference between a chatbot and an operating system. I wrote about this distinction in [your AI is still a chatbot](/thinking/your-ai-is-still-a-chatbot).
 
 ---
 
@@ -262,13 +262,13 @@ Here's what this data adds up to, stated plainly:
 
 **The gap between belief and execution is your window.** 94% of leaders plan to invest more in AEO. Only 20% have started. The 50% of CMOs who say AI is a top-three priority but rank it 17th in execution are your competition. Move while they're still in committee.
 
-**The Gravity Field is the unlock.** AI tools without shared operating context produce fragmented output faster. The companies winning aren't just "doing AEO" — they're building the infrastructure that makes every piece of content citable, every agent effective, and every AI system an ally instead of a black box.
+**The Context Layer is the unlock.** AI tools without shared operating context produce fragmented output faster. The companies winning aren't just "doing AEO" — they're building the infrastructure that makes every piece of content citable, every agent effective, and every AI system an ally instead of a black box.
 
 Three things to do this quarter:
 
-1. **Run a [Gravity Audit](/gravity-audit).** Know where you actually stand in AI search — not where you assume you stand based on Google rankings.
+1. **Run a [Digital Context Audit](/digital-context-audit).** Know where you actually stand in AI search — not where you assume you stand based on Google rankings.
 
-2. **Build the [Gravity Field](/physics-of-growth/gravity-field).** Entity definitions, schema markup, structured content architecture, and machine-readable brand context. Without this infrastructure, every AEO tactic underperforms.
+2. **Build the [Context Layer](/physics-of-growth/context-field).** Entity definitions, schema markup, structured content architecture, and machine-readable brand context. Without this infrastructure, every AEO tactic underperforms.
 
 3. **Restructure your content for citation.** Answer-first format. Self-contained 50-150 word passage blocks. Comparison tables. Original data. Named frameworks. Every piece of content should be built to be extracted, not just read.
 

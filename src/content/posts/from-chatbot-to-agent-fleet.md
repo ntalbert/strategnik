@@ -17,7 +17,7 @@ The question I hear most from CEOs isn't "Should we use AI in marketing?" That a
 
 The answer, almost every time, is that they skipped a stage. They went from fragmented human teams directly to AI prompting — without building the operating context — [what context engineering actually means](/thinking/context-engineering-vs-intelligence-layer) — that makes AI useful. It's the equivalent of hiring 15 interns, giving them no onboarding, no brand knowledge, no understanding of the customer, and expecting them to run your go-to-market. Speed without context is just faster confusion.
 
-There are five stages of AI marketing maturity. Most companies are stuck at stage one. The gate between stage one and everything after is the [Gravity Field](/thinking/six-components-of-an-intelligence-layer). Here's what each stage looks like, what becomes possible at each one, and how the transition actually works.
+There are five stages of AI marketing maturity. Most companies are stuck at stage one. The gate between stage one and everything after is the [Context Layer](/thinking/six-components-of-an-intelligence-layer). Here's what each stage looks like, what becomes possible at each one, and how the transition actually works.
 
 ## Stage 1: Fragmented Humans
 
@@ -33,13 +33,13 @@ There are five stages of AI marketing maturity. Most companies are stuck at stag
 
 ![Intelligence Layer architecture — six encoded components forming the shared operating context for AI agents](/images/posts/agent-fleet-intelligence-layer-architecture.png)
 
-## Stage 2: Gravity Field Built
+## Stage 2: Context Layer Built
 
-**Who does the work:** The Gravity Field is installed. All [six components](/thinking/six-components-of-an-intelligence-layer) — brand spec, ICP maps, competitive framing, content architecture, machine readability and distribution schema, and measurement targets — are encoded in machine-readable format.
+**Who does the work:** The Context Layer is installed. All [six components](/thinking/six-components-of-an-intelligence-layer) — brand spec, ICP maps, competitive framing, content architecture, machine readability and distribution schema, and measurement targets — are encoded in machine-readable format.
 
-**What's possible:** Shared operating context. All teams pull from one source. Messaging becomes consistent. Brand becomes coherent. AI tools can now be wired into the Gravity Field and produce output that actually sounds like your company, targets the right audience, and reinforces your market position. And every piece of content ships with structured data and entity definitions that make it citable by LLMs from day one.
+**What's possible:** Shared operating context. All teams pull from one source. Messaging becomes consistent. Brand becomes coherent. AI tools can now be wired into the Context Layer and produce output that actually sounds like your company, targets the right audience, and reinforces your market position. And every piece of content ships with structured data and entity definitions that make it citable by LLMs from day one.
 
-**What this engagement looks like:** A 30 to 90 day sprint. Diagnostic first — score each of the six components, quantify the execution tax (hours spent on manual work, cost per output, signal-to-response latency), and map the gaps. Then build: encode the brand spec, the ICP hierarchy, the competitive framing, the content architecture, the machine readability schema, and the measurement framework. Deliver the layer, train the team, hand off.
+**What this engagement looks like:** A 30 to 90 day sprint. Diagnostic first — score each of the six components, quantify the execution tax (hours spent on manual work, cost per output, signal-to-response latency), and map the gaps. Then build: encode the brand spec, the ICP hierarchy, the competitive framing, the content architecture, the machine readability schema, and the measurement framework. Deliver the Context Layer, train the team, hand off.
 
 **The physics:** This is where friction drops dramatically. A shared operating context eliminates the handoff degradation that was eating every piece of strategy before it reached the market. The car's parking brake comes off. Now when you add engine power, the vehicle actually moves.
 
@@ -55,7 +55,7 @@ There are five stages of AI marketing maturity. Most companies are stuck at stag
 
 **What changes in the org:** This is where role definitions shift. Campaign managers become system designers. Content producers become content architects overseeing an agent fleet. Channel owners become experience governors. The team gets smaller, but the output multiplies. Not because people were replaced — because the work they were doing manually is now handled by agents operating from shared context.
 
-**The scale economics:** A team of 20 without the field produces 8-12 pieces of content per month with a 3-4 week campaign launch cycle. A team of 5 with the field produces 20-40 pieces per month with a 3-5 day launch cycle. Competitive response time drops from 2-4 weeks to same-day. Brand consistency shifts from variable — depending on who wrote it and when — to structural, enforced at creation. The field typically reaches ROI within 60-90 days of deployment. [SaaStr](https://www.saastr.com/) research documents AI-native B2B companies running eight-figure businesses with 3 human employees and 20+ AI agents. The Gravity Field is the operating context that makes that ratio possible.
+**The scale economics:** A team of 20 without the Context Layer produces 8-12 pieces of content per month with a 3-4 week campaign launch cycle. A team of 5 with the Context Layer produces 20-40 pieces per month with a 3-5 day launch cycle. Competitive response time drops from 2-4 weeks to same-day. Brand consistency shifts from variable — depending on who wrote it and when — to structural, enforced at creation. The Context Layer typically reaches ROI within 60-90 days of deployment. [SaaStr](https://www.saastr.com/) research documents AI-native B2B companies running eight-figure businesses with 3 human employees and 20+ AI agents. The Context Layer is the operating context that makes that ratio possible.
 
 **The governance model:** When agents run content production and campaign execution autonomously, the organization needs clear boundaries. The field defines three zones: full autonomy (agent acts, reports after — bid adjustments, schema updates, internal analysis), propose and approve (agent drafts, human approves — new content, campaign launches, competitive response), and human only (agent does not act — positioning changes, pricing decisions, public statements). These zones evolve as the organization matures. At stage 3, most actions are propose-and-approve. By stage 4, many move to full autonomy as confidence in the field's constraints grows.
 
@@ -85,10 +85,10 @@ The 39-point gap between companies experimenting with AI agents (62%) and compan
 
 ## The Transition Is Shorter Than You Think
 
-Here's what surprises most CEOs: the Gravity Field sprint is 30 to 90 days, not 12 months. It's not a digital transformation initiative. It's not an enterprise software deployment. It's a focused build that takes the brand knowledge, market intelligence, competitive positioning, and measurement framework that already exist in your organization — scattered across people's heads, old decks, CRM fields, and Slack threads — and encodes it into a machine-readable operating context.
+Here's what surprises most CEOs: the Context Layer sprint is 30 to 90 days, not 12 months. It's not a digital transformation initiative. It's not an enterprise software deployment. It's a focused build that takes the brand knowledge, market intelligence, competitive positioning, and measurement framework that already exist in your organization — scattered across people's heads, old decks, CRM fields, and Slack threads — and encodes it into a machine-readable operating context.
 
 The inputs already exist. They're just not structured for agents to use. The sprint structures them.
 
 After that, the progression from stage 2 to stage 3 happens naturally as teams start prompting from the shared context and seeing the difference. The progression from stage 3 to stage 4 happens as agents prove they can handle routine work within the guardrails. And stage 5 is the horizon — the thing you build toward, not the thing you buy.
 
-The question isn't whether your marketing function will operate this way. It's whether you build the foundation now or scramble to catch up later. The [diagnostic](/gravity-audit) tells you where you stand.
+The question isn't whether your marketing function will operate this way. It's whether you build the foundation now or scramble to catch up later. The [diagnostic](/digital-context-audit) tells you where you stand.

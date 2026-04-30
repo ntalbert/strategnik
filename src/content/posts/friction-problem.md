@@ -75,7 +75,7 @@ Most companies that run this exercise find 30-40% of their process exists for in
 
 If you've been investing in brand, content, and demand generation, and the results feel disproportionately low, the bottleneck may not be at the top of your funnel. It may be in the middle, where the demand you generated meets the process you built.
 
-The [Physics of Marketing](/thinking/physics-of-marketing-definitive-guide) framework puts friction alongside mass, the [gravity field](/physics-of-growth/gravity-field), surface area, momentum, and escape velocity as the six forces governing B2B growth. Of those six, friction is the only one where the highest-leverage move is subtraction. You don't build your way past friction. You remove it.
+The [Physics of Marketing](/thinking/physics-of-marketing-definitive-guide) framework puts friction alongside mass, the [context field](/physics-of-growth/context-field), surface area, momentum, and escape velocity as the six forces governing B2B growth. Of those six, friction is the only one where the highest-leverage move is subtraction. You don't build your way past friction. You remove it.
 
 Start with the audit. Map every step. Question every requirement. And pay attention to the stories buyers tell about what it's like to buy from you, because those stories are already circulating whether you're listening or not.
 

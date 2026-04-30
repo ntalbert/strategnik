@@ -49,7 +49,7 @@ Surface area is distinct from mass. A company can have enormous mass (deep autho
 
 **Concrete example:** A cybersecurity company dominates organic search for five high-intent keywords. Deep mass, narrow surface area. A competitor appears in organic search, LinkedIn, podcasts, analyst reports, partner ecosystems, conference circuits, and AI-generated recommendations. Wider surface area. When the buyer enters the consideration phase, the second company has already appeared in four contexts. The first company appears once — if the buyer searches the right term.
 
-**The implication:** Surface area determines how many paths lead back to you. In a world where [AI is collapsing the walls between discovery channels](/thinking/ai-collapsing-gtm-walls), the companies with the widest surface area are the ones AI systems aggregate signal from most effectively. A [gravity field](/physics-of-growth/gravity-field) that maps where your market actually pays attention — and where you're absent — is the diagnostic tool for surface area gaps.
+**The implication:** Surface area determines how many paths lead back to you. In a world where [AI is collapsing the walls between discovery channels](/thinking/ai-collapsing-gtm-walls), the companies with the widest surface area are the ones AI systems aggregate signal from most effectively. A [context field](/physics-of-growth/context-field) that maps where your market actually pays attention — and where you're absent — is the diagnostic tool for surface area gaps.
 
 Surface area also interacts with mass in a compounding way. Each new surface creates a new opportunity for mass to accumulate. A podcast appearance that gets cited in a blog post that gets summarized by an AI system that gets referenced by a buyer in a Slack channel — that's surface area creating mass at each step.
 
@@ -163,7 +163,7 @@ The Physics of Marketing is a diagnostic tool, not a playbook. The same forces a
 
 ## Diagnosing Your System
 
-If you want to know which forces are working and which are stalling your growth, the [Gravity Audit](/gravity-audit) is the diagnostic tool I built for this framework. It maps the six forces against your current state and identifies where the system is losing energy.
+If you want to know which forces are working and which are stalling your growth, the [Digital Context Audit](/digital-context-audit) is the diagnostic tool I built for this framework. It maps the six forces against your current state and identifies where the system is losing energy.
 
 The patterns are remarkably consistent. Companies struggling with growth almost always have one of three problems:
 

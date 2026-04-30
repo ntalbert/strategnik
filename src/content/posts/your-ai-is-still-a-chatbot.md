@@ -51,13 +51,13 @@ If the answer is no — and for most companies it is — then you don't have an 
 
 ## What an Operating System Actually Looks Like
 
-The difference between "using AI" and "being powered by AI" is a layer of infrastructure I call the **Gravity Field** — the encoded operating context that makes every AI tool, every agent, and every team member work from the same shared foundation.
+The difference between "using AI" and "being powered by AI" is a layer of infrastructure I call the **Context Layer** — the encoded operating context that makes every AI tool, every agent, and every team member work from the same shared foundation.
 
 It's not a document people forget to check. It's a system every tool references automatically. It's not a prompt template for one use case. It's persistent context that informs all outputs. It's not a one-time brand exercise. It's a living operating spec that updates as the market moves.
 
-The Gravity Field has [six components](/thinking/six-components-of-an-intelligence-layer): brand and voice specification, ICP and buyer context, competitive framing, content architecture, machine readability and distribution schema, and measurement targets. Each one is encoded in machine-readable format — not a PDF on a shared drive, but structured context that agents consume autonomously.
+The Context Layer has [six components](/thinking/six-components-of-an-intelligence-layer): brand and voice specification, ICP and buyer context, competitive framing, content architecture, machine readability and distribution schema, and measurement targets. Each one is encoded in machine-readable format — not a PDF on a shared drive, but structured context that agents consume autonomously.
 
-But the field serves two audiences. The obvious one is your internal agents and team — giving them the context to produce on-brand, on-strategy output. The less obvious one is every external machine your buyer consults. ChatGPT, Perplexity, Google AI Overviews — these systems are now the first touch in B2B research. If your content isn't structured for LLM citation, you don't exist in that buyer's process. The Gravity Field doesn't just make your AI tools work better. It makes your company legible to every machine your buyer consults.
+But the field serves two audiences. The obvious one is your internal agents and team — giving them the context to produce on-brand, on-strategy output. The less obvious one is every external machine your buyer consults. ChatGPT, Perplexity, Google AI Overviews — these systems are now the first touch in B2B research. If your content isn't structured for LLM citation, you don't exist in that buyer's process. The Context Layer doesn't just make your AI tools work better. It makes your company legible to every machine your buyer consults.
 
 When the layer exists, the entire marketing function changes character. Content isn't "write me a blog post about X." It's an agent generating from a keyword brief, brand spec, and ICP context — autonomously. Demand gen isn't "draft this email sequence." It's signals triggering nurture flows without manual prompting. ABM isn't "personalize this one-pager for Acme." It's account variants deployed at scale, on signal, in real time. And every page ships with structured data, entity definitions, and passage-level answer blocks that make it citable by AI from day one.
 
@@ -67,7 +67,7 @@ The difference is not better prompting. It is a shared context that every tool o
 
 ## The Physics of Why This Matters Now
 
-In Market Physics, momentum compounds. The companies that build the Gravity Field first don't just get a head start — they get a compounding advantage that widens over time. Every piece of content produced from shared context reinforces brand coherence. Every signal-driven campaign generates data that feeds back into the layer. Every month the layer runs, it gets sharper.
+In Market Physics, momentum compounds. The companies that build the Context Layer first don't just get a head start — they get a compounding advantage that widens over time. Every piece of content produced from shared context reinforces brand coherence. Every signal-driven campaign generates data that feeds back into the layer. Every month the layer runs, it gets sharper.
 
 The companies that wait are still prompting ChatGPT from scratch. Still producing fragmented output. Still hiring to scale what architecture should handle.
 
@@ -75,7 +75,7 @@ The market data supports the urgency. [Gartner](https://www.gartner.com/en/marke
 
 But [McKinsey](https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-state-of-ai-in-early-2024-gen-ai-adoption-spikes-and-starts-to-generate-value)'s data reveals the gap: while 50% of CMOs rank generative AI as a top-three investment, it ranked 17th of 20 in actual execution priorities. Everyone says it matters. Almost nobody is doing it. The challenges, McKinsey notes, are experiential rather than technical — underscoring the need for superior [context engineering](/thinking/context-engineering-vs-intelligence-layer).
 
-The 39-point gap between "experimenting with AI agents" (62% of companies) and "scaling them" (23%) is exactly where the Gravity Field operates. It's the infrastructure that turns experimentation into a system. AI-native B2B companies are now running eight-figure businesses with 3 human employees and 20+ AI agents, spending an average of 23% of revenue on inference costs rather than headcount. The Gravity Field is the operating context that makes that model possible.
+The 39-point gap between "experimenting with AI agents" (62% of companies) and "scaling them" (23%) is exactly where the Context Layer operates. It's the infrastructure that turns experimentation into a system. AI-native B2B companies are now running eight-figure businesses with 3 human employees and 20+ AI agents, spending an average of 23% of revenue on inference costs rather than headcount. The Context Layer is the operating context that makes that model possible.
 
 ## The Escape Velocity Question
 
@@ -83,8 +83,8 @@ Every CEO at a Series B through pre-IPO company is asking some version of the sa
 
 They can picture the problem. They cannot picture the solution.
 
-The Gravity Field makes the solution visible. It's the thing that sits between your brand and the AI agents that run your go-to-market. Not AI strategy — that's too vague. Not marketing automation — that's last decade's category. Not a chatbot upgrade. The infrastructure that makes all of those things actually work.
+The Context Layer makes the solution visible. It's the thing that sits between your brand and the AI agents that run your go-to-market. Not AI strategy — that's too vague. Not marketing automation — that's last decade's category. Not a chatbot upgrade. The infrastructure that makes all of those things actually work.
 
-Before you hire, build, or buy — [know what you're actually missing](/gravity-audit).
+Before you hire, build, or buy — [know what you're actually missing](/digital-context-audit).
 
-See all 25 Gravity Field plays in action → [Playbook Catalog](/playbooks)
+See all 25 Context Field plays in action → [Playbook Catalog](/playbooks)

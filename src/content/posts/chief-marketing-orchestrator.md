@@ -115,7 +115,7 @@ The CMO isn't dead. The CMO is being reforged into something harder and more con
 
 The leaders who see this are already moving. The ones who don't will keep fighting over MQL definitions in pipeline reviews while the world reorganizes around them.
 
-Strategnik builds the Gravity Field that makes this orchestration possible. [See how we work](/pricing).
+Strategnik builds the Context Layer that makes this orchestration possible. [See how we work](/pricing).
 
 ---
 

@@ -85,7 +85,7 @@ Every dollar your team spends on a new framework, a new agent builder, a new AI-
 
 ## What "better" looks like in practice
 
-This is what I've been building with clients under the name [Gravity Field](/thinking/six-components-of-an-intelligence-layer). I didn't start by calling it an ontology — I called it a [machine-readable operating context](/thinking/context-engineering-vs-intelligence-layer). Same idea, different vocabulary. The point is the same: encode what your company knows so that every tool in your stack operates from the same foundation.
+This is what I've been building with clients under the name [Context Layer](/thinking/six-components-of-an-intelligence-layer). I didn't start by calling it an ontology — I called it a [machine-readable operating context](/thinking/context-engineering-vs-intelligence-layer). Same idea, different vocabulary. The point is the same: encode what your company knows so that every tool in your stack operates from the same foundation.
 
 Six components. Brand spec. ICP hierarchy. Competitive framing. Content architecture. Distribution schema. Measurement targets. Each one captured in two forms: a human-readable narrative that the CMO presents to the board, and a structured, machine-readable specification that every AI tool in the stack can query and act on without asking a human to re-explain it.
 
