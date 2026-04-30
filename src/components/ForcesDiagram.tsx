@@ -60,8 +60,8 @@ export default function ForcesDiagram({ size = 'default' }: Props) {
     [1, 0], // Friction <-> Momentum (already covered, use different pair)
     [2, 3], // Surface Area <-> Mass
     [3, 4], // Mass <-> Escape Velocity
-    [4, 5], // Escape Velocity <-> Gravity Field
-    [5, 0], // Gravity Field <-> Momentum
+    [4, 5], // Escape Velocity <-> Context Field
+    [5, 0], // Context Field <-> Momentum
     [1, 2], // Friction <-> Surface Area
   ];
 

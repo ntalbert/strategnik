@@ -3,7 +3,7 @@ import { useState } from 'react';
 /**
  * GravityAuditFlow — 3-step qualifier → diagnosis → book a call.
  *
- * Replaces form in src/pages/gravity-audit.astro.
+ * Replaces form in src/pages/digital-context-audit.astro.
  *
  * Wire up: POSTs to `/api/leads` (your existing endpoint) with {email, arr, pain}.
  * Adjust the fetch URL if your endpoint name differs.
@@ -67,7 +67,7 @@ export default function GravityAuditFlow() {
       await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, source: 'gravity-audit' }),
+        body: JSON.stringify({ ...data, source: 'digital-context-audit' }),
       });
     } catch (e) {
       // Silent-fail — user still sees result. Real impl should surface an error toast.

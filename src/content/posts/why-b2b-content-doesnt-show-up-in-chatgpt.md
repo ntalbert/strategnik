@@ -78,15 +78,15 @@ A fractional CMO should be running an AI visibility audit in Q2 2026. Not later.
 
 This is the same pattern we saw with content marketing in 2012, ABM in 2017, product-led growth in 2020. The early movers don't just get an advantage. They set the terms everyone else plays by. AEO in 2026 is that window.
 
-## The Gravity Audit: How to Diagnose Your AI Visibility
+## The Digital Context Audit: How to Diagnose Your AI Visibility
 
 In the Physics of Growth framework, Gravity is the pillar that measures how much your brand pulls demand toward it without active pushing. Brand mass, content authority, citation density, entity recognition: these are all Gravity metrics. And AI discoverability is now the sharpest test of whether your Gravity is real or imagined.
 
-The [Gravity Audit](/gravity-audit) is how I diagnose this. It's a structured assessment of your company's AI visibility across the surfaces that matter: ChatGPT, Perplexity, Google AI Overviews, and the emerging answer engines that are reshaping B2B research behavior.
+The [Digital Context Audit](/digital-context-audit) is how I diagnose this. It's a structured assessment of your company's AI visibility across the surfaces that matter: ChatGPT, Perplexity, Google AI Overviews, and the emerging answer engines that are reshaping B2B research behavior.
 
 The audit maps your entity authority, content retrievability, schema coverage, citation surface, and brand signal consistency. It produces a prioritized fix list that a marketing team can actually execute.
 
-Most companies assume they're showing up in AI search because they rank well in Google. The correlation between Google rankings and ChatGPT citations is weak and getting weaker. The Gravity Audit tells you where you actually stand.
+Most companies assume they're showing up in AI search because they rank well in Google. The correlation between Google rankings and ChatGPT citations is weak and getting weaker. The Digital Context Audit tells you where you actually stand.
 
 ## Frequently Asked Questions
 
@@ -97,7 +97,7 @@ SEO optimizes for ranking in search engine results pages. AEO optimizes for bein
 No, but it changes the priority stack. SEO still drives traffic from traditional search, and that traffic isn't disappearing overnight. But with 69% of searches producing zero clicks and AI search growing rapidly, the return on pure SEO investment is declining. Smart B2B companies are shifting budget toward AEO while maintaining their SEO baseline. Think of it as portfolio rebalancing, not a swap.
 
 **How do I check if my company shows up in ChatGPT?**
-Ask ChatGPT questions that your ideal buyer would ask. "What are the best tools for [your category]?" "Who are the leading companies in [your space]?" "What should I look for in a [your product type]?" If your company isn't named in the responses, you have an AI visibility problem. Do this across multiple sessions and phrasings to get a reliable read. A structured approach is what the [Gravity Audit](/gravity-audit) provides.
+Ask ChatGPT questions that your ideal buyer would ask. "What are the best tools for [your category]?" "Who are the leading companies in [your space]?" "What should I look for in a [your product type]?" If your company isn't named in the responses, you have an AI visibility problem. Do this across multiple sessions and phrasings to get a reliable read. A structured approach is what the [Digital Context Audit](/digital-context-audit) provides.
 
 **How long does it take to improve AI visibility?**
 Entity authority compounds, so the timeline depends on your starting position. Companies with strong existing brand signals and content can see improvements in 8 to 12 weeks after implementing schema markup and restructuring key content. Companies starting from low brand mass may need 3 to 6 months of sustained Gravity work: publishing original research, building citation surface, and consolidating entity signals across platforms.

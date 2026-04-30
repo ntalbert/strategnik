@@ -367,7 +367,7 @@ function ActOne() {
 
 /* ═══════════════════════════════════════════════════════
    ACT 2: THE ASSEMBLY
-   Six components → unified Gravity Field
+   Six components → unified Context Field
    ═══════════════════════════════════════════════════════ */
 
 function ActTwo() {

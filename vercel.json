@@ -71,6 +71,16 @@
       "source": "/thinking/scaffolding-always-comes-down",
       "destination": "/thinking/why-ai-made-marketing-faster-not-better",
       "permanent": true
+    },
+    {
+      "source": "/gravity-audit",
+      "destination": "/digital-context-audit",
+      "permanent": true
+    },
+    {
+      "source": "/physics-of-growth/gravity-field",
+      "destination": "/physics-of-growth/context-field",
+      "permanent": true
     }
   ]
 }

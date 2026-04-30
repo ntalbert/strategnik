@@ -113,7 +113,7 @@ Friction is everything that prevents AI systems from finding, understanding, and
 
 Most B2B SaaS companies have enormous friction in their AI discoverability and don't know it. They've been optimizing for Google's crawler for a decade and assume that transfers to AI systems. It doesn't. AI extraction has different requirements, and the gaps are invisible unless you look for them.
 
-Friction reduction is often the highest-leverage AEO work. You may already have the content and authority to be cited — but structural barriers are preventing it. A [Gravity Audit](/gravity-audit) is specifically designed to identify and quantify these barriers.
+Friction reduction is often the highest-leverage AEO work. You may already have the content and authority to be cited — but structural barriers are preventing it. A [Digital Context Audit](/digital-context-audit) is specifically designed to identify and quantify these barriers.
 
 ## What Does a GTM Architect Do Differently Than a Traditional CMO in the AEO Era?
 
@@ -133,11 +133,11 @@ A GTM architect designs the entire discovery system. That means:
 
 This is why the [cost of a fractional CMO](/thinking/fractional-cmo-cost-2026) should be evaluated against system-building capability, not just campaign management. The role has fundamentally expanded.
 
-## The Gravity Audit™: Where to Start Your AEO Diagnosis
+## The Digital Context Audit™: Where to Start Your AEO Diagnosis
 
 If you're reading this and wondering where your company stands, the answer is almost certainly: worse than you think, but fixable.
 
-The [Gravity Audit](/gravity-audit) is the diagnostic I built specifically for this problem. It assesses your current position across all five AEO components and maps them to the Physics of Growth™ framework. Here's what it covers:
+The [Digital Context Audit](/digital-context-audit) is the diagnostic I built specifically for this problem. It assesses your current position across all five AEO components and maps them to the Physics of Growth™ framework. Here's what it covers:
 
 **Entity visibility scan.** How do AI systems currently describe your company? Where are the gaps between how you see yourself and how AI sees you?
 

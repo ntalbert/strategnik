@@ -138,7 +138,7 @@ CAC has risen 40–60% since 2023 across B2B SaaS. The era of cheap digital acqu
 
 The channel you acquire customers through determines your unit economics more than almost any other variable. A company spending $980 per customer on LinkedIn and $480 on organic content might look at the blended $730 and feel fine — but if 80% of their spend is on LinkedIn and 20% on content, the real economics are much worse than the blend suggests.
 
-**So what:** If your blended CAC is above $1,500 at Series B, you have a channel mix problem, not a budget problem. Audit where the dollars go. Shift spend toward channels with compounding returns (content, referral programs) and away from channels with linear returns (paid). The [Gravity Audit](/gravity-audit) can help diagnose what's actually building mass in your system versus just generating activity.
+**So what:** If your blended CAC is above $1,500 at Series B, you have a channel mix problem, not a budget problem. Audit where the dollars go. Shift spend toward channels with compounding returns (content, referral programs) and away from channels with linear returns (paid). The [Digital Context Audit](/digital-context-audit) can help diagnose what's actually building mass in your system versus just generating activity.
 
 ---
 
@@ -340,7 +340,7 @@ Benchmarks are useful when they force honest conversation. They're dangerous whe
 
 The conversion rates, cycle times, and unit economics above represent the current state of B2B SaaS in 2026. They'll shift. What won't shift is the underlying physics: every GTM system has mass, velocity, and a measurable distance to its revenue target. The companies that understand those dynamics — and measure themselves against stage-appropriate expectations — build engines. The ones that borrow benchmarks without understanding context just build expensive pipeline theater.
 
-If you want to pressure-test your specific numbers, [run the calculator](/calculator). If you want a diagnostic on your GTM system's actual physics, [start with the Gravity Audit](/gravity-audit).
+If you want to pressure-test your specific numbers, [run the calculator](/calculator). If you want a diagnostic on your GTM system's actual physics, [start with the Digital Context Audit](/digital-context-audit).
 
 ---
 

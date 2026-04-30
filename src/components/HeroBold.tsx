@@ -27,7 +27,7 @@ export default function HeroBold() {
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             <p className="text-caption text-accent tracking-wide mb-6 font-bold uppercase">
-              Strategnik · Gravity Audit
+              Strategnik · Digital Context Audit
             </p>
             <h1
               className="font-black text-white tracking-tight mb-8 leading-[1.05]"
@@ -46,7 +46,7 @@ export default function HeroBold() {
               you win.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-12">
-              <a href="/gravity-audit" className="hp-btn hp-btn--primary">
+              <a href="/digital-context-audit" className="hp-btn hp-btn--primary">
                 Run Your Ecosystem Audit →
               </a>
               <a

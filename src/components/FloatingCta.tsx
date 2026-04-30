@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 
 const VARIANTS = {
-  A: { label: 'Get Your Gravity Audit', event: 'cta_gravity_audit' },
-  B: { label: 'Map Your GTM Gravity', event: 'cta_gravity_map' },
+  A: { label: 'Get Your Digital Context Audit', event: 'cta_digital_context_audit' },
+  B: { label: 'Map Your GTM Context', event: 'cta_context_map' },
 } as const;
 
 type Variant = keyof typeof VARIANTS;
@@ -66,7 +66,7 @@ export default function FloatingCta() {
 
   return (
     <motion.a
-      href="/gravity-audit"
+      href="/digital-context-audit"
       aria-label={VARIANTS[variant].label}
       onClick={handleClick}
       initial={shouldReduceMotion ? { opacity: visible ? 1 : 0 } : { opacity: 0, y: 20 }}
