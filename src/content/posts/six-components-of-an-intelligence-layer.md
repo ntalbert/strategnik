@@ -1,7 +1,7 @@
 ---
-title: "The Six Components of a Gravity Field"
+title: "The Six Components of a Context Field"
 description: >-
-  Six components make up the Gravity Field. Here's what each one does, what built vs. missing looks like, and why you can't skip any.
+  Six components make up the Context Field. Here's what each one does, what built vs. missing looks like, and why you can't skip any.
 date: 2026-02-03T00:00:00.000Z
 category: playbook
 featured: false
@@ -13,15 +13,15 @@ speakable:
   - "article h2:nth-of-type(3) + p"
 ---
 
-If you read [why your AI is still a chatbot](/thinking/your-ai-is-still-a-chatbot), you know the argument: most companies gave their team AI access and called it a strategy. The actual transformation requires building what I call the Gravity Field — the encoded operating context that makes every AI tool, agent, and team member work from the same shared foundation.
+If you read [why your AI is still a chatbot](/thinking/your-ai-is-still-a-chatbot), you know the argument: most companies gave their team AI access and called it a strategy. The actual transformation requires building what I call the Context Layer — the encoded operating context that makes every AI tool, agent, and team member work from the same shared foundation.
 
-This post is the practical guide. What does the Gravity Field actually contain? What does each component do? And what does it look like when it's built versus when it's missing?
+This post is the practical guide. What does the Context Layer actually contain? What does each component do? And what does it look like when it's built versus when it's missing?
 
-The Gravity Field has six components. Each one is encoded in machine-readable format — structured context that agents reference autonomously, not a PDF on a shared drive that people forget to check.
+The Context Field has six components. Each one is encoded in machine-readable format — structured context that agents reference autonomously, not a PDF on a shared drive that people forget to check.
 
 But the field serves two audiences most organizations only see one of. The first is obvious: your internal agents and team members. The second is every external machine your buyer consults — ChatGPT, Perplexity, Google AI Overviews, and the autonomous agents that increasingly mediate B2B buying decisions. Internal context engineering makes your AI tools smarter. External signal architecture makes your company legible to the machines that control discovery.
 
-The Gravity Field must do both. Without the first, your team produces fragmented output. Without the second, your company is invisible to the systems that increasingly decide who buyers talk to.
+The Context Field must do both. Without the first, your team produces fragmented output. Without the second, your company is invisible to the systems that increasingly decide who buyers talk to.
 
 ## 1. Brand + Voice Spec
 

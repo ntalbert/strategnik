@@ -423,7 +423,7 @@ export default function IntelligenceLayerHero() {
             className="text-5xl font-black mb-4"
             style={{ color: COLORS.white, fontFamily: "'Inter', system-ui, sans-serif" }}
           >
-            The Gravity Field
+            The Context Layer
           </h1>
           <p style={{ color: COLORS.textMuted }}>
             From fragmented marketing to a unified, signal-responsive operating system.
@@ -465,7 +465,7 @@ export default function IntelligenceLayerHero() {
           animate={{ opacity: [0.9, 1, 0.9] }}
           transition={{ duration: 3, repeat: Infinity }}
         >
-          The Gravity Field
+          The Context Layer
         </motion.h1>
         <motion.p
           className="text-base md:text-lg text-center max-w-lg px-4"
@@ -493,7 +493,7 @@ export default function IntelligenceLayerHero() {
       {/* CTA — bottom right */}
       <div className="absolute bottom-16 right-8 z-20">
         <motion.a
-          href="mailto:nick@strategnik.com?subject=Gravity%20Field%20Diagnostic"
+          href="mailto:nick@strategnik.com?subject=Digital%20Context%20Audit"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold"
           style={{
             background: `linear-gradient(135deg, ${COLORS.mint}, ${COLORS.teal || "#0D9488"})`,
@@ -502,7 +502,7 @@ export default function IntelligenceLayerHero() {
           whileHover={{ scale: 1.04, boxShadow: `0 0 25px ${COLORS.mintGlow}` }}
           whileTap={{ scale: 0.97 }}
         >
-          Book the Diagnostic
+          Book the Audit
           <span className="text-base">→</span>
         </motion.a>
       </div>

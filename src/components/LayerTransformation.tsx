@@ -10,7 +10,7 @@ const scenarios = [
       verdict: "Generic. Off-brand. Zero ICP awareness. No competitive framing. Starts from scratch every time."
     },
     withLayer: {
-      label: "With the Gravity Field",
+      label: "With the Context Layer",
       output: "For platform engineering teams drowning in YAML configs and tribal knowledge, container orchestration isn't a technology choice — it's an operational bottleneck that determines whether your developers ship in hours or weeks. Here's why the teams that solve this first win the infrastructure budget war...",
       verdict: "On-brand voice. ICP pain points. Competitive framing. Ships with schema markup. Took 90 seconds."
     }
@@ -23,7 +23,7 @@ const scenarios = [
       verdict: "Wikipedia-level analysis. No displacement narrative. No win/loss data. No objection handling."
     },
     withLayer: {
-      label: "With the Gravity Field",
+      label: "With the Context Layer",
       output: "When a prospect says 'we're evaluating Datadog': they're feeling pain at $180K+ annual spend with 40% utilization. Lead with the cost-per-host comparison at their scale. The switching trigger is always the invoice shock after Q3 expansion. Handle the 'but everyone knows Datadog' objection with the Acme Corp case study — same team size, 60% cost reduction, 3-week migration...",
       verdict: "Pulls from win/loss history. Uses their objections. Cites real case data. Updated this morning."
     }
@@ -36,7 +36,7 @@ const scenarios = [
       verdict: "Spray and pray. Wrong persona voice. No stage awareness. This goes to spam."
     },
     withLayer: {
-      label: "With the Gravity Field",
+      label: "With the Context Layer",
       output: "Subject: The $2.3M question your board is about to ask\n\nThe median Series B CFO gets asked 'what's our CAC payback period?' within 60 days of close. If the answer involves a spreadsheet and a guess, this framework gives you the model your board actually wants — benchmarked against 47 SaaS companies at your stage...",
       verdict: "Persona-specific hook. Stage-aware data. Speaks CFO language. Maps to buying trigger. Auto-personalized."
     }
@@ -151,8 +151,8 @@ export default function LayerTransformation() {
             color: '#8b949e',
             fontWeight: 500,
           }}>
-            {phase === 'transforming' ? '⚡ Gravity Field activating...' :
-             isWithPhase ? '✓ Gravity Field connected' :
+            {phase === 'transforming' ? '⚡ Context Layer activating...' :
+             isWithPhase ? '✓ Context Layer connected' :
              'AI Assistant — no context loaded'}
           </span>
         </div>

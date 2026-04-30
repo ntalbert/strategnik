@@ -109,7 +109,7 @@ export default function ComponentTabs() {
       <div
         className="flex overflow-x-auto scrollbar-hide"
         role="tablist"
-        aria-label="Gravity Field Components"
+        aria-label="Context Layer Components"
         style={{ borderBottom: '1px solid #2b363b' }}
       >
         {components.map((comp, i) => (

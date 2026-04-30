@@ -34,7 +34,7 @@ const DIAGNOSIS: Record<string, { force: string; color: string; insight: string 
     force: 'Friction',
     color: '#ef4444',
     insight:
-      "No shared operating context. Every agent writes a slightly different company. Fix is the Gravity Field itself.",
+      "No shared operating context. Every agent writes a slightly different company. Fix is the Context Layer itself.",
   },
   'Brand reach ≠ conversion': {
     force: 'Mass',
@@ -49,10 +49,10 @@ const DIAGNOSIS: Record<string, { force: string; color: string; insight: string 
       "Decision friction. Each stage resets the buying committee's momentum. We diagnose the worst handoff.",
   },
   'Positioning no longer lands': {
-    force: 'Gravity Field',
+    force: 'Context Field',
     color: '#06b6d4',
     insight:
-      "The market moved and your operating context didn't. Your Gravity Field needs a re-calibration.",
+      "The market moved and your operating context didn't. Your Context Layer needs a re-calibration.",
   },
 };
 
@@ -87,7 +87,7 @@ export default function GravityAuditFlow() {
       />
       <div className="container-content relative max-w-3xl">
         <p className="text-caption text-accent tracking-wide mb-4 font-bold uppercase">
-          Gravity Audit · 60 seconds
+          Digital Context Audit · 60 seconds
         </p>
         <h1 className="text-display-xl font-display italic text-white font-extrabold mb-6">
           Find out which growth force is breaking.
@@ -210,7 +210,7 @@ export default function GravityAuditFlow() {
                   I'll walk through your friction map and tell you if the Sprint is worth exploring.
                   No pitch.
                 </p>
-                <a href="mailto:nick@strategnik.com?subject=Gravity Audit follow-up" className="hp-btn hp-btn--primary">
+                <a href="mailto:nick@strategnik.com?subject=Digital Context Audit follow-up" className="hp-btn hp-btn--primary">
                   Book the call →
                 </a>
               </div>

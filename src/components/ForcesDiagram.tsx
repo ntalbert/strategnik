@@ -13,7 +13,7 @@ const forces: ForceNode[] = [
   { label: 'Surface Area', color: '#60a5fa', angle: 30 },
   { label: 'Mass', color: '#f59e0b', angle: 90 },
   { label: 'Escape Velocity', color: '#c084fc', angle: 150 },
-  { label: 'Gravity Field', color: '#06b6d4', angle: 210 },
+  { label: 'Context Field', color: '#06b6d4', angle: 210 },
 ];
 
 interface Props {

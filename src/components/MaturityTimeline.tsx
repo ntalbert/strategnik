@@ -26,7 +26,7 @@ const stages: Stage[] = [
     num: 2,
     label: 'Stage 2',
     sublabel: 'The Sprint',
-    title: 'Gravity Field Built',
+    title: 'Context Layer Built',
     desc: 'All six components encoded. Shared operating context installed. AI tools can now be wired in. 30-90 day engagement.',
     color: '#1de2c4',
     muted: false,

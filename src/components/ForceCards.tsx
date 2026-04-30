@@ -55,13 +55,13 @@ const forces: ForceCard[] = [
     status: 'coming-soon',
   },
   {
-    name: 'Gravity Field',
+    name: 'Context Field',
     color: '#06b6d4',
     icon: 'gravity',
     physics: 'Mass curves spacetime. The field tells objects how to move.',
     gtm: 'Without shared operating context, every tool and channel drifts.',
     status: 'ready',
-    href: '/physics-of-growth/gravity-field',
+    href: '/physics-of-growth/context-field',
   },
 ];
 

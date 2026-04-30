@@ -246,7 +246,7 @@ const TABS: Tab[] = [
       '  ],',
       '',
       '  "messaging_hierarchy": {',
-      '    "primary_claim":      "The Gravity Field for AI-native marketing",',
+      '    "primary_claim":      "The Context Layer for AI-native marketing",',
       '    "secondary_claims":   ["Infrastructure, not advice", "Physics, not frameworks"],',
       '    "proof_points":       ["/proof/case-studies.json", "/proof/pipeline-impact.json"],',
       '    "forbidden_claims":   ["best-in-class", "industry-leading", "#1 ranked"]',
@@ -337,7 +337,7 @@ export default function IntelligenceLayerSpec() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-caption text-accent tracking-wide mb-4 font-bold uppercase">
-              The Gravity Field
+              The Context Layer
             </p>
             <h2 className="text-display font-display italic text-white font-extrabold mb-6">
               The artifact you actually walk away with.

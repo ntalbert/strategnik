@@ -70,8 +70,8 @@ const FORCES: Force[] = [
     diagnostic: 'Is inbound > outbound? For how many quarters?',
   },
   {
-    name: 'Gravity Field',
-    slug: 'gravity-field',
+    name: 'Context Field',
+    slug: 'context-field',
     color: '#06b6d4',
     icon: 'gravity',
     physics: 'Mass curves spacetime. The field tells objects how to move.',

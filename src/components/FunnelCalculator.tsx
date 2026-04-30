@@ -96,7 +96,7 @@ export default function FunnelCalculator() {
             </div>
             <div className="pt-6 border-t border-[#1a2328]">
               <p className="text-caption text-accent uppercase tracking-wider mb-1.5 font-bold">
-                Post-Gravity Field target
+                Post-Context Layer target
               </p>
               <p className="font-display italic text-accent font-extrabold text-3xl">
                 ${target.toLocaleString()}

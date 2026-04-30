@@ -28,7 +28,7 @@ const stats: Stat[] = [
     value: 62,
     suffix: '%',
     label: 'Experimenting, not scaling',
-    detail: '62% experimenting. Only 23% scaling. The 39-point gap is where the Gravity Field operates.',
+    detail: '62% experimenting. Only 23% scaling. The 39-point gap is where the Context Layer operates.',
     source: 'Industry data',
   },
 ];

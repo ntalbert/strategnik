@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Gravity Field Playbooks — 25 Proven GTM Plays";
-const description = "25 proven plays for pipeline, visibility, competitive positioning, ABM, and scoring — each powered by the Gravity Field. Filterable catalog of GTM strategies for Series B through pre-IPO B2B SaaS.";
+const title = "Context Playbooks — 25 Proven GTM Plays";
+const description = "25 proven plays for pipeline, visibility, competitive positioning, ABM, and scoring — each powered by the Context Layer. Filterable catalog of GTM strategies for Series B through pre-IPO B2B SaaS.";
 
 interface Play {
   id: number;
@@ -82,7 +82,7 @@ function getCategoryLabel(category: string): string {
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "name": "Gravity Field Playbooks",
+      "name": "Context Playbooks",
       "description": description,
       "url": "https://strategnik.com/playbooks",
       "isPartOf": {
@@ -92,7 +92,7 @@ function getCategoryLabel(category: string): string {
       },
       "about": {
         "@type": "Thing",
-        "name": "Gravity Field",
+        "name": "Context Layer",
         "description": "The foundational operating context that makes AI-native marketing possible."
       },
       "provider": {
@@ -117,7 +117,7 @@ function getCategoryLabel(category: string): string {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://strategnik.com" },
-        { "@type": "ListItem", "position": 2, "name": "Gravity Field", "item": "https://strategnik.com/physics-of-growth/gravity-field" },
+        { "@type": "ListItem", "position": 2, "name": "Context Field", "item": "https://strategnik.com/physics-of-growth/context-field" },
         { "@type": "ListItem", "position": 3, "name": "Playbooks", "item": "https://strategnik.com/playbooks" }
       ]
     })} />
@@ -126,10 +126,10 @@ function getCategoryLabel(category: string): string {
   <div class="playbooks-page">
     <!-- Hero -->
     <header class="playbooks-hero">
-      <p class="section-label">Gravity Field</p>
-      <h1 class="playbooks-title" data-animate>Gravity Field Playbooks</h1>
+      <p class="section-label">Context Layer</p>
+      <h1 class="playbooks-title" data-animate>Context Playbooks</h1>
       <p class="playbooks-subtitle" data-animate>
-        25 proven plays for pipeline, visibility, competitive positioning, ABM, and scoring — each powered by the <a href="/physics-of-growth/gravity-field" class="hero-link">Gravity Field</a>.
+        25 proven plays for pipeline, visibility, competitive positioning, ABM, and scoring — each powered by the <a href="/physics-of-growth/context-field" class="hero-link">Context Layer</a>.
       </p>
     </header>
 
@@ -174,8 +174,8 @@ function getCategoryLabel(category: string): string {
               Learn more <span class="expand-arrow">&rarr;</span>
             </button>
             <div class="play-detail" hidden>
-              <p>This play is powered by the <strong>{play.component}</strong> component of the Gravity Field. The Gravity Field encodes this knowledge so agents and teams can execute it consistently — without starting from scratch each time.</p>
-              <a href="/physics-of-growth/gravity-field" class="play-detail-link">See how the Gravity Field works &rarr;</a>
+              <p>This play is powered by the <strong>{play.component}</strong> component of the Context Layer. The Context Layer encodes this knowledge so agents and teams can execute it consistently — without starting from scratch each time.</p>
+              <a href="/physics-of-growth/context-field" class="play-detail-link">See how the Context Layer works &rarr;</a>
             </div>
           </div>
         ))}
@@ -190,12 +190,12 @@ function getCategoryLabel(category: string): string {
     <!-- CTA -->
     <section class="playbooks-cta">
       <div class="playbooks-cta-inner">
-        <h2 class="playbooks-cta-title" data-animate>Start with a Gravity Audit</h2>
+        <h2 class="playbooks-cta-title" data-animate>Start with a Digital Context Audit</h2>
         <p class="playbooks-cta-text" data-animate>
-          Find out which of these 25 plays matter most for your business. The Gravity Audit maps your AI visibility, content authority, and pipeline gaps — then tells you where to start.
+          Find out which of these 25 plays matter most for your business. The Digital Context Audit maps your AI visibility, content authority, and pipeline gaps — then tells you where to start.
         </p>
-        <a href="/gravity-audit" class="playbooks-cta-btn" data-animate>
-          Get the Gravity Audit &rarr;
+        <a href="/digital-context-audit" class="playbooks-cta-btn" data-animate>
+          Get the Digital Context Audit &rarr;
         </a>
       </div>
     </section>

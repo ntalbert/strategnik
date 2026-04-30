@@ -24,7 +24,7 @@ type Tier = {
 
 const TIERS: Tier[] = [
   {
-    name: 'Gravity Field Diagnostic',
+    name: 'Digital Context Audit',
     price: '$15,000',
     duration: '2–4 weeks',
     tagline: "Teams who suspect something is broken but can't name it.",
@@ -36,16 +36,16 @@ const TIERS: Tier[] = [
       'One 90-min readout',
     ],
     cta: 'Start here',
-    href: '/gravity-audit',
+    href: '/digital-context-audit',
   },
   {
-    name: 'Gravity Field Sprint',
+    name: 'Context Layer Sprint',
     price: '$60–120K',
     duration: '30–90 days',
     tagline: 'Teams ready to build the infrastructure.',
     includes: [
       'Everything in Diagnostic',
-      'Full Gravity Field build (6 components)',
+      'Full Context Layer build (6 components)',
       'Machine-readable brand + ICP spec',
       'Content model + schema deployment',
       'KPI framework + dashboard',
@@ -53,17 +53,17 @@ const TIERS: Tier[] = [
       'Weekly Tuesday standups',
     ],
     cta: 'Book a Sprint call',
-    href: 'mailto:nick@strategnik.com?subject=Gravity Field Sprint',
+    href: 'mailto:nick@strategnik.com?subject=Context Layer Sprint',
     highlight: true,
   },
   {
     name: 'Advisor Retainer',
     price: '$8,000/mo',
     duration: 'Ongoing, 6-mo min',
-    tagline: 'Teams with a Gravity Field in place who want ongoing calibration.',
+    tagline: 'Teams with a Context Layer in place who want ongoing calibration.',
     includes: [
       'Bi-weekly strategic syncs',
-      'Gravity Field updates as you scale',
+      'Context Layer updates as you scale',
       'GTM leader coaching',
       'Slack + async access',
       'Quarterly physics re-diagnosis',

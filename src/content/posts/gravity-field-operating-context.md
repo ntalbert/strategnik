@@ -1,7 +1,7 @@
 ---
-title: 'The Gravity Field: Why AI Without Shared Context Just Scales the Chaos'
+title: "Your Brand's Context Field: Why AI Without Shared Context Just Scales the Chaos"
 description: >-
-  Mass generates gravity. The Gravity Field is the structured operating context that pulls every tool, agent, and channel into coherent orbit. Without it, more AI just means faster fragmentation.
+  Mass generates gravity. The Context Field is the structured operating context that pulls every tool, agent, and channel into coherent orbit. Without it, more AI just means faster fragmentation.
 date: 2026-04-22T00:00:00.000Z
 category: physics
 featured: true
@@ -23,7 +23,7 @@ In the [Physics of Growth](/physics-of-growth) framework, every company accumula
 
 In physics, mass generates gravity. Not as a choice. As a consequence. Mass bends the space around it, creating an invisible field that tells every object in the system how to move. Planets don't decide to orbit the sun. The gravitational field makes orbit the only coherent path.
 
-Your company's equivalent is what I call the Gravity Field — the structured operating context that tells every tool, agent, team member, and channel how to behave. Not through policies people forget. Not through brand guidelines gathering dust on a shared drive. Through encoded context that is present every time a decision gets made, whether a human or a machine is making it.
+Your company's equivalent is what I call the Context Field — the structured operating context that tells every tool, agent, team member, and channel how to behave. Not through policies people forget. Not through brand guidelines gathering dust on a shared drive. Through encoded context that is present every time a decision gets made, whether a human or a machine is making it.
 
 Without a gravitational field, objects drift. They move in random directions, collide with each other, or fly off into space. The same thing happens to your GTM motion when five teams, eight agents, and twelve channels all operate without a shared foundation. Everyone is working. Nobody is coherent.
 
@@ -39,11 +39,11 @@ This works at small scale. The founding team carries the context in their heads,
 
 The field was never built. It was implied. And implied fields don't scale.
 
-![Gravity Field diagram — six components orbiting a central mass, with field lines extending outward to surface area touchpoints](/images/posts/gravity-field-six-components-orbit.png)
+![Context Field diagram — six components orbiting a central mass, with field lines extending outward to surface area touchpoints](/images/posts/gravity-field-six-components-orbit.png)
 
-## What the Gravity Field Contains
+## What the Context Field Contains
 
-The Gravity Field has six components, each encoded in machine-readable format — structured context that agents reference autonomously, not a PDF people forget to check.
+The Context Field has six components, each encoded in machine-readable format — structured context that agents reference autonomously, not a PDF people forget to check.
 
 **Brand + Voice Spec.** Tone, editorial standards, banned language, writing style rules. This is what makes five different agents produce output that sounds like one company.
 
@@ -57,21 +57,22 @@ The Gravity Field has six components, each encoded in machine-readable format �
 
 **Measurement Targets.** Revenue influence metrics, conversion benchmarks, feedback loops. This is the steering mechanism that tells the system whether it's working and what to adjust.
 
-I wrote a detailed breakdown of each component, what built looks like versus missing, and why you can't skip any of them: [The Six Components of a Gravity Field](/thinking/six-components-of-an-intelligence-layer).
+I wrote a detailed breakdown of each component, what built looks like versus missing, and why you can't skip any of them: [The Six Components of a Context Field](/thinking/six-components-of-an-intelligence-layer).
 
 ## How the Field Connects to the Rest of the System
 
-The Gravity Field doesn't exist in isolation. It's the connective tissue of the entire [Physics of Growth](/physics-of-growth) framework.
+The Context Field doesn't exist in isolation. It's the connective tissue of the entire [Physics of Growth](/physics-of-growth) framework.
 
-**Mass generates the field.** Your accumulated brand credibility, market presence, and content authority create the raw material. The Gravity Field is what that mass actually does — it bends the behavior of everything around it toward coherence. A company with significant mass but no encoded field is a star that generates heat but no orbital system. Lots of energy, no structure.
+**Mass generates the field.** Your accumulated brand credibility, market presence, and content authority create the raw material. The Context Field is what that mass actually does — it bends the behavior of everything around it toward coherence. A company with significant mass but no encoded field is a star that generates heat but no orbital system. Lots of energy, no structure.
 
-**The field extends across [Surface Area](/physics-of-growth/surface-area).** Every channel, every touchpoint, every agent-generated piece of content operates within the field — or it doesn't. Surface area without a gravity field is random drift at every touchpoint. You're present everywhere and coherent nowhere. The field is what makes wide reach compound instead of fragment.
+**The field extends across [Surface Area](/physics-of-growth/surface-area).** Every channel, every touchpoint, every agent-generated piece of content operates within the field — or it doesn't. Surface area without a context field is random drift at every touchpoint. You're present everywhere and coherent nowhere. The field is what makes wide reach compound instead of fragment.
 
 **A strong field reduces [Friction](/thinking/friction-problem).** When every team member and every agent works from the same encoded context, people stop wasting time re-deriving first principles. The SDR doesn't need to ask marketing how to position against Competitor X. The content agent doesn't need a briefing on buyer persona pain points. The agency doesn't need a three-week onboarding to understand the brand voice. The context is in the field. The friction disappears.
 
-**The field compounds [Momentum](/physics-of-growth/momentum).** Each month the Gravity Field runs, it gets sharper. Measurement targets feed back into ICP context. Win/loss data refines competitive framing. Content performance sharpens the content architecture. The field learns. And because every agent and team member draws from it, the entire system gets better simultaneously — not one piece at a time.
+**The field compounds [Momentum](/physics-of-growth/momentum).** Each month the Context Field runs, it gets sharper. Measurement targets feed back into ICP context. Win/loss data refines competitive framing. Content performance sharpens the content architecture. The field learns. And because every agent and team member draws from it, the entire system gets better simultaneously — not one piece at a time.
 
 ![Diagnostic spectrum — weak field showing drift and fragmentation on the left, strong field showing coherent orbit on the right](/images/posts/gravity-field-strength-diagnostic.png)
+
 
 ## Field Strength as a Diagnostic
 
@@ -83,15 +84,15 @@ You can diagnose a company's field strength in about thirty minutes. The symptom
 
 The difference isn't talent. It isn't effort. It's infrastructure. A strong field makes average performers look coordinated. A weak field makes excellent performers look incoherent.
 
-If you want to assess where your field stands, the [Gravity Audit](/gravity-audit) is the diagnostic I run with clients to map the gaps.
+If you want to assess where your field stands, the [Digital Context Audit](/digital-context-audit) is the diagnostic I run with clients to map the gaps.
 
 ## The Compounding Advantage
 
-Here's what most companies underestimate: the Gravity Field is a compounding asset. Every month it operates, it captures more signal, refines more context, and makes every downstream activity more efficient.
+Here's what most companies underestimate: the Context Field is a compounding asset. Every month it operates, it captures more signal, refines more context, and makes every downstream activity more efficient.
 
-The company that builds this first in a competitive market gets an advantage that widens over time. While competitors are still briefing agencies, correcting AI output, and reconciling inconsistent messaging across channels, the company with a functioning Gravity Field is running a system where every new piece of content, every new agent, every new channel automatically inherits the full context of the organization.
+The company that builds this first in a competitive market gets an advantage that widens over time. While competitors are still briefing agencies, correcting AI output, and reconciling inconsistent messaging across channels, the company with a functioning Context Field is running a system where every new piece of content, every new agent, every new channel automatically inherits the full context of the organization.
 
-This isn't a one-time project. It's infrastructure that appreciates. The gap between a company with a twelve-month-old Gravity Field and one that just started isn't twelve months of content. It's twelve months of compounded learning, refined targeting, and accumulated coherence that no amount of sprint work can replicate.
+This isn't a one-time project. It's infrastructure that appreciates. The gap between a company with a twelve-month-old Context Layer and one that just started isn't twelve months of content. It's twelve months of compounded learning, refined targeting, and accumulated coherence that no amount of sprint work can replicate.
 
 The companies that figure this out in 2026 will look back on it the way we look back on companies that invested in SEO in 2010. Not because the tactic was novel, but because they built the infrastructure while everyone else was still debating whether it mattered.
 
