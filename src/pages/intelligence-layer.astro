@@ -1,13 +1,323 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionReveal from '../components/SectionReveal';
+import NewsletterForm from '../components/NewsletterForm.astro';
+
+const title = "The Intelligent Context Layer — What It Is and Why It Matters";
+const description = "The Intelligent Context Layer is the machine-readable operating context that makes AI-native GTM actually work. It encodes your brand, ICP, positioning, and competitive framing so every agent, tool, and channel operates from the same foundation. Managed through Ontogent.";
 ---
 
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0;url=/physics-of-growth/context-field" />
-    <title>Redirecting...</title>
-  </head>
-  <body>
-    <script>window.location.href = '/physics-of-growth/context-field';</script>
-    <p>Redirecting to <a href="/physics-of-growth/context-field">/physics-of-growth/context-field</a>...</p>
-  </body>
-</html>
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "The Intelligent Context Layer",
+      "description": description,
+      "url": "https://strategnik.com/intelligence-layer",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Strategnik",
+        "url": "https://strategnik.com"
+      }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://strategnik.com" },
+        { "@type": "ListItem", "position": 2, "name": "Intelligent Context Layer", "item": "https://strategnik.com/intelligence-layer" }
+      ]
+    })} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="section">
+    <div class="container-narrow">
+      <p class="text-small text-gray-400 mb-8" data-animate-fade>Context Engineering</p>
+      <h1 class="text-display-lg mb-6" data-animate-hero>The Intelligent Context Layer</h1>
+      <p class="text-body-lg text-gray-400" data-animate-hero-sub>
+        Every AI tool you deploy — every agent, every workflow, every content system — makes
+        decisions based on context. The question is whether that context is scattered across
+        Slack threads and stale PDFs, or structured, versioned, and shared across your entire
+        GTM stack.
+      </p>
+      <p class="text-body-lg text-gray-400 mt-4" data-animate-hero-sub>
+        The Intelligent Context Layer is the latter. It's the machine-readable operating
+        system for your brand's go-to-market reality.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <div class="prose-minimal">
+
+        <h2 data-animate>The Problem It Solves</h2>
+        <p data-animate data-animate-delay="0.1">
+          Most B2B companies have context. They have positioning decks, ICP definitions,
+          competitive battlecards, brand guidelines, content strategies. The problem is
+          none of it is connected, none of it is machine-readable, and none of it stays current.
+        </p>
+        <p data-animate data-animate-delay="0.15">
+          So every AI tool starts from zero. Every agent guesses at your voice. Every new
+          hire spends weeks hunting for the "real" version of your positioning. Every agency
+          asks for a brief that takes longer to write than the work itself.
+        </p>
+        <p data-animate data-animate-delay="0.2">
+          The symptoms are familiar: inconsistent messaging, off-brand AI output, channels
+          that contradict each other, and the persistent feeling that your team is busy
+          but nothing compounds.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What It Is -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <div class="prose-minimal">
+
+        <h2 data-animate>What the Context Layer Actually Is</h2>
+        <p data-animate data-animate-delay="0.1">
+          The Intelligent Context Layer is structured infrastructure. It encodes six
+          dimensions of your go-to-market reality into a format that both humans and
+          machines can consume:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8" data-animate data-animate-delay="0.15">
+          <div class="p-6 border border-gray-800 rounded-lg">
+            <h3 class="text-white font-bold mb-2">Rules</h3>
+            <p class="text-gray-400 text-sm">
+              Voice and tone registers, forbidden lexicon, brand tenets, origin narrative —
+              the codified identity that every output must respect.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-800 rounded-lg">
+            <h3 class="text-white font-bold mb-2">ICP & Buyer Context</h3>
+            <p class="text-gray-400 text-sm">
+              ICP hierarchy, persona definitions, buyer journey stages, CTA rules per stage —
+              so agents know who they're talking to and where that person is in the decision.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-800 rounded-lg">
+            <h3 class="text-white font-bold mb-2">Positioning & Competitive</h3>
+            <p class="text-gray-400 text-sm">
+              Positioning statement, competitive dispositions, displacement narratives —
+              encoded so agents frame your product correctly against every named competitor.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-800 rounded-lg">
+            <h3 class="text-white font-bold mb-2">Content Architecture</h3>
+            <p class="text-gray-400 text-sm">
+              Topic pillars, entity definitions, content types — the structural map
+              that ensures coverage and prevents cannibalization.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-800 rounded-lg">
+            <h3 class="text-white font-bold mb-2">Distribution Schema</h3>
+            <p class="text-gray-400 text-sm">
+              Channel definitions, cadence rules, format requirements per channel —
+              so the same insight adapts correctly to LinkedIn, email, docs, and sales decks.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-800 rounded-lg">
+            <h3 class="text-white font-bold mb-2">Measurement & Objectives</h3>
+            <p class="text-gray-400 text-sm">
+              Targets, KPIs, governance gates, approval workflows — the operational
+              guardrails that keep AI output aligned with business goals.
+            </p>
+          </div>
+        </div>
+
+        <p data-animate data-animate-delay="0.2">
+          These aren't six documents. They're a connected knowledge graph where every
+          rule, every fact, and every competitive disposition is linked. Change your
+          positioning — the downstream effects cascade through ICP messaging, competitive
+          framing, and content priorities automatically.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How You Get There -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <div class="prose-minimal">
+
+        <h2 data-animate>How You Get There</h2>
+        <p data-animate data-animate-delay="0.1">
+          Building a Context Layer isn't a strategy exercise. It's context engineering —
+          the discipline of extracting what's in your team's heads, your documents, and your
+          market position and encoding it into structured, machine-readable infrastructure.
+        </p>
+
+        <div class="my-8 space-y-6" data-animate data-animate-delay="0.15">
+          <div class="flex gap-4">
+            <span class="text-accent font-mono text-sm mt-1 shrink-0">01</span>
+            <div>
+              <h3 class="text-white font-bold mb-1">Digital Context Audit</h3>
+              <p class="text-gray-400">
+                Map what context exists today — scattered across docs, decks, and tribal knowledge.
+                Identify the gaps between what you think you've communicated and what AI systems,
+                search engines, and buyers actually see.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-accent font-mono text-sm mt-1 shrink-0">02</span>
+            <div>
+              <h3 class="text-white font-bold mb-1">Context Layer Build</h3>
+              <p class="text-gray-400">
+                Encode all six components into a structured knowledge graph. Ingest your
+                existing documents, extract the rules and facts, resolve gaps, and connect
+                everything into a unified operating context.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-accent font-mono text-sm mt-1 shrink-0">03</span>
+            <div>
+              <h3 class="text-white font-bold mb-1">Activate & Sharpen</h3>
+              <p class="text-gray-400">
+                Connect the Context Layer to your tools and agents via API or MCP. Use the
+                GTM Sharpener to pressure-test decisions. Monitor drift, enforce governance
+                gates, and build the feedback loop that makes the system smarter over time.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ontogent -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <div class="prose-minimal">
+
+        <h2 data-animate>Managed Through Ontogent</h2>
+        <p data-animate data-animate-delay="0.1">
+          <a href="https://app.ontogent.ai" class="text-accent hover:text-white transition-colors">Ontogent</a>
+          is the platform built specifically to manage the Intelligent Context Layer. It's
+          where the knowledge graph lives, where rules are maintained, and where every
+          agent and tool connects to get the operating context they need.
+        </p>
+
+        <div class="my-8 space-y-4" data-animate data-animate-delay="0.15">
+          <div class="flex items-start gap-3">
+            <span class="text-accent mt-1">→</span>
+            <p class="text-gray-400"><strong class="text-white">Rules + Facts architecture</strong> — codified operating context (rules) backed by evidence from your actual documents (facts). Not opinions. Not templates. Your reality, encoded.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-accent mt-1">→</span>
+            <p class="text-gray-400"><strong class="text-white">Compose pipeline</strong> — when an agent needs to produce content, Ontogent walks the knowledge graph, retrieves relevant evidence, and assembles a context payload that makes the output accurate, on-brand, and grounded in your actual data.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-accent mt-1">→</span>
+            <p class="text-gray-400"><strong class="text-white">MCP + API access</strong> — connect Claude, ChatGPT, or any AI tool directly to your Context Layer. The agent gets your brand rules and supporting evidence in every request. No copy-pasting brand docs into prompts.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-accent mt-1">→</span>
+            <p class="text-gray-400"><strong class="text-white">GTM Sharpener</strong> — binary decision framework that surfaces the hard questions your strategy hasn't answered. Each decision gets written into the graph, making the Context Layer more precise with every session.</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-accent mt-1">→</span>
+            <p class="text-gray-400"><strong class="text-white">Drift detection & governance</strong> — monitor when AI output diverges from your rules. Approval queues for sensitive content. Feedback loops that promote good outputs and flag drift before it compounds.</p>
+          </div>
+        </div>
+
+        <p data-animate data-animate-delay="0.2">
+          The Context Layer isn't a project you build once. It's infrastructure you maintain —
+          and Ontogent is how you maintain it.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Without vs With -->
+  <section class="section border-t border-gray-800">
+    <div class="container-narrow">
+      <div class="prose-minimal">
+
+        <h2 data-animate>What Changes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8" data-animate data-animate-delay="0.1">
+          <div>
+            <h3 class="text-gray-500 font-bold mb-4 text-sm uppercase tracking-wider">Without a Context Layer</h3>
+            <ul class="space-y-3 text-gray-400">
+              <li>Every AI prompt starts with "here's our brand..."</li>
+              <li>Agency onboarding takes 4-6 weeks</li>
+              <li>Competitive framing depends on who wrote it</li>
+              <li>New hires piece together strategy from Slack and old decks</li>
+              <li>Content feels busy but doesn't compound</li>
+              <li>AI output requires heavy editing to sound right</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-accent font-bold mb-4 text-sm uppercase tracking-wider">With a Context Layer</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li>Every agent inherits your full operating context automatically</li>
+              <li>New team members are productive in days</li>
+              <li>Competitive positioning is encoded and consistent everywhere</li>
+              <li>Strategy decisions propagate through the entire stack</li>
+              <li>Content builds on itself — each piece reinforces the whole</li>
+              <li>AI output is on-brand out of the box</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section border-t border-gray-800 text-center">
+    <div class="container-narrow">
+      <SectionReveal client:visible>
+        <h2 class="text-display-sm mb-4" data-animate>Start With the Audit</h2>
+        <p class="text-body-lg text-gray-400 mb-6" data-animate data-animate-delay="0.1">
+          The Digital Context Audit maps what context exists today, identifies the gaps,
+          and produces the blueprint for building your Context Layer.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center" data-animate data-animate-delay="0.2">
+          <a href="/digital-context-audit" class="btn btn-primary">
+            Get Your Digital Context Audit →
+          </a>
+          <a href="https://app.ontogent.ai" class="btn btn-ghost" target="_blank" rel="noopener">
+            Explore Ontogent →
+          </a>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="section-sm border-t border-gray-800">
+    <div class="container-narrow">
+      <p class="text-small text-gray-400 mb-6" data-animate-fade>Related</p>
+      <div class="flex flex-wrap gap-6" data-animate>
+        <a href="/physics-of-growth/context-field" class="text-white hover:text-accent transition-colors">
+          The Context Field →
+        </a>
+        <a href="/thinking/context-engineering-vs-intelligence-layer" class="text-white hover:text-accent transition-colors">
+          Context Engineering vs. the Context Layer →
+        </a>
+        <a href="/thinking/six-components-of-an-intelligence-layer" class="text-white hover:text-accent transition-colors">
+          The Six Components →
+        </a>
+        <a href="/services" class="text-white hover:text-accent transition-colors">
+          Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <NewsletterForm variant="compact" />
+
+</BaseLayout>
