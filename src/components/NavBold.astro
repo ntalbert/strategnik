@@ -4,7 +4,7 @@
  *
  * Replaces the current nav partial in src/layouts/BaseLayout.astro (or wherever
  * the site header lives). Key change: condenses 7 top-level items into 5 with
- * a Framework dropdown exposing Gravity Field / Physics of Growth / Playbooks.
+ * a Framework dropdown exposing Context Field / Physics of Growth / Playbooks.
  *
  * All hover/dropdown behaviour is pure CSS — no JS needed. Keep your existing
  * mobile-menu JS; this is desktop layout only. Drop a mobile <details> / accordion
@@ -36,7 +36,7 @@
           </button>
           <div class="absolute top-full left-0 bg-[#0f0f14] border border-[#2b363b] rounded-lg p-2 min-w-[260px] mt-1 shadow-xl invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all pointer-events-none group-hover:pointer-events-auto">
             {[
-              { t: 'Gravity Field', d: 'The shared operating context for AI-native GTM', href: '/physics-of-growth/gravity-field' },
+              { t: 'Context Field', d: 'The shared context foundation for AI-native GTM', href: '/physics-of-growth/context-field' },
               { t: 'Physics of Growth', d: 'Six forces governing B2B growth', href: '/physics-of-growth' },
               { t: 'Playbooks', d: 'Implementation guides', href: '/playbooks' },
             ].map((x) => (
@@ -62,7 +62,7 @@
       <a href="/thinking" class="hidden md:inline text-gray-300 text-[13px] no-underline hover:text-white transition-colors">
         Field Notes
       </a>
-      <a href="/gravity-audit" class="hp-btn hp-btn--primary text-[13px] px-4 py-2.5">
+      <a href="/digital-context-audit" class="hp-btn hp-btn--primary text-[13px] px-4 py-2.5">
         Book a call →
       </a>
     </div>
