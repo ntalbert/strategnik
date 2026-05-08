@@ -27,6 +27,8 @@ It's a clean solution. They're rightfully proud of it. And the pattern they disc
 
 Every team building with AI agents will hit this wall. Most will hit it one client at a time and build one-off solutions. That's expensive.
 
+![Three-stage progression diagram showing context evolution — from a sparse stack of documents fitting in one prompt, to an exploding cloud of fragments overflowing the prompt boundary, to a routing beam cutting through noise to illuminate only the relevant nodes](/images/posts/context-routing-bottleneck.png)
+
 ## Three stages every team goes through
 
 The progression is predictable enough to name the stages.
@@ -48,6 +50,8 @@ Correct. And predictable. Which means you can architect for it from the start.
 ## Why bespoke solutions cost you twice
 
 Here's where the pattern gets expensive. Every team that hits Stage 3 builds their own version of the same two components: a router and a composer. They build it for their specific use case (outbound sequences, in the original post's case). It works. Then they add a second use case — maybe content production, maybe ABM personalization — and discover that the routing logic is different for each one.
+
+![Bespoke vs platform diagram — three parallel router-composer pairs for Outbound, Content, and ABM collapsing into one shared graph infrastructure layer](/images/posts/context-routing-bespoke-vs-platform.png)
 
 The outbound router selects context by buyer segment (persona × ICP intersection). The content router selects by topic pillar and buying stage. The ABM router selects by account-level signals and competitive displacement angle. Three use cases, three routers, three maintenance surfaces. The code that routes context for outbound doesn't know how to route context for a blog post. The composer that bundles objection-to-proof chains for a sales email doesn't know how to bundle competitive framing for a case study.
 
@@ -86,6 +90,8 @@ Both are fine. But they're different businesses with different ceilings.
 ## Where this is going
 
 The original post ends with a prediction: "I think this will keep happening as agents accumulate institutional knowledge. The first thing you build is 'load the context.' Eventually you have to build 'find the right context.'"
+
+![Context Infrastructure Maturity Model — four ascending layers from Load to Route to Validate to Govern, with Route and Govern highlighted as the most commonly missing](/images/posts/context-routing-maturity-stack.png)
 
 I'd go further. The next bottleneck after routing is validation — how do you know the context you routed is still accurate? Competitive landscapes shift. ICPs evolve. Proof points expire. A routing layer built on stale context is worse than no routing at all, because it delivers wrong answers with high confidence.
 
