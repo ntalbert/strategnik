@@ -88,17 +88,27 @@ The illegitimate reason is that the old structure is easier to manage. Six direc
 
 You need to know which conversation you're having. If your CMO says "we're not ready for this" and follows it with a transition plan, you have a leader who gets it. If your CMO says "AI can't replace my team" and follows it with a defense of the status quo, you have a leader who's protecting a structure, not building one.
 
+## What This Actually Looks Like in Practice
+
+The team that replaces your 12-person department isn't a skeleton crew. It's an architect and three agentic operators who produce at a level your current team can't touch — not because your people aren't talented, but because the structure they're operating in won't let them.
+
+The **architect** is the person who redesigns the entire marketing engine. They define the outcome pods, build the orchestration layer, design the agent workflows, and establish the creative and voice system that governs everything. This isn't a consultant who hands you a deck and leaves. This is someone who rewires how your marketing function operates — the data flows, the feedback loops, the decision frameworks — and then runs it.
+
+The three **operators** each own an outcome domain. The acquisition operator runs paid, GEO/AEO, landing pages, and conversion — not by doing the manual work, but by directing AI agents that handle execution at scale while they focus on strategy, creative angles, and conversion architecture. The engagement operator does the same for retention, activation, and expansion. The brand operator governs creative direction and the voice system.
+
+Four people. Agent-augmented. Producing more coherent, higher-quality output across more channels than your team of 12 — because every hour of human effort is spent on judgment and strategy, not production.
+
+This isn't theoretical. This is how the best marketing teams are operating right now, and the gap between them and the channel-based model is widening every month.
+
 ## So What
 
 If you're a CEO reading this, here's the test. Pull up your marketing org chart. Count the number of people whose primary value is channel execution — the SEO specialist, the production designer, the PMM who spends most of their time on decks and battlecards. Now ask: what would these people do if AI handled 80% of their production work?
 
-If the answer is "they'd finally have time to think strategically," you might have the right people in the wrong structure. Restructure around outcomes, give them AI tools, and let them operate at the level they were hired for.
+If the answer is silence — if you can't articulate what strategic contribution they'd make without the execution work — you don't need more people. You need an architect who can rebuild the machine.
 
-If the answer is silence — if you can't articulate what strategic contribution they'd make without the execution work — you have the wrong team for what's next. That's not their fault. The job they were hired for is being absorbed. But continuing to pay for it is your decision, and every month you wait is budget that could be funding the structure that actually works.
+The model was always kind of broken. AI just made it indefensible. And the companies that figure this out first aren't going to win by a little — they're going to operate at a level that makes the old model look like it belongs in a museum.
 
-The org chart isn't a theoretical exercise. It's the single most concrete expression of what your company believes marketing is for. If yours still looks like 2019, you're not just behind — you're actively funding friction that makes everything else harder.
-
-The model was always kind of broken. AI just made it indefensible.
+Strategnik builds this. [Let's talk about what your team should look like](/pricing).
 
 ---
 
