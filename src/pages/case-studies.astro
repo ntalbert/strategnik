@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Case Studies — GTM Systems That Drove Real Outcomes";
+const pageDescription = "Six in-depth case studies covering developer-led growth, propensity scoring, lifecycle orchestration, privacy pivots, marketplace growth, and clean room architecture. Real systems, real results.";
+
+const caseStudies = [
+  {
+    number: "01",
+    title: "Developer-to-Enterprise Pipeline for Open Source AI",
+    subtitle: "Turning GitHub Stars into Six-Figure Deals",
+    companyType: "Open Source Visual AI",
+    challenge: "Developer engagement invisible to CRM",
+    keyMetric: "$18.3M+ partner pipeline",
+    concepts: ["Developer-led growth", "PLG motion", "Dual-track scoring"],
+    url: "/case-studies/case-study-01-developer-discovery.html"
+  },
+  {
+    number: "02",
+    title: "Propensity Scoring That Actually Works",
+    subtitle: "How Data Governance Made Predictive Models 30% More Accurate",
+    companyType: "Enterprise Network Infrastructure",
+    challenge: "Sales didn't trust propensity scores",
+    keyMetric: "30% prediction accuracy improvement",
+    concepts: ["Data governance", "CRM integration", "Propensity modeling"],
+    url: "/case-studies/case-study-02-propensity-scoring.html"
+  },
+  {
+    number: "03",
+    title: "17 Lifecycle Archetypes: 157% Velocity Improvement",
+    subtitle: "How lifecycle segmentation cut lead-to-value time from 47 days to 19",
+    companyType: "Data Infrastructure",
+    challenge: "47-day lead-to-value time",
+    keyMetric: "157% velocity improvement",
+    concepts: ["Lifecycle archetypes", "Multi-channel orchestration", "First-party audience sync"],
+    url: "/case-studies/case-study-03-lifecycle-archetypes.html"
+  },
+  {
+    number: "04",
+    title: "Three Weeks to Fix a 300% Cost Increase",
+    subtitle: "How We Survived the iOS 14.5 Privacy Apocalypse",
+    companyType: "E-commerce Advertising Automation",
+    challenge: "300% surge in SQL costs from Apple privacy changes",
+    keyMetric: "30% SQL cost reduction via rapid ABM pivot",
+    concepts: ["Privacy pivot", "Channel diversification", "ABM"],
+    url: "/case-studies/case-study-04-privacy-pivot.html"
+  },
+  {
+    number: "05",
+    title: "Two-Sided Acquisition Engine for Government Expert Networks",
+    subtitle: "Scraping Public Data to Match Contractors with Former Federal Executives",
+    companyType: "Expert Network Marketplace",
+    challenge: "Chicken-and-egg marketplace problem",
+    keyMetric: "30% CAC reduction",
+    concepts: ["Two-sided marketplace", "Public data sourcing", "SEO infrastructure"],
+    url: "/case-studies/case-study-05-government-marketplace.html"
+  },
+  {
+    number: "06",
+    title: "Clean Room Data Architecture: Privacy-First Measurement",
+    subtitle: "Building Cross-Screen Attribution Without Third-Party Cookies",
+    companyType: "Cross-Platform TV Measurement",
+    challenge: "Combine data without sharing raw records",
+    keyMetric: "Privacy-first measurement before GDPR",
+    concepts: ["Data clean rooms", "Privacy architecture", "Cross-screen attribution"],
+    url: "/case-studies/case-study-06-clean-rooms.html"
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+>
+
+  <!-- Hero -->
+  <section class="section bg-black overflow-hidden">
+    <div class="container-content">
+      <div class="max-w-3xl">
+        <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold" data-kinetic data-kinetic-direction="left">Case Studies</p>
+        <h1 class="text-display-lg text-white font-extrabold mb-8" data-kinetic-up>
+          Systems I've built. Problems I've solved.
+        </h1>
+        <p class="text-body-lg text-gray-300 font-bold" data-kinetic data-kinetic-direction="right">
+          Each case study walks through the situation, the insight, the system architecture, and the measurable outcome. No vague claims — real infrastructure, real results.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Cards -->
+  <section class="section border-t border-gray-800 overflow-hidden">
+    <div class="container-content">
+      <div class="space-y-12">
+        {caseStudies.map((cs, index) => (
+          <a
+            href={cs.url}
+            class="block group border border-gray-800 rounded-2xl p-8 md:p-10 hover:border-[#0165fc] transition-colors duration-300"
+            data-kinetic-up
+          >
+            <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+              <!-- Number -->
+              <div class="flex-shrink-0">
+                <span class="text-display-lg text-[#0165fc] font-extrabold opacity-40 group-hover:opacity-100 transition-opacity">
+                  {cs.number}
+                </span>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1 min-w-0">
+                <h2 class="text-heading text-white font-bold mb-2 group-hover:text-[#0165fc] transition-colors">
+                  {cs.title}
+                </h2>
+                <p class="text-body text-gray-400 mb-6">
+                  {cs.subtitle}
+                </p>
+
+                <!-- Quick facts row -->
+                <div class="flex flex-wrap gap-x-8 gap-y-3 mb-6">
+                  <div>
+                    <p class="text-small text-gray-500 uppercase tracking-wide">Company Type</p>
+                    <p class="text-small text-gray-300 font-bold">{cs.companyType}</p>
+                  </div>
+                  <div>
+                    <p class="text-small text-gray-500 uppercase tracking-wide">Challenge</p>
+                    <p class="text-small text-gray-300 font-bold">{cs.challenge}</p>
+                  </div>
+                  <div>
+                    <p class="text-small text-gray-500 uppercase tracking-wide">Key Result</p>
+                    <p class="text-small text-[#0165fc] font-bold">{cs.keyMetric}</p>
+                  </div>
+                </div>
+
+                <!-- Concept tags -->
+                <div class="flex flex-wrap gap-2">
+                  {cs.concepts.map((concept) => (
+                    <span class="text-small text-gray-400 border border-gray-700 rounded-full px-3 py-1">
+                      {concept}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Arrow -->
+              <div class="hidden md:flex items-center flex-shrink-0 self-center">
+                <span class="text-gray-600 group-hover:text-[#0165fc] transition-colors text-2xl">&rarr;</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section border-t border-gray-800 bg-black overflow-hidden">
+    <div class="container-content text-center">
+      <h2 class="text-display text-white font-extrabold mb-4" data-scroll-scale data-scale-start="0.9" data-scale-end="1">See something relevant?</h2>
+      <p class="text-body-lg text-gray-300 mb-8 max-w-prose mx-auto" data-kinetic-up>
+        These case studies represent a fraction of the systems I've built.
+        If you're facing a similar challenge, let's talk.
+      </p>
+      <div class="flex flex-wrap gap-8 justify-center">
+        <a href="mailto:nick@strategnik.com" class="text-white font-bold hover:text-[#0165fc] transition-colors text-lg" data-kinetic data-kinetic-direction="left">
+          Get in touch &rarr;
+        </a>
+        <a href="/experience" class="text-[#0165fc] font-bold hover:text-white transition-colors text-lg" data-kinetic data-kinetic-direction="right">
+          Full experience &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
