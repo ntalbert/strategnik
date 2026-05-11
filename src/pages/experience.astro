@@ -2,16 +2,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "Nick Talbert — AI Commercialization & Growth Leader";
-const pageDescription = "25+ years building revenue and growth infrastructure that transforms breakthrough products into category-defining market leadership. Enterprise GTM, developer PLG, and AI commercialization.";
+const pageDescription = "25+ years building GTM systems that compound. Three acquisitions. Enterprise pipeline, developer PLG, and AI commercialization — the infrastructure that makes growth visible and predictable.";
 
 const workHistory = [
   {
     company: "BRIA AI",
     companyDesc: "Visual Generative AI",
     role: "VP, Growth Marketing",
-    period: "2024-2026",
+    period: "2024 – 2026",
     context: "Open-source visual generative AI platform serving enterprise customers including EA, P&G, Lucasfilm, Disney, and Rakuten.",
     highlight: "Generated $18.3M+ in partner-sourced pipeline via AWS, NVIDIA, and Qualcomm co-growth programs. Built developer pipeline through community engagement and PLG experimentation. Drove 30% increase in organic traffic through AI-driven discovery optimization.",
+    metrics: [
+      { value: "$18.3M+", label: "Partner Pipeline" },
+      { value: "30%", label: "Organic Traffic Growth" }
+    ],
     outcome: null,
     video: "/videos/work-bria.mp4",
     logo: "/logos/bria.svg"
@@ -20,9 +24,13 @@ const workHistory = [
     company: "Wallarm",
     companyDesc: "API Security Platform",
     role: "Demand Gen & Dev Community",
-    period: "2023-2024",
+    period: "2023 – 2024",
     context: "API and application security platform targeting developer and security teams.",
     highlight: "20% increase in growth-sourced pipeline through optimized lead routing and scoring. 30% enhancement in lead quality through data-centric ABM strategy with DemandBase integration. 18% uplift in conversion rates via CRO initiatives.",
+    metrics: [
+      { value: "30%", label: "Lead Quality Improvement" },
+      { value: "18%", label: "Conversion Uplift" }
+    ],
     outcome: null,
     video: "/videos/work-wallarm.mp4",
     logo: "/logos/wallarm.svg"
@@ -31,9 +39,13 @@ const workHistory = [
     company: "Lumen Technologies",
     companyDesc: "Enterprise Network Infrastructure",
     role: "ABM Demand Gen Engine Build",
-    period: "2023-2024",
+    period: "2023 – 2024",
     context: "Enterprise network and edge computing infrastructure.",
     highlight: "26% improvement in data integrity across Salesforce, Marketo, and DemandBase. Developed predictive analytics model improving propensity-to-buy scores by 30%. 25% increase in engagement for banking/finance and retail sectors.",
+    metrics: [
+      { value: "30%", label: "Propensity Score Accuracy" },
+      { value: "25%", label: "Vertical Engagement Lift" }
+    ],
     outcome: null,
     video: "/videos/work-lumen.mp4",
     logo: "/logos/lumen.png"
@@ -42,9 +54,13 @@ const workHistory = [
     company: "Crux",
     companyDesc: "Data Engineering Platform",
     role: "Demand Gen Engine Build",
-    period: "2022-2023",
+    period: "2022 – 2023",
     context: "Data engineering platform targeting technical data teams.",
     highlight: "157% increase in lead-to-value velocity through optimized CRM workflows. 25-30% reduction in average cost per MQL and SQL. 40% surge in daily website traffic within two months via rapid-deployment SEO program.",
+    metrics: [
+      { value: "157%", label: "Velocity Improvement" },
+      { value: "40%", label: "Traffic Surge in 60 Days" }
+    ],
     outcome: null,
     video: "/videos/work-sizmek.mp4",
     logo: "/logos/crux.png"
@@ -53,9 +69,13 @@ const workHistory = [
     company: "OnFrontiers",
     companyDesc: "Expert Network Marketplace",
     role: "Two-Sided Marketplace Growth",
-    period: "2021-2022",
+    period: "2021 – 2022",
     context: "Expert network marketplace connecting enterprise buyers with domain experts.",
     highlight: "Built simultaneous demand-side (enterprise buyers) and supply-side (expert network) audiences. 30% reduction in Customer Acquisition Cost through automation and attribution. Delivered 100+ new website pages establishing organic discovery infrastructure.",
+    metrics: [
+      { value: "30%", label: "CAC Reduction" },
+      { value: "100+", label: "SEO Pages Deployed" }
+    ],
     outcome: null,
     video: "/videos/work-onfrontiers.mp4",
     logo: "/logos/onfrontiers.png"
@@ -64,9 +84,13 @@ const workHistory = [
     company: "Quartile",
     companyDesc: "E-commerce Advertising Automation",
     role: "VP of Growth & Operations",
-    period: "2021-2022",
+    period: "2021 – 2022",
     context: "E-commerce advertising automation platform.",
     highlight: "Managed $13M annual budget with full attribution visibility. Counteracted 300% surge in SQL costs (Apple privacy updates) in under three weeks through rapid ABM pivot. Reduced BANT-qualified SQL costs by 30% via CRM optimization.",
+    metrics: [
+      { value: "$13M", label: "Budget Under Management" },
+      { value: "30%", label: "SQL Cost Reduction" }
+    ],
     outcome: null,
     video: "/videos/work-quartile-new.mp4",
     logo: "/logos/quartile.png"
@@ -75,9 +99,13 @@ const workHistory = [
     company: "Certent",
     companyDesc: "Equity Management SaaS",
     role: "Senior Director, Global Demand Growth",
-    period: "2018-2021",
+    period: "2018 – 2021",
     context: "Equity management and financial reporting SaaS.",
     highlight: "53% increase in growth-to-sales pipeline speed. 170% surge in pipeline volume via integrated Salesforce and Marketo automation. ~40% reduction in CAC through continuous analytics optimization. Built infrastructure achieving 35% EBITDA target.",
+    metrics: [
+      { value: "170%", label: "Pipeline Volume Surge" },
+      { value: "40%", label: "CAC Reduction" }
+    ],
     outcome: "Acquired by insightsoftware",
     video: "/videos/work-certent.mp4",
     logo: "/logos/certent.png"
@@ -86,9 +114,12 @@ const workHistory = [
     company: "VideoAmp",
     companyDesc: "Cross-Platform TV Measurement",
     role: "Senior Director of Product Management",
-    period: "2017-2018",
+    period: "2017 – 2018",
     context: "Cross-platform TV and digital measurement platform.",
     highlight: "Defined and operationalized clean room methodologies for activation and measurement within Google clean rooms. Built integrations enabling brands to combine first-party data with Acxiom audiences and set-top box viewership signals.",
+    metrics: [
+      { value: "1st", label: "Clean Room Methodology" }
+    ],
     outcome: null,
     video: "/videos/work-sizmek.mp4",
     logo: "/logos/videoamp.png"
@@ -97,9 +128,12 @@ const workHistory = [
     company: "Sizmek",
     companyDesc: "Ad Serving & Creative Optimization",
     role: "VP of Product Management",
-    period: "2009-2014",
+    period: "2009 – 2014",
     context: "Global ad serving and creative optimization platform.",
     highlight: "Led team of 12 product managers, marketers, and analysts. Owned product vision for advertiser reporting console and smart creative versioning. Defined PRDs for OLAP-based analytics enabling performance analysis across placements, audiences, and messaging.",
+    metrics: [
+      { value: "12", label: "Team Members Led" }
+    ],
     outcome: "Acquired by Amazon",
     video: "/videos/work-sizmek.mp4",
     logo: "/logos/sizmek.jpg"
@@ -108,29 +142,46 @@ const workHistory = [
     company: "Adapt.tv",
     companyDesc: "Video Advertising DSP",
     role: "Associate VP, Product",
-    period: "2014-2015",
+    period: "2014 – 2015",
     context: "Video advertising platform and DSP.",
     highlight: "Led integration of Convertro multi-touch attribution data into AOL One Platform. Owned end-to-end methodology for ingesting, normalizing, and activating attribution signals across display and video at enterprise scale.",
+    metrics: [
+      { value: "MTA", label: "Attribution Integration" }
+    ],
     outcome: "Acquired by AOL",
     video: "/videos/work-adapttv.mp4",
     logo: "/logos/adapttv.png"
   }
 ];
+
+// Split into featured (first) and rest
+const [featured, ...rest] = workHistory;
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
+  image="/images/og-experience.png"
 >
 
-  <!-- Hero -->
+  <!-- Hero — split layout with contained video -->
   <section class="section bg-black overflow-hidden">
     <div class="container-content">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- Video -->
-        <div class="rounded-xl overflow-hidden">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <!-- Text -->
+        <div>
+          <p class="text-caption text-[#0165fc] tracking-wide mb-4 font-bold" data-kinetic data-kinetic-direction="left">Experience</p>
+          <h1 class="text-display-lg text-white font-extrabold mb-6" data-kinetic-up>
+            The pattern: I build the system that sees what dashboards miss
+          </h1>
+          <p class="text-body-lg text-gray-300" data-kinetic data-kinetic-direction="right">
+            Three acquisitions. Same story each time — I get brought in when the growth motion breaks, build the infrastructure that makes the real dynamics visible, and leave it compounding.
+          </p>
+        </div>
+        <!-- Video — contained at a size where it's sharp -->
+        <div class="rounded-2xl overflow-hidden aspect-video">
           <video
-            class="w-full h-auto lazy-video"
+            class="w-full h-full object-cover lazy-video"
             muted
             loop
             playsinline
@@ -139,57 +190,104 @@ const workHistory = [
           >
           </video>
         </div>
-        <!-- Text with kinetic typography -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats strip — bolder treatment -->
+  <section class="bg-[#060a12] border-y border-gray-800 overflow-hidden">
+    <div class="container-content py-12 md:py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div class="text-center md:text-left" data-animate>
+          <p class="text-4xl md:text-5xl text-white font-extrabold font-display tracking-tight">25+</p>
+          <p class="text-small text-[#0165fc] font-bold mt-2">Years in Tech</p>
+        </div>
+        <div class="text-center md:text-left" data-animate data-animate-delay="0.1">
+          <p class="text-4xl md:text-5xl text-white font-extrabold font-display tracking-tight">3</p>
+          <p class="text-small text-[#0165fc] font-bold mt-2">Acquisitions</p>
+        </div>
+        <div class="text-center md:text-left" data-animate data-animate-delay="0.2">
+          <p class="text-4xl md:text-5xl text-white font-extrabold font-display tracking-tight">~100%</p>
+          <p class="text-small text-[#0165fc] font-bold mt-2">Avg Pipeline Growth</p>
+        </div>
+        <div class="text-center md:text-left" data-animate data-animate-delay="0.3">
+          <p class="text-4xl md:text-5xl text-white font-extrabold font-display tracking-tight">~32%</p>
+          <p class="text-small text-[#0165fc] font-bold mt-2">Avg CAC Reduction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Role (BRIA) — large format -->
+  <section class="section overflow-hidden">
+    <div class="container-content">
+      <p class="section-label" data-kinetic data-kinetic-direction="left">Most Recent</p>
+
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <!-- Video — large -->
+        <div class="rounded-2xl overflow-hidden aspect-video" data-animate>
+          <video
+            class="w-full h-full object-cover lazy-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            data-src={featured.video}
+          >
+          </video>
+        </div>
+
+        <!-- Content -->
         <div>
-          <p class="text-caption text-blue-bright tracking-wide mb-6 font-bold" data-kinetic data-kinetic-direction="left">Work</p>
-          <h1 class="text-display-lg text-white font-extrabold mb-8" data-kinetic-up>
-            Build the systems that see what dashboards miss
-          </h1>
-          <p class="text-body-lg text-white font-bold" data-kinetic data-kinetic-direction="right">
-            Three exits. A pattern: I build the revenue and growth infrastructure that transforms breakthrough products into category-defining market leadership.
+          <div class="flex items-center gap-3 mb-4" data-kinetic data-kinetic-direction="left">
+            <img src={featured.logo} alt={`${featured.company} logo`} class="h-8 w-auto" />
+            <div>
+              <h2 class="text-display text-white font-extrabold">{featured.company}</h2>
+              <p class="text-small text-gray-400 italic">{featured.companyDesc}</p>
+            </div>
+          </div>
+
+          <p class="text-body-lg text-[#0165fc] font-bold mb-4" data-kinetic-up>
+            {featured.role} &middot; {featured.period}
           </p>
+
+          <p class="text-body text-gray-300 mb-6" data-animate>
+            {featured.context}
+          </p>
+
+          <p class="text-body text-gray-400 mb-8" data-animate data-animate-delay="0.1">
+            {featured.highlight}
+          </p>
+
+          <!-- Pulled metrics -->
+          <div class="flex gap-8" data-animate data-animate-delay="0.2">
+            {featured.metrics.map((m) => (
+              <div>
+                <p class="text-2xl md:text-3xl text-white font-extrabold font-display">{m.value}</p>
+                <p class="text-xs text-gray-500 uppercase tracking-wide mt-1">{m.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats with floating numbers -->
-  <section class="section-sm bg-black overflow-hidden">
+  <!-- Work History — alternating layout with visual variety -->
+  <section class="border-t border-gray-800 overflow-hidden">
     <div class="container-content">
-      <div class="flex flex-wrap gap-12 justify-center">
-        <div class="text-center" data-float data-float-intensity="8" data-float-duration="2.5">
-          <p class="text-display-lg text-white font-extrabold">25+</p>
-          <p class="text-small text-[#0165fc] font-bold">Years in Tech</p>
-        </div>
-        <div class="text-center" data-float data-float-intensity="12" data-float-duration="3">
-          <p class="text-display-lg text-white font-extrabold">3</p>
-          <p class="text-small text-[#0165fc] font-bold">Acquisitions</p>
-        </div>
-        <div class="text-center" data-float data-float-intensity="10" data-float-duration="2.8">
-          <p class="text-display-lg text-white font-extrabold">~100%</p>
-          <p class="text-small text-[#0165fc] font-bold">Avg Pipeline Growth</p>
-        </div>
-        <div class="text-center" data-float data-float-intensity="6" data-float-duration="3.2">
-          <p class="text-display-lg text-white font-extrabold">~32%</p>
-          <p class="text-small text-[#0165fc] font-bold">Avg CAC Reduction</p>
-        </div>
+      <div class="pt-20 md:pt-28 pb-4">
+        <p class="section-label" data-kinetic data-kinetic-direction="left">Selected Work</p>
+        <h2 class="text-display mb-4" data-kinetic-up>Every engagement follows the same arc: diagnose, build, compound</h2>
       </div>
-    </div>
-  </section>
 
-  <!-- Work History -->
-  <section class="section border-t border-gray-800 overflow-hidden">
-    <div class="container-content">
-      <p class="section-label" data-kinetic data-kinetic-direction="left">Experience</p>
-      <h2 class="text-display mb-12" data-kinetic-up>Selected Work</h2>
-
-      <div class="space-y-16">
-        {workHistory.map((work, index) => (
-          <div class="grid md:grid-cols-[1fr_2fr] gap-8 border-b border-gray-800 pb-12 last:border-0">
-            <!-- Video Column (1/3) -->
-            <div class="flex justify-center md:justify-start">
+      {rest.map((work, index) => (
+        <div class={`py-12 md:py-16 border-b border-gray-800 last:border-0`}>
+          <div class={`grid md:grid-cols-[1fr_1fr] gap-8 md:gap-14 items-center ${index % 2 === 1 ? 'md:[direction:rtl]' : ''}`}>
+            <!-- Video -->
+            <div class={`rounded-2xl overflow-hidden aspect-video ${index % 2 === 1 ? 'md:[direction:ltr]' : ''}`} data-animate>
               <video
-                class="w-full max-w-[280px] aspect-video object-cover rounded-2xl lazy-video"
+                class="w-full h-full object-cover lazy-video"
                 muted
                 loop
                 playsinline
@@ -198,66 +296,103 @@ const workHistory = [
               >
               </video>
             </div>
-            <!-- Content Column (2/3) with kinetic text -->
-            <div>
-              <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
-                <div data-kinetic data-kinetic-direction={index % 2 === 0 ? 'left' : 'right'}>
-                  <h3 class="text-heading text-white font-bold flex items-center gap-3">
-                    <img src={work.logo} alt={`${work.company} logo`} class="h-6 w-auto" />
-                    {work.company} <span class="italic font-normal text-gray-400">— {work.companyDesc}</span>
-                  </h3>
-                  <p class="text-small text-gray-400">{work.role} · {work.period}</p>
-                </div>
+
+            <!-- Content -->
+            <div class={index % 2 === 1 ? 'md:[direction:ltr]' : ''}>
+              <div class="flex items-center gap-3 mb-3" data-kinetic data-kinetic-direction={index % 2 === 0 ? 'left' : 'right'}>
+                <img src={work.logo} alt={`${work.company} logo`} class="h-6 w-auto" />
+                <h3 class="text-heading text-white font-bold">
+                  {work.company}
+                  <span class="text-gray-500 font-normal italic ml-2">{work.companyDesc}</span>
+                </h3>
                 {work.outcome && (
-                  <span class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="5" data-float-duration="2">
+                  <span class="ml-auto bg-[#0165fc]/10 text-[#0165fc] text-xs font-bold px-3 py-1 rounded-full border border-[#0165fc]/20 whitespace-nowrap">
                     {work.outcome}
                   </span>
                 )}
               </div>
-              <p class="text-body text-gray-400 mb-2" data-animate>
-                {work.context}
+
+              <p class="text-small text-[#0165fc] font-bold mb-4">
+                {work.role} &middot; {work.period}
               </p>
-              <p class="text-body text-gray-400" data-animate data-animate-delay="0.1">
+
+              <p class="text-body text-gray-400 mb-6" data-animate>
                 {work.highlight}
               </p>
+
+              <!-- Pulled metrics -->
+              <div class="flex gap-6" data-animate data-animate-delay="0.1">
+                {work.metrics.map((m) => (
+                  <div class="border-l-2 border-[#0165fc]/30 pl-4">
+                    <p class="text-xl md:text-2xl text-white font-extrabold font-display">{m.value}</p>
+                    <p class="text-xs text-gray-500 uppercase tracking-wide mt-0.5">{m.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   </section>
 
-  <!-- Earlier Work with parallax columns -->
-  <section class="section bg-black overflow-hidden">
+  <!-- Earlier Work — with more visual weight -->
+  <section class="section bg-[#060a12] overflow-hidden">
     <div class="container-content">
       <p class="text-caption text-[#0165fc] tracking-wide mb-6 font-bold" data-kinetic data-kinetic-direction="left">Earlier Career</p>
-      <h2 class="text-display text-white font-extrabold mb-8" data-kinetic-up>Agency, Academia & Brand Strategy</h2>
-      <div class="grid md:grid-cols-2 gap-12">
-        <div data-parallax data-speed="0.15" data-direction="up">
-          <h3 class="text-heading text-white font-bold mb-4" data-kinetic data-kinetic-direction="left">Agency Leadership</h3>
+      <h2 class="text-display text-white font-extrabold mb-12" data-kinetic-up>Agency, Academia & Brand Strategy</h2>
+
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16">
+        <!-- Agency -->
+        <div class="border border-gray-800 rounded-2xl p-8 md:p-10" data-parallax data-speed="0.15" data-direction="up">
+          <h3 class="text-heading text-white font-bold mb-5" data-kinetic data-kinetic-direction="left">Agency Leadership</h3>
           <p class="text-body text-gray-300 mb-4" data-animate>
             Account Strategy Director across top agencies including Goodby & Silverstein, Carat SF, and David/Goliath. Managed eight-figure media budgets and oversaw teams for 45+ clients.
           </p>
-          <p class="text-body text-gray-300 mb-4" data-animate data-animate-delay="0.1">
+          <p class="text-body text-gray-300 mb-6" data-animate data-animate-delay="0.1">
             Enterprise clients included Bellagio Hotel and Casino, Discovery Channel, Yahoo!, Conde Nast, Kodak, EA, Adobe, and Cadbury-Schweppes.
           </p>
-          <p class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="5" data-float-duration="2.5">Nominated for Ad Age's "Top People to Watch Under 30"</p>
+          <div class="border-t border-gray-700 pt-4">
+            <p class="text-small text-[#0165fc] font-bold">Nominated for Ad Age's "Top People to Watch Under 30"</p>
+          </div>
         </div>
-        <div data-parallax data-speed="0.25" data-direction="up">
-          <h3 class="text-heading text-white font-bold mb-4" data-kinetic data-kinetic-direction="right">Academia & Brand Consulting</h3>
+
+        <!-- Academia -->
+        <div class="border border-gray-800 rounded-2xl p-8 md:p-10" data-parallax data-speed="0.25" data-direction="up">
+          <h3 class="text-heading text-white font-bold mb-5" data-kinetic data-kinetic-direction="right">Academia & Brand Consulting</h3>
           <p class="text-body text-gray-300 mb-4" data-animate>
             10 years as Adjunct Professor of Digital Growth Strategy at Academy of Art University. Developed curriculum bridging technical infrastructure, data strategy, and creative execution.
           </p>
-          <p class="text-body text-gray-300 mb-4" data-animate data-animate-delay="0.1">
-            Senior Brand Strategist at Tattoo Brand Consulting—research contributed to greenlight of Travel Channel's <em>Bizarre Foods</em> and <em>Anthony Bourdain: No Reservations</em>.
+          <p class="text-body text-gray-300 mb-6" data-animate data-animate-delay="0.1">
+            Senior Brand Strategist at Tattoo Brand Consulting — research contributed to greenlight of Travel Channel's <em>Bizarre Foods</em> and <em>Anthony Bourdain: No Reservations</em>.
           </p>
-          <p class="text-small text-[#0165fc] font-bold" data-float data-float-intensity="6" data-float-duration="2.8">University of Chicago Executive Program in Behavioral Economics</p>
+          <div class="border-t border-gray-700 pt-4">
+            <p class="text-small text-[#0165fc] font-bold">University of Chicago Executive Program in Behavioral Economics</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA with scale and kinetic effects -->
+  <!-- Case Studies callout -->
+  <section class="section border-t border-gray-800 overflow-hidden">
+    <div class="container-content text-center">
+      <p class="text-caption text-[#0165fc] tracking-wide mb-6 font-bold">Go Deeper</p>
+      <h2 class="text-display text-white font-extrabold mb-4" data-scroll-scale data-scale-start="0.9" data-scale-end="1">
+        Want to see how these systems actually work?
+      </h2>
+      <p class="text-body-lg text-gray-300 mb-10 max-w-prose mx-auto" data-kinetic-up>
+        Six detailed case studies — situation, insight, system architecture, and measured outcome.
+      </p>
+      <div class="flex flex-wrap gap-8 justify-center">
+        <a href="/case-studies" class="inline-flex items-center gap-2 bg-[#0165fc] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#0150cc] transition-colors text-lg">
+          Read the case studies &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="section border-t border-gray-800 bg-black overflow-hidden">
     <div class="container-content text-center">
       <h2 class="text-display text-white font-extrabold mb-4" data-scroll-scale data-scale-start="0.9" data-scale-end="1">Want the full story?</h2>
@@ -267,10 +402,10 @@ const workHistory = [
       </p>
       <div class="flex flex-wrap gap-8 justify-center">
         <a href="mailto:nick@strategnik.com" class="text-white font-bold hover:text-[#0165fc] transition-colors text-lg" data-kinetic data-kinetic-direction="left">
-          Get in touch →
+          Get in touch &rarr;
         </a>
         <a href="/about" class="text-[#0165fc] font-bold hover:text-white transition-colors text-lg" data-kinetic data-kinetic-direction="right">
-          Read more about me →
+          Read more about me &rarr;
         </a>
       </div>
     </div>
