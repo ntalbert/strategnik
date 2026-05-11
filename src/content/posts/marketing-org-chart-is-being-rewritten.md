@@ -5,7 +5,7 @@ description: >-
 date: 2026-05-11T00:00:00.000Z
 category: field-notes
 featured: true
-draft: true
+draft: false
 image: /images/posts/marketing-org-chart-rewritten.png
 speakable:
   - "h1"
