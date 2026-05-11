@@ -42,6 +42,8 @@ It's not scarce anymore. An AI agent with access to your product docs, win/loss 
 
 **SEO** is the most dramatic collapse. Traditional SEO — keyword research, on-page optimization, technical audits, link building strategies — was a specialty because the rules were complex and always changing. Google's algorithm was a black box that rewarded people who studied it obsessively. Now AI tools run technical audits in seconds, generate schema markup, optimize content structure, and monitor rankings automatically. The strategic question — what should we be known for and how do we earn authority — was always a brand and content strategy question, not an SEO question. The tactical complexity just obscured that, and you paid $140K a year for the obscurity.
 
+![The Skill Premium Collapse — product marketing, production design, and SEO specialist roles absorbed by AI, with only strategic judgment remaining as human value](/images/posts/org-chart-skill-collapse.png)
+
 As a CEO, you should be asking: how many people on my marketing team are doing work that AI now does as well or better? Not "could theoretically do" — actually does, today, with commercially available tools. The answer is probably higher than your CMO has told you.
 
 ## The New Structure: Organized by Outcome
@@ -65,6 +67,8 @@ The modern marketing org isn't organized by channel. It's organized by outcome �
 **Data** — owns infrastructure, decisioning, and signal. Not analytics in the old "here's a dashboard" sense. Data as the nervous system that tells the pods what's working, what's changing, and what to do next. This person builds the feedback loops that make the outcome pods self-correcting rather than reactive. Without this layer, you're flying the new structure with the old instruments.
 
 ## The Math CEOs Should Run
+
+![The Headcount Math — 8-12 person channel team at $1.2-1.8M vs. 4-6 person outcome team at $800K-1.1M, same budget, dramatically more leverage](/images/posts/org-chart-headcount-math.png)
 
 A 2019 marketing team at a Series B company typically ran 8-12 people. PMM, SEO specialist, content writer, designer, demand gen manager, lifecycle/CRM person, brand marketer, marketing ops, a couple of junior hires filling gaps. All-in cost: $1.2M-$1.8M in salary alone, plus tools, plus management overhead.
 
