@@ -119,4 +119,4 @@ Strategnik builds the Context Layer that makes this orchestration possible. [See
 
 ---
 
-*Nick Talbert is the founder of [Strategnik](https://strategnik.com), where he helps B2B companies design and execute go-to-market strategies built for how markets actually work. Previously, he held senior marketing leadership roles at companies including Afiniti and Codiac.*
+*Nick Talbert is the founder of [Strategnik](https://strategnik.com), where he helps B2B companies design and execute go-to-market strategies built for how markets actually work. Previously, he held senior marketing leadership roles at numerous B2B technology-forward companies. [See full experience](https://strategnik.com/experience).*
